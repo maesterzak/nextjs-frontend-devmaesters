@@ -35,7 +35,7 @@
     .post_body{
         width: 100%;
         height: 40%;
-        padding: 2% 2% 2% 2%;
+        padding: 1% 1% 1% 1%;
     }
     .post_body1{
         width: 100%;
@@ -181,7 +181,7 @@
 }
 .trending_list{
     display: flex;
-    height: 30vh;
+    height: 50vh;
     width: 93vw;
     
     justify-content: space-around;
@@ -565,7 +565,7 @@
 }
 .post_image{
     position: relative;
-    height: 30vh;
+    height: 40vh;
     
 }
 .post_image_text{
@@ -578,7 +578,7 @@
     border-radius: 5px;
     right: 5px;
     background-color: rgba(255, 255, 255, 0.527);
-    color: #dd3d3d;
+    color: #0a58ca;
     z-index: 900;
 }
 .category_links{
@@ -590,5 +590,5 @@
     height: 100%;
 }
 .font_color_red{
-    color: #dd3d3d;
+    color: #0a58ca;
 }

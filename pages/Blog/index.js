@@ -41,6 +41,7 @@ const Home = ({ posts, threads, cate }) => {
       <Head>
         <title>SimpleLIFE | Blog Homepage</title>
         <meta name="keywords" content="Home" />
+        
       </Head>
       
 
@@ -52,7 +53,7 @@ const Home = ({ posts, threads, cate }) => {
             <div className="header_decor">
               <h6>Trending Posts</h6>
             </div>
-
+            
             <div className={styles.trending_list}>
               {trending_posts.map(function (post, id) {
                 return (
@@ -125,7 +126,7 @@ const Home = ({ posts, threads, cate }) => {
                         </span>
                       </div>
                       <div className={styles.post_text}>
-                        <h5>{post.title}</h5>
+                        <h5><b>{post.title}</b></h5>
                         <span dangerouslySetInnerHTML={{__html:truncate(post.body)}} />
                       </div>
                       <div className={styles.post_footer}>

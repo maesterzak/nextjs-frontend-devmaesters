@@ -37,7 +37,9 @@ export const getStaticProps = async (context) => {
 const orig = `${API_URL}`;
   
 const post_detail = ({ post }) => {
-  
+  const truncate = (str) => {
+    return str.length > 50 ? str.substring(0, 100) + "..." : str;
+  };  
   
   return (
     <>
@@ -82,8 +84,7 @@ const post_detail = ({ post }) => {
           </div>
           <br />
           <span>{post.author.name}</span>
-          <p className={styles.blog_about_author}> {post.author.about_me}</p>
-          <span></span>
+          <span className={styles.blog_about_author} dangerouslySetInnerHTML={{__html:truncate(post.author.about_me)}} />
         </div>
         <div className={styles.blog_post_sidebar1}>
           <div className={styles.add}>
