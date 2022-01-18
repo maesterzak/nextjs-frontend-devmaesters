@@ -94,6 +94,7 @@ function Blog_chats({thread}) {
         <Head>
         <title>SimpleLIFE | Thread- {thread.title}</title>
         <meta name="keywords" content="Home" />
+        <link rel="icon" href="/favicon1.ico" />
         </Head>
         <div className={styles.blog_chat_body}>
             <Navbar />

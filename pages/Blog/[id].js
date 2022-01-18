@@ -46,12 +46,14 @@ const post_detail = ({ post }) => {
     <Head>
         <title>SimpleLIFE | Post- {post.title}</title>
         <meta name="keywords" content="Home" />
+        <link rel="icon" href="/favicon1.ico" />
       </Head>
     <div>
       <Navbar />
       <div className="post_detail">
         <div className={styles.main}>
-          <h5>{post.title}</h5>
+          <h5><b>{post.title}</b></h5>
+          <br />
 
           <span dangerouslySetInnerHTML={{__html:post.body}} />
 

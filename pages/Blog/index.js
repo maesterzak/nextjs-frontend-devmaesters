@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import Footer from "./blog_components/Footer";
-
+import { useEffect, useState } from "react";
 import styles from "./blog.module.css";
 import Navbar from "./blog_components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,28 +34,19 @@ const Home = ({ posts, threads, cate }) => {
   const sa = posts.slice().sort((a, b) => b.daily_views - a.daily_views);
   const n = 3;
   const trending_posts = sa.slice(0, n);
-
-  
-  return (
-    <>
-      <Head>
-        <title>SimpleLIFE | Blog Homepage</title>
-        <meta name="keywords" content="Home" />
+  const [window_width, changeWindow_width] = useState('')
+  useEffect(()=> {
+    changeWindow_width(window.innerWidth)
+    window.addEventListener('resize', ()=> {
         
-      </Head>
-      
+        changeWindow_width(window.innerWidth)
+    })
+ }, [])
+ 
 
-      <div>
-        <Navbar />
-
-        <section className={styles.section}>
-          <div className={styles.trending}>
-            <div className="header_decor">
-              <h6>Trending Posts</h6>
-            </div>
-            
-            <div className={styles.trending_list}>
-              {trending_posts.map(function (post, id) {
+ const pcscreen = (
+   <>
+    {trending_posts.map(function (post, id) {
                 return (
                   <div className={styles.trending_topics} key={id}>
                     <Image layout="fill"  objectFit="fill"
@@ -63,6 +54,9 @@ const Home = ({ posts, threads, cate }) => {
                       alt="trending image"
                       src={post.image}
                     />
+                    <div className="dark_overlay">
+
+                    </div>
                     <a
                       href={"/Blog/" + post.id}
                       className={styles.trending_topics_text}
@@ -72,6 +66,106 @@ const Home = ({ posts, threads, cate }) => {
                   </div>
                 );
               })}
+   </>
+ )
+ const mobile_screen = (
+   <>
+      <div className="testing">
+      <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+    <ol className="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div className="carousel-inner trending_post_container">
+      
+        <div className="carousel-item active h-100">
+            <Image layout="fill" className="d-block w-100 h-100" src={trending_posts[0].image} alt="First slide" />
+            <div className="dark_overlay">
+
+            </div>
+            <div className="carousel-caption text-light">
+            <h5><a
+                      href={"/Blog/" + trending_posts[0].id}
+                      className={styles.mobile_trending_text}
+                    >
+                      {trending_posts[0].title}
+                    </a></h5>
+                
+            </div>
+        </div>
+        <div className="carousel-item h-100">
+            <Image layout="fill" className="d-block w-100 h-100" src={trending_posts[1].image} alt="Second slide" />
+            <div className="dark_overlay">
+                
+            </div>
+            <div className="carousel-caption text-light">
+            <h5><a
+                      href={"/Blog/" + trending_posts[1].id}
+                      className={styles.mobile_trending_text}
+                    >
+                      {trending_posts[1].title}
+                    </a></h5>
+                
+            </div>
+        </div>
+        <div className="carousel-item h-100">
+            <Image layout="fill" className="d-block w-100 h-100" src={trending_posts[2].image} alt="Third slide" />
+            <div className="dark_overlay">
+                
+            </div>
+            <div className="carousel-caption text-light">
+            <h5><a
+                      href={"/Blog/" + trending_posts[2].id}
+                      className={styles.mobile_trending_text}
+                    >
+                      {trending_posts[2].title}
+                    </a></h5>
+                
+            </div>
+        </div>
+    </div>
+    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="sr-only">Previous</span>
+    </a>
+    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="sr-only">Next</span>
+    </a>
+</div>
+</div>
+   </>
+ )
+
+  return (
+    <>
+      <Head>
+        <title>SimpleLIFE | Blog Homepage</title>
+        <meta name="keywords" content="Home" />
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="icon" href="/favicon1.ico" />
+      </Head>
+      
+
+      <div>
+        <Navbar />
+
+        <section className={styles.section}>
+
+          
+
+          <div className={styles.trending}>
+            <div className="header_decor">
+              <h6>Trending Posts</h6>
+            </div>
+            
+            <div className={styles.trending_list}>
+              {window_width >=900 ? pcscreen:mobile_screen}
+              
             </div>
           </div>
           <div className={styles.main_body}>
@@ -189,13 +283,15 @@ const Home = ({ posts, threads, cate }) => {
                 <ul>
                   {threads.map(function (thread, id) {
                     return (
-                      <li key={id}>
+                      <li key={id} className="thread_link">
                         <Link href={"Blog/thread/" + thread.id}>
                           {thread.title}
                         </Link>{" "}
                         <FontAwesomeIcon
                           className={styles.font_color_red}
                           icon={faComment}
+                          
+                      
                         />
                         {Object.keys(thread.thread_messages).length}
                       </li>

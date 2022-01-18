@@ -276,6 +276,7 @@ footer{
   height: auto;
   background-color: #F5F5F5;
   min-height: 95vh;
+
   
 }
 .circle{
@@ -308,13 +309,13 @@ footer{
 }
 .togg2{
   margin-left: 10px;
-  font-size: 3em;
+  font-size: 1em;
   color: white;
 }
 .togg1{
   color: white;
   font-size: 3em;
-  width: 3em;
+  width: 1em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -392,4 +393,20 @@ footer{
 }
 .faHardHat{
   color: white;
+}
+.testing{
+  width: 100%;
+  position: relative;
+  margin-top: 9%;
+}
+.trending_post_container{
+  height: 50vh;
+  width: 100%;
+}
+.dark_overlay{
+  opacity: 45%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: black;
 }
