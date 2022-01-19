@@ -163,7 +163,22 @@ function Blog_chats({thread}) {
                 </div>
                 <div className={styles.blog_chat_sidebar2}>
                     <div className={styles.blog_chat_sidebar_adds}>
-                        adds
+                    <div className='d-flex justify-content-center h-50 gap-1'>
+                        <div className={styles.add_box}>
+                            adds
+                        </div>
+                        <div className={styles.add_box}>
+                            adds
+                        </div>
+                    </div>
+                    <div className='d-flex justify-content-center h-50 gap-1'>
+                        <div className={styles.add_box}>
+                            adds
+                        </div>
+                        <div className={styles.add_box}>
+                            adds
+                        </div>
+                    </div>     
                     </div>
                     <div className={styles.blog_chat_sidebar_text}>
                         <div>

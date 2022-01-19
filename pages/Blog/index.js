@@ -43,6 +43,52 @@ const Home = ({ posts, threads, cate }) => {
     })
  }, [])
  
+ const mobile_screen_adds = (
+  <>
+    
+    <div className='d-flex justify-content-center h-50 gap-1'>
+    <div className={styles.add_box}>
+
+    </div>
+    <div className={styles.add_box}>
+
+    </div>
+    </div>
+    <br />
+    <div className='d-flex justify-content-center h-50 gap-1'>
+    <div className={styles.add_box}>
+
+    </div>
+    <div className={styles.add_box}>
+
+    </div>
+    </div>
+  </>
+ )
+ const pc_screen_adds = (
+  <>
+    <div className='w-100 d-flex justify-content-center gap-1'>
+                        <div className={styles.home_add_box}>
+
+                        </div>
+                        <div className={styles.home_add_box}>
+
+                        </div>
+                        <div className={styles.home_add_box}>
+
+                        </div>
+                        <div className={styles.home_add_box}>
+
+                        </div>
+                        <div className={styles.home_add_box}>
+
+                        </div>
+                        <div className={styles.home_add_box}>
+
+                        </div>
+                    </div> 
+  </>
+ )
 
  const pcscreen = (
    <>
@@ -127,11 +173,11 @@ const Home = ({ posts, threads, cate }) => {
     </div>
     <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only">Previous</span>
+        <span className="sr-only"></span>
     </a>
     <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only">Next</span>
+        <span className="sr-only"></span>
     </a>
 </div>
 </div>
@@ -154,10 +200,10 @@ const Home = ({ posts, threads, cate }) => {
       <div>
         <Navbar />
 
-        <section className={styles.section}>
+        <section >
 
           
-
+        <div className={styles.category_main}>
           <div className={styles.trending}>
             <div className="header_decor">
               <h6>Trending Posts</h6>
@@ -198,8 +244,12 @@ const Home = ({ posts, threads, cate }) => {
               <div className="header_decor">
                 <h6>Adds</h6>
               </div>
-
-              <span>Adds</span>
+              
+              <div className="w-100 mt-1 "> 
+              {window_width >=900 ? pc_screen_adds:mobile_screen_adds}
+              
+                         
+                </div>
             </div>
             <div className={styles.posts}>
               <div className="header_decor">
@@ -300,6 +350,7 @@ const Home = ({ posts, threads, cate }) => {
                 </ul>
               </div>
             </div>
+          </div>
           </div>
         </section>
         <Footer />

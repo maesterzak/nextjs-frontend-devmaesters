@@ -53,7 +53,7 @@ function category_list({ category_posts, name}) {
             <Navbar />
             <br />
             <div className='below-navbar'>
-            <section className={styles.section}>
+            <section className={'d-flex flex-wrap'}>
             <div className={styles.post_cate_list}>    
             <div className='header_decor'><h6>Posts under {name} category</h6></div>
             <div className={styles.post_list}>
@@ -78,6 +78,25 @@ function category_list({ category_posts, name}) {
                         })}
 
             </div>
+            </div>
+            <div className={styles.category_adds_body}>
+               <div className='d-flex justify-content-center h-50 gap-1'>
+                    <div className={styles.add_box}>
+                          <span>Adds</span>
+                    </div>
+                    <div className={styles.add_box}>
+                    <span>Adds</span>
+                    </div>
+                </div>
+
+                <div className='d-flex justify-content-center h-50 gap-1'>
+                      <div className={styles.add_box}>
+                      <span>Adds</span>
+                    </div>
+                    <div className={styles.add_box}>
+                    <span>Adds</span>
+                    </div>
+                  </div>           
             </div>
         
         </section>
