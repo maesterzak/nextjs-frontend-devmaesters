@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import Footer from "./blog_components/Footer";
 import { useEffect, useState } from "react";
-import styles from "./blog.module.css";
+import styles from "./blog_home.module.css";
 import Navbar from "./blog_components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake, faComment } from "@fortawesome/free-solid-svg-icons";
@@ -27,7 +27,7 @@ export const getStaticProps = async () => {
 
 export const orig = `${API_URL}`;
 
-const Home = ({ posts, threads, cate }) => {
+const Home1 = ({ posts, threads, cate }) => {
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
@@ -204,184 +204,143 @@ const Home = ({ posts, threads, cate }) => {
       <Head>
         <title>SimpleLIFE | Blog Homepage</title>
         <meta name="keywords" content="Home" />
-
-        <script
-          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-          crossOrigin="anonymous"
-        ></script>
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossOrigin="anonymous"
-        ></script>
-        <script
-          src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossOrigin="anonymous"
-        ></script>
         <link rel="icon" href="/favicon1.ico" />
       </Head>
 
       <div>
-      <Navbar background='white' links='purple' icon='blue' header_color='black' />
+        <Navbar background='white' links='purple' icon='blue' header_color='black' />
+<br />
+        <div className={`container mt-5 overflow-hidden `}>
+            <div className="main">
+                
+                <div className={`row g-2 p-3 + ${styles.row_background}`}>
+                <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
+                    <h1 className={`text-center + ${styles.header_label_text}`}>Trending Topics</h1>
+                </div>
+                
+                <div className={`col-12 col-md-4 p-3  + ${styles.trending_box}`}>
 
-        <section>
-          <div className={styles.category_main}>
-            <div className={styles.trending}>
-              <div className="header_decor">
-                <h6>Trending Posts</h6>
-              </div>
-
-              <div className={styles.trending_list}>
-                {window_width >= 900 ? pcscreen : mobile_screen}
-              </div>
+                </div>
+                <div className={`col-12 col-md-4 p-3 + ${styles.trending_box}`}>
+                    hellow
+                </div>
+                <div className={`col-12 col-md-4 p-3 + ${styles.trending_box}`}>
+                    hellow
+                </div>
+                </div>
             </div>
-            <div className={styles.main_body}>
-              <div id="Categories" className={styles.categories}>
-                <div className="categories">
-                  <div className="header_decor">
-                    <h6>Categories</h6>
-                  </div>
-                  <div className={styles.category_links}>
-                    {cate.map(function (category, id) {
-                      return (
-                        <div key={id}>
+            <div className={`row mt-3 p-3 + ${styles.row_background}`}>
+              
+            <div className="col-12 col-md-4">
+            <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
+                    <h1 className={`text-center + ${styles.header_label_text}`}>Categories</h1>
+                </div>
+                {cate.map(function(category, id){
+                  return(
+                    <div key={id}>
                           <Link href={"Blog/category/" + category.name}>
                             {category.name}
                           </Link>
                         </div>
-                      );
-                    })}
-                  </div>
-                  <ul className="list_text"></ul>
-                </div>
-              </div>
-              <div className={styles.post_for_you}>
-                <div className="header_decor">
-                  <h6>Post for you</h6>
-                </div>
-                <span>This part is still being updated</span>
-              </div>
-              <div className={styles.adds}>
-                <div className="header_decor">
-                  <h6>Adds</h6>
+                  )
+                })}
                 </div>
 
-                <div className="w-100 mt-1 ">
-                  {window_width >= 900 ? pc_screen_adds : mobile_screen_adds}
+                <div className="col-12 col-md-4 offset-md-4">
+                <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
+                    <h1 className={`text-center + ${styles.header_label_text}`}>Post for you</h1>
                 </div>
-              </div>
-              <div className={styles.posts}>
-                <div className="header_decor">
-                  <h6>Latest Posts</h6>
                 </div>
-                <div className={styles.post_list} id="Latest_posts">
-                  {posts.map(function (post, id) {
-                    return (
-                      <div className={styles.post_body} key={id}>
-                        <div className={styles.post_image}>
-                          <Image
+            </div>
+            <div className={`row mt-3 p-3 + ${styles.row_background}`}>
+                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
+                    h
+                </div>
+                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
+                    i
+                </div>
+                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
+                   k
+                </div>
+                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
+                   k
+                </div>
+                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
+                   k
+                </div>
+                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
+                   k
+                </div>
+                
+            </div>
+            <div className={`row mt-3 p-2 + ${styles.row_background}`}>
+                <div className="col-12 col-md-9">
+                <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
+                    <h1 className={`text-center + ${styles.header_label_text}`}>Latest Posts</h1>
+                </div>
+                <div className={`row mt-3 p-2 + ${styles.row_background}`}>
+                  {posts.map(function(post,id){
+                    return(
+                      <div key={id} className={`col-12 col-md-4 + ${styles.post_box}`}>
+                      <div className={styles.post_box_img}>
+                      <Image
                             layout="fill"
                             objectFit="fill"
                             alt="post image"
                             className="post_image"
                             src={post.image}
                           />
-                          <span className={styles.post_image_text}>
-                            {post.category.name}
-                          </span>
-                        </div>
-                        <div className={styles.post_text}>
-                          <h5>
-                            <b>{post.title}</b>
-                          </h5>
-                          <span
-                            dangerouslySetInnerHTML={{
-                              __html: truncate(post.body),
-                            }}
-                          />
-                        </div>
-                        <div className={styles.post_footer}>
-                          <span>
-                            <Link role="button" href={"/Blog/" + post.id}>
-                              Readmore
-                            </Link>
-                          </span>
-                          <span>
-                            {post.handshakes}{" "}
-                            <FontAwesomeIcon icon={faHandshake} />
-                          </span>
-                        </div>
+                      <span className={styles.post_box_category}>{post.category.name}</span>
                       </div>
-                    );
+                      <div className={styles.post_box_body}>
+                        
+                          <h1 className={styles.post_box_heading}>{post.title}</h1>
+                          <span className={styles.post_box_body_text} dangerouslySetInnerHTML={{
+                              __html: truncate(post.body),
+                            }}/>
+                      </div>
+                      <div className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}>
+                          <span><Link role="button" href={"/Blog/" + post.id}>Readmore</Link></span>
+                          <span><FontAwesomeIcon width={20} height={20} icon={faHandshake} />10</span>
+                          <span>By {post.author.name}</span>
+                      </div>
+                  </div>
+                    )
                   })}
-
-                  <div className={styles.post_body1}>
-                    <div className={styles.post_tex1t}>
-                      <h5>
-                        How This seven lines of code turned into a $36 billion
-                        empire
-                      </h5>
-                      <span>
-                        But I must explain to you how all this mistaken idea of
-                        denouncing pleasure and praising pain was born and I
-                        will give you a complete account of the
-                      </span>
-                    </div>
-
-                    <div className={styles.post_footer1}>
-                      <span>Footer</span>
-                    </div>
-                  </div>
-
-                  <div className={styles.post_body1}>
-                    <div className={styles.post_text}>
-                      <h5>
-                        How This seven lines of code turned into a $36 billion
-                        empire
-                      </h5>
-                      <span>
-                        But I must explain to you how all this mistaken idea of
-                        denouncing pleasure and praising pain was born and I
-                        will give you a complete account of the
-                      </span>
-                    </div>
-
-                    <div className={styles.post_footer}>
-                      <span>Footer</span>
-                    </div>
-                  </div>
+                  
+                  
+                  
+                </div>  
                 </div>
-              </div>
-              <div id="Open_threads" className={styles.open_threads}>
-                <div>
-                  <div className="header_decor">
-                    <h6>Threads</h6>
-                  </div>
+                <div className="col-12 col-md-3 ">
+                <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
+                    <h1 className={`text-center + ${styles.header_label_text}`}>Threads</h1>
+                </div>
+                <div className="d-flex p-3">
                   <ul>
-                    {threads.map(function (thread, id) {
+                  {threads.map(function (thread, id) {
                       return (
-                        <li key={id} className="thread_link">
+                        <li key={id} className={`d-flex justify-content-between ${styles.thread_link}`}>
                           <Link href={"Blog/thread/" + thread.id}>
                             {thread.title} 
                           </Link>
                           <div>
-                          <FontAwesomeIcon style={{"height":"1em", "color":"blue"}} icon={faComment} />
+                          <FontAwesomeIcon style={{"height":"1em", "color":"blue", "marginLeft":"10px"}} icon={faComment} />
                           {Object.keys(thread.thread_messages).length}
                           </div>
                         </li>
                       );
                     })}
                   </ul>
+
                 </div>
-              </div>
+                
+                </div>
             </div>
-          </div>
-        </section>
+        </div>
         <Footer />
       </div>
     </>
   );
 };
-export default Home;
+export default Home1;

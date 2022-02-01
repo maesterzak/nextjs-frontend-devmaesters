@@ -3,18 +3,27 @@ body {
   padding: 0;
   margin: 0;
   
-  font-family:Arial,BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family:'inter', Arial,BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: medium;  
+  background-color: #dee2e6;
 }
 
+/* new blog */
 
 
+
+
+
+
+
+/* others*/
 h5{
   color: #212529;
 }
 h6 {
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+ 
 }
 
 a {
@@ -31,47 +40,32 @@ button{
 }
 .nav-header {
   font-weight: bolder;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: white;
+  
+  
 }
-.nav-icon{
-  color: white;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.nav-icon2{
-  color: white;
-  margin-left: 5px;
-  margin-right: 5px;
-}
+
 @media (max-width: 900px){
+  body{
+    font-size: small;
+  }
   nav {
     width: 100%;
-    color: rgb(237, 248, 248);
-    font-size: small;
+    
     position: fixed;
   }
   .nav-header{
     
-    font-size: x-large;
+    font-size: medium;
     margin-left: 5%;
     
     
   }
-  .author_btn {
-    border-radius: 15px ;
-    background-color: white;
-    border: transparent;
-    font-size: medium;
-  }
+  
   .nav-links{
     
     display: none;
   }
-  .nav-button{
-    display: none;
-    
-  }
+  
   .post_detail{
     flex-direction: column;
   }
@@ -109,27 +103,7 @@ button{
     flex-wrap: wrap;
     align-content: space-between;
   }
-  .nav-toggle-links2{
-    z-index: 999;
-    font-weight: bolder;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position: fixed;
-    top:11%;
-    left: 2%;
-    width: 45%;
-    height: auto;
-    font-weight: bolder;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(220, 220, 220, 0.685);
-    animation: nav_view2 0.5s ease-in forwards;
-    opacity: 0;
-    
-  }
+  
   @keyframes nav_view2 {
     100%{
       opacity: 100%;
@@ -142,7 +116,7 @@ button{
   }
   .nav-header{
     
-    font-size: x-large;
+    font-size: medium;
     margin-left: 5%;
     
   }
@@ -152,23 +126,6 @@ button{
     display: inline-flex;
     list-style-type: none;
     gap:10px
-  }
-  .nav-button{
-    margin-left: 4%;
-    display: flex;
-    font-size:medium;
-    margin-left: 10px;
-    align-items: center;
-    
-  }
-  .author_btn{
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 15px ;
-    background-color: white;
-    border: #ff0036 solid 2px;
-    
-
   }
   
   
@@ -205,10 +162,10 @@ button{
   }
 }  
 nav {
-  font-family: Arial, Helvetica, sans-serif;
+  
   width: 100%;
-  height: 10vh;
-  background: linear-gradient(45deg,#303f9f,#7b1fa2);
+  height: 7vh;
+  /*background: linear-gradient(45deg,#303f9f,#7b1fa2);*/
   border-bottom: black 2px solid;
   display: flex;
   justify-content: space-between;
@@ -237,7 +194,7 @@ section{
   
 }
 h5{
-  font-family: Arial, Helvetica, sans-serif;
+  
   margin-bottom: 0px;
   
   
@@ -252,11 +209,11 @@ footer{
   
 }
 .open_threads{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: medium;
+  
+  
   display: grid;
   gap: 10px;
-  font-size: large;
+  
   padding: 10px 10px 10px 10px;
   justify-items: center;
 }
@@ -313,8 +270,8 @@ footer{
   color: white;
 }
 .togg1{
-  color: white;
-  font-size: 3em;
+  
+  
   width: 1em;
   display: flex;
   flex-direction: row;
@@ -374,7 +331,7 @@ footer{
   padding-left: 20px;
   padding-right: 20px;
   height: 70%;
-  background-color: #084298;
+  background: linear-gradient(45deg,#303f9f,#7b1fa2);
   color: white;
   border-radius: 10px;
   height: fit-content;

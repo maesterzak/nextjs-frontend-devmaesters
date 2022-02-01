@@ -1,0 +1,76 @@
+/*color designs*/
+
+.header_label_color1{
+    background: linear-gradient(45deg,#303f9f,#7b1fa2);
+}
+.row_background{
+    background-color: white;
+}
+.nav_text{
+    color: white;
+}
+.nav_icons{
+    color: white;
+}
+/* end of color designs*/
+.header_label{
+    width: 100%;
+    height: 4vh;
+    
+    border-radius: 10px;
+}
+.header_label_text{
+    font-size: large;
+    color: white;
+    
+}
+.trending_box{
+    height: 40vh;
+    border: solid black;
+    
+}
+.add_box1{
+    height: 25vh;
+    border: black solid;
+}
+.post_box{
+    height: auto;
+    
+}
+.post_box_img{
+    height: 25vh;
+    
+    position: relative;
+
+}
+.post_box_body{
+    height: auto;
+    
+    
+}
+.post_box_heading{
+    font-size: medium;
+    font-weight: bold;
+    padding: 0.5em;
+}
+.post_box_body_text{
+    font-size: small;
+}
+.post_box_category{
+    position: absolute;
+    top: 4%;
+    right: 5%;
+    height: 2em;
+    width: auto;
+    padding: 0.2em;
+    
+    border-radius: 5px;
+}
+.post_box_footer{
+    height: 5vh;
+    
+    font-size: small;
+}
+.thread_link{
+    color: royalblue;
+}

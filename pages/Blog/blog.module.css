@@ -98,7 +98,7 @@
         display: flex;
         flex-wrap: wrap;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: small;
+        
         font-weight:4px;
         min-height: 90vh;
 
@@ -247,9 +247,9 @@
 
 @media only screen and (min-width: 900px){
     .main_body{
-        font-family: Pristina;
+        
         display: flex;
-        font-family: Pristina;
+        
         margin-top: 10px;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -285,8 +285,7 @@
         margin-left: 2wv;
         position: sticky;
         top: 13%;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: medium;
+        
         
     }
     .add{
@@ -333,8 +332,7 @@
     }
     .blog_chat{
         display: flex;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: medium;
+        
         min-height: 95vh;
     }
     .blog_chat_main{
@@ -438,9 +436,9 @@
     justify-content: center;
     justify-items: center;
     background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    
     margin-bottom: 15px;
-    font-size: medium;
+    
 }
 .list_text{
     display: inline-flex;
@@ -455,8 +453,7 @@
     background-color: white;
     order: 2;
     margin-bottom: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: medium;
+    
 }
 .adds{
     order:3;
@@ -469,8 +466,7 @@
     margin-bottom: 15px;
 }
 .open_threads{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: medium;
+    
     order: 5;
     background-color: white;
     display: flex;
@@ -491,8 +487,7 @@
 
 .post_text{
     height: 45%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:medium;
+    
     overflow: hidden;
     text-overflow: ellipsis;
     
@@ -507,8 +502,7 @@
     height: 10%;
     display: flex;
     justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif ;
-    font-size: small;
+    
 
 }
 .main{
@@ -520,8 +514,7 @@
     padding: 3% 3% 3% 3%;
     background-color: white;
     margin-top: 6%;
-    font-family: 'Arial', Helvetica, sans-serif;
-    font-size: large;
+    
     height:fit-content;
     
 }
@@ -530,8 +523,7 @@
     order:3;
     background-color: white;
     height: 80vh;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: medium;
+    
     padding: 1% 1% 1% 1%;
 }
 .blog_post_sidebar1{
@@ -566,14 +558,14 @@
     border-radius: 20px;
     margin-bottom: 1vh;
     width: 80vw;
-    font-size: medium;
+    
 }
 .blog_chat_textarea{
     border-top-right-radius: 15px;
     height: 30vh;
     width: 80vw;
     margin-bottom: 1vh;
-    font-size: medium;
+    
 }
 .blog_chat_image_select{
     background-color: white;
@@ -583,15 +575,14 @@
 .blog_post_share{
     border-top:solid black ;
     border-bottom: black solid;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: medium;
+    
     margin-bottom: 5vh;
     margin-top: 5vh;
     display: flex;
     flex-direction: column;
 }
 .blog_about_author{
-    font-size: small;
+    
     margin: 5% 5% 5% 5%;
 }
 .post_detail_shake_share{
@@ -605,7 +596,7 @@
     
 }
 .post_image_text{
-    font-family: Arial, Helvetica, sans-serif;
+    
     position: absolute;
     z-index: 88;
     padding-left: 5px;
@@ -624,9 +615,9 @@
 
 
 
-.font_color_red{
+.font_color_blue{
     color: #0a58ca;
-    font-size: small;
+    height: 1em;
 }
 .mobile_trending_text{
     color: white;
