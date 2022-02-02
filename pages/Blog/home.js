@@ -213,7 +213,7 @@ const Home1 = ({ posts, threads, cate }) => {
                       <input
                         type="text"
                         className="form-control"
-                        aria-label="Amount (to the nearest dollar)"
+                        aria-label="Amount (to the nearest naira)"
                       />
                       <div className="input-group-append">
                         <span className="input-group-text">search</span>

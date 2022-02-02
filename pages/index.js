@@ -19,7 +19,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Image layout="fill" src={'/images/home-3.jpg'} />
+        <Image layout="fill" src={'/images/home-3.jpg'} alt="homepage image" />
         <div className="position-absolute top-2 text-bold">
           <h1>WELCOME</h1>
           <h5>PAGE IS STILL BEING BUILT</h5>
