@@ -12,7 +12,26 @@
 .nav_icons{
     color: white;
 }
+.w_link{
+    color: white;
+}
+.link-btn{
+    color: #0d6efd;
+    border: white solid;
+}
+.post_box_category{
+    background-color: rgba(102, 51, 153, 0.747);
+    color: white;
+}
 /* end of color designs*/
+.intro_box{
+    height: 50vh;
+    position: relative;
+}
+.intro_text{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.178);
+}
 .header_label{
     width: 100%;
     height: 4vh;
@@ -26,7 +45,25 @@
 }
 .trending_box{
     height: 40vh;
-    border: solid black;
+    
+    position: relative;
+    padding: 10px;
+}
+.trending_box:hover .img{
+    
+    border: solid greenyellow;
+    transform: scale(0.8);
+    
+}
+.trending_box_img_text{
+    position: absolute;
+    
+}
+.dark_overlay{
+    background-color: rgba(0, 0, 0, 0.658);
+    width: 100%;
+    height: 100%;
+    position: absolute;
     
 }
 .add_box1{
@@ -63,7 +100,6 @@
     height: 2em;
     width: auto;
     padding: 0.2em;
-    
     border-radius: 5px;
 }
 .post_box_footer{

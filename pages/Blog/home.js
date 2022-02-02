@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 import styles from "./blog_home.module.css";
 import Navbar from "./blog_components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandshake, faComment } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHandshake,
+  faComment,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 import { API_URL } from "../../config";
-
 
 export const getStaticProps = async () => {
   const response = await fetch(`${API_URL}/blog/posts/`);
@@ -44,51 +47,29 @@ const Home1 = ({ posts, threads, cate }) => {
     });
   }, []);
 
-  const mobile_screen_adds = (
-    <>
-      <div className="d-flex justify-content-center h-50 gap-1">
-        <div className={styles.add_box}></div>
-        <div className={styles.add_box}></div>
-      </div>
-      <br />
-      <div className="d-flex justify-content-center h-50 gap-1">
-        <div className={styles.add_box}></div>
-        <div className={styles.add_box}></div>
-      </div>
-    </>
-  );
-  const pc_screen_adds = (
-    <>
-      <div className="w-100 d-flex justify-content-center gap-1">
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-      </div>
-    </>
-  );
-
   const pcscreen = (
     <>
-      {trending_posts.map(function (post, id) {
+      {posts.map(function (post, id) {
         return (
-          <div className={styles.trending_topics} key={id}>
+          <div
+            key={id}
+            className={`col-12 col-md-4 p-3 d-flex justify-content-center align-items-center  + ${styles.trending_box}`}
+          >
             <Image
               layout="fill"
-              objectFit="fill"
-              className="trending_image"
-              alt="trending image"
-              src={post.image}
+              className={styles.img}
+              src={orig + post.image}
+              alt="trending_post"
             />
-            <div className="dark_overlay"></div>
-            <a
-              href={"/Blog/" + post.id}
-              className={styles.trending_topics_text}
-            >
-              {post.title}
-            </a>
+            <div className={`${styles.dark_overlay}`}></div>
+
+            <div className={`${styles.trending_box_img_text}`}>
+              <h3 className={`text-center ${styles.post_box_heading}`}>
+                <a className={`${styles.w_link}`} href={"/"}>
+                  {post.title}
+                </a>
+              </h3>
+            </div>
           </div>
         );
       })}
@@ -208,135 +189,201 @@ const Home1 = ({ posts, threads, cate }) => {
       </Head>
 
       <div>
-        <Navbar background='white' links='purple' icon='blue' header_color='black' />
-<br />
+        <Navbar
+          background="white"
+          links="purple"
+          icon="blue"
+          header_color="black"
+        />
+        <br />
         <div className={`container mt-5 overflow-hidden `}>
-            <div className="main">
-                
-                <div className={`row g-2 p-3 + ${styles.row_background}`}>
-                <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
-                    <h1 className={`text-center + ${styles.header_label_text}`}>Trending Topics</h1>
+          <div className="main">
+            <div className={`row g-2 p-3 + ${styles.row_background}`}>
+              <div
+                className={`col-12 d-flex justify-content-center align-items-center ${styles.intro_box}`}
+              >
+                <Image layout="fill" src={"/images/image3.jpg"}  alt="home_image"/>
+                <div className={`${styles.intro_text}`}>
+                  <h1>Welcome to devMAESTERS.tk</h1>
+                  <span>Home of python</span>
+                  <div>
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        className="form-control"
+                        aria-label="Amount (to the nearest dollar)"
+                      />
+                      <div className="input-group-append">
+                        <span className="input-group-text">search</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                
-                <div className={`col-12 col-md-4 p-3  + ${styles.trending_box}`}>
-
-                </div>
-                <div className={`col-12 col-md-4 p-3 + ${styles.trending_box}`}>
-                    hellow
-                </div>
-                <div className={`col-12 col-md-4 p-3 + ${styles.trending_box}`}>
-                    hellow
-                </div>
-                </div>
+              </div>
             </div>
-            <div className={`row mt-3 p-3 + ${styles.row_background}`}>
-              
+
+            <div className={`row g-2 p-3 mt-3 + ${styles.row_background}`}>
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Trending Topics
+                </h1>
+              </div>
+              {window_width >= 900 ? pcscreen : mobile_screen}
+            </div>
+          </div>
+          <div className={`row mt-3 p-3 + ${styles.row_background}`}>
             <div className="col-12 col-md-4">
-            <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
-                    <h1 className={`text-center + ${styles.header_label_text}`}>Categories</h1>
-                </div>
-                {cate.map(function(category, id){
-                  return(
-                    <div key={id}>
-                          <Link href={"Blog/category/" + category.name}>
-                            {category.name}
-                          </Link>
-                        </div>
-                  )
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Categories
+                </h1>
+              </div>
+              <div className="d-flex justify-content-around flex-wrap">
+                {cate.map(function (category, id) {
+                  return (
+                    <div className="p-2" key={id}>
+                      <Link href={"Blog/category/" + category.name}>
+                        {category.name}
+                      </Link>
+                    </div>
+                  );
                 })}
-                </div>
+              </div>
+            </div>
 
-                <div className="col-12 col-md-4 offset-md-4">
-                <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
-                    <h1 className={`text-center + ${styles.header_label_text}`}>Post for you</h1>
-                </div>
-                </div>
+            <div className="col-12 col-md-4 offset-md-4">
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Post for you
+                </h1>
+              </div>
+              <h5 className="text-center">Comming soon</h5>
+              <span className="text-center">
+                Get posts tailored to your particular tastes{" "}
+              </span>
             </div>
-            <div className={`row mt-3 p-3 + ${styles.row_background}`}>
-                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
-                    h
-                </div>
-                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
-                    i
-                </div>
-                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
-                   k
-                </div>
-                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
-                   k
-                </div>
-                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
-                   k
-                </div>
-                <div className={`col-6 col-md-2 + ${styles.add_box1}`}>
-                   k
-                </div>
-                
+          </div>
+          <div className={`row mt-3 p-3 + ${styles.row_background}`}>
+            <div
+              className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+            >
+              <h1 className={`text-center + ${styles.header_label_text}`}>
+                Adds
+              </h1>
             </div>
-            <div className={`row mt-3 p-2 + ${styles.row_background}`}>
-                <div className="col-12 col-md-9">
-                <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
-                    <h1 className={`text-center + ${styles.header_label_text}`}>Latest Posts</h1>
-                </div>
-                <div className={`row mt-3 p-2 + ${styles.row_background}`}>
-                  {posts.map(function(post,id){
-                    return(
-                      <div key={id} className={`col-12 col-md-4 + ${styles.post_box}`}>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>h</div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>i</div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
+          </div>
+
+          <div className={`row mt-3 p-2 + ${styles.row_background}`}>
+            <div className="col-12 col-md-9">
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Latest Posts
+                </h1>
+              </div>
+              <div className={`row mt-3 p-2 + ${styles.row_background}`}>
+                {posts.map(function (post, id) {
+                  return (
+                    <div
+                      key={id}
+                      className={`col-12 col-md-4 + ${styles.post_box}`}
+                    >
                       <div className={styles.post_box_img}>
-                      <Image
-                            layout="fill"
-                            objectFit="fill"
-                            alt="post image"
-                            className="post_image"
-                            src={post.image}
-                          />
-                      <span className={styles.post_box_category}>{post.category.name}</span>
+                        <Image
+                          layout="fill"
+                          objectFit="fill"
+                          alt="post image"
+                          className="post_image"
+                          src={orig + post.image}
+                        />
+                        <span className={styles.post_box_category}>
+                          {post.category.name}
+                        </span>
                       </div>
                       <div className={styles.post_box_body}>
-                        
-                          <h1 className={styles.post_box_heading}>{post.title}</h1>
-                          <span className={styles.post_box_body_text} dangerouslySetInnerHTML={{
-                              __html: truncate(post.body),
-                            }}/>
+                        <h1 className={styles.post_box_heading}>
+                          {post.title}
+                        </h1>
+                        <span
+                          className={styles.post_box_body_text}
+                          dangerouslySetInnerHTML={{
+                            __html: truncate(post.body),
+                          }}
+                        />
                       </div>
-                      <div className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}>
-                          <span><Link role="button" href={"/Blog/" + post.id}>Readmore</Link></span>
-                          <span><FontAwesomeIcon width={20} height={20} icon={faHandshake} />10</span>
-                          <span>By {post.author.name}</span>
-                      </div>
-                  </div>
-                    )
-                  })}
-                  
-                  
-                  
-                </div>  
-                </div>
-                <div className="col-12 col-md-3 ">
-                <div className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}>
-                    <h1 className={`text-center + ${styles.header_label_text}`}>Threads</h1>
-                </div>
-                <div className="d-flex p-3">
-                  <ul>
-                  {threads.map(function (thread, id) {
-                      return (
-                        <li key={id} className={`d-flex justify-content-between ${styles.thread_link}`}>
-                          <Link href={"Blog/thread/" + thread.id}>
-                            {thread.title} 
+                      <div
+                        className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
+                      >
+                        <span>
+                          <Link role="button" href={"/Blog/" + post.id}>
+                            Readmore
                           </Link>
-                          <div>
-                          <FontAwesomeIcon style={{"height":"1em", "color":"blue", "marginLeft":"10px"}} icon={faComment} />
-                          {Object.keys(thread.thread_messages).length}
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-
-                </div>
-                
-                </div>
+                        </span>
+                        <span>
+                          <FontAwesomeIcon
+                            width={20}
+                            height={20}
+                            icon={faHandshake}
+                          />
+                          10
+                        </span>
+                        <span>By {post.author.name}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
+            <div className="col-12 col-md-3 ">
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Threads
+                </h1>
+              </div>
+              <div className="d-flex p-3">
+                <ul>
+                  {threads.map(function (thread, id) {
+                    return (
+                      <li
+                        key={id}
+                        className={`d-flex justify-content-between ${styles.thread_link}`}
+                      >
+                        <Link href={"Blog/thread/" + thread.id}>
+                          {thread.title}
+                        </Link>
+                        <div>
+                          <FontAwesomeIcon
+                            style={{
+                              height: "1em",
+                              color: "blue",
+                              marginLeft: "10px",
+                            }}
+                            icon={faComment}
+                          />
+                          {Object.keys(thread.thread_messages).length}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
         <Footer />
       </div>

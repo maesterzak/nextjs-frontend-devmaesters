@@ -5,8 +5,9 @@ body {
   
   font-family:'inter', Arial,BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: medium;  
+  font-size: small;  
   background-color: #dee2e6;
+
 }
 
 /* new blog */
@@ -33,6 +34,9 @@ a {
 
 button{
   width: fit-content;
+}
+.btn{
+  border-radius: 10px;
 }
 
 * {
@@ -77,9 +81,9 @@ button{
     top:11%;
     right: 2%;
     width: 50%;
-    height: auto;
+    height: 90vh;
     font-weight: bolder;
-    background-color: rgb(136, 154, 185);
+    background: linear-gradient(45deg,#303f9f,#7b1fa2);;;
     display: flex;
     flex-direction: column;
     
@@ -135,13 +139,13 @@ button{
     position: fixed;
     top:11%;
     right: 2%;
-    width: 20%;
-    height: auto;
+    width: 30%;
+    height: 91vh;
     font-weight: bolder;
     display: flex;
     flex-direction: column;
     font-weight: bolder;
-    background-color: rgba(220, 220, 220, 0.685);
+    background: linear-gradient(45deg,#303f9f,#7b1fa2);;;
     justify-content: center;
     align-items: center;
     z-index:999;
@@ -294,13 +298,8 @@ footer{
   margin-bottom: 10px;
   color: #F5F5F5;
   border: white solid 2px;
-  width: auto;
+  width: 100%;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-content: space-around;
-  
-
 }
 .modal-background{
   color: white;
@@ -350,14 +349,17 @@ footer{
 }
 .faHardHat{
   color: white;
+  height: 1.5em;
+  width: 1.5em;
 }
 .testing{
   width: 100%;
   position: relative;
   margin-top: 9%;
+  height: 35vh;
 }
 .trending_post_container{
-  height: 50vh;
+  height: 35vh;
   width: 100%;
 }
 .dark_overlay{

@@ -1,3 +1,8 @@
+.body{
+    font-size: small;
+    font-family: inter;
+}
+
 .post_cate_list{
     width: 65%;
     height: 200vh;
@@ -30,7 +35,7 @@
 @media only screen and (max-width: 900px)  {
     .main_body{
         display: flex;
-        font-family: Pristina;
+        
         flex-direction: column;
         gap: 10px;
         
@@ -592,7 +597,7 @@
 }
 .post_image{
     position: relative;
-    height: 40vh;
+    height: 30vh;
     
 }
 .post_image_text{

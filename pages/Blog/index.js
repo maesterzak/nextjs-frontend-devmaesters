@@ -80,7 +80,7 @@ const Home = ({ posts, threads, cate }) => {
               objectFit="fill"
               className="trending_image"
               alt="trending image"
-              src={post.image}
+              src={orig + post.image}
             />
             <div className="dark_overlay"></div>
             <a
@@ -273,7 +273,7 @@ const Home = ({ posts, threads, cate }) => {
                             objectFit="fill"
                             alt="post image"
                             className="post_image"
-                            src={post.image}
+                            src={orig + post.image}
                           />
                           <span className={styles.post_image_text}>
                             {post.category.name}

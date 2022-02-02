@@ -22,17 +22,17 @@ const Navbar = (props) => {
   }
   const authlink = (
     <>
-      <div className="nav-toggle-link-link">
+      <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
         <a href="#" onClick={logoutHandler}>Logout</a>
       </div>
     </>
   );
   const guest = (
     <>
-      <div className="nav-toggle-link-link">
+      <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
         <Link href="/login">Login</Link>
       </div>
-      <div className="nav-toggle-link-link">
+      <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
         <Link href="/register">Register</Link>
       </div>
     </>
@@ -49,7 +49,7 @@ const Navbar = (props) => {
     <div>
       <nav style={{"backgroundColor":`${props.background}`}}>
         <div className="row w-100">
-          <div className="col-5 col-md-2 d-flex align-items-center">
+          <div className="col-8 col-md-2 d-flex align-items-center">
           
           
 
@@ -71,14 +71,14 @@ const Navbar = (props) => {
             
             
           </div>
-          <div className="col-7 col-md-3 ">
+          <div className="col-4 col-md-3 ">
           <div className="d-flex ">
           <div className="d-flex w-100 align-items-center justify-content-around">
             <FontAwesomeIcon style={{"height":"1em","color":`${props.icon}`}} icon={faUser} />
-            <FontAwesomeIcon style={{"height":"1em","color":`${props.icon}`}} icon={faSearch} />
-            <button className="btn btn-outline-primary">Become an Author</button>
+            
+            <button className="btn btn-outline-primary d-none d-md-block">Become an Author</button>
           </div>
-          <div onClick={ToggleNav1}>
+          <div className="d-block d-sm-none" onClick={ToggleNav1}>
             <FontAwesomeIcon
               className="togg1"
               style={{"font-size":"2em","color":`${props.icon}`}}
@@ -96,32 +96,35 @@ const Navbar = (props) => {
         
       </nav>
       <div className={Navbar1 ? "nav-toggle-links1" : "d-none"}>
-        <div className="nav-toggle-link-link">
+        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
           <Link href="/">
             <a>Home</a>
           </Link>
         </div>
 
-        <div className="nav-toggle-link-link">
+        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
           <Link href="/Blog">Blog</Link>
         </div>
-        <div className="nav-toggle-link-link">
+        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center ">
           <Link href="/mini-mall">Mini-Mall </Link>
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
-        <div className="nav-toggle-link-link">
+        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
           <Link href="/">Repository</Link>
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
-        <div className="nav-toggle-link-link">
+        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
           <Link href="/aboutus">About us</Link>
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
-        <div className="nav-toggle-link-link">
+        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
           <Link href="/contactus">Contact us</Link>
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
         {isAuthenticated ? authlink : guest}
+        <div>
+        <button className="btn btn-outline-light d-block d-sm-none link-btn">Become an Author</button>
+        </div>
       </div>
       
     </div>
