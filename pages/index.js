@@ -19,28 +19,21 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <div>
+        <Image layout="fill" src={'/images/home-3.jpg'} />
+        <div className="position-absolute top-2 text-bold">
           <h1>WELCOME</h1>
           <h5>PAGE IS STILL BEING BUILT</h5>
+          <div className="d-grid justify-content-center">
+            <span>Some links are shown below click to visit page</span>
+            <span><Link href={'/Blog/home'}>Blog</Link></span>
+            <span><Link href={'/mini-mall'}>Mini-Mall</Link></span>
+          </div>
         </div>
-        <div className="mt-30%">
-          <h3 >Some links are shown below, click to visit site</h3>
-            <Link className='mr-5%' href='/Blog'>Blog</Link><br />
-            <Link href='/mini-mall'>Store</Link>
-        </div>
+        
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+      <footer className={`text-light text-center ${styles.footer}`}>
+        <span>This website was coded and designed by Abubakar Zakari<br /> of @devmaesters.tk</span>
       </footer>
     </div>
   );

@@ -58,7 +58,7 @@ const Home1 = ({ posts, threads, cate }) => {
             <Image
               layout="fill"
               className={styles.img}
-              src={orig + post.image}
+              src={post.image}
               alt="trending_post"
             />
             <div className={`${styles.dark_overlay}`}></div>
@@ -97,7 +97,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={"/images/image1.jpg"}
+                src={trending_posts[0].image}
                 alt="First slide"
               />
               <div className="dark_overlay"></div>
@@ -116,7 +116,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={"/images/image1.jpg"}
+                src={trending_posts[1].image}
                 alt="Second slide"
               />
               <div className="dark_overlay"></div>
@@ -135,7 +135,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={"/images/image1.jpg"}
+                src={trending_posts[2].image}
                 alt="Third slide"
               />
               <div className="dark_overlay"></div>
@@ -203,9 +203,11 @@ const Home1 = ({ posts, threads, cate }) => {
                 className={`col-12 d-flex justify-content-center align-items-center ${styles.intro_box}`}
               >
                 <Image layout="fill" src={"/images/image3.jpg"}  alt="home_image"/>
+                <div className={`${styles.dark_overlay}`}></div>
                 <div className={`${styles.intro_text}`}>
-                  <h1>Welcome to devMAESTERS.tk</h1>
-                  <span>Home of python</span>
+                  <h1 className="text-light text-center">BLOG</h1>
+                  <span className="text-light text-center">We've got loads of programming tips and tricks<br /> 
+                  <b>just for you</b></span>
                   <div>
                     <div className="input-group">
                       <input
@@ -281,8 +283,8 @@ const Home1 = ({ posts, threads, cate }) => {
             <div className={`col-6 col-md-2 + ${styles.add_box1}`}>i</div>
             <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
             <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
+            <div className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}>k</div>
+            <div className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}>k</div>
           </div>
 
           <div className={`row mt-3 p-2 + ${styles.row_background}`}>
@@ -307,7 +309,7 @@ const Home1 = ({ posts, threads, cate }) => {
                           objectFit="fill"
                           alt="post image"
                           className="post_image"
-                          src={orig + post.image}
+                          src={post.image}
                         />
                         <span className={styles.post_box_category}>
                           {post.category.name}
@@ -385,7 +387,9 @@ const Home1 = ({ posts, threads, cate }) => {
             </div>
           </div>
         </div>
+        <div className="mt-3">
         <Footer />
+        </div>
       </div>
     </>
   );

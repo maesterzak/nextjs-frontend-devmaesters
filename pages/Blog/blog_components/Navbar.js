@@ -95,8 +95,8 @@ const Navbar = (props) => {
 
         
       </nav>
-      <div className={Navbar1 ? "nav-toggle-links1" : "d-none"}>
-        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
+      <div className={Navbar1 ? "nav-toggle-links1 d-flex  justify-content-center flex-wrap vh-80" : "d-none"}>
+        <div className="nav-toggle-link-link d-flex align-items-center  justify-content-center">
           <Link href="/">
             <a>Home</a>
           </Link>
@@ -122,7 +122,7 @@ const Navbar = (props) => {
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
         {isAuthenticated ? authlink : guest}
-        <div>
+        <div className="d-flex justify-content-center">
         <button className="btn btn-outline-light d-block d-sm-none link-btn">Become an Author</button>
         </div>
       </div>

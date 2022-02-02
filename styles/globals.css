@@ -78,18 +78,15 @@ button{
     padding-top: 10px;
     padding-bottom: 10px;
     position: fixed;
-    top:11%;
+    top:8%;
     right: 2%;
-    width: 50%;
-    height: 90vh;
-    font-weight: bolder;
-    background: linear-gradient(45deg,#303f9f,#7b1fa2);;;
-    display: flex;
-    flex-direction: column;
+    width: 90%;
     
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(220, 220, 220, 0.685);
+    font-weight: bolder;
+    
+    height: 90vh;
+    
+    background: linear-gradient(45deg,#303f9f,#7b1fa2);
     animation: nav_view1 0.5s ease-in forwards;
     opacity: 0;
   }
@@ -209,7 +206,8 @@ img{
 }
 footer{
   
-  background: linear-gradient(45deg,#303f9f,#7b1fa2);;
+  background: linear-gradient(45deg,#303f9f,#7b1fa2);
+  padding: 10px;
   
 }
 .open_threads{
@@ -300,6 +298,8 @@ footer{
   border: white solid 2px;
   width: 100%;
   border-radius: 10px;
+  
+  font-size: medium;
 }
 .modal-background{
   color: white;
