@@ -206,8 +206,8 @@ const Home1 = ({ posts, threads, cate }) => {
                 <div className={`${styles.dark_overlay}`}></div>
                 <div className={`${styles.intro_text}`}>
                   <h1 className="text-light text-center">BLOG</h1>
-                  <span className="text-light text-center">We've got loads of programming tips and tricks<br /> 
-                  <b>just for you</b></span>
+                  <span className="text-light text-center">Subscribe to get loads of programming <br /> tips and tricks 
+                  just for you</span>
                   <div>
                     <div className="input-group">
                       <input
