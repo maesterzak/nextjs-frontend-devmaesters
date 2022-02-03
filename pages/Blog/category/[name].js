@@ -103,7 +103,7 @@ function category_list({ category_posts, name }) {
                             objectFit="fill"
                             alt="post image"
                             className="post_image"
-                            src={orig + post.image}
+                            src={post.image}
                           />
                           <span className={styles.post_box_category}>
                             {post.category.name}

@@ -58,7 +58,7 @@ const Home1 = ({ posts, threads, cate }) => {
             <Image
               layout="fill"
               className={styles.img}
-              src={orig + post.image}
+              src={post.image}
               alt="trending_post"
             />
             <div className={`${styles.dark_overlay}`}></div>
@@ -97,7 +97,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={orig + trending_posts[0].image}
+                src={trending_posts[0].image}
                 alt="First slide"
               />
               <div className="dark_overlay"></div>
@@ -116,7 +116,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={orig + trending_posts[1].image}
+                src={trending_posts[1].image}
                 alt="Second slide"
               />
               <div className="dark_overlay"></div>
@@ -135,7 +135,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={orig + trending_posts[2].image}
+                src={trending_posts[2].image}
                 alt="Third slide"
               />
               <div className="dark_overlay"></div>
@@ -309,7 +309,7 @@ const Home1 = ({ posts, threads, cate }) => {
                           objectFit="fill"
                           alt="post image"
                           className="post_image"
-                          src={orig + post.image}
+                          src={post.image}
                         />
                         <span className={styles.post_box_category}>
                           {post.category.name}
