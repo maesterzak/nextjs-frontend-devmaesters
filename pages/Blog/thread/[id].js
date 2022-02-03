@@ -159,7 +159,7 @@ function Blog_chats({ thread }) {
 
                 {thread.thread_messages.map(function (message, id) {
                   return (
-                    <div className="row mb-3">
+                    <div className="row mb-3" key={id}>
                       <div className="col-2" style={{ height: "40px" }}>
                         <div className={`${styles.thread_message_image}`}>
                           <Image
@@ -220,7 +220,7 @@ function Blog_chats({ thread }) {
                 className={`row d-flex justify-content-center align-items-center ${styles.thread_add_message_box}`}
               >
                 <div className="col-9 col-md-4 w-100 h-80">
-                  <form>
+                  <form className="d-grid justify-content-center">
                     <div class="form-group">
                       <input
                         type="text"
@@ -229,6 +229,8 @@ function Blog_chats({ thread }) {
                         placeholder="Enter name"
                       />
                     </div>
+                    <br />
+                    <span>Select image</span>
                     <div className="form-group form-check-inline d-flex">
                       <div class="form-check">
                         <input
@@ -238,7 +240,7 @@ function Blog_chats({ thread }) {
                           id="flexRadioDefault1"
                         />
                         <label class={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
-                          <Image layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
+                          <Image alt="thread-image-select" layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
                         </label>
                       </div>
                       <div class="form-check">
@@ -250,7 +252,7 @@ function Blog_chats({ thread }) {
                           checked
                         />
                         <label class={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
-                          <Image layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
+                          <Image alt="thread-image-select1" layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
                         </label>
                       </div>
                       <div class="form-check">
@@ -262,10 +264,11 @@ function Blog_chats({ thread }) {
                           checked
                         />
                         <label class={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
-                          <Image layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
+                          <Image alt="thread-image-select2" layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
                         </label>
                       </div>
                     </div>
+                    <br />
                     <div class="form-group form-group-lg">
                       <textarea
                         type="text"
@@ -274,6 +277,8 @@ function Blog_chats({ thread }) {
                         placeholder="Enter message"
                       />
                     </div>
+                    <br />
+                    <input class="btn btn-outline-primary" type="submit" value="Submit" />
                   </form>
                 </div>
               </div>
