@@ -167,6 +167,7 @@ function Blog_chats({ thread }) {
                             width={70}
                             height={70}
                             src={orig + message.profile_image}
+                            alt="message profile"
                           />
                         </div>
                       </div>
@@ -221,10 +222,10 @@ function Blog_chats({ thread }) {
               >
                 <div className="col-9 col-md-4 w-100 h-80">
                   <form className="d-grid justify-content-center">
-                    <div class="form-group">
+                    <div className="form-group">
                       <input
                         type="text"
-                        class="form-control w-80"
+                        className="form-control w-80"
                         id="thread_username"
                         placeholder="Enter name"
                       />
@@ -232,53 +233,53 @@ function Blog_chats({ thread }) {
                     <br />
                     <span>Select image</span>
                     <div className="form-group form-check-inline d-flex">
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="radio"
                           name="flexRadioDefault"
                           id="flexRadioDefault1"
                         />
-                        <label class={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
+                        <label className={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
                           <Image alt="thread-image-select" layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
                         </label>
                       </div>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="radio"
                           name="flexRadioDefault"
                           id="flexRadioDefault2"
                           checked
                         />
-                        <label class={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
+                        <label className={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
                           <Image alt="thread-image-select1" layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
                         </label>
                       </div>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="radio"
                           name="flexRadioDefault"
                           id="flexRadioDefault3"
                           checked
                         />
-                        <label class={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
+                        <label className={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
                           <Image alt="thread-image-select2" layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
                         </label>
                       </div>
                     </div>
                     <br />
-                    <div class="form-group form-group-lg">
+                    <div className="form-group form-group-lg">
                       <textarea
                         type="text"
-                        class="form-control form-lg"
+                        className="form-control form-lg"
                         id="formGroupExampleInput2"
                         placeholder="Enter message"
                       />
                     </div>
                     <br />
-                    <input class="btn btn-outline-primary" type="submit" value="Submit" />
+                    <input className="btn btn-outline-primary" type="submit" value="Submit" />
                   </form>
                 </div>
               </div>
