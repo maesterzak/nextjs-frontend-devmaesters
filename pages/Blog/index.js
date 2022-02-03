@@ -2,14 +2,17 @@ import Head from "next/head";
 
 import Footer from "./blog_components/Footer";
 import { useEffect, useState } from "react";
-import styles from "./blog.module.css";
+import styles from "./blog_home.module.css";
 import Navbar from "./blog_components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandshake, faComment } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHandshake,
+  faComment,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 import { API_URL } from "../../config";
-
 
 export const getStaticProps = async () => {
   const response = await fetch(`${API_URL}/blog/posts/`);
@@ -27,7 +30,7 @@ export const getStaticProps = async () => {
 
 export const orig = `${API_URL}`;
 
-const Home = ({ posts, threads, cate }) => {
+const Home1 = ({ posts, threads, cate }) => {
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
@@ -44,51 +47,29 @@ const Home = ({ posts, threads, cate }) => {
     });
   }, []);
 
-  const mobile_screen_adds = (
-    <>
-      <div className="d-flex justify-content-center h-50 gap-1">
-        <div className={styles.add_box}></div>
-        <div className={styles.add_box}></div>
-      </div>
-      <br />
-      <div className="d-flex justify-content-center h-50 gap-1">
-        <div className={styles.add_box}></div>
-        <div className={styles.add_box}></div>
-      </div>
-    </>
-  );
-  const pc_screen_adds = (
-    <>
-      <div className="w-100 d-flex justify-content-center gap-1">
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-        <div className={styles.home_add_box}></div>
-      </div>
-    </>
-  );
-
   const pcscreen = (
     <>
-      {trending_posts.map(function (post, id) {
+      {posts.map(function (post, id) {
         return (
-          <div className={styles.trending_topics} key={id}>
+          <div
+            key={id}
+            className={`col-12 col-md-4 p-3 d-flex justify-content-center align-items-center  + ${styles.trending_box}`}
+          >
             <Image
               layout="fill"
-              objectFit="fill"
-              className="trending_image"
-              alt="trending image"
+              className={styles.img}
               src={orig + post.image}
+              alt="trending_post"
             />
-            <div className="dark_overlay"></div>
-            <a
-              href={"/Blog/" + post.id}
-              className={styles.trending_topics_text}
-            >
-              {post.title}
-            </a>
+            <div className={`${styles.dark_overlay}`}></div>
+
+            <div className={`${styles.trending_box_img_text}`}>
+              <h3 className={`text-center ${styles.post_box_heading}`}>
+                <a className={`${styles.w_link}`} href={"/"}>
+                  {post.title}
+                </a>
+              </h3>
+            </div>
           </div>
         );
       })}
@@ -116,7 +97,7 @@ const Home = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={"/images/image1.jpg"}
+                src={orig + trending_posts[0].image}
                 alt="First slide"
               />
               <div className="dark_overlay"></div>
@@ -135,7 +116,7 @@ const Home = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={"/images/image1.jpg"}
+                src={orig + trending_posts[1].image}
                 alt="Second slide"
               />
               <div className="dark_overlay"></div>
@@ -154,7 +135,7 @@ const Home = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={"/images/image1.jpg"}
+                src={orig + trending_posts[2].image}
                 alt="Third slide"
               />
               <div className="dark_overlay"></div>
@@ -204,171 +185,214 @@ const Home = ({ posts, threads, cate }) => {
       <Head>
         <title>SimpleLIFE | Blog Homepage</title>
         <meta name="keywords" content="Home" />
-
-        
-        
         <link rel="icon" href="/favicon1.ico" />
       </Head>
 
       <div>
-      <Navbar background='white' links='purple' icon='blue' header_color='black' />
-
-        <section>
-          <div className={styles.category_main}>
-            <div className={styles.trending}>
-              <div className="header_decor">
-                <h6>Trending Posts</h6>
-              </div>
-
-              <div className={styles.trending_list}>
-                {window_width >= 900 ? pcscreen : mobile_screen}
+        <Navbar
+          background="white"
+          links="purple"
+          icon="blue"
+          header_color="black"
+        />
+        <br />
+        <div className={`container mt-5 overflow-hidden `}>
+          <div className="main">
+            <div className={`row g-2 p-3 + ${styles.row_background}`}>
+              <div
+                className={`col-12 d-flex justify-content-center align-items-center ${styles.intro_box}`}
+              >
+                <Image layout="fill" src={"/images/image3.jpg"}  alt="home_image"/>
+                <div className={`${styles.dark_overlay}`}></div>
+                <div className={`${styles.intro_text}`}>
+                  <h1 className="text-light text-center">BLOG</h1>
+                  <span className="text-light text-center">Subscribe to get loads of programming <br /> tips and tricks 
+                  just for you</span>
+                  <div>
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        className="form-control"
+                        aria-label="Amount (to the nearest naira)"
+                      />
+                      <div className="input-group-append">
+                        <span className="input-group-text">search</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className={styles.main_body}>
-              <div id="Categories" className={styles.categories}>
-                <div className="categories">
-                  <div className="header_decor">
-                    <h6>Categories</h6>
-                  </div>
-                  <div className={styles.category_links}>
-                    {cate.map(function (category, id) {
-                      return (
-                        <div key={id}>
-                          <Link href={"Blog/category/" + category.name}>
-                            {category.name}
-                          </Link>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <ul className="list_text"></ul>
-                </div>
-              </div>
-              <div className={styles.post_for_you}>
-                <div className="header_decor">
-                  <h6>Post for you</h6>
-                </div>
-                <span>This part is still being updated</span>
-              </div>
-              <div className={styles.adds}>
-                <div className="header_decor">
-                  <h6>Adds</h6>
-                </div>
 
-                <div className="w-100 mt-1 ">
-                  {window_width >= 900 ? pc_screen_adds : mobile_screen_adds}
-                </div>
+            <div className={`row g-2 p-3 mt-3 + ${styles.row_background}`}>
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Trending Topics
+                </h1>
               </div>
-              <div className={styles.posts}>
-                <div className="header_decor">
-                  <h6>Latest Posts</h6>
-                </div>
-                <div className={styles.post_list} id="Latest_posts">
-                  {posts.map(function (post, id) {
-                    return (
-                      <div className={styles.post_body} key={id}>
-                        <div className={styles.post_image}>
-                          <Image
-                            layout="fill"
-                            objectFit="fill"
-                            alt="post image"
-                            className="post_image"
-                            src={orig + post.image}
-                          />
-                          <span className={styles.post_image_text}>
-                            {post.category.name}
-                          </span>
-                        </div>
-                        <div className={styles.post_text}>
-                          <h5>
-                            <b>{post.title}</b>
-                          </h5>
-                          <span
-                            dangerouslySetInnerHTML={{
-                              __html: truncate(post.body),
-                            }}
-                          />
-                        </div>
-                        <div className={styles.post_footer}>
-                          <span>
-                            <Link role="button" href={"/Blog/" + post.id}>
-                              Readmore
-                            </Link>
-                          </span>
-                          <span>
-                            {post.handshakes}{" "}
-                            <FontAwesomeIcon icon={faHandshake} />
-                          </span>
-                        </div>
+              {window_width >= 900 ? pcscreen : mobile_screen}
+            </div>
+          </div>
+          <div className={`row mt-3 p-3 + ${styles.row_background}`}>
+            <div className="col-12 col-md-4">
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Categories
+                </h1>
+              </div>
+              <div className="d-flex justify-content-around flex-wrap">
+                {cate.map(function (category, id) {
+                  return (
+                    <div className="p-2" key={id}>
+                      <Link href={"Blog/category/" + category.name}>
+                        {category.name}
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="col-12 col-md-4 offset-md-4">
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Post for you
+                </h1>
+              </div>
+              <h5 className="text-center">Comming soon</h5>
+              <span className="text-center">
+                Get posts tailored to your particular tastes{" "}
+              </span>
+            </div>
+          </div>
+          <div className={`row mt-3 p-3 + ${styles.row_background}`}>
+            <div
+              className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+            >
+              <h1 className={`text-center + ${styles.header_label_text}`}>
+                Adds
+              </h1>
+            </div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>h</div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>i</div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
+            <div className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}>k</div>
+            <div className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}>k</div>
+          </div>
+
+          <div className={`row mt-3 p-2 + ${styles.row_background}`}>
+            <div className="col-12 col-md-9">
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Latest Posts
+                </h1>
+              </div>
+              <div className={`row mt-3 p-2 + ${styles.row_background}`}>
+                {posts.map(function (post, id) {
+                  return (
+                    <div
+                      key={id}
+                      className={`col-12 col-md-4 + ${styles.post_box}`}
+                    >
+                      <div className={styles.post_box_img}>
+                        <Image
+                          layout="fill"
+                          objectFit="fill"
+                          alt="post image"
+                          className="post_image"
+                          src={orig + post.image}
+                        />
+                        <span className={styles.post_box_category}>
+                          {post.category.name}
+                        </span>
                       </div>
+                      <div className={styles.post_box_body}>
+                        <h1 className={styles.post_box_heading}>
+                          {post.title}
+                        </h1>
+                        <span
+                          className={styles.post_box_body_text}
+                          dangerouslySetInnerHTML={{
+                            __html: truncate(post.body),
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
+                      >
+                        <span>
+                          <Link role="button" href={"/Blog/" + post.id}>
+                            Readmore
+                          </Link>
+                        </span>
+                        <span>
+                        
+                          <FontAwesomeIcon
+                            width={20}
+                            height={20}
+                            icon={faHandshake}
+                          />
+                          {post.handshakes}
+                        </span>
+                        <span>By {post.author.name}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="col-12 col-md-3 ">
+              <div
+                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+              >
+                <h1 className={`text-center + ${styles.header_label_text}`}>
+                  Threads
+                </h1>
+              </div>
+              <div className="d-flex p-3">
+                <ul>
+                  {threads.map(function (thread, id) {
+                    return (
+                      <li
+                        key={id}
+                        className={`d-flex justify-content-between ${styles.thread_link}`}
+                      >
+                        <Link href={"Blog/thread/" + thread.id}>
+                          {thread.title}
+                        </Link>
+                        <div>
+                          <FontAwesomeIcon
+                            style={{
+                              height: "1em",
+                              color: "blue",
+                              marginLeft: "10px",
+                            }}
+                            icon={faComment}
+                          />
+                          {Object.keys(thread.thread_messages).length}
+                        </div>
+                      </li>
                     );
                   })}
-
-                  <div className={styles.post_body1}>
-                    <div className={styles.post_tex1t}>
-                      <h5>
-                        How This seven lines of code turned into a $36 billion
-                        empire
-                      </h5>
-                      <span>
-                        But I must explain to you how all this mistaken idea of
-                        denouncing pleasure and praising pain was born and I
-                        will give you a complete account of the
-                      </span>
-                    </div>
-
-                    <div className={styles.post_footer1}>
-                      <span>Footer</span>
-                    </div>
-                  </div>
-
-                  <div className={styles.post_body1}>
-                    <div className={styles.post_text}>
-                      <h5>
-                        How This seven lines of code turned into a $36 billion
-                        empire
-                      </h5>
-                      <span>
-                        But I must explain to you how all this mistaken idea of
-                        denouncing pleasure and praising pain was born and I
-                        will give you a complete account of the
-                      </span>
-                    </div>
-
-                    <div className={styles.post_footer}>
-                      <span>Footer</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="Open_threads" className={styles.open_threads}>
-                <div>
-                  <div className="header_decor">
-                    <h6>Threads</h6>
-                  </div>
-                  <ul>
-                    {threads.map(function (thread, id) {
-                      return (
-                        <li key={id} className="thread_link">
-                          <Link href={"Blog/thread/" + thread.id}>
-                            {thread.title} 
-                          </Link>
-                          <div>
-                          <FontAwesomeIcon style={{"height":"1em", "color":"blue"}} icon={faComment} />
-                          {Object.keys(thread.thread_messages).length}
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
+                </ul>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+        <div className="mt-3">
         <Footer />
+        </div>
       </div>
     </>
   );
 };
-export default Home;
+export default Home1;

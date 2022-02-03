@@ -25,7 +25,7 @@ export default function Home() {
           <h5>PAGE IS STILL BEING BUILT</h5>
           <div className="d-grid justify-content-center">
             <span>Some links are shown below click to visit page</span>
-            <span><Link href={'/Blog/home'}>Blog</Link></span>
+            <span><Link href={'/Blog'}>Blog</Link></span>
             <span><Link href={'/mini-mall'}>Mini-Mall</Link></span>
           </div>
         </div>

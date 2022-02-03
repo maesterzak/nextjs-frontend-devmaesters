@@ -5,9 +5,13 @@ body {
   
   font-family:'inter', Arial,BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: small;  
+  font-size: medium;  
   background-color: #dee2e6;
 
+}
+.btni{
+  
+  top:10%
 }
 
 /* new blog */
@@ -55,7 +59,8 @@ button{
   nav {
     width: 100%;
     
-    position: fixed;
+    
+    
   }
   .nav-header{
     
@@ -112,9 +117,7 @@ button{
   }
 }
 @media only screen and (min-width: 901px){
-  nav{
-    position: fixed;
-  }
+  
   .nav-header{
     
     font-size: medium;

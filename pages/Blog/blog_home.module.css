@@ -23,6 +23,15 @@
     background-color: rgba(102, 51, 153, 0.747);
     color: white;
 }
+.thread_message{
+    border: solid rgba(102, 51, 153, 0.747) ;
+}
+.thread_message_image{
+    border: solid rgba(102, 51, 153, 0.747) ;
+}
+.thread_add_message_box{
+    background-color: white;
+}
 /* end of color designs*/
 .intro_box{
     height: 50vh;
@@ -51,7 +60,7 @@
 }
 .trending_box:hover .img{
     
-    border: solid greenyellow;
+    
     transform: scale(0.8);
     
 }
@@ -66,6 +75,15 @@
     position: absolute;
     
 }
+.dark_overlay2{
+    background-color: rgba(0, 0, 0, 0.685);
+    width: 40vw;
+    height: 70vh;
+    position: fixed;
+    right: 30vw;
+    
+}
+
 .add_box1{
     height: 25vh;
     border: black solid;
@@ -110,3 +128,50 @@
 .thread_link{
     color: royalblue;
 }
+.threads_body{
+    
+}
+.threads_rightbar{
+   
+    position: sticky;
+    
+}
+.threads_leftbar{
+    
+    max-height: 70vh;
+    
+}
+.thread_message_image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+    overflow: hidden;
+    
+}
+.thread_message{
+    
+}
+.thread_add_message_box{
+    
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    
+    
+}
+.close_btn{
+    position: absolute;
+    top:-25%;
+    right:-5%;
+}
+@media only screen and (max-width: 760px)  {
+    .dark_overlay2{
+        
+        width: 80vw;
+        height: 80vh;
+        position: fixed;
+        left: 10vw;
+        
+    }
+}    

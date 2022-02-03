@@ -7,13 +7,14 @@ const Footer = () =>{
                 <div className="row g-3">
 
                 
-                <div className="col-6 col-md-4 d-grid justify-content-center">
-                    <h5 className="text-light">Services offered</h5>
+                <div className="col-12 col-md-6 d-grid justify-content-center">
+                    <h4 className="text-light text-center">Services </h4>
                     <ul className="text-light">
                         <li>UiUx Designs</li>
                         <li>Frontend Development</li>
                         <li>Backend Development</li>
                         <li>Full Website Development</li>
+                        <li>Bootstrap Website upgrades</li>
                         <li>Mobile App Development</li>
                         <li>Mobile App Designs</li>
                         <li>Website Selling</li>
@@ -21,19 +22,7 @@ const Footer = () =>{
                         <li>Website Hosting</li>
                     </ul>
                 </div>
-                <div className="col-6 col-md-4 d-grid align-items-start   justify-content-center">
-                    <h5 className="text-light">Skills </h5>
-                    <ul className="text-light ">
-                        <li>Django framework</li>
-                        <li>Reactjs</li>
-                        <li>Nextjs</li>
-                        <li>Adobe XD</li>
-                        <li>Figma</li>
-                        <li>Nodejs</li>
-                        <li>Laravel</li>
-                        <li>Flutter</li>
-                    </ul>
-                </div>
+                
                 <div style={{"fontWeight":"bold"}} className="col-12 col-md-4 d-grid justify-content-center">
                     <h5 className="text-light text-center">Contact</h5>
                     <div className="text-light">
