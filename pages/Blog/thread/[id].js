@@ -240,7 +240,7 @@ function Blog_chats({ thread }) {
                           name="flexRadioDefault"
                           id="flexRadioDefault1"
                         />
-                        <label className={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
+                        <label className={`form-check-label ${styles.thread_message_image}`} htmlFor="flexRadioDefault1">
                           <Image alt="thread-image-select" layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
                         </label>
                       </div>
@@ -252,7 +252,7 @@ function Blog_chats({ thread }) {
                           id="flexRadioDefault2"
                           checked
                         />
-                        <label className={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
+                        <label className={`form-check-label ${styles.thread_message_image}`} htmlFor="flexRadioDefault1">
                           <Image alt="thread-image-select1" layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
                         </label>
                       </div>
@@ -264,7 +264,7 @@ function Blog_chats({ thread }) {
                           id="flexRadioDefault3"
                           checked
                         />
-                        <label className={`form-check-label ${styles.thread_message_image}`} for="flexRadioDefault1">
+                        <label className={`form-check-label ${styles.thread_message_image}`} htmlFor="flexRadioDefault1">
                           <Image alt="thread-image-select2" layout="responsive" width={'40px'} height={'40px'} src={'/images/image2.jpg'} />
                         </label>
                       </div>
