@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faTwitterSquare, faLinkedinIn, faFacebookSquare, faWhatsappSquare, faInstagramSquare
+  } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 
 const Footer = () =>{
@@ -19,7 +23,7 @@ const Footer = () =>{
                         
                         <li>Website Selling</li>
                         <li>Website Debbugging</li>
-                        <li>Website Hosting</li>
+                        <li>Website Hosting & deployment</li>
                     </ul>
                 </div>
                 
@@ -32,8 +36,16 @@ const Footer = () =>{
                         <ul>
                             <li>tel: 08062257480</li>
                             <li>Email: abubakarzakri1703@gmail.com</li>
+
                         </ul>
-                        <span>Checkout my <Link href={'/'}>Portfolio</Link> to see my past projects</span>
+                        <span><FontAwesomeIcon width={40} height={40} icon={faTwitterSquare} />
+                        <FontAwesomeIcon width={40} height={40} icon={faFacebookSquare} />
+                        <FontAwesomeIcon width={40} height={40} icon={faWhatsappSquare} />
+                        <FontAwesomeIcon width={40} height={40} icon={faLinkedinIn} />
+                        <FontAwesomeIcon width={40} height={40} icon={faInstagramSquare} />
+                        </span>
+                        <br />
+                        <span>Checkout my <span style={{"color":"#0d6efd"}}><Link href={'/'}>Portfolio</Link></span> to see my past projects</span>
                     </div>
                 </div>
                 </div>

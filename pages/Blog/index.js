@@ -49,7 +49,7 @@ const Home1 = ({ posts, threads, cate }) => {
 
   const pcscreen = (
     <>
-      {posts.map(function (post, id) {
+      {trending_posts.map(function (post, id) {
         return (
           <div
             key={id}
@@ -179,6 +179,9 @@ const Home1 = ({ posts, threads, cate }) => {
       </div>
     </>
   );
+  
+  
+  
 
   return (
     <>
@@ -190,11 +193,14 @@ const Home1 = ({ posts, threads, cate }) => {
 
       <div>
         <Navbar
-          background="white"
-          links="purple"
-          icon="blue"
-          header_color="black"
+          
+          links="white"
+          icon="white"
+          header_color="white"
         />
+        
+
+        
         <br />
         <div className={`container mt-5 overflow-hidden `}>
           <div className="main">
@@ -247,7 +253,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <div className="d-flex justify-content-around flex-wrap">
                 {cate.map(function (category, id) {
                   return (
-                    <div className="p-2" key={id}>
+                    <div className="p-2 blog-link" key={id}>
                       <Link href={"Blog/category/" + category.name}>
                         {category.name}
                       </Link>
@@ -288,7 +294,7 @@ const Home1 = ({ posts, threads, cate }) => {
           </div>
 
           <div className={`row mt-3 p-2 + ${styles.row_background}`}>
-            <div className="col-12 col-md-9">
+            <div id="latestPosts" className="col-12 col-md-12">
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
@@ -329,7 +335,7 @@ const Home1 = ({ posts, threads, cate }) => {
                       <div
                         className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
                       >
-                        <span>
+                        <span  className="blog-link">
                           <Link role="button" href={"/Blog/" + post.id}>
                             Readmore
                           </Link>
@@ -350,7 +356,7 @@ const Home1 = ({ posts, threads, cate }) => {
                 })}
               </div>
             </div>
-            <div className="col-12 col-md-3 ">
+            <div id="threads"  className="col-12 col-md-12 ">
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
@@ -358,23 +364,23 @@ const Home1 = ({ posts, threads, cate }) => {
                   Threads
                 </h1>
               </div>
-              <div className="d-flex p-3">
+              <div className=" p-3 ">
                 <ul>
                   {threads.map(function (thread, id) {
                     return (
                       <li
                         key={id}
-                        className={` ${styles.thread_link}`}
+                        className={`mb-3 ${styles.thread_link}`}
                       >
-                        <div className="row">
+                        <div className="row w-100">
 
                         
-                        <div className="col-10 align-content-end">
+                        <div className="col-11">
                         <Link href={"Blog/thread/" + thread.id}>
                           {thread.title}
                         </Link>
                         </div>
-                        <div className="col-2">
+                        <div className="col-1">
                           <FontAwesomeIcon
                             style={{
                               height: "1em",
@@ -394,7 +400,7 @@ const Home1 = ({ posts, threads, cate }) => {
             </div>
           </div>
         </div>
-        <div className="mt-3">
+        <div className="mt-3 container g-0">
         <Footer />
         </div>
       </div>

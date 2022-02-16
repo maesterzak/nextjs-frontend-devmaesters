@@ -50,15 +50,15 @@ function category_list({ category_posts, name }) {
       <div>
         <Navbar
           background="white"
-          links="purple"
-          icon="blue"
-          header_color="black"
+          links="white"
+          icon="white"
+          header_color="white"
         />
         <div className="container ">
           <div className={`${styles.main}`}>
             <div className="row">
-              <div className="col-12 col-md-4">
-                <div className={`row mt-3 p-3 + ${styles.row_background}`}>
+              <div className="col-12 col-md-3">
+                <div className={`row mt-3 p-3 sticky-top + ${styles.row_background}`}>
                   <div
                     className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                   >
@@ -66,23 +66,14 @@ function category_list({ category_posts, name }) {
                       Adds
                     </h1>
                   </div>
-                  <div className={`col-6 col-md-4 + ${styles.add_box1}`}>h</div>
-                  <div className={`col-6 col-md-4 + ${styles.add_box1}`}>i</div>
-                  <div className={`col-6 col-md-4 + ${styles.add_box1}`}>k</div>
-                  <div className={`col-6 col-md-4 + ${styles.add_box1}`}>k</div>
-                  <div
-                    className={`col-6 col-md-4 d-none d-md-block + ${styles.add_box1}`}
-                  >
-                    k
-                  </div>
-                  <div
-                    className={`col-6 col-md-4 d-none d-md-block + ${styles.add_box1}`}
-                  >
-                    k
-                  </div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>h</div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>i</div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
+                 
                 </div>
               </div>
-              <div className="col-12 col-md-8">
+              <div className="col-12 col-md-9">
                 <div className={`row mt-3 p-2 + ${styles.row_background}`}>
                 <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
@@ -95,7 +86,7 @@ function category_list({ category_posts, name }) {
                     return (
                       <div
                         key={id}
-                        className={`col-12 col-md-4 + ${styles.post_box}`}
+                        className={`col-12 col-md-6 + ${styles.post_box}`}
                       >
                         <div className={styles.post_box_img}>
                           <Image
@@ -146,7 +137,7 @@ function category_list({ category_posts, name }) {
             </div>
           </div>
         </div>
-        <div className="mt-3">
+        <div className="mt-3 container g-0">
         <Footer />
         </div>
         

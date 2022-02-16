@@ -105,9 +105,9 @@ function Blog_chats({ thread }) {
       <div>
         <Navbar
           background="white"
-          links="purple"
-          icon="blue"
-          header_color="black"
+          links="white"
+          icon="white"
+          header_color="white"
         />
         <div className="container">
           <div className="sticky-top d-flex  justify-content-end top-3">

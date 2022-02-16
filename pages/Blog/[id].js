@@ -49,7 +49,12 @@ const post_detail = ({ post }) => {
         <link rel="icon" href="/favicon1.ico" />
       </Head>
     <div>
-      <Navbar />
+    <Navbar
+          
+          links="white"
+          icon="white"
+          header_color="white"
+        />
       <div className="post_detail">
         <div className={styles.main}>
           <h5><b>{post.title}</b></h5>

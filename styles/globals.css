@@ -32,9 +32,13 @@ h6 {
 }
 
 a {
-  color: #0d6efd;
+  color: unset;
   text-decoration: none;
 }
+.blog-link{
+  color: blue;
+}
+
 
 button{
   width: fit-content;
@@ -48,6 +52,7 @@ button{
 }
 .nav-header {
   font-weight: bolder;
+  color: white;
   
   
 }
@@ -63,11 +68,9 @@ button{
     
   }
   .nav-header{
-    
+    color: white;
     font-size: medium;
     margin-left: 5%;
-    
-    
   }
   
   .nav-links{
@@ -78,22 +81,32 @@ button{
   .post_detail{
     flex-direction: column;
   }
+  .dark_overlay3{
+    width: 100vw;
+    height: 100vh;
+    background-color: #212529a2;
+    top:0;
+    
+    z-index: 999;
+    padding-top: 10px;
+    position: fixed;
+    
+  }
   .nav-toggle-links1{
     z-index: 999;
     padding-top: 10px;
     padding-bottom: 10px;
     position: fixed;
-    top:8%;
+    top:10%;
     right: 2%;
-    width: 90%;
-    
+    width: 60%;
     font-weight: bolder;
-    
-    height: 90vh;
-    
-    background: linear-gradient(45deg,#303f9f,#7b1fa2);
+    height: 80vh;
+    border: #303f9f solid 2px;
+    background: white;
     animation: nav_view1 0.5s ease-in forwards;
     opacity: 0;
+    
   }
   @keyframes nav_view1 {
     100%{
@@ -123,6 +136,7 @@ button{
     font-size: xx-large;
     margin-left: 5%;
     
+    
   }
   .nav-links{
     text-decoration: none;
@@ -145,7 +159,7 @@ button{
     display: flex;
     flex-direction: column;
     font-weight: bolder;
-    background: linear-gradient(45deg,#303f9f,#7b1fa2);;;
+    border: 2px solid black;
     justify-content: center;
     align-items: center;
     z-index:999;
@@ -297,7 +311,7 @@ footer{
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 10px;
-  color: #F5F5F5;
+  
   border: white solid 2px;
   width: 100%;
   border-radius: 10px;
@@ -351,7 +365,7 @@ footer{
   margin-top: 6vh;
 }
 .faHardHat{
-  color: white;
+  color: #303f9f;
   height: 1.5em;
   width: 1.5em;
 }

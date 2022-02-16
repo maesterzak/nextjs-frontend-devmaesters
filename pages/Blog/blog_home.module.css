@@ -109,7 +109,7 @@
     padding: 0.5em;
 }
 .post_box_body_text{
-    font-size: small;
+    font-size: medium;
 }
 .post_box_category{
     position: absolute;
@@ -127,6 +127,9 @@
 }
 .thread_link{
     color: royalblue;
+    width: 100%;
+    border-bottom: 2px royalblue solid;
+    
 }
 .threads_body{
     
@@ -174,17 +177,19 @@
 @media only screen and (max-width: 760px)  {
     .dark_overlay2{
         
-        width: 80vw;
-        height: 80vh;
+        width: 90vw;
+        height: 90vh;
         position: fixed;
-        left: 10vw;
+        left: 5vw;
+        top: 7vw;
         
     }
+    
     .thread_add_message_box{
     
         
-        width: 78vw;
-        height: 75vh;
+        width: 80vw;
+        height: 85vh;
     }
     .thread_form{
         height: 100%;

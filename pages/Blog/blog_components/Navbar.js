@@ -59,7 +59,7 @@ const Navbar = (props) => {
         
           </div>
           <div className="col-6 col-md-5 d-none d-md-block ">
-            <div className="d-flex justify-content-between align-items-center h-100">
+            <div style={{"color": `${props.links}`}} className="d-flex justify-content-between align-items-center h-100">
             <div><Link href={'/'}>Home</Link></div>
             <div><Link href={'/Blog'}>Blog</Link></div>
             <div><Link href={'/'}>Portfolio</Link></div>
@@ -76,8 +76,8 @@ const Navbar = (props) => {
           <div className="d-flex w-100 align-items-center justify-content-around">
             <FontAwesomeIcon style={{"height":"1em","color":`${props.icon}`}} icon={faUser} />
             
-            <button className="btn btn-outline-primary d-none d-md-block">Login</button>
-            <button className="btn btn-outline-primary d-none d-md-block">Register</button>
+            <button className="btn btn-outline-light d-none d-md-block">Login</button>
+            <button className="btn btn-outline-light d-none d-md-block">Register</button>
           </div>
           <div className="d-block d-sm-none" onClick={ToggleNav1}>
             <FontAwesomeIcon
@@ -92,11 +92,15 @@ const Navbar = (props) => {
         </div>
 
 
+
         
 
         
       </nav>
-      <div className={Navbar1 ? "nav-toggle-links1 d-flex  justify-content-center flex-wrap vh-80" : "d-none"}>
+      <div  className={Navbar1 ? "nav-background": "d-none"}>
+        <div onClick={ToggleNav1} className="dark_overlay3"></div>
+      <div className="nav-toggle-links1 blog-link d-flex  justify-content-center flex-wrap vh-80">
+        
         <div className="nav-toggle-link-link d-flex align-items-center  justify-content-center">
           <Link href="/">
             <a>Home</a>
@@ -123,10 +127,12 @@ const Navbar = (props) => {
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
         {isAuthenticated ? authlink : guest}
-        <div className="d-flex justify-content-center">
-        <button className="btn btn-outline-light d-block d-sm-none link-btn">Become an Author</button>
-        </div>
+        
       </div>
+
+      </div>
+      
+      
       
     </div>
   );
