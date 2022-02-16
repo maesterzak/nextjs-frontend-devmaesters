@@ -10,13 +10,13 @@ const Footer = () =>{
                 <div className="col-12 col-md-6 d-grid justify-content-center">
                     <h4 className="text-light text-center">Services </h4>
                     <ul className="text-light">
-                        <li>UiUx Designs</li>
+                        
                         <li>Frontend Development</li>
                         <li>Backend Development</li>
                         <li>Full Website Development</li>
                         <li>Bootstrap Website upgrades</li>
                         <li>Mobile App Development</li>
-                        <li>Mobile App Designs</li>
+                        
                         <li>Website Selling</li>
                         <li>Website Debbugging</li>
                         <li>Website Hosting</li>

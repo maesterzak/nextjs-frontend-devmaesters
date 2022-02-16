@@ -77,8 +77,8 @@
 }
 .dark_overlay2{
     background-color: rgba(0, 0, 0, 0.685);
-    width: 40vw;
-    height: 70vh;
+    width: 42vw;
+    height: 80vh;
     position: fixed;
     right: 30vw;
     
@@ -86,7 +86,7 @@
 
 .add_box1{
     height: 25vh;
-    border: black solid;
+    border:  solid 0.5px black;
 }
 .post_box{
     height: auto;
@@ -154,11 +154,17 @@
 }
 .thread_add_message_box{
     
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    
-    
+    position: relative;
+    width: 40vw;
+    height: 70vh;
+}
+.thread_form{
+    height: 100%;
+    width: 100%;
+} 
+.thread_input{
+    width: 100%;
+    height: 20%;
 }
 .close_btn{
     position: absolute;
@@ -174,4 +180,16 @@
         left: 10vw;
         
     }
-}    
+    .thread_add_message_box{
+    
+        
+        width: 78vw;
+        height: 75vh;
+    }
+    .thread_form{
+        height: 100%;
+        width: 100%;
+       
+    } 
+}
+   

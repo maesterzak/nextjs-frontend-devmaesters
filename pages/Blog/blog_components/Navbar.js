@@ -49,16 +49,16 @@ const Navbar = (props) => {
     <div>
       <nav className={`position-sticky`} style={{"backgroundColor":`${props.background}`}}>
         <div className="row w-100">
-          <div className="col-8 col-md-2 d-flex align-items-center">
+          <div className="col-8 col-md-4 d-flex align-items-center">
           
           
 
           <div className="nav-header" style={{"color":`${props.header_color}`}}>
-            <span>devMAESTERS</span>
+            <span>devMAESTERS.</span>
           </div>
         
           </div>
-          <div className="col-6 col-md-7 d-none d-md-block ">
+          <div className="col-6 col-md-5 d-none d-md-block ">
             <div className="d-flex justify-content-between align-items-center h-100">
             <div><Link href={'/'}>Home</Link></div>
             <div><Link href={'/Blog'}>Blog</Link></div>
@@ -76,7 +76,8 @@ const Navbar = (props) => {
           <div className="d-flex w-100 align-items-center justify-content-around">
             <FontAwesomeIcon style={{"height":"1em","color":`${props.icon}`}} icon={faUser} />
             
-            <button className="btn btn-outline-primary d-none d-md-block">Become an Author</button>
+            <button className="btn btn-outline-primary d-none d-md-block">Login</button>
+            <button className="btn btn-outline-primary d-none d-md-block">Register</button>
           </div>
           <div className="d-block d-sm-none" onClick={ToggleNav1}>
             <FontAwesomeIcon
@@ -110,7 +111,7 @@ const Navbar = (props) => {
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-          <Link href="/">Repository</Link>
+          <Link href="/">Portfolio</Link>
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">

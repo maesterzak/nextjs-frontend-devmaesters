@@ -58,7 +58,7 @@ const Home1 = ({ posts, threads, cate }) => {
             <Image
               layout="fill"
               className={styles.img}
-              src={post.image}
+              src={orig + post.image}
               alt="trending_post"
             />
             <div className={`${styles.dark_overlay}`}></div>
@@ -97,7 +97,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={trending_posts[0].image}
+                src={orig + trending_posts[0].image}
                 alt="First slide"
               />
               <div className="dark_overlay"></div>
@@ -116,7 +116,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={trending_posts[1].image}
+                src={orig + trending_posts[1].image}
                 alt="Second slide"
               />
               <div className="dark_overlay"></div>
@@ -135,7 +135,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={trending_posts[2].image}
+                src={orig + trending_posts[2].image}
                 alt="Third slide"
               />
               <div className="dark_overlay"></div>
@@ -271,7 +271,7 @@ const Home1 = ({ posts, threads, cate }) => {
               </span>
             </div>
           </div>
-          <div className={`row mt-3 p-3 + ${styles.row_background}`}>
+          <div className={`row mt-3  p-3 + ${styles.row_background}`}>
             <div
               className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
             >
@@ -309,7 +309,7 @@ const Home1 = ({ posts, threads, cate }) => {
                           objectFit="fill"
                           alt="post image"
                           className="post_image"
-                          src={post.image}
+                          src={orig + post.image}
                         />
                         <span className={styles.post_box_category}>
                           {post.category.name}
@@ -364,12 +364,17 @@ const Home1 = ({ posts, threads, cate }) => {
                     return (
                       <li
                         key={id}
-                        className={`d-flex justify-content-between ${styles.thread_link}`}
+                        className={` ${styles.thread_link}`}
                       >
+                        <div className="row">
+
+                        
+                        <div className="col-10 align-content-end">
                         <Link href={"Blog/thread/" + thread.id}>
                           {thread.title}
                         </Link>
-                        <div>
+                        </div>
+                        <div className="col-2">
                           <FontAwesomeIcon
                             style={{
                               height: "1em",
@@ -377,8 +382,9 @@ const Home1 = ({ posts, threads, cate }) => {
                               marginLeft: "10px",
                             }}
                             icon={faComment}
-                          />
-                          {Object.keys(thread.thread_messages).length}
+                          /><sup>{Object.keys(thread.thread_messages).length}</sup>
+                          
+                        </div>
                         </div>
                       </li>
                     );

@@ -9,10 +9,11 @@ import Layout from './Blog/blog_components/Layout';
 import { useEffect } from "react";
 import { Provider } from 'react-redux'
 import { useStore } from '../store'
-
+import Head from "next/head";
 
 
 function MyApp({ Component, pageProps }) {
+  
   const router = useRouter()
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -26,11 +27,16 @@ function MyApp({ Component, pageProps }) {
    
   const store = useStore(pageProps.initialReduxState)
   return (
+    <>
+    <Head>
+      
+    </Head>
     <Provider store={store}>
       <Layout>
       <Component {...pageProps} />  
       </Layout>
       </Provider>  
+      </>
   )
 }
 
