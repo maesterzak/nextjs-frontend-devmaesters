@@ -128,8 +128,8 @@ function Post_detail({ post }) {
                     <span>Thanks for reading</span>
                   </div>
                   <div
-                    className="col-2"
-                    className={`d-flex align-items-center justify-content-center btn ${styles.sharebutton}`}
+                    
+                    className={`col-2 d-flex align-items-center justify-content-center btn ${styles.sharebutton}`}
                   >
                     <FontAwesomeIcon style={{ height: "2em" }} icon={faShare} />
                   </div>
@@ -148,10 +148,11 @@ function Post_detail({ post }) {
                 <div className="col-12 col-md-4 d-flex justify-content-center">
                   <div className={`${styles.author_profile_pic}`}>
                     <Image
+                      alt="author-image"
                       width="100%"
                       height="100%"
                       layout="responsive"
-                      src={"/images/home-2.png"}
+                      src={post.author.profile_image}
                     />
                   </div>
                 </div>
