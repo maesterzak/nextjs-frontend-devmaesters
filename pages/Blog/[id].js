@@ -59,7 +59,7 @@ const createComment = async (activeitem) => {
   alert("Comment added");
 };
 
-function post_detail({ post }) {
+function Post_detail({ post }) {
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
@@ -446,4 +446,4 @@ function post_detail({ post }) {
     </>
   );
 };
-export default post_detail;
+export default Post_detail;
