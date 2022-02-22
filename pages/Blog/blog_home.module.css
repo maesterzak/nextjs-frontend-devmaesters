@@ -19,6 +19,23 @@
     color: #0d6efd;
     border: white solid;
 }
+.sharebutton{
+    
+    background-color: unset;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    border: #7b1fa2 solid 1px;
+
+}
+.sharebutton:hover{
+    transform:scale(120%);
+}
+.faHandshake{
+    width: 1em;
+    height: 1em;
+}
+
 .post_box_category{
     background-color: rgba(102, 51, 153, 0.747);
     color: white;
@@ -174,7 +191,26 @@
     top:-25%;
     right:-5%;
 }
+.adds_container{
+    position: sticky;
+    top: 0;
+}
+.post_detail_page{
+    min-height: 50vh;
+    font-size: medium;
+}
+.author_profile_pic{
+    width: 11em;
+    height: 11em;
+    border: #0d6efd solid 2px;
+    border-radius: 50%;
+    object-fit: contain;
+    overflow: hidden;
+}
 @media only screen and (max-width: 760px)  {
+    .adds_container{
+        position: static;
+    }
     .dark_overlay2{
         
         width: 90vw;

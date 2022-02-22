@@ -76,8 +76,8 @@ const Navbar = (props) => {
           <div className="d-flex w-100 align-items-center justify-content-around">
             <FontAwesomeIcon style={{"height":"1em","color":`${props.icon}`}} icon={faUser} />
             
-            <button className="btn btn-outline-light d-none d-md-block">Login</button>
-            <button className="btn btn-outline-light d-none d-md-block">Register</button>
+            <button className="btn btn-outline-light d-none d-md-block"><Link href={'/login'}>Login</Link></button>
+            <button className="btn btn-outline-light d-none d-md-block"><Link href={'/register'}>Register</Link></button>
           </div>
           <div className="d-block d-sm-none" onClick={ToggleNav1}>
             <FontAwesomeIcon

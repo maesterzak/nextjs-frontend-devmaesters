@@ -58,7 +58,9 @@ function category_list({ category_posts, name }) {
           <div className={`${styles.main}`}>
             <div className="row">
               <div className="col-12 col-md-3">
-                <div className={`row mt-3 p-3 sticky-top + ${styles.row_background}`}>
+                <div
+                  className={`row mt-3 p-3 + ${styles.row_background} + ${styles.adds_container}`}
+                >
                   <div
                     className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                   >
@@ -70,18 +72,17 @@ function category_list({ category_posts, name }) {
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}>i</div>
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
-                 
                 </div>
               </div>
               <div className="col-12 col-md-9">
                 <div className={`row mt-3 p-2 + ${styles.row_background}`}>
-                <div
-                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
-              >
-                <h1 className={`text-center + ${styles.header_label_text}`}>
-                  Posts under {name} category
-                </h1>
-              </div>
+                  <div
+                    className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+                  >
+                    <h1 className={`text-center + ${styles.header_label_text}`}>
+                      Posts under {name} category
+                    </h1>
+                  </div>
                   {category_posts.map(function (post, id) {
                     return (
                       <div
@@ -109,12 +110,12 @@ function category_list({ category_posts, name }) {
                             dangerouslySetInnerHTML={{
                               __html: truncate(post.body),
                             }}
-                          />
+                          ></span>
                         </div>
                         <div
                           className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
                         >
-                          <span>
+                          <span className="blog-link">
                             <Link role="button" href={"/Blog/" + post.id}>
                               Readmore
                             </Link>
@@ -138,9 +139,8 @@ function category_list({ category_posts, name }) {
           </div>
         </div>
         <div className="mt-3 container g-0">
-        <Footer />
+          <Footer />
         </div>
-        
       </div>
     </>
   );

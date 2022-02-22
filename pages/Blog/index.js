@@ -58,14 +58,14 @@ const Home1 = ({ posts, threads, cate }) => {
             <Image
               layout="fill"
               className={styles.img}
-              src={orig + post.image}
+              src={post.image}
               alt="trending_post"
             />
             <div className={`${styles.dark_overlay}`}></div>
 
             <div className={`${styles.trending_box_img_text}`}>
               <h3 className={`text-center ${styles.post_box_heading}`}>
-                <a className={`${styles.w_link}`} href={"/"}>
+                <a className={`${styles.w_link}`} href={"/Blog/" + post.id}>
                   {post.title}
                 </a>
               </h3>
@@ -97,7 +97,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={orig + trending_posts[0].image}
+                src={trending_posts[0].image}
                 alt="First slide"
               />
               <div className="dark_overlay"></div>
@@ -116,7 +116,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={orig + trending_posts[1].image}
+                src={trending_posts[1].image}
                 alt="Second slide"
               />
               <div className="dark_overlay"></div>
@@ -135,7 +135,7 @@ const Home1 = ({ posts, threads, cate }) => {
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={orig + trending_posts[2].image}
+                src={trending_posts[2].image}
                 alt="Third slide"
               />
               <div className="dark_overlay"></div>
@@ -254,7 +254,7 @@ const Home1 = ({ posts, threads, cate }) => {
                 {cate.map(function (category, id) {
                   return (
                     <div className="p-2 blog-link" key={id}>
-                      <Link href={"Blog/category/" + category.name}>
+                      <Link href={"/Blog/category/" + category.name}>
                         {category.name}
                       </Link>
                     </div>
@@ -315,7 +315,7 @@ const Home1 = ({ posts, threads, cate }) => {
                           objectFit="fill"
                           alt="post image"
                           className="post_image"
-                          src={orig + post.image}
+                          src={post.image}
                         />
                         <span className={styles.post_box_category}>
                           {post.category.name}
@@ -330,7 +330,7 @@ const Home1 = ({ posts, threads, cate }) => {
                           dangerouslySetInnerHTML={{
                             __html: truncate(post.body),
                           }}
-                        />
+                        ></span>
                       </div>
                       <div
                         className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
@@ -375,17 +375,16 @@ const Home1 = ({ posts, threads, cate }) => {
                         <div className="row w-100">
 
                         
-                        <div className="col-11">
+                        <div className="col-10 col-md-11">
                         <Link href={"Blog/thread/" + thread.id}>
                           {thread.title}
                         </Link>
                         </div>
-                        <div className="col-1">
+                        <div className="col-2 col-md-1">
                           <FontAwesomeIcon
                             style={{
                               height: "1em",
                               color: "blue",
-                              marginLeft: "10px",
                             }}
                             icon={faComment}
                           /><sup>{Object.keys(thread.thread_messages).length}</sup>
