@@ -152,7 +152,7 @@ function Post_detail({ post }) {
                       width="100%"
                       height="100%"
                       layout="responsive"
-                      src={post.author.profile_image}
+                      src={orig + post.author.profile_image}
                     />
                   </div>
                 </div>

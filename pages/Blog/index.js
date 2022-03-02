@@ -58,7 +58,7 @@ const Home1 = ({ posts, threads, cate }) => {
             <Image
               layout="fill"
               className={styles.img}
-              src={post.image}
+              src={orig + post.image}
               alt="trending_post"
             />
             <div className={`${styles.dark_overlay}`}></div>
@@ -93,63 +93,29 @@ const Home1 = ({ posts, threads, cate }) => {
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
           <div className="carousel-inner trending_post_container">
-            <div className="carousel-item active h-100">
+            {trending_posts.map(function(trending_post, id){
+              return(
+                <div key={id} className="carousel-item active h-100">
               <Image
                 layout="fill"
                 className="d-block w-100 h-100"
-                src={trending_posts[0].image}
+                src={orig + trending_post.image}
                 alt="First slide"
               />
               <div className="dark_overlay"></div>
               <div className="carousel-caption text-light">
                 <h5>
                   <a
-                    href={"/Blog/" + trending_posts[0].id}
+                    href={"/Blog/" + trending_post.id}
                     className={styles.mobile_trending_text}
                   >
-                    {trending_posts[0].title}
+                    {trending_post.title}
                   </a>
                 </h5>
               </div>
             </div>
-            <div className="carousel-item h-100">
-              <Image
-                layout="fill"
-                className="d-block w-100 h-100"
-                src={trending_posts[1].image}
-                alt="Second slide"
-              />
-              <div className="dark_overlay"></div>
-              <div className="carousel-caption text-light">
-                <h5>
-                  <a
-                    href={"/Blog/" + trending_posts[1].id}
-                    className={styles.mobile_trending_text}
-                  >
-                    {trending_posts[1].title}
-                  </a>
-                </h5>
-              </div>
-            </div>
-            <div className="carousel-item h-100">
-              <Image
-                layout="fill"
-                className="d-block w-100 h-100"
-                src={trending_posts[2].image}
-                alt="Third slide"
-              />
-              <div className="dark_overlay"></div>
-              <div className="carousel-caption text-light">
-                <h5>
-                  <a
-                    href={"/Blog/" + trending_posts[2].id}
-                    className={styles.mobile_trending_text}
-                  >
-                    {trending_posts[2].title}
-                  </a>
-                </h5>
-              </div>
-            </div>
+              )
+            })}
           </div>
           <a
             className="carousel-control-prev"
@@ -189,6 +155,7 @@ const Home1 = ({ posts, threads, cate }) => {
         <title>SimpleLIFE | Blog Homepage</title>
         <meta name="keywords" content="Home" />
         <link rel="icon" href="/favicon1.ico" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       </Head>
 
       <div>
@@ -315,7 +282,7 @@ const Home1 = ({ posts, threads, cate }) => {
                           objectFit="fill"
                           alt="post image"
                           className="post_image"
-                          src={post.image}
+                          src={orig + post.image}
                         />
                         <span className={styles.post_box_category}>
                           {post.category.name}
@@ -376,7 +343,7 @@ const Home1 = ({ posts, threads, cate }) => {
 
                         
                         <div className="col-10 col-md-11">
-                        <Link href={"Blog/thread/" + thread.id}>
+                        <Link href={"/Blog/thread/" + thread.id}>
                           {thread.title}
                         </Link>
                         </div>

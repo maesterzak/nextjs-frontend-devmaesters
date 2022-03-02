@@ -65,7 +65,7 @@ function Blog_chats({ thread }) {
     var formData = new FormData(e.target);
 
     const form_values = Object.fromEntries(formData);
-    console.log(form_values);
+    
     const activeitem = {
       name: form_values.thread_name,
       body: form_values.thread_body,
@@ -74,7 +74,7 @@ function Blog_chats({ thread }) {
     };
 
     createTask(activeitem);
-    console.log(activeitem);
+    
     refreshData();
     e.target.reset();
     ToggleMessagemodal();
