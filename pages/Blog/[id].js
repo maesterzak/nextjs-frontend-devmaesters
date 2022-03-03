@@ -74,7 +74,7 @@ function Post_detail({ post }) {
     var formData = new FormData(e.target);
 
     const form_values = Object.fromEntries(formData);
-    console.log(form_values);
+    
     const activeitem = {
       name: form_values.comment_name,
       body: form_values.comment_body,
@@ -83,7 +83,7 @@ function Post_detail({ post }) {
     };
 
     createComment(activeitem);
-    console.log(activeitem);
+    
     refreshData();
     e.target.reset();
     //ToggleMessagemodal();
@@ -92,7 +92,7 @@ function Post_detail({ post }) {
   const refreshData = () => {
     router.replace(router.asPath);
   };
-
+  console.log(post)
   return (
     <>
       <Head>

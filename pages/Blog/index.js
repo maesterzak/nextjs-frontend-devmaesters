@@ -355,8 +355,8 @@ const Home1 = ({ posts, threads, cate }) => {
                         <div className="col-2 col-md-1">
                           <FontAwesomeIcon
                             style={{
-                              height: "1em",
-                              color: "blue",
+                              "height": "1em",
+                              "color": "blue",
                             }}
                             icon={faComment}
                           /><sup>{Object.keys(thread.thread_messages).length}</sup>
