@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../blog_components/Footer";
-import { API_URL } from "../../../config";
+import { API_URL, ENVIRONMENT } from "../../../config";
 import Image from "next/image";
 
 export const getStaticPaths = async () => {
@@ -34,7 +34,13 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const orig = `${API_URL}`;
+var orig = "" 
+if (ENVIRONMENT === "DEVLOPMENT"){
+  var orig = `${API_URL}`;
+}
+else if (ENVIRONMENT === "PRODUCTION"){
+  var orig = '';
+}
 
 function category_list({ category_posts, name }) {
   const truncate = (str) => {
@@ -95,7 +101,7 @@ function category_list({ category_posts, name }) {
                             objectFit="fill"
                             alt="post image"
                             className="post_image"
-                            src={post.image}
+                            src={orig + post.image}
                           />
                           <span className={styles.post_box_category}>
                             {post.category.name}

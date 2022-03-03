@@ -13,7 +13,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
-import { API_URL } from "../../../config";
+import { API_URL, ENVIRONMENT } from "../../../config";
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/threads/`);
@@ -41,7 +41,13 @@ export const getStaticProps = async (context) => {
     props: { thread: data },
   };
 };
-const orig = `${API_URL}`;
+var orig = "" 
+if (ENVIRONMENT === "DEVLOPMENT"){
+  var orig = `${API_URL}`;
+}
+else if (ENVIRONMENT === "PRODUCTION"){
+  var orig = '';
+}
 
 const createTask = async (activeitem) => {
   await fetch(`${API_URL}/blog/message-create/`, {

@@ -12,7 +12,7 @@ import {
   faShareSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import { API_URL } from "../../config/index";
+import { API_URL, ENVIRONMENT } from "../../config/index";
 import { useRouter } from "next/router";
 
 export const getStaticPaths = async () => {
@@ -41,8 +41,13 @@ export const getStaticProps = async (context) => {
     props: { post: data },
   };
 };
-const orig = `${API_URL}`;
-
+var orig = "" 
+if (ENVIRONMENT === "DEVLOPMENT"){
+  var orig = `${API_URL}`;
+}
+else if (ENVIRONMENT === "PRODUCTION"){
+  var orig = '';
+}
 const createComment = async (activeitem) => {
   await fetch(`${API_URL}/blog/comment-create/`, {
     method: "POST",

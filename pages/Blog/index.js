@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
-import { API_URL } from "../../config";
+import { API_URL, ENVIRONMENT } from "../../config";
 
 export const getStaticProps = async () => {
   const response = await fetch(`${API_URL}/blog/posts/`);
@@ -27,8 +27,13 @@ export const getStaticProps = async () => {
     props: { posts: data, threads: da, cate: categorysdata },
   };
 };
-
-export const orig = `${API_URL}`;
+var orig = "" 
+if (ENVIRONMENT === "DEVLOPMENT"){
+  var orig = `${API_URL}`;
+}
+else if (ENVIRONMENT === "PRODUCTION"){
+  var orig = '';
+}
 
 const Home1 = ({ posts, threads, cate }) => {
   const truncate = (str) => {
