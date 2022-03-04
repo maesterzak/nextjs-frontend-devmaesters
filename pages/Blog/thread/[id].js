@@ -15,23 +15,23 @@ import Image from "next/image";
 import Head from "next/head";
 import { API_URL, ENVIRONMENT } from "../../../config";
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`${API_URL}/blog/threads/`);
-  const data = await res.json();
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`${API_URL}/blog/threads/`);
+//   const data = await res.json();
 
-  const paths = data.map((thread) => {
-    return {
-      params: { id: thread.id.toString() },
-    };
-  });
-  return {
-    paths,
-    fallback: "blocking",
-  };
+//   const paths = data.map((thread) => {
+//     return {
+//       params: { id: thread.id.toString() },
+//     };
+//   });
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
   
-};
+// };
 
-export async function getStaticProps(context){
+export async function getServerSideProps(context){
   const id = context.params.id;
 
   const res = await fetch(`${API_URL}/blog/thread-detail/` + id + "/");
@@ -40,7 +40,7 @@ export async function getStaticProps(context){
 
   return {
     props: { thread: data },
-    revalidate: 10,
+    
   };
 }
 var orig = "" 
