@@ -26,11 +26,12 @@ export const getStaticPaths = async () => {
   });
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
+  
 };
 
-export const getStaticProps = async (context) => {
+export async function getStaticProps(context){
   const id = context.params.id;
 
   const res = await fetch(`${API_URL}/blog/thread-detail/` + id + "/");
@@ -39,8 +40,9 @@ export const getStaticProps = async (context) => {
 
   return {
     props: { thread: data },
+    revalidate: 10,
   };
-};
+}
 var orig = "" 
 if (ENVIRONMENT === "DEVLOPMENT"){
   var orig = `${API_URL}`;

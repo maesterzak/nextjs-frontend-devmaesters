@@ -9,21 +9,21 @@ import Footer from "../blog_components/Footer";
 import { API_URL, ENVIRONMENT } from "../../../config";
 import Image from "next/image";
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`${API_URL}/blog/posts/`);
-  const data = await res.json();
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`${API_URL}/blog/posts/`);
+//   const data = await res.json();
 
-  const paths = data.map((post) => {
-    return {
-      params: { name: post.category.name.toString() },
-    };
-  });
-  return {
-    paths,
-    fallback: false,
-  };
-};
-export const getStaticProps = async (context) => {
+//   const paths = data.map((post) => {
+//     return {
+//       params: { name: post.category.name.toString() },
+//     };
+//   });
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+export async function getServerSideProps(context){
   const name = context.params.name;
   const res = await fetch(`${API_URL}/blog/categories-posts/` + name + "/");
 
