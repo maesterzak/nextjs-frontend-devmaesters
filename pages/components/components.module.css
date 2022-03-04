@@ -1,0 +1,5 @@
+.loaderContainer{
+    position: absolute;
+    z-index: 10000;
+    height: 100vh;
+}

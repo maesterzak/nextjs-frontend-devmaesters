@@ -6,43 +6,42 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../blog_components/Footer";
-import { API_URL, ENVIRONMENT } from "../../../config";
+import { API_URL, NEXT_MODE } from "../../../config";
 import Image from "next/image";
 
-// export const getStaticPaths = async () => {
-//   const res = await fetch(`${API_URL}/blog/posts/`);
-//   const data = await res.json();
+export const getStaticPaths = async () => {
+  const res = await fetch(`${API_URL}/blog/posts/`);
+  const data = await res.json();
 
-//   const paths = data.map((post) => {
-//     return {
-//       params: { name: post.category.name.toString() },
-//     };
-//   });
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
-export async function getServerSideProps(context){
+  const paths = data.map((post) => {
+    return {
+      params: { name: post.category.name.toString() },
+    };
+  });
+  return {
+    paths,
+    fallback: "blocking",
+  };
+};
+export const getStaticProps = async (context) => {
   const name = context.params.name;
   const res = await fetch(`${API_URL}/blog/categories-posts/` + name + "/");
 
   const data = await res.json();
+  if (`${NEXT_MODE}` == "DEV") {
+    var orig = `${API_URL}`;
+  } else if (`${NEXT_MODE}` == "PROD") {
+    var orig = "";
+  }
 
   return {
-    props: { category_posts: data, name: name },
+    props: { category_posts: data, name: name, orig:orig },
   };
 };
 
-var orig = "" 
-if (ENVIRONMENT === "DEVLOPMENT"){
-  var orig = `${API_URL}`;
-}
-else if (ENVIRONMENT === "PRODUCTION"){
-  var orig = '';
-}
 
-function category_list({ category_posts, name }) {
+
+function category_list({ category_posts, name, orig }) {
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };

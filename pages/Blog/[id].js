@@ -4,15 +4,15 @@ import Footer from "./blog_components/Footer";
 import Navbar from "./blog_components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTwitterSquare, faLinkedinIn, faFacebookSquare, faWhatsappSquare, faInstagramSquare, faLinkedin
+  faTwitterSquare, faFacebookSquare, faWhatsappSquare, faInstagramSquare, faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faHandshake,
   faShare,
-  faShareSquare,
+  
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import { API_URL, ENVIRONMENT } from "../../config/index";
+import { API_URL, NEXT_MODE } from "../../config/index";
 import { useRouter } from "next/router";
 
 // export const getStaticPaths = async () => {
@@ -36,18 +36,17 @@ export async function getServerSideProps(context){
   const res = await fetch(`${API_URL}/blog/post-detail/` + id + "/");
 
   const data = await res.json();
+  if (`${NEXT_MODE}` == "DEV") {
+    var orig = `${API_URL}`;
+  } else if (`${NEXT_MODE}` == "PROD") {
+    var orig = "";
+  }
 
   return {
-    props: { post: data },
+    props: { post: data, orig: orig },
   };
 };
-var orig = "" 
-if (ENVIRONMENT === "DEVLOPMENT"){
-  var orig = `${API_URL}`;
-}
-else if (ENVIRONMENT === "PRODUCTION"){
-  var orig = '';
-}
+
 const createComment = async (activeitem) => {
   await fetch(`${API_URL}/blog/comment-create/`, {
     method: "POST",
@@ -64,7 +63,7 @@ const createComment = async (activeitem) => {
   alert("Comment added");
 };
 
-function Post_detail({ post }) {
+function Post_detail({ post, orig }) {
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
@@ -447,6 +446,9 @@ function Post_detail({ post }) {
             </div>
             
           </div>
+        </div>
+        <div className="mt-3 container g-0">
+          <Footer />
         </div>
       </div>
     </>

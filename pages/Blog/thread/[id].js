@@ -3,17 +3,13 @@ import Footer from "../blog_components/Footer";
 import Navbar from "../blog_components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTimesCircle,
-  faComment,
-  faCommentAlt,
-  faCommentDots,
   faComments,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
-import { API_URL, ENVIRONMENT } from "../../../config";
+import { API_URL, NEXT_MODE } from "../../../config";
 
 // export const getStaticPaths = async () => {
 //   const res = await fetch(`${API_URL}/blog/threads/`);
@@ -37,19 +33,18 @@ export async function getServerSideProps(context){
   const res = await fetch(`${API_URL}/blog/thread-detail/` + id + "/");
 
   const data = await res.json();
+  if (`${NEXT_MODE}` == "DEV") {
+    var orig = `${API_URL}`;
+  } else if (`${NEXT_MODE}` == "PROD") {
+    var orig = "";
+  }
 
   return {
-    props: { thread: data },
+    props: { thread: data, orig: orig },
     
   };
 }
-var orig = "" 
-if (ENVIRONMENT === "DEVLOPMENT"){
-  var orig = `${API_URL}`;
-}
-else if (ENVIRONMENT === "PRODUCTION"){
-  var orig = '';
-}
+
 
 const createTask = async (activeitem) => {
   await fetch(`${API_URL}/blog/message-create/`, {
@@ -67,7 +62,7 @@ const createTask = async (activeitem) => {
   alert("Message added");
 };
 
-function Blog_chats({ thread }) {
+function Blog_chats({ thread, orig }) {
   const threadchat_handle = (e) => {
     e.preventDefault();
     var formData = new FormData(e.target);
@@ -435,6 +430,9 @@ function Blog_chats({ thread }) {
               </div>
             </div>
           </div>
+        </div>
+        <div className="mt-3 container g-0">
+          <Footer />
         </div>
       </div>
     </>

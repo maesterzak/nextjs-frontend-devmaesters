@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
-import { API_URL, ENVIRONMENT } from "../../config";
+import { API_URL, NEXT_MODE } from "../../config";
 
 export const getStaticProps = async () => {
   const response = await fetch(`${API_URL}/blog/posts/`);
@@ -23,20 +23,19 @@ export const getStaticProps = async () => {
   const da = await res.json();
   const data = await response.json();
 
+  if (`${NEXT_MODE}` == "DEV") {
+    var orig = `${API_URL}`;
+  } else if (`${NEXT_MODE}` == "PROD") {
+    var orig = "";
+  }
   return {
-    props: { posts: data, threads: da, cate: categorysdata },
-    revalidate:10,
+    props: { posts: data, threads: da, cate: categorysdata, orig: orig },
+    revalidate: 10,
   };
 };
-var orig = "" 
-if (ENVIRONMENT === "DEVLOPMENT"){
-  var orig = `${API_URL}`;
-}
-else if (ENVIRONMENT === "PRODUCTION"){
-  var orig = '';
-}
 
-const Home1 = ({ posts, threads, cate }) => {
+
+const Home1 = ({ posts, threads, cate, orig }) => {
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
@@ -99,28 +98,28 @@ const Home1 = ({ posts, threads, cate }) => {
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
           <div className="carousel-inner trending_post_container">
-            {trending_posts.map(function(trending_post, id){
-              return(
+            {trending_posts.map(function (trending_post, id) {
+              return (
                 <div key={id} className="carousel-item active h-100">
-              <Image
-                layout="fill"
-                className="d-block w-100 h-100"
-                src={orig + trending_post.image}
-                alt="First slide"
-              />
-              <div className="dark_overlay"></div>
-              <div className="carousel-caption text-light">
-                <h5>
-                  <a
-                    href={"/Blog/" + trending_post.id}
-                    className={styles.mobile_trending_text}
-                  >
-                    {trending_post.title}
-                  </a>
-                </h5>
-              </div>
-            </div>
-              )
+                  <Image
+                    layout="fill"
+                    className="d-block w-100 h-100"
+                    src={orig + trending_post.image}
+                    alt="First slide"
+                  />
+                  <div className="dark_overlay"></div>
+                  <div className="carousel-caption text-light">
+                    <h5>
+                      <a
+                        href={"/Blog/" + trending_post.id}
+                        className={styles.mobile_trending_text}
+                      >
+                        {trending_post.title}
+                      </a>
+                    </h5>
+                  </div>
+                </div>
+              );
             })}
           </div>
           <a
@@ -151,9 +150,6 @@ const Home1 = ({ posts, threads, cate }) => {
       </div>
     </>
   );
-  
-  
-  
 
   return (
     <>
@@ -161,19 +157,16 @@ const Home1 = ({ posts, threads, cate }) => {
         <title>SimpleLIFE | Blog Homepage</title>
         <meta name="keywords" content="Home" />
         <link rel="icon" href="/favicon1.ico" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossOrigin="anonymous"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
 
       <div>
-        <Navbar
-          
-          links="white"
-          icon="white"
-          header_color="white"
-        />
-        
+        <Navbar links="white" icon="white" header_color="white" />
 
-        
         <br />
         <div className={`container mt-5 overflow-hidden `}>
           <div className="main">
@@ -181,12 +174,18 @@ const Home1 = ({ posts, threads, cate }) => {
               <div
                 className={`col-12 d-flex justify-content-center align-items-center ${styles.intro_box}`}
               >
-                <Image layout="fill" src={"/images/image3.jpg"}  alt="home_image"/>
+                <Image
+                  layout="fill"
+                  src={"/images/image3.jpg"}
+                  alt="home_image"
+                />
                 <div className={`${styles.dark_overlay}`}></div>
                 <div className={`${styles.intro_text}`}>
                   <h1 className="text-light text-center">BLOG</h1>
-                  <span className="text-light text-center">Subscribe to get loads of programming <br /> tips and tricks 
-                  just for you</span>
+                  <span className="text-light text-center">
+                    Subscribe to get loads of programming <br /> tips and tricks
+                    just for you
+                  </span>
                   <div>
                     <div className="input-group">
                       <input
@@ -262,8 +261,16 @@ const Home1 = ({ posts, threads, cate }) => {
             <div className={`col-6 col-md-2 + ${styles.add_box1}`}>i</div>
             <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
             <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
-            <div className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}>k</div>
-            <div className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}>k</div>
+            <div
+              className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}
+            >
+              k
+            </div>
+            <div
+              className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}
+            >
+              k
+            </div>
           </div>
 
           <div className={`row mt-3 p-2 + ${styles.row_background}`}>
@@ -308,13 +315,12 @@ const Home1 = ({ posts, threads, cate }) => {
                       <div
                         className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
                       >
-                        <span  className="blog-link">
+                        <span className="blog-link">
                           <Link role="button" href={"/Blog/" + post.id}>
                             Readmore
                           </Link>
                         </span>
                         <span>
-                        
                           <FontAwesomeIcon
                             width={20}
                             height={20}
@@ -329,7 +335,7 @@ const Home1 = ({ posts, threads, cate }) => {
                 })}
               </div>
             </div>
-            <div id="threads"  className="col-12 col-md-12 ">
+            <div id="threads" className="col-12 col-md-12 ">
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
@@ -341,28 +347,25 @@ const Home1 = ({ posts, threads, cate }) => {
                 <ul>
                   {threads.map(function (thread, id) {
                     return (
-                      <li
-                        key={id}
-                        className={`mb-3 ${styles.thread_link}`}
-                      >
+                      <li key={id} className={`mb-3 ${styles.thread_link}`}>
                         <div className="row w-100">
-
-                        
-                        <div className="col-10 col-md-11">
-                        <Link href={"/Blog/thread/" + thread.id}>
-                          {thread.title}
-                        </Link>
-                        </div>
-                        <div className="col-2 col-md-1">
-                          <FontAwesomeIcon
-                            style={{
-                              "height": "1em",
-                              "color": "blue",
-                            }}
-                            icon={faComment}
-                          /><sup>{Object.keys(thread.thread_messages).length}</sup>
-                          
-                        </div>
+                          <div className="col-10 col-md-11">
+                            <Link href={"/Blog/thread/" + thread.id}>
+                              {thread.title}
+                            </Link>
+                          </div>
+                          <div className="col-2 col-md-1">
+                            <FontAwesomeIcon
+                              style={{
+                                height: "1em",
+                                color: "blue",
+                              }}
+                              icon={faComment}
+                            />
+                            <sup>
+                              {Object.keys(thread.thread_messages).length}
+                            </sup>
+                          </div>
                         </div>
                       </li>
                     );
@@ -373,7 +376,7 @@ const Home1 = ({ posts, threads, cate }) => {
           </div>
         </div>
         <div className="mt-3 container g-0">
-        <Footer />
+          <Footer />
         </div>
       </div>
     </>
