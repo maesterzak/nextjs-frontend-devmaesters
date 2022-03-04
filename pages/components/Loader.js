@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Loader(){
     return(
         <div className={styles.loaderContainer}>
-            <Image height={100} width={100} layout='responsive' src="/loader.svg" />
+            <Image className={styles.image} layout='fill'  src="/loader.svg" />
         </div>
     )
 }

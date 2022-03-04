@@ -18,7 +18,7 @@ export const getStaticProps = async () => {
   const response = await fetch(`${API_URL}/blog/posts/`);
   const res = await fetch(`${API_URL}/blog/threads/`);
   const categorys = await fetch(`${API_URL}/blog/categories/`);
-
+  
   const categorysdata = await categorys.json();
   const da = await res.json();
   const data = await response.json();

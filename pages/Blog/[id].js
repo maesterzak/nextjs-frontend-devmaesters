@@ -91,7 +91,7 @@ function Post_detail({ post, orig }) {
   const refreshData = () => {
     router.replace(router.asPath);
   };
-  console.log(post)
+  
   return (
     <>
       <Head>

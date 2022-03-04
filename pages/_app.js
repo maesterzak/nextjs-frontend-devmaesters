@@ -37,9 +37,9 @@ function MyApp({ Component, pageProps }) {
       
     </Head>
     <Provider store={store}>
-      {loading && <Loader />}
+      
       <Layout>
-
+      {loading && <Loader />}
       <Component {...pageProps} />  
       </Layout>
       </Provider>  
