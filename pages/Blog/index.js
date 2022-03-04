@@ -25,6 +25,7 @@ export const getStaticProps = async () => {
 
   return {
     props: { posts: data, threads: da, cate: categorysdata },
+    revalidate:10,
   };
 };
 var orig = "" 
