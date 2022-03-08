@@ -10,8 +10,27 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { API_URL, NEXT_MODE } from "../../config";
 
-function PortfolioProject() {
+
+export const getStaticProps = async () => {
+  const response = await fetch(`${API_URL}/blog/portfolio-projects/`);
+  
+  const data = await response.json();
+
+  if (`${NEXT_MODE}` == "DEV") {
+    var orig = `${API_URL}`;
+  } else if (`${NEXT_MODE}` == "PROD") {
+    var orig = "";
+  }
+  return {
+    props: { project: data, orig: orig },
+    revalidate: 10,
+  };
+};
+
+
+function PortfolioProject({project, orig}) {
   const [mini_nav, setMini_nav] = useState(false);
   const ToggleMiniNav = () => {
     setMini_nav(!mini_nav);
@@ -129,7 +148,9 @@ function PortfolioProject() {
           <div
             className={`d-flex justify-content-center flex-wrap mt-4 ${styles.project_container}`}
           >
-            <div
+            {project.map(function(project, id){
+              return(
+                <div key={id}
               className={`row mb-3 flex-wrap ${styles.project_sub_container} d-flex justify-content-center`}
             >
               <div className={`col-12 col-md-6  ${styles.project_info}`}>
@@ -137,29 +158,20 @@ function PortfolioProject() {
                   <h5
                     className={`mt-2 text-center w-50 ${styles.project_header}`}
                   >
-                    project title
+                    {project.name}
                   </h5>
                 </div>
                 <span className={`mb-2 ${styles.project_subheader}`}>
                   Stack
                 </span>
                 <div className={`text-center ${styles.project_stack}`}>
-                  This project was created using Django framework. It uses css,
-                  html, javascript, bootstrap and ckeditor. It was deployed and
-                  tested successfully on Heroku and vercel.
+                  {project.stack}
                 </div>
                 <span className={`mb-2 ${styles.project_subheader}`}>
                   Description
                 </span>
                 <div className={`text-center mb-2 ${styles.project_stack}`}>
-                  This is a Django blog that shows crud(create, read , update
-                  and delete) functionalities. It has three pages; Homepage
-                  where the blog posts can be viewed Post_detatil page where
-                  more info about blog posts can be viewed Dashboard page where
-                  users can see all the current posts on the site, delete any
-                  post they want, add new posts on the same page via a add post
-                  modal, edit post on the same page via an edit post modal. More
-                  info about the project can be gotten from the project video.
+                  {project.description}
                 </div>
                 <div className={`d-flex justify-content-end mb-2`}>
                   <button
@@ -175,46 +187,12 @@ function PortfolioProject() {
                 <FontAwesomeIcon size={"3x"} color="white" icon={faVideo} />
               </div>
             </div>
+              )
+            })}
 
-            <div
-              className={`row mb-3 ${styles.project_sub_container} d-flex justify-content-center`}
-            >
-              <div className={`col-12 col-md-6  ${styles.project_info}`}>
-                <div className={`d-flex justify-content-center mb-2`}>
-                  <h5
-                    className={`mt-2 text-center w-50 ${styles.project_header}`}
-                  >
-                    project title
-                  </h5>
-                </div>
-                <span className={`mb-2 ${styles.project_subheader}`}>
-                  Stack
-                </span>
-                <div className={`text-center ${styles.project_stack}`}>
-                  This project was created using Django framework. It uses css,
-                  html, javascript, bootstrap and ckeditor. It was deployed and
-                  tested successfully on Heroku and vercel.
-                </div>
-                <span className={`mb-2 ${styles.project_subheader}`}>
-                  Description
-                </span>
-                <div className={`text-center mb-3 ${styles.project_stack}`}>
-                  This is a Django blog that shows crud(create, read , update
-                  and delete) functionalities. It has three pages; Homepage
-                  where the blog posts can be viewed Post_detatil page where
-                  more info about blog posts can be viewed Dashboard page where
-                  users can see all the current posts on the site, delete any
-                  post they want, add new posts on the same page via a add post
-                  modal, edit post on the same page via an edit post modal. More
-                  info about the project can be gotten from the project video.
-                </div>
-              </div>
-              <div
-                className={`col-12 col-md-6 ${styles.project_video} d-flex justify-content-center align-items-center`}
-              >
-                <FontAwesomeIcon size={"3x"} color="white" icon={faVideo} />
-              </div>
-            </div>
+            
+
+            
           </div>
         </div>
       </div>

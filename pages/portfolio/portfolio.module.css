@@ -130,11 +130,16 @@
     height: 100%;
     transition: all 3s ease; 
     
+}
+.skills_image{
+    height: 2em;
+    width: 2em;
+    
     
 }
 
 .skills_sub_container1:hover{
-    background: yellow;
+    
     transform: translateY(-200%);
 }
 .skills_sub_container2:hover ~ .skills_sub_container1 {

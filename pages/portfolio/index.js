@@ -167,7 +167,7 @@ function PortfolioIndex() {
             <div
               className={`col-10 col-md-6 d-flex justify-content-center align-items-center ${styles.short_info}`}
             >
-              <span className="text-center">
+              <span className="text-center p-4">
                 Hi, my name is Abubakar Zakari. Am a budding fullstack developer
                 from Nigeria who loves developing softwares and learning new
                 frameworks and langauges.
