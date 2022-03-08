@@ -1,0 +1,217 @@
+.main{
+    background: white;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+.mini_navtoggler{
+    width: 6em;
+    background: #7b1fa2;
+    color: white;
+}
+.mini_nav_dropdown{
+    background: whitesmoke;
+    border: #7b1fa2 2px solid;
+    width: 50%;
+    z-index: 3;
+    
+}
+.index_image{
+    object-fit:cover;
+    object-position: 18% 18%;
+    
+}
+.portfolio_button:hover{
+    background-color: #7b1fa2;
+    height: 3em;
+    width: 8em;
+    color: white;
+    border-radius: 0 0 15px 15px;
+    border-color: unset;
+}
+.active{
+    background-color: #7b1fa2;
+    height: 3em;
+    width: 8em;
+    color: white;
+    border-radius: 0 0 15px 15px;
+    border-color: unset;
+}
+.image_container{
+    width: 100%;
+    height: 32vh;
+    overflow: hidden;
+    position: relative;
+    border: #7b1fa2 solid 2px;
+    border-radius: 15px;
+}
+.name{
+    text-decoration:solid;
+    
+}
+.short_info{
+    height: 5em;
+    background: white;
+}
+.download_button{
+    background: #7b1fa2;
+    color: white;
+    border: unset;
+    border-radius: 10px;
+
+}
+.project_sub_container{
+    background: white;
+    border: #7b1fa2 2px solid;
+    min-height: 30vh;
+    width: 75vw;
+    
+}
+.project_container{
+    height: 76vh;
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+.project_video{
+    background: #7b1fa2;
+    
+}
+.project_header{
+    background: unset;
+    border-radius: 10px;
+    border: solid 2px;
+    border-color: #7b1fa2;
+}
+.project_subheader{
+    text-decoration: underline;
+}
+.project_stack{
+    border: #7b1fa2 2px solid;
+    min-height: 2em;
+}
+.repo_button{
+    border-color: #7b1fa2;
+    border-radius: 10px;
+    width: 8em;
+    display: flex;
+    align-items: center;
+    height: 1.5em;
+}
+.repo_button:hover{
+    background: #7b1fa2;
+    color: white;
+}
+.skills_button{
+    border-color: #7b1fa2;
+    border-radius: 10px;
+    
+    display: flex;
+    align-items: center;
+    height: 1.5em;
+}
+.skills_button:hover{
+    background: #7b1fa2;
+    color: white;
+}
+.skills_container{
+    border: #7b1fa2 2px solid;
+    min-height: 20vh;
+    overflow: hidden;
+    position: relative;
+
+}
+.skills_sub_container1{
+    background-color: #7b1fa2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 3s ease; 
+    
+    
+}
+
+.skills_sub_container1:hover{
+    background: yellow;
+    transform: translateY(-200%);
+}
+.skills_sub_container2:hover ~ .skills_sub_container1 {
+    background: rgb(37, 37, 29);
+    display: none;
+    
+}
+
+.skills_sub_container1:hover::after {
+    
+    /* animation: skills_cont 3s ease-in-out forwards; */
+    transform: translateY(-200%);
+    
+}
+/* @keyframes skills_cont {
+    
+    100%{
+      transform: translateY(-200%);
+      
+    }
+  } */
+.skills_sub_container2{
+    width: 100%;
+    height: 100%;
+    
+}
+.skills_fontawesome{
+    height: 5em;
+    color: white;
+}
+.contact_links_icon{
+    color: #7b1fa2;
+    
+    margin-left: 6px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.contacts_container{
+    min-height: 20vh;
+    border: #7b1fa2 solid 2px;
+    background: white;
+}
+.contacts_sub_container1{
+    height: 50%;
+    font-size: 2em;
+    color: #7b1fa2;
+}
+.contacts_sub_container2{
+    height: 50%;
+}
+
+.tooltip{
+    width: 4em;
+    border-radius: 10px;
+    background: #7b1fa2;
+    color: white;
+    right: -1em;
+}
+
+@media only screen and (max-width: 900px){
+    .image_container{
+        height: 36vh;
+    }
+    .project_sub_container{
+        width: 90vw;
+    }
+    .project_container{
+        width: 100vw;
+    }
+    .contacts_container{
+        min-height: 10vh;
+        
+    }
+    .contacts_sub_container1{
+        height: 100%;
+    } 
+    .contacts_sub_container2{
+        height: 100%;
+    }    
+}

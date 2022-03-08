@@ -7,7 +7,7 @@ import Navbar from "./blog_components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandshake,
-  faComment,
+  faComment,faPlusCircle,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
@@ -343,7 +343,11 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                   Threads
                 </h1>
               </div>
+              <div  className={`d-flex justify-content-end ${styles.add_thread}`}>
+                  <button className="btn"><FontAwesomeIcon className={styles.faPlusCircle}  icon={faPlusCircle} /></button>
+                </div>
               <div className=" p-3 ">
+                
                 <ul>
                   {threads.map(function (thread, id) {
                     return (

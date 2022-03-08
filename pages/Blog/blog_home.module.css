@@ -35,7 +35,10 @@
     width: 1em;
     height: 1em;
 }
-
+.faPlusCircle{
+    height: 3em;
+    color: #7b1fa2;
+}
 .post_box_category{
     background-color: rgba(102, 51, 153, 0.747);
     color: white;

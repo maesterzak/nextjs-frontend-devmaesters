@@ -54,7 +54,7 @@ function category_list({ category_posts, name, orig }) {
       </Head>
       <div>
         <Navbar
-          background="white"
+          background="black"
           links="white"
           icon="white"
           header_color="white"

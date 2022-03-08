@@ -62,7 +62,7 @@ const Navbar = (props) => {
             <div style={{"color": `${props.links}`}} className="d-flex justify-content-between align-items-center h-100">
             <div><Link href={'/'}>Home</Link></div>
             <div><Link href={'/Blog'}>Blog</Link></div>
-            <div><Link href={'/'}>Portfolio</Link></div>
+            <div><Link href={'/portfolio'}>Portfolio</Link></div>
             <div><Link href={'/mini-mall'}>Mini-Mall</Link></div>
             <div><Link href={'/aboutus'}>About</Link></div>
             <div><Link href={'/contactus'}>Contact</Link></div>
@@ -115,7 +115,7 @@ const Navbar = (props) => {
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-          <Link href="/">Portfolio</Link>
+          <Link href="/portfolio">Portfolio</Link>
           <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
