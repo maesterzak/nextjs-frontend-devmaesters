@@ -82,7 +82,7 @@ const Navbar = (props) => {
           <div className="d-block d-sm-none" onClick={ToggleNav1}>
             <FontAwesomeIcon
               className="togg1"
-              style={{"font-size":"2em","color":`${props.icon}`}}
+              style={{"fontSize":"2em","color":`${props.icon}`}}
               icon={Navbar1 ? faTimes : faBars}
             />
           </div>

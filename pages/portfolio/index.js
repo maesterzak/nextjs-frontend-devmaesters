@@ -9,7 +9,14 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { API_URL, NEXT_MODE } from "../../config";
 
+
+if (`${NEXT_MODE}` == "DEV") {
+  var orig = `${API_URL}`;
+} else if (`${NEXT_MODE}` == "PROD") {
+  var orig = "";
+}
 function PortfolioIndex() {
   const [mini_nav, setMini_nav] = useState(false);
   const ToggleMiniNav = () => {
@@ -135,7 +142,7 @@ function PortfolioIndex() {
                   height="100"
                   className={`${styles.index_image}`}
                   layout="responsive"
-                  src={"/images/abu_01.jpg"}
+                  src={`${'/images/abu_01.jpg'}`}
                   alt="owner_image"
                 />
               </div>

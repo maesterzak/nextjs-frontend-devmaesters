@@ -10,6 +10,9 @@ import { Provider } from 'react-redux'
 import { useStore } from '../store'
 import Head from "next/head";
 import Loader from './components/Loader'
+import { config, dom } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false)
@@ -34,7 +37,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
     <Head>
-      
+    <style>{dom.css()}</style>
     </Head>
     <Provider store={store}>
       
