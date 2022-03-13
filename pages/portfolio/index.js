@@ -64,7 +64,7 @@ function PortfolioIndex() {
             {mini_nav ? (
               <>
                 <div
-                  className={`d-flex justify-content-center flex-wrap position-absolute ${styles.mini_nav_dropdown}`}
+                  className={`d-grid justify-content-center position-absolute ${styles.mini_nav_dropdown}`}
                 >
                   <div className="p-2 w-100 d-flex justify-content-end">
                     <div onClick={ToggleMiniNav} className="p-2 btn">
@@ -167,11 +167,11 @@ function PortfolioIndex() {
             <div
               className={`col-10 col-md-6 d-flex justify-content-center align-items-center ${styles.short_info}`}
             >
-              <span className="text-center p-4">
+              <div className="text-center p-4">
                 Hi, my name is Abubakar Zakari. Am a budding fullstack developer
                 from Nigeria who loves developing softwares and learning new
                 frameworks and langauges.
-              </span>
+              </div>
             </div>
           </div>
         </div>

@@ -28,15 +28,25 @@
     border: #7b1fa2 solid 1px;
 
 }
+
 .sharebutton:hover{
     transform:scale(120%);
+}
+.loadmore_btn{
+    width: 50vw;
+    background: unset;
+    border: 2px solid #7b1fa2;
+    color: blue;
+}
+.loadmore_btn:hover{
+    background: #7b1fa2;
+    color: white;
 }
 .faHandshake{
     width: 1em;
     height: 1em;
 }
 .faPlusCircle{
-    height: 3em;
     color: #7b1fa2;
 }
 .post_box_category{
@@ -56,6 +66,7 @@
 .intro_box{
     height: 50vh;
     position: relative;
+    
 }
 .intro_text{
     position: absolute;
@@ -210,19 +221,99 @@
     object-fit: contain;
     overflow: hidden;
 }
+.searchbox_form{
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    border-color: #7b1fa2;
+}
+.search_btn{
+    background: #7b1fa2;
+    color: white;
+}
+.search_btn:hover{
+    color: whitesmoke;
+}
+
+.index_add_thread_modal_overlay{
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.507);
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+.index_search_modal_overlay{
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.507);
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+.index_search_modal_box{
+    background: linear-gradient(45deg,#303f9f,#7b1fa2);
+    height: 90vh;
+    width: 70%;
+    
+    
+    align-content: flex-start;
+}
+.search_box_result{
+    overflow-y: auto;
+    max-height: 53vh;
+    border-top: solid 2px white;
+    border-bottom: solid 2px white;
+}
+
+.search_box_result::-webkit-scrollbar{
+    background: unset;
+    width: 0.5em;
+}
+.search_box_result::-webkit-scrollbar-thumb {
+    background: #7b1fa2;
+    
+  }
+.search_item_container{
+    border: 2px solid white;
+    width: 90%;
+    min-height: 10vh;
+}
+.index_item_info{
+    border-right: solid 2px white;
+    color: white;
+}
+.index_item_info_1{
+    font-size: xx-large;
+}
+
+.index_item_detail_1{
+    width: 100%;
+   color: white;
+   
+}
+.index_item_detail_2{
+    height: 2.5em;
+    border-top: solid 1px white;
+    color: white;
+}
+@media only screen and (min-width: 761px)  {
+
+}
 @media only screen and (max-width: 760px)  {
     .adds_container{
         position: static;
     }
     .dark_overlay2{
         
-        width: 90vw;
-        height: 90vh;
+        width: 100vw;
+        height: 100vh;
         position: fixed;
-        left: 5vw;
-        top: 7vw;
-        
+        left: 0vw;
+        top: 0vw;
+        z-index: 1000;
     }
+    
     
     .thread_add_message_box{
     
@@ -234,6 +325,13 @@
         height: 100%;
         width: 100%;
        
+    }
+    .index_search_modal_box{
+        width: 90%;
     } 
+    .search_box_result::-webkit-scrollbar{
+        background: unset;
+        width: 0.2em;
+    }
 }
    

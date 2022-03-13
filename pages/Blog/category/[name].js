@@ -5,9 +5,12 @@ import styles from "../blog_home.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
-import Footer from "../blog_components/Footer";
 import { API_URL, NEXT_MODE } from "../../../config";
 import Image from "next/image";
+
+import dynamic from "next/dynamic";
+const Footer = dynamic(() => import('../blog_components/Footer'))
+
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/posts/`);
@@ -41,7 +44,9 @@ export const getStaticProps = async (context) => {
 
 
 
-function category_list({ category_posts, name, orig }) {
+function Category_list({ category_posts, name, orig }) {
+  
+
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
@@ -84,17 +89,18 @@ function category_list({ category_posts, name, orig }) {
                   <div
                     className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                   >
-                    <h1 className={`text-center + ${styles.header_label_text}`}>
+                    <h1  className={`text-center + ${styles.header_label_text}`}>
                       Posts under {name} category
                     </h1>
                   </div>
                   {category_posts.map(function (post, id) {
                     return (
                       <div
-                        key={id}
+                        key={id} 
                         className={`col-12 col-md-6 + ${styles.post_box}`}
                       >
-                        <div className={styles.post_box_img}>
+                        <div  className={styles.post_box_img}>
+                        
                           <Image
                             layout="fill"
                             objectFit="fill"
@@ -127,8 +133,7 @@ function category_list({ category_posts, name, orig }) {
                           </span>
                           <span>
                             <FontAwesomeIcon
-                              width={20}
-                              height={20}
+                              size="1x"
                               icon={faHandshake}
                             />
                             10
@@ -150,4 +155,4 @@ function category_list({ category_posts, name, orig }) {
     </>
   );
 }
-export default category_list;
+export default Category_list;

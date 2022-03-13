@@ -10,6 +10,11 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
 import { API_URL, NEXT_MODE } from "../../../config";
+import useSWR, { mutate } from "swr";
+import Loader from "../../components/Loader";
+
+
+
 
 // export const getStaticPaths = async () => {
 //   const res = await fetch(`${API_URL}/blog/threads/`);
@@ -28,11 +33,13 @@ import { API_URL, NEXT_MODE } from "../../../config";
 // };
 
 export async function getServerSideProps(context){
+  
   const id = context.params.id;
 
-  const res = await fetch(`${API_URL}/blog/thread-detail/` + id + "/");
+  // const res = await fetch(`${API_URL}/blog/thread-detail/` + id + "/");
+  const url = `${API_URL}/blog/thread-detail/` + id + "/"
 
-  const data = await res.json();
+  // const data = await res.json();
   if (`${NEXT_MODE}` == "DEV") {
     var orig = `${API_URL}`;
   } else if (`${NEXT_MODE}` == "PROD") {
@@ -40,29 +47,31 @@ export async function getServerSideProps(context){
   }
 
   return {
-    props: { thread: data, orig: orig },
+    props: { orig: orig, url:url },
     
   };
 }
 
 
-const createTask = async (activeitem) => {
-  await fetch(`${API_URL}/blog/message-create/`, {
-    method: "POST",
+const fetcher = (...args)=> fetch(...args).then((response) => response.json())
+function Blog_chats({  orig, url }) {
+  const createTask = async (activeitem) => {
+    await fetch(`${API_URL}/blog/message-create/`, {
+      method: "POST",
+  
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(activeitem),
+    })
+      .then((res) => res.json)
+      .then((result) => SVGMetadataElement(result.rows))
+      .catch((err) => console.log(err));
+    // alert("Message added");
+    mutate(url)
+  };
 
-    headers: {
-      Accept: "application/json",
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(activeitem),
-  })
-    .then((res) => res.json)
-    .then((result) => SVGMetadataElement(result.rows))
-    .catch((err) => console.log(err));
-  alert("Message added");
-};
-
-function Blog_chats({ thread, orig }) {
   const threadchat_handle = (e) => {
     e.preventDefault();
     var formData = new FormData(e.target);
@@ -77,8 +86,6 @@ function Blog_chats({ thread, orig }) {
     };
 
     createTask(activeitem);
-    
-    refreshData();
     e.target.reset();
     ToggleMessagemodal();
   };
@@ -93,11 +100,15 @@ function Blog_chats({ thread, orig }) {
     router.replace(router.asPath);
   };
   
-
+  const {data, error} = useSWR(url, fetcher)
+  
+  if (error) return <>{error}</>
+  
   return (
     <>
+      {data ? <>
       <Head>
-        <title>SimpleLIFE | Thread- {thread.title}</title>
+        <title>SimpleLIFE | Thread- {data.title}</title>
         <meta name="keywords" content="Home" />
         <link rel="icon" href="/favicon1.ico" />
       </Head>
@@ -108,15 +119,15 @@ function Blog_chats({ thread, orig }) {
           icon="white"
           header_color="white"
         />
+        
         <div className="container">
-          <div className="sticky-top d-flex  justify-content-end top-3">
+          <div className="sticky-top d-flex  justify-content-end top-2">
             <button
               onClick={ToggleMessagemodal}
               className="btn t-3 d-block d-sm-none"
             >
               <FontAwesomeIcon
-                width={"2em"}
-                height={"2em"}
+                size="2x"
                 style={{ color: "royalblue" }}
                 icon={faComments}
               />
@@ -152,29 +163,29 @@ function Blog_chats({ thread, orig }) {
                 </div>
                 <div className="d-grid w-100">
                   <div>
-                    {thread.status ? (
+                    {data.status ? (
                       <span>Satus: Open</span>
                     ) : (
                       <span>Status: Close</span>
                     )}
                   </div>
-                  <span>Messages: {thread.thread_messages.length}</span>
-                  <span>Started: {thread.started}</span>
+                  <span>Messages: {data.thread_messages.length}</span>
+                  <span>Started: {data.started}</span>
                 </div>
               </div>
             </div>
             <div className={`col-12 col-md-6 p-3 ${styles.threads_body}`}>
               <div className={`row d-grid p-3 ${styles.row_background}`}>
-                <h1 className="">{thread.title}</h1>
+                <h1 className="">{data.title}</h1>
 
                 <div className="col-12 bg-light">
-                  <span>{thread.description}</span>
+                  <span>{data.description}</span>
                 </div>
 
                 <br />
                 <h3>Messages</h3>
 
-                {thread.thread_messages.map(function (message, id) {
+                {data.thread_messages.map(function (message, id) {
                   return (
                     <div className="row mb-3" key={id}>
                       <div className="col-2" style={{ height: "40px" }}>
@@ -206,7 +217,7 @@ function Blog_chats({ thread, orig }) {
                       <div className={`col-10 ${styles.thread_message}`}>
                         {message.body}
                         <hr />
-                        <div className="d-flex justify-content-around">
+                        <div className="d-flex justify-content-between">
                           <span><b>{message.name}</b></span>
                           <span><b>{message.date_created}</b></span>
                           </div>
@@ -265,7 +276,7 @@ function Blog_chats({ thread, orig }) {
                       id="thread_id"
                       name="thread_id"
                       className="d-none"
-                      defaultValue={thread.id}
+                      defaultValue={data.id}
                     ></input>
                     <div className="form-group w-100">
                       <input
@@ -435,6 +446,7 @@ function Blog_chats({ thread, orig }) {
           <Footer />
         </div>
       </div>
+      </> : <><Loader /></>}
     </>
   );
 }

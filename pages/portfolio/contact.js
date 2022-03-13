@@ -102,7 +102,7 @@ function PortfolioContacts() {
             {mini_nav ? (
               <>
                 <div
-                  className={`d-flex justify-content-center flex-wrap position-absolute ${styles.mini_nav_dropdown}`}
+                  className={`d-grid justify-content-center position-absolute ${styles.mini_nav_dropdown}`}
                 >
                   <div className="p-2 w-100 d-flex justify-content-end">
                     <div onClick={ToggleMiniNav} className="p-2 btn">

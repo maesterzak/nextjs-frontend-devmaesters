@@ -14,6 +14,8 @@ import {
 import Image from "next/image";
 import { API_URL, NEXT_MODE } from "../../config/index";
 import { useRouter } from "next/router";
+import useSWR, { mutate } from "swr";
+import Loader from "../components/Loader";
 
 // export const getStaticPaths = async () => {
 //   const res = await fetch(`${API_URL}/blog/posts/`);
@@ -32,10 +34,11 @@ import { useRouter } from "next/router";
 
 export async function getServerSideProps(context){
   const id = context.params.id;
+  const url = `${API_URL}/blog/post-detail/` + id + "/"
 
-  const res = await fetch(`${API_URL}/blog/post-detail/` + id + "/");
+  // const res = await fetch(`${API_URL}/blog/post-detail/` + id + "/");
 
-  const data = await res.json();
+  
   if (`${NEXT_MODE}` == "DEV") {
     var orig = `${API_URL}`;
   } else if (`${NEXT_MODE}` == "PROD") {
@@ -43,27 +46,30 @@ export async function getServerSideProps(context){
   }
 
   return {
-    props: { post: data, orig: orig },
+    props: { orig: orig, url:url },
   };
 };
 
-const createComment = async (activeitem) => {
-  await fetch(`${API_URL}/blog/comment-create/`, {
-    method: "POST",
 
-    headers: {
-      Accept: "application/json",
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(activeitem),
-  })
-    .then((res) => res.json)
-    .then((result) => SVGMetadataElement(result.rows))
-    .catch((err) => console.log(err));
-  alert("Comment added");
-};
+const fetcher = (...args)=> fetch(...args).then((response) => response.json())
+function Post_detail({ url, orig }) {
 
-function Post_detail({ post, orig }) {
+  const createComment = async (activeitem) => {
+    await fetch(`${API_URL}/blog/comment-create/`, {
+      method: "POST",
+  
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(activeitem),
+    })
+      .then((res) => res.json)
+      .then((result) => SVGMetadataElement(result.rows))
+      .catch((err) => console.log(err));
+    // alert("Comment added");
+    mutate(url)
+  };
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
@@ -83,7 +89,7 @@ function Post_detail({ post, orig }) {
 
     createComment(activeitem);
     
-    refreshData();
+    
     e.target.reset();
     //ToggleMessagemodal();
   };
@@ -91,12 +97,21 @@ function Post_detail({ post, orig }) {
   const refreshData = () => {
     router.replace(router.asPath);
   };
+  const {data, error} = useSWR(url, fetcher)
   
+  if (error) return <>{error}</>
   return (
     <>
+      {data ? <>
       <Head>
-        <title>SimpleLIFE | Post- {post.title}</title>
-        <meta name="keywords" content="Home" />
+        <title>SimpleLIFE | Post- {data.title}</title>
+        <meta name="keywords" content={data.tags} />
+        <meta name="description" content={<span
+                          className={styles.post_box_body_text}
+                          dangerouslySetInnerHTML={{
+                            __html: truncate(data.body),
+                          }}
+                        ></span>} />
         <link rel="icon" href="/favicon1.ico" />
       </Head>
       <div>
@@ -107,9 +122,9 @@ function Post_detail({ post, orig }) {
               <div
                 className={`row  ${styles.row_background} + ${styles.post_detail_page}`}
               >
-                <h1>{post.title}</h1>
+                <h1>{data.title}</h1>
                 <br />
-                <span className="mt-3"  dangerouslySetInnerHTML={{ __html: post.body }}></span>
+                <span className="mt-3"  dangerouslySetInnerHTML={{ __html: data.body }}></span>
                 <br />
                 <hr />
                 <div className={`row g-0 p-2`}>
@@ -124,7 +139,7 @@ function Post_detail({ post, orig }) {
                 <div className="row">
                   <div className="col-2 d-flex align-items-center justify-content-center">
                     <FontAwesomeIcon
-                      style={{ height: "2em" }}
+                      size="2x"
                       icon={faHandshake}
                     />
                   </div>
@@ -135,7 +150,7 @@ function Post_detail({ post, orig }) {
                     
                     className={`col-2 d-flex align-items-center justify-content-center btn ${styles.sharebutton}`}
                   >
-                    <FontAwesomeIcon style={{ height: "2em" }} icon={faShare} />
+                    <FontAwesomeIcon size="1x" icon={faShare} />
                   </div>
                 </div>
               </div>
@@ -156,7 +171,7 @@ function Post_detail({ post, orig }) {
                       width="100%"
                       height="100%"
                       layout="responsive"
-                      src={orig + post.author.profile_image}
+                      src={orig + data.author.profile_image}
                     />
                   </div>
                 </div>
@@ -165,17 +180,17 @@ function Post_detail({ post, orig }) {
                     <div className="col-10 col-md-10">
                       <span
                         dangerouslySetInnerHTML={{
-                          __html: post.author.about_me,
+                          __html: data.author.about_me,
                         }}
                       ></span>
 
                     </div>
                     <div className="col-12 d-flex justify-content-end">
-                        <span><span><FontAwesomeIcon width={40} height={40} icon={faTwitterSquare} />
-                        <FontAwesomeIcon width={40} height={40} icon={faFacebookSquare} />
-                        <FontAwesomeIcon width={40} height={40} icon={faWhatsappSquare} />
-                        <FontAwesomeIcon width={40} height={40} icon={faLinkedin} />
-                        <FontAwesomeIcon width={40} height={40} icon={faInstagramSquare} />
+                        <span><span><FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faTwitterSquare} />
+                        <FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faFacebookSquare} />
+                        <FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faWhatsappSquare} />
+                        <FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faLinkedin} />
+                        <FontAwesomeIcon size="2x" icon={faInstagramSquare} />
                         </span></span>
                     </div>
                   </div>
@@ -201,7 +216,7 @@ function Post_detail({ post, orig }) {
                       id="post_id"
                       name="post_id"
                       className="d-none"
-                      defaultValue={post.id}
+                      defaultValue={data.id}
                     ></input>
                     <div className="form-group w-100">
                       <input
@@ -377,7 +392,7 @@ function Post_detail({ post, orig }) {
                     Comment Message
                   </h1>
                 </div>
-               {post.posts_comments.map(function (message, id) {
+               {data.posts_comments.map(function (message, id) {
                   return (
                     <div className="row mb-3" key={id}>
                       <div className="col-2" style={{ height: "40px" }}>
@@ -438,9 +453,9 @@ function Post_detail({ post, orig }) {
                 </div>
                 <div className="row mt-3">
                   <h6>Status</h6>
-                  <span>Published: {post.published_date}</span>
-                  <span>Views: {post.views}</span>
-                  <span>Handshakes: {post.handshakes}</span>
+                  <span>Published: {data.published_date}</span>
+                  <span>Views: {data.views}</span>
+                  <span>Handshakes: {data.handshakes}</span>
                 </div>
               </div>
             </div>
@@ -451,6 +466,7 @@ function Post_detail({ post, orig }) {
           <Footer />
         </div>
       </div>
+      </> : <><Loader /></>}
     </>
   );
 };

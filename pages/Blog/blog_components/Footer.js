@@ -38,14 +38,14 @@ const Footer = () =>{
                             <li>Email: abubakarzakri1703@gmail.com</li>
 
                         </ul>
-                        <span><FontAwesomeIcon width={40} height={40} icon={faTwitterSquare} />
-                        <FontAwesomeIcon width={40} height={40} icon={faFacebookSquare} />
-                        <FontAwesomeIcon width={40} height={40} icon={faWhatsappSquare} />
-                        <FontAwesomeIcon width={40} height={40} icon={faLinkedin} />
-                        <FontAwesomeIcon width={40} height={40} icon={faInstagramSquare} />
+                        <span><FontAwesomeIcon style={{"marginRight":"10px"}} size={"3x"}  icon={faTwitterSquare} />
+                        <FontAwesomeIcon style={{"marginRight":"10px"}} size={"3x"} icon={faFacebookSquare} />
+                        <FontAwesomeIcon style={{"marginRight":"10px" }} size={"3x"} icon={faWhatsappSquare} />
+                        <FontAwesomeIcon style={{"marginRight":"10px" }} size={"3x"} icon={faLinkedin} />
+                        <FontAwesomeIcon size={"3x"} height={40} icon={faInstagramSquare} />
                         </span>
                         <br />
-                        <span>Checkout my <span style={{"color":"#0d6efd"}}><Link href={'/'}>Portfolio</Link></span> to see my past projects</span>
+                        <span>Checkout my <span style={{"color":"#0d6efd"}}><Link href={'/portfolio'}>Portfolio</Link></span> to see my past projects</span>
                     </div>
                 </div>
                 </div>

@@ -74,7 +74,7 @@ const Navbar = (props) => {
           <div className="col-4 col-md-3 ">
           <div className="d-flex ">
           <div className="d-flex w-100 align-items-center justify-content-around">
-            <FontAwesomeIcon style={{"height":"1em","color":`${props.icon}`}} icon={faUser} />
+            <FontAwesomeIcon size="1x" style={{"color":`${props.icon}`}} icon={faUser} />
             
             <button className="btn btn-outline-light d-none d-md-block"><Link href={'/login'}>Login</Link></button>
             <button className="btn btn-outline-light d-none d-md-block"><Link href={'/register'}>Register</Link></button>
@@ -82,7 +82,8 @@ const Navbar = (props) => {
           <div className="d-block d-sm-none" onClick={ToggleNav1}>
             <FontAwesomeIcon
               className="togg1"
-              style={{"fontSize":"2em","color":`${props.icon}`}}
+              size="2x"
+              style={{"color":`${props.icon}`}}
               icon={Navbar1 ? faTimes : faBars}
             />
           </div>
@@ -112,19 +113,19 @@ const Navbar = (props) => {
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center ">
           <Link href="/mini-mall">Mini-Mall </Link>
-          <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
+          <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
           <Link href="/portfolio">Portfolio</Link>
-          <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
+          
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
           <Link href="/aboutus">About us</Link>
-          <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
+          <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
           <Link href="/contactus">Contact us</Link>
-          <FontAwesomeIcon className="faHardHat" icon={faHardHat} />
+          <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
         </div>
         {isAuthenticated ? authlink : guest}
         

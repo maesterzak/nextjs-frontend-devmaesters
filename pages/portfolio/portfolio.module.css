@@ -51,7 +51,7 @@
     
 }
 .short_info{
-    height: 5em;
+    min-height: 5em;
     background: white;
 }
 .download_button{

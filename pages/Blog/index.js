@@ -7,18 +7,21 @@ import Navbar from "./blog_components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandshake,
-  faComment,faPlusCircle,
-  faSearch,
+  faComment,
+  faPlusCircle,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 import { API_URL, NEXT_MODE } from "../../config";
+import useSWR from "swr";
+import useSWRInfinite from "swr/infinite";
 
-export const getStaticProps = async () => {
+export async function getServerSideProps(context) {
   const response = await fetch(`${API_URL}/blog/posts/`);
   const res = await fetch(`${API_URL}/blog/threads/`);
   const categorys = await fetch(`${API_URL}/blog/categories/`);
-  
+
   const categorysdata = await categorys.json();
   const da = await res.json();
   const data = await response.json();
@@ -30,16 +33,86 @@ export const getStaticProps = async () => {
   }
   return {
     props: { posts: data, threads: da, cate: categorysdata, orig: orig },
-    revalidate: 10,
   };
-};
-
+}
 
 const Home1 = ({ posts, threads, cate, orig }) => {
+  const [searchResult, setSearchResult] = useState([]);
+  const [searchResultOverlay, setSearchResultOverlay] = useState(false);
+  const ToggleResultOverlay = () => {
+    setSearchResultOverlay(false);
+    setsearchBoxValue("");
+    document.getElementById("searchform").reset();
+  };
+  const [searchBoxValue, setsearchBoxValue] = useState("");
+
+  const searchForm = (e) => {
+    e.preventDefault();
+    var formData = new FormData(e.target);
+    const form_values = Object.fromEntries(formData);
+    var m = form_values.search_input;
+    var x = form_values.search_input;
+    var x = x.toLowerCase();
+    var x = x.split(" ");
+
+    var o = x.length;
+    var searchResult = [];
+
+    var y = posts.length;
+
+    //searching through posts
+    for (let p = 0; p < y; p++) {
+      var a = posts[p].title;
+      var a = a.toLowerCase();
+      var searchR = [];
+      for (let i = 0; i < o; i++) {
+        if (a.includes(x[i])) {
+          searchR.push(posts[p]);
+        }
+      }
+      var j = searchR.length;
+      var k = (j / o) * 100;
+      // console.log(`${a}`, k)
+      if (k > 45) {
+        searchR[0].match = k;
+
+        var searchResult = searchResult.concat(searchR[0]);
+      }
+    }
+    //searching through threads
+    var t = threads.length;
+    for (let p = 0; p < t; p++) {
+      var a = threads[p].title;
+      var a = a.toLowerCase();
+      var searchR = [];
+      for (let i = 0; i < o; i++) {
+        if (a.includes(x[i])) {
+          searchR.push(threads[p]);
+        }
+      }
+      var j = searchR.length;
+      var k = (j / o) * 100;
+      // console.log(`${a}`, k)
+      if (k > 45) {
+        searchR[0].match = k;
+
+        var searchResult = searchResult.concat(searchR[0]);
+      }
+    }
+
+    var searchResult = searchResult.sort(function (a, b) {
+      return b.match - a.match;
+    });
+
+    setSearchResult(searchResult);
+    setSearchResultOverlay(true);
+    setsearchBoxValue(m);
+  };
+
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
-  const ja = posts.filter((posts) => posts.views >= 10);
+
   const sa = posts.slice().sort((a, b) => b.daily_views - a.daily_views);
   //change n
   const n = 3;
@@ -58,7 +131,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
         return (
           <div
             key={id}
-            className={`col-12 col-md-4 p-3 d-flex justify-content-center align-items-center  + ${styles.trending_box}`}
+            className={`col-12 col-md-3 p-3 d-flex justify-content-center align-items-center  + ${styles.trending_box}`}
           >
             <Image
               layout="fill"
@@ -150,12 +223,62 @@ const Home1 = ({ posts, threads, cate, orig }) => {
       </div>
     </>
   );
+  const fetcher = (...args) =>
+    fetch(...args).then((response) => response.json());
+  const size_page = 9
+  //posts
+
+  const {
+    data: data1,
+    error,
+    
+    size,
+    setSize: setSize1,
+    
+  } = useSWRInfinite(
+    (index) => `${API_URL}/blog/posts_paginated?ps=${size_page}&p=${index + 1}`,
+    fetcher
+  );
+
+  const p_posts = data1 ? [].concat(...data1) : [];
+
+  const isLoadingInitialData = !data1 && !error;
+  const isLoadingMore =
+    isLoadingInitialData ||
+    (size > 0 && data1 && typeof data1[size - 1] === "undefined");
+  const isEmpty = data1?.[0]?.length === 0;
+  const isReachingEnd = isEmpty || posts.length <= p_posts.length;
+
+  //threads
+  const {
+    data: data2,
+    error: error2,
+    size: size2,
+    setSize: setSize2,
+  } = useSWRInfinite(
+    (index) => `${API_URL}/blog/paginated_threads/?ps=${size_page}&p=${index + 1}`,
+    fetcher
+  );
+
+  const p_threads = data2 ? [].concat(...data2) : [];
+
+  const isLoadingInitialData2 = !data2 && !error2;
+  const isLoadingMore2 =
+    isLoadingInitialData2 ||
+    (size2 > 0 && data2 && typeof data2[size2 - 1] === "undefined");
+  const isEmpty2 = data2?.[0]?.length === 0;
+  const isReachingEnd2 = isEmpty2 || threads.length <= p_threads.length;
 
   return (
     <>
       <Head>
-        <title>SimpleLIFE | Blog Homepage</title>
+        <title>devMaesters| Blog Homepage</title>
         <meta name="keywords" content="Home" />
+        <meta
+          name="description"
+          content="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
+        for asking questions(threads) and buying web services/sites."
+        />
         <link rel="icon" href="/favicon1.ico" />
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -164,11 +287,10 @@ const Home1 = ({ posts, threads, cate, orig }) => {
         ></script>
       </Head>
 
-      <div>
+      <div className="position-relative">
         <Navbar links="white" icon="white" header_color="white" />
 
-        <br />
-        <div className={`container mt-5 overflow-hidden `}>
+        <div className={`container mt-2 overflow-hidden `}>
           <div className="main">
             <div className={`row g-2 p-3 + ${styles.row_background}`}>
               <div
@@ -178,31 +300,42 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                   layout="fill"
                   src={"/images/image3.jpg"}
                   alt="home_image"
+                  priority
                 />
                 <div className={`${styles.dark_overlay}`}></div>
-                <div className={`${styles.intro_text}`}>
+                <div className={`w-100 ${styles.intro_text}`}>
                   <h1 className="text-light text-center">BLOG</h1>
-                  <span className="text-light text-center">
-                    Subscribe to get loads of programming <br /> tips and tricks
-                    just for you
-                  </span>
-                  <div>
-                    <div className="input-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        aria-label="Amount (to the nearest naira)"
-                      />
-                      <div className="input-group-append">
-                        <span className="input-group-text">search</span>
-                      </div>
+
+                  <div
+                    className={`row w-100 g-0 d-flex justify-content-center`}
+                  >
+                    <div className="col-10 col-md-7">
+                      <form
+                        id="searchform"
+                        className="w-100"
+                        onSubmit={searchForm}
+                      >
+                        <input
+                          type="text"
+                          name="search_input"
+                          defaultValue={searchBoxValue}
+                          className={`form-control ${styles.searchbox_form}`}
+                        />
+                        <div className="d-flex justify-content-center mt-3">
+                          <button className={`btn ${styles.search_btn}`}>
+                            search
+                          </button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className={`row g-2 p-3 mt-3 + ${styles.row_background}`}>
+            <div
+              className={`row d-flex justify-content-between g-2 p-3 mt-3 + ${styles.row_background}`}
+            >
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
@@ -283,56 +416,73 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                 </h1>
               </div>
               <div className={`row mt-3 p-2 + ${styles.row_background}`}>
-                {posts.map(function (post, id) {
-                  return (
-                    <div
-                      key={id}
-                      className={`col-12 col-md-4 + ${styles.post_box}`}
-                    >
-                      <div className={styles.post_box_img}>
-                        <Image
-                          layout="fill"
-                          objectFit="fill"
-                          alt="post image"
-                          className="post_image"
-                          src={orig + post.image}
-                        />
-                        <span className={styles.post_box_category}>
-                          {post.category.name}
-                        </span>
-                      </div>
-                      <div className={styles.post_box_body}>
-                        <h1 className={styles.post_box_heading}>
-                          {post.title}
-                        </h1>
-                        <span
-                          className={styles.post_box_body_text}
-                          dangerouslySetInnerHTML={{
-                            __html: truncate(post.body),
-                          }}
-                        ></span>
-                      </div>
-                      <div
-                        className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
-                      >
-                        <span className="blog-link">
-                          <Link role="button" href={"/Blog/" + post.id}>
-                            Readmore
-                          </Link>
-                        </span>
-                        <span>
-                          <FontAwesomeIcon
-                            width={20}
-                            height={20}
-                            icon={faHandshake}
-                          />
-                          {post.handshakes}
-                        </span>
-                        <span>By {post.author.name}</span>
-                      </div>
-                    </div>
-                  );
-                })}
+                {p_posts ? (
+                  <>
+                    {p_posts.map(function (post, id) {
+                      return (
+                        <div
+                          key={id}
+                          className={`col-12 col-md-4 + ${styles.post_box}`}
+                        >
+                          <div className={styles.post_box_img}>
+                            <Image
+                              layout="fill"
+                              objectFit="fill"
+                              alt="post image"
+                              className="post_image"
+                              src={orig + post.image}
+                            />
+                            <span className={styles.post_box_category}>
+                              {post.category.name}
+                            </span>
+                          </div>
+                          <div className={styles.post_box_body}>
+                            <h1 className={styles.post_box_heading}>
+                              {post.title}
+                            </h1>
+                            <span
+                              className={styles.post_box_body_text}
+                              dangerouslySetInnerHTML={{
+                                __html: truncate(post.body),
+                              }}
+                            ></span>
+                          </div>
+                          <div
+                            className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
+                          >
+                            <span className="blog-link">
+                              <Link role="button" href={"/Blog/" + post.id}>
+                                Readmore
+                              </Link>
+                            </span>
+                            <span>
+                              <FontAwesomeIcon size="1x" icon={faHandshake} />
+                              {post.handshakes}
+                            </span>
+                            <span>By {post.author.name}</span>
+                          </div>
+                        </div>
+                      );
+                    })}{" "}
+                  </>
+                ) : (
+                  <>
+                    <h1>Loading...</h1>
+                  </>
+                )}
+              </div>
+              <div className="d-flex justify-content-center mb-3 mt-2">
+                <button
+                  className={`btn ${styles.loadmore_btn} p-1`}
+                  disabled={isLoadingMore || isReachingEnd}
+                  onClick={() => setSize1(size + 1)}
+                >
+                  {isLoadingMore
+                    ? "loading..."
+                    : isReachingEnd
+                    ? "No more posts"
+                    : "load more"}
+                </button>
               </div>
             </div>
             <div id="threads" className="col-12 col-md-12 ">
@@ -343,38 +493,66 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                   Threads
                 </h1>
               </div>
-              <div  className={`d-flex justify-content-end ${styles.add_thread}`}>
-                  <button className="btn"><FontAwesomeIcon className={styles.faPlusCircle}  icon={faPlusCircle} /></button>
-                </div>
+              <div
+                className={`d-flex justify-content-end ${styles.add_thread}`}
+              >
+                <button className="btn">
+                  <FontAwesomeIcon
+                    size="2x"
+                    className={styles.faPlusCircle}
+                    icon={faPlusCircle}
+                  />
+                </button>
+              </div>
               <div className=" p-3 ">
-                
                 <ul>
-                  {threads.map(function (thread, id) {
-                    return (
-                      <li key={id} className={`mb-3 ${styles.thread_link}`}>
-                        <div className="row w-100">
-                          <div className="col-10 col-md-11">
-                            <Link href={"/Blog/thread/" + thread.id}>
-                              {thread.title}
-                            </Link>
-                          </div>
-                          <div className="col-2 col-md-1">
-                            <FontAwesomeIcon
-                              style={{
-                                height: "1em",
-                                color: "blue",
-                              }}
-                              icon={faComment}
-                            />
-                            <sup>
-                              {Object.keys(thread.thread_messages).length}
-                            </sup>
-                          </div>
-                        </div>
-                      </li>
-                    );
-                  })}
+                  {p_threads ? (
+                    <>
+                      {p_threads.map(function (thread, id) {
+                        return (
+                          <li key={id} className={`mb-3 ${styles.thread_link}`}>
+                            <div className="row w-100">
+                              <div className="col-10 col-md-11">
+                                <Link href={"/Blog/thread/" + thread.id}>
+                                  {thread.title}
+                                </Link>
+                              </div>
+                              <div className="col-2 col-md-1">
+                                <FontAwesomeIcon
+                                  size="1x"
+                                  style={{
+                                    color: "blue",
+                                  }}
+                                  icon={faComment}
+                                />
+                                <sup>
+                                  {Object.keys(thread.thread_messages).length}
+                                </sup>
+                              </div>
+                            </div>
+                          </li>
+                        );
+                      })}{" "}
+                    </>
+                  ) : (
+                    <>
+                      <h1>Loading Threads...</h1>
+                    </>
+                  )}
                 </ul>
+                <div className="d-flex justify-content-center mb-3 mt-2">
+                  <button
+                    className={`btn ${styles.loadmore_btn} p-1`}
+                    disabled={isLoadingMore2 || isReachingEnd2}
+                    onClick={() => setSize2(size2 + 1)}
+                  >
+                    {isLoadingMore2
+                      ? "loading..."
+                      : isReachingEnd2
+                      ? "No more threads"
+                      : "load more"}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -382,6 +560,138 @@ const Home1 = ({ posts, threads, cate, orig }) => {
         <div className="mt-3 container g-0">
           <Footer />
         </div>
+
+        {/* <div className={`${styles.index_add_thread_modal_overlay}`}>
+            <div>
+              <div>
+
+              </div>
+            </div>
+        </div> */}
+        {searchResultOverlay ? (
+          <div className={`${styles.index_search_modal_overlay}`}>
+            <div className="row d-flex justify-content-center align-items-center w-100 h-100 g-0">
+              <div
+                className={`col-10 col-md-8 d-flex flex-wrap justify-content-center p-1  ${styles.index_search_modal_box}`}
+              >
+                <div className="w-100 d-flex justify-content-end">
+                  <div onClick={ToggleResultOverlay} className=" btn">
+                    <FontAwesomeIcon
+                      style={{ color: "white" }}
+                      size={"2x"}
+                      icon={faTimes}
+                    />
+                  </div>
+                </div>
+                <form className="w-75" onSubmit={searchForm}>
+                  <input
+                    type="text"
+                    name="search_input"
+                    defaultValue={searchBoxValue}
+                    className={`form-control ${styles.searchbox_form}`}
+                  />
+                  <div className="d-flex justify-content-center mt-1">
+                    <button className={`btn ${styles.search_btn}`}>
+                      search
+                    </button>
+                  </div>
+                </form>
+                <div className="mt-2 w-100 d-flex flex-wrap justify-content-center  text-light">
+                  <h4 className="w-100 text-center">
+                    Search results found: {searchResult.length}
+                  </h4>
+                  <span>Searching Posts and Threads</span>
+                </div>
+                <div
+                  className={`mt-4 w-100 d-flex flex-wrap justify-content-center ${styles.search_box_result}`}
+                >
+                  {searchResult.map(function (item, id) {
+                    return (
+                      <div
+                        key={id}
+                        className={`row ${styles.search_item_container}`}
+                      >
+                        {item.category ? (
+                          <>
+                            <div
+                              className={`col-3 col-lg-1 d-flex flex-wrap align-items-center ${styles.index_item_info}`}
+                            >
+                              <div className="w-100 d-flex justify-content-start">
+                                <span>Post</span>
+                              </div>
+                              <br />
+                              <div className={`${styles.index_item_info_1}`}>
+                                <span>0{id}</span>
+                              </div>
+                            </div>
+                            <div
+                              className={`col-9 col-lg-11 h-100 d-flex flex-wrap align-items-between ${styles.index_item_detail}`}
+                            >
+                              <div className={` ${styles.index_item_detail_1}`}>
+                                <span>{item.title}</span>
+                              </div>
+
+                              <div
+                                className={`w-100 d-flex justify-content-between align-items-center ${styles.index_item_detail_2}`}
+                              >
+                                <span>By {item.author.name}</span>
+                                <Link href={"/Blog/" + item.id} passHref>
+                                  <button
+                                    className={`btn btn-sm ${styles.search_btn}`}
+                                  >
+                                    Read
+                                  </button>
+                                </Link>
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div
+                              className={`col-3 col-lg-1 d-flex flex-wrap align-items-center ${styles.index_item_info}`}
+                            >
+                              <div className="w-100 d-flex justify-content-start">
+                                <span>Thread</span>
+                              </div>
+                              <br />
+                              <div className={`${styles.index_item_info_1}`}>
+                                <span>0{id}</span>
+                              </div>
+                            </div>
+                            <div
+                              className={`col-9 col-lg-11 h-100 d-flex flex-wrap align-items-between ${styles.index_item_detail}`}
+                            >
+                              <div className={` ${styles.index_item_detail_1}`}>
+                                <span>{item.title}</span>
+                              </div>
+
+                              <div
+                                className={`w-100 d-flex justify-content-between align-items-center ${styles.index_item_detail_2}`}
+                              >
+                                <span>
+                                  Messages: {item.thread_messages.length}
+                                </span>
+                                <Link href={"/Blog/thread/" + item.id} passHref>
+                                  <button
+                                    className={`btn btn-sm ${styles.search_btn}`}
+                                  >
+                                    open
+                                  </button>
+                                </Link>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
