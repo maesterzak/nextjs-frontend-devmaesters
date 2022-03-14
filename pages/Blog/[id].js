@@ -423,6 +423,11 @@ function Post_detail({ url, orig }) {
 
                       <div className={`col-10 ${styles.thread_message}`}>
                         {message.body}
+                        <hr />
+                        <div className="d-flex justify-content-between">
+                          <span><b>{message.name}</b></span>
+                          <span><b>{message.date_created}</b></span>
+                          </div>
                       </div>
                     </div>
                   );
