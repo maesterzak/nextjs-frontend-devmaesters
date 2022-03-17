@@ -1,36 +1,21 @@
 import Navbar from "../blog_components/Navbar";
 import Head from "next/head";
-
 import styles from "../blog_home.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 import { API_URL, NEXT_MODE } from "../../../config";
 import Image from "next/image";
-
 import dynamic from "next/dynamic";
-const Footer = dynamic(() => import('../blog_components/Footer'))
+const Footer = dynamic(() => import("../blog_components/Footer"));
+import dompurify from "dompurify";
 
+import useSWR from "swr";
+import {useState } from "react";
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`${API_URL}/blog/posts/`);
-  const data = await res.json();
-
-  const paths = data.map((post) => {
-    return {
-      params: { name: post.category.name.toString() },
-    };
-  });
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
-export const getStaticProps = async (context) => {
+export async function getServerSideProps(context) {
   const name = context.params.name;
-  const res = await fetch(`${API_URL}/blog/categories-posts/` + name + "/");
-
-  const data = await res.json();
+  const url = `${API_URL}/blog/categories-paginated-posts/` + name;
   if (`${NEXT_MODE}` == "DEV") {
     var orig = `${API_URL}`;
   } else if (`${NEXT_MODE}` == "PROD") {
@@ -38,24 +23,44 @@ export const getStaticProps = async (context) => {
   }
 
   return {
-    props: { category_posts: data, name: name, orig:orig },
+    props: { name: name, orig: orig, url: url },
   };
-};
+}
 
 
+function Category_list({ name, orig, url }) {
+  const sanitizer = dompurify.sanitize
+  const fetcher = (...args) =>
+    fetch(...args).then((response) => response.json());
+  const [limit, setLimit] = useState(8);
 
-function Category_list({ category_posts, name, orig }) {
-  
+  const { data, error } = useSWR(`${url}?l=${limit}`, fetcher);
+
+  const p_posts = data ? [].concat(...data["results"]) : [];
+
+  const isLoadingInitialData = !data && !error;
+  const isLoadingMore =
+    isLoadingInitialData || (data && typeof data === "undefined");
+  const isEmpty = data?.["count"] === 0;
+  const isReachingEnd = isEmpty || p_posts?.length === data?.["count"];
 
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
+  if (error)
+    return (
+      <>
+        <h1>{error}</h1>
+      </>
+    );
 
   return (
     <>
       <Head>
         <title>SimpleLIFE | category- {name}</title>
         <meta name="keywords" content="Home" />
+        <meta name="description" content="" />
+        
       </Head>
       <div>
         <Navbar
@@ -64,6 +69,7 @@ function Category_list({ category_posts, name, orig }) {
           icon="white"
           header_color="white"
         />
+
         <div className="container ">
           <div className={`${styles.main}`}>
             <div className="row">
@@ -89,60 +95,77 @@ function Category_list({ category_posts, name, orig }) {
                   <div
                     className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                   >
-                    <h1  className={`text-center + ${styles.header_label_text}`}>
+                    <h1 className={`text-center + ${styles.header_label_text}`}>
                       Posts under {name} category
                     </h1>
                   </div>
-                  {category_posts.map(function (post, id) {
-                    return (
-                      <div
-                        key={id} 
-                        className={`col-12 col-md-6 + ${styles.post_box}`}
-                      >
-                        <div  className={styles.post_box_img}>
-                        
-                          <Image
-                            layout="fill"
-                            objectFit="fill"
-                            alt="post image"
-                            className="post_image"
-                            src={orig + post.image}
-                          />
-                          <span className={styles.post_box_category}>
-                            {post.category.name}
-                          </span>
-                        </div>
-                        <div className={styles.post_box_body}>
-                          <h1 className={styles.post_box_heading}>
-                            {post.title}
-                          </h1>
-                          <span
-                            className={styles.post_box_body_text}
-                            dangerouslySetInnerHTML={{
-                              __html: truncate(post.body),
-                            }}
-                          ></span>
-                        </div>
-                        <div
-                          className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
-                        >
-                          <span className="blog-link">
-                            <Link role="button" href={"/Blog/" + post.id}>
-                              Readmore
-                            </Link>
-                          </span>
-                          <span>
-                            <FontAwesomeIcon
-                              size="1x"
-                              icon={faHandshake}
-                            />
-                            10
-                          </span>
-                          <span>By {post.author.name}</span>
-                        </div>
-                      </div>
-                    );
-                  })}
+                  {data ? (
+                    <>
+                      {p_posts.map(function (post, id) {
+                        return (
+                          <div
+                            key={id}
+                            className={`col-12 col-md-6 + ${styles.post_box}`}
+                          >
+                            <div className={styles.post_box_img}>
+                              <Image
+                                layout="fill"
+                                objectFit="fill"
+                                alt="post image"
+                                className="post_image"
+                                src={orig + post.image}
+                              />
+                              <span className={styles.post_box_category}>
+                                {post.category.name}
+                              </span>
+                            </div>
+                            <div className={styles.post_box_body}>
+                              <h1 className={styles.post_box_heading}>
+                                {post.title}
+                              </h1>
+                              <span
+                                className={styles.post_box_body_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: sanitizer(truncate(post.body)),
+                                }}
+                              ></span>
+                            </div>
+                            <div
+                              className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
+                            >
+                              <span className="blog-link">
+                                <Link role="button" href={"/Blog/" + post.id}>
+                                  Readmore
+                                </Link>
+                              </span>
+                              <span>
+                                <FontAwesomeIcon size="1x" icon={faHandshake} />
+                                10
+                              </span>
+                              <span>By {post.author.name}</span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <>
+                      <h1>Loading Posts</h1>
+                    </>
+                  )}
+                </div>
+                <div className="d-flex justify-content-center mb-3 mt-2">
+                  <button
+                    className={`btn ${styles.loadmore_btn} p-1`}
+                    disabled={isLoadingMore || isReachingEnd}
+                    onClick={() => setLimit(limit + 8)}
+                  >
+                    {isLoadingMore
+                      ? "loading..."
+                      : isReachingEnd
+                      ? "No more posts"
+                      : "load more"}
+                  </button>
                 </div>
               </div>
             </div>

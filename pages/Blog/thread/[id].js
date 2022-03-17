@@ -110,7 +110,9 @@ function Blog_chats({  orig, url }) {
       <Head>
         <title>SimpleLIFE | Thread- {data.title}</title>
         <meta name="keywords" content="Home" />
+        <meta name="description" content="" />
         <link rel="icon" href="/favicon1.ico" />
+        
       </Head>
       <div>
         <Navbar

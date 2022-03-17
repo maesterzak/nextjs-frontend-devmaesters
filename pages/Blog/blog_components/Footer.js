@@ -35,7 +35,7 @@ const Footer = () =>{
                         <span>Or contact me via;</span>
                         <ul>
                             <li>tel: 08062257480</li>
-                            <li>Email: abubakarzakri1703@gmail.com</li>
+                            <li>Email: angelzak1703@gmail.com</li>
 
                         </ul>
                         <span><FontAwesomeIcon style={{"marginRight":"10px"}} size={"3x"}  icon={faTwitterSquare} />

@@ -13,7 +13,8 @@ module.exports={
             policy
         ]
     },
-    additionalSitemaps: [`${URL}/server-sitemap.xml`, `${URL}/sitemap-0.xml`]
+    additionalSitemaps: [`${URL}/server-sitemap.xml`, `${URL}/sitemap.xml`],
+    excle:['/Blog/blog_components', ]
     
     
 }

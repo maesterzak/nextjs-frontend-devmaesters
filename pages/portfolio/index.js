@@ -1,4 +1,5 @@
 import Navbar from "../Blog/blog_components/Navbar";
+import head from "next/head";
 import styles from "./portfolio.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,7 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { API_URL, NEXT_MODE } from "../../config";
-
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import Head from "next/head";
 
 if (`${NEXT_MODE}` == "DEV") {
   var orig = `${API_URL}`;
@@ -24,6 +26,17 @@ function PortfolioIndex() {
   };
   return (
     <>
+      <Head>
+        <title>Abubakar Zakari</title>
+        <meta name="keywords" content="Abubakar Zakari" />
+        <meta
+          name="description"
+          content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
+          developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my portfolio site to see my skills, projects
+          and contact information."
+        />
+        <link rel="icon" href="/favicon1.ico" />
+      </Head>
       <div className={`${styles.main}`}>
         <div className="d-none d-md-block">
           <Image
@@ -143,7 +156,7 @@ function PortfolioIndex() {
                   className={`${styles.index_image}`}
                   layout="responsive"
                   priority
-                  src={'/images/abu_01.jpg'}
+                  src={"/images/abu_01.jpg"}
                   alt="owner_image"
                 />
               </div>
@@ -157,10 +170,17 @@ function PortfolioIndex() {
               </div>
             </div>
             <div className="d-flex justify-content-center mt-3">
-              <button className={`${styles.download_button}`}>
-                Download cv{" "}
-                <FontAwesomeIcon height={20} icon={faFileDownload} />
-              </button>
+              <Link href={"/"} passHref>
+                <button className={`${styles.download_button}`}>
+                  Download cv{" "}
+                  <FontAwesomeIcon height={20} icon={faFileDownload} />
+                </button>
+              </Link>
+              <Link href={"https://github.com/maesterzak"} passHref>
+                <button className={`${styles.download_button}`}>
+                  My Github <FontAwesomeIcon height={20} icon={faGithub} />
+                </button>
+              </Link>
             </div>
           </div>
 

@@ -11,11 +11,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { API_URL, NEXT_MODE } from "../../config";
-
+import Head from "next/head";
 
 export const getStaticProps = async () => {
   const response = await fetch(`${API_URL}/blog/portfolio-projects/`);
-  
+
   const data = await response.json();
 
   if (`${NEXT_MODE}` == "DEV") {
@@ -29,14 +29,24 @@ export const getStaticProps = async () => {
   };
 };
 
-
-function PortfolioProject({project, orig}) {
+function PortfolioProject({ project, orig }) {
   const [mini_nav, setMini_nav] = useState(false);
   const ToggleMiniNav = () => {
     setMini_nav(!mini_nav);
   };
   return (
     <>
+      <Head>
+        <title>Abubakar Zakari | Projects</title>
+        <meta name="keywords" content="Abubakar Zakari" />
+        <meta
+          name="description"
+          content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
+          developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my portfolio site to see my skills, projects
+          and contact information."
+        />
+        <link rel="icon" href="/favicon1.ico" />
+      </Head>
       <div className={`${styles.main}`}>
         <div className="d-none d-lg-block">
           <Image
@@ -148,51 +158,50 @@ function PortfolioProject({project, orig}) {
           <div
             className={`d-flex justify-content-center flex-wrap mt-4 ${styles.project_container}`}
           >
-            {project.map(function(project, id){
-              return(
-                <div key={id}
-              className={`row mb-3 flex-wrap ${styles.project_sub_container} d-flex justify-content-center`}
-            >
-              <div className={`col-12 col-md-6  ${styles.project_info}`}>
-                <div className={`d-flex justify-content-center mb-2`}>
-                  <h5
-                    className={`mt-2 text-center w-50 ${styles.project_header}`}
+            {project.map(function (project, id) {
+              return (
+                <div
+                  key={id}
+                  className={`row mb-3 flex-wrap ${styles.project_sub_container} d-flex justify-content-center`}
+                >
+                  <div className={`col-12 col-md-6  ${styles.project_info}`}>
+                    <div className={`d-flex justify-content-center mb-2`}>
+                      <h5
+                        className={`mt-2 text-center w-50 ${styles.project_header}`}
+                      >
+                        {project.name}
+                      </h5>
+                    </div>
+                    <span className={`mb-2 ${styles.project_subheader}`}>
+                      Stack
+                    </span>
+                    <div className={`text-center ${styles.project_stack}`}>
+                      {project.stack}
+                    </div>
+                    <span className={`mb-2 ${styles.project_subheader}`}>
+                      Description
+                    </span>
+                    <div className={`text-center mb-2 ${styles.project_stack}`}>
+                      {project.description}
+                    </div>
+                    <div className={`d-flex justify-content-end mb-2`}>
+                      <Link href={project.github} passHref>
+                        <button
+                          className={`btn ${styles.repo_button} d-flex justify-content-between`}
+                        >
+                          repo <FontAwesomeIcon size={"1x"} icon={faGithub} />
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                  <div
+                    className={`col-12 flex-wrap col-md-6 ${styles.project_video} d-flex justify-content-center align-items-center`}
                   >
-                    {project.name}
-                  </h5>
+                    <FontAwesomeIcon size={"3x"} color="white" icon={faVideo} />
+                  </div>
                 </div>
-                <span className={`mb-2 ${styles.project_subheader}`}>
-                  Stack
-                </span>
-                <div className={`text-center ${styles.project_stack}`}>
-                  {project.stack}
-                </div>
-                <span className={`mb-2 ${styles.project_subheader}`}>
-                  Description
-                </span>
-                <div className={`text-center mb-2 ${styles.project_stack}`}>
-                  {project.description}
-                </div>
-                <div className={`d-flex justify-content-end mb-2`}>
-                  <button
-                    className={`btn ${styles.repo_button} d-flex justify-content-between`}
-                  >
-                    repo <FontAwesomeIcon size={"1x"} icon={faGithub} />
-                  </button>
-                </div>
-              </div>
-              <div
-                className={`col-12 flex-wrap col-md-6 ${styles.project_video} d-flex justify-content-center align-items-center`}
-              >
-                <FontAwesomeIcon size={"3x"} color="white" icon={faVideo} />
-              </div>
-            </div>
-              )
+              );
             })}
-
-            
-
-            
           </div>
         </div>
       </div>

@@ -14,7 +14,11 @@ import { config, dom } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
 
+
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap");
+  }, []);
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   useEffect(() => {
@@ -38,6 +42,7 @@ function MyApp({ Component, pageProps }) {
     <>
     <Head>
     <style>{dom.css()}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
     <Provider store={store}>
       
@@ -50,4 +55,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default MyApp;

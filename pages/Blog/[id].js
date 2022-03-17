@@ -16,6 +16,7 @@ import { API_URL, NEXT_MODE } from "../../config/index";
 import { useRouter } from "next/router";
 import useSWR, { mutate } from "swr";
 import Loader from "../components/Loader";
+import dompurify from 'dompurify'
 
 // export const getStaticPaths = async () => {
 //   const res = await fetch(`${API_URL}/blog/posts/`);
@@ -31,6 +32,9 @@ import Loader from "../components/Loader";
 //     fallback: false,
 //   };
 // };
+
+
+
 
 export async function getServerSideProps(context){
   const id = context.params.id;
@@ -98,21 +102,27 @@ function Post_detail({ url, orig }) {
     router.replace(router.asPath);
   };
   const {data, error} = useSWR(url, fetcher)
+  const sanitizer = dompurify.sanitize
+  
   
   if (error) return <>{error}</>
   return (
     <>
-      {data ? <>
+      {data ? <> 
       <Head>
         <title>SimpleLIFE | Post- {data.title}</title>
         <meta name="keywords" content={data.tags} />
         <meta name="description" content={<span
                           className={styles.post_box_body_text}
                           dangerouslySetInnerHTML={{
-                            __html: truncate(data.body),
+                            __html: sanitizer(truncate(data.body)),
                           }}
                         ></span>} />
+                        <hr />
+                        
         <link rel="icon" href="/favicon1.ico" />
+        
+        
       </Head>
       <div>
         <Navbar links="white" icon="white" header_color="white" />
@@ -124,8 +134,9 @@ function Post_detail({ url, orig }) {
               >
                 <h1>{data.title}</h1>
                 <br />
-                <span className="mt-3"  dangerouslySetInnerHTML={{ __html: data.body }}></span>
+                <div className="mt-3"  dangerouslySetInnerHTML={{ __html: sanitizer(data.body) }}></div>
                 <br />
+                
                 <hr />
                 <div className={`row g-0 p-2`}>
                   <span>
@@ -176,16 +187,16 @@ function Post_detail({ url, orig }) {
                   </div>
                 </div>
                 <div className="col-12 col-md-8 ">
-                  <div className="row d-flex justify-content-center">
+                  <div className="row d-flex justify-content-center h-100">
                     <div className="col-10 col-md-10">
                       <span
                         dangerouslySetInnerHTML={{
-                          __html: data.author.about_me,
+                          __html: sanitizer(data.author.about_me),
                         }}
                       ></span>
 
                     </div>
-                    <div className="col-12 d-flex justify-content-end">
+                    <div className="col-12 d-flex justify-content-end align-self-end">
                         <span><span><FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faTwitterSquare} />
                         <FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faFacebookSquare} />
                         <FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faWhatsappSquare} />

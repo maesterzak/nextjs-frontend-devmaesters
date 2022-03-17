@@ -371,11 +371,16 @@ footer{
   height: 1.5em;
   width: 1.5em;
 }
+.carousel-item{
+  position: relative;
+}
 .testing{
   width: 100%;
   position: relative;
   margin-top: 9%;
-  height: 35vh;
+  height: 45vh;
+  background: black;
+  object-fit: contain;
 }
 .trending_post_container{
   height: 35vh;

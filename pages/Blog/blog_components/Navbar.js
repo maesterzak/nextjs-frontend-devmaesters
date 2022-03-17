@@ -30,10 +30,10 @@ const Navbar = (props) => {
   const guest = (
     <>
       <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-        <Link href="/login">Login</Link>
+        <button className="btn" disabled><Link href="/login">Login</Link></button><FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
       </div>
       <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-        <Link href="/register">Register</Link>
+        <button disabled className="btn"><Link href="/register">Register</Link></button><FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
       </div>
     </>
   );
@@ -63,7 +63,7 @@ const Navbar = (props) => {
             <div><Link href={'/'}>Home</Link></div>
             <div><Link href={'/Blog'}>Blog</Link></div>
             <div><Link href={'/portfolio'}>Portfolio</Link></div>
-            <div><Link href={'/mini-mall'}>Mini-Mall</Link></div>
+            <div className="d-flex align-items-center"><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" className="text-white" icon={faHardHat} /></div>
             <div><Link href={'/aboutus'}>About</Link></div>
             <div><Link href={'/contactus'}>Contact</Link></div>
             </div>
@@ -76,8 +76,8 @@ const Navbar = (props) => {
           <div className="d-flex w-100 align-items-center justify-content-around">
             <FontAwesomeIcon size="1x" style={{"color":`${props.icon}`}} icon={faUser} />
             
-            <button className="btn btn-outline-light d-none d-md-block"><Link href={'/login'}>Login</Link></button>
-            <button className="btn btn-outline-light d-none d-md-block"><Link href={'/register'}>Register</Link></button>
+            <button disabled className="btn btn-outline-light d-none d-md-block"><Link href={'/login'}>Login</Link></button>
+            <button disabled className="btn btn-outline-light d-none d-md-block"><Link href={'/register'}>Register</Link></button>
           </div>
           <div className="d-block d-sm-none" onClick={ToggleNav1}>
             <FontAwesomeIcon

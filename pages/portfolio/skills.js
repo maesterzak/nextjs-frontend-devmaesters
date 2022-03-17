@@ -3,21 +3,15 @@ import styles from "./portfolio.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHtml5,
-  faCss3,
-  
-  faPython
-  
-} from "@fortawesome/free-brands-svg-icons";
-import {faAngleDown, faTimes} from "@fortawesome/free-solid-svg-icons";
+import Head from "next/head";
+
+import { faAngleDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { API_URL, NEXT_MODE } from "../../config";
 
-
 export const getStaticProps = async () => {
   const response = await fetch(`${API_URL}/blog/portfolio-skill/`);
-  
+
   const data = await response.json();
 
   if (`${NEXT_MODE}` == "DEV") {
@@ -31,15 +25,24 @@ export const getStaticProps = async () => {
   };
 };
 
-
-function PortfolioSkills({skills, orig}) {
-  
+function PortfolioSkills({ skills, orig }) {
   const [mini_nav, setMini_nav] = useState(false);
   const ToggleMiniNav = () => {
     setMini_nav(!mini_nav);
   };
   return (
     <>
+      <Head>
+        <title>Abubakar Zakari | Skills</title>
+        <meta name="keywords" content="Abubakar Zakari" />
+        <meta
+          name="description"
+          content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
+          developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my portfolio site to see my skills, projects
+          and contact information."
+        />
+        <link rel="icon" href="/favicon1.ico" />
+      </Head>
       <div className={`${styles.main}`}>
         <div className="d-none d-lg-block">
           <Image
@@ -147,94 +150,41 @@ function PortfolioSkills({skills, orig}) {
               </div>
             </div>
           </div>
-              
+
           <div className={`row mt-3 flex-wrap d-flex justify-content-center`}>
-            <h5 className="text-center p-3">Below are the skills i have picked up, click/hover on any to see the skill name.</h5>
+            <h5 className="text-center p-3">
+              Below are the skills i have picked up, click/hover on any to see
+              the skill name.
+            </h5>
             <div className={`col-10 col-lg-8 `}>
               <div className="row flex-wrap d-flex justify-content-between">
-                
-                <div
-                  className={`btn col-3 m-2 col-lg-2 ${styles.skills_container}`}
-                >
-                  <div
-                    className={`d-grid justify-content-center align-items-between ${styles.skills_sub_container2}`}
-                  >
-                    <span><b>Html5</b></span>
-                    <button className={`btn ${styles.skills_button}`}>
-                      Projects
-                    </button>
-                  </div>
-                  <div
-                    className={`d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
-                  >
-                    <FontAwesomeIcon
-                      size={"5x"}
-                      className={`${styles.skills_fontawesome}`}
-                      icon={faHtml5}
-                    />
-                  </div>
-                </div>
-
-                <div className={`btn col-3 m-2 col-lg-2 ${styles.skills_container}`}>
-                  <div
-                    className={`d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
-                  >
-                    <FontAwesomeIcon
-                      size={"5x"}
-                      className={`${styles.skills_fontawesome}`}
-                      icon={faCss3}
-                    />
-                  </div>
-                  <div
-                    className={`d-grid justify-content-center align-items-between ${styles.skills_sub_container2}`}
-                  >
-                    <span><b>Css</b></span>
-                    <button className={`btn ${styles.skills_button}`}>
-                      Projects
-                    </button>
-                  </div>
-                </div>
-
-                
-
-                <div className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}>
-                  <div
-                    className={`d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
-                  >
-                    <FontAwesomeIcon
-                      size={"5x"}
-                      className={`${styles.skills_fontawesome}`}
-                      icon={faPython}
-                    />
-                  </div>
-                  <div
-                    className={`d-grid justify-content-center align-items-between ${styles.skills_sub_container2}`}
-                  >
-                    <span><b>Python</b></span>
-                    <button className={`btn ${styles.skills_button}`}>
-                      Projects
-                    </button>
-                  </div>
-                </div>
-
-                {skills.map(function(skill, id){
-                  return(
-                    <div key={id} className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}>
-                  <div
-                    className={`p-3 d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
-                  >
-                    <Image alt="skill_image" width={'100%'} height={'100%'} className={`${styles.skills_image}`} layout="fixed" src={`${orig + skill.svg_image}`} />
-                  </div>
-                  <div
-                    className={`d-grid justify-content-center align-items-between ${styles.skills_sub_container2}`}
-                  >
-                    <span><b>{skill.name}</b></span>
-                    <button className={`btn ${styles.skills_button}`}>
-                      Projects
-                    </button>
-                  </div>
-                </div>
-                  )
+                {skills.map(function (skill, id) {
+                  return (
+                    <div
+                      key={id}
+                      className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
+                    >
+                      <div
+                        className={`p-3 d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
+                      >
+                        <Image
+                          alt="skill_image"
+                          width={"100%"}
+                          height={"100%"}
+                          className={`${styles.skills_image}`}
+                          layout="fixed"
+                          src={`${orig + skill.svg_image}`}
+                        />
+                      </div>
+                      <div
+                        className={`d-grid justify-content-center align-items-center ${styles.skills_sub_container2}`}
+                      >
+                        <span>
+                          <b>{skill.name}</b>
+                        </span>
+                      </div>
+                    </div>
+                  );
                 })}
               </div>
             </div>

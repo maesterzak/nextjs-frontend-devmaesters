@@ -14,7 +14,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { API_URL, NEXT_MODE } from "../../config";
-import useSWR from "swr";
+import dompurify from "dompurify";
 import useSWRInfinite from "swr/infinite";
 
 export async function getServerSideProps(context) {
@@ -35,7 +35,7 @@ export async function getServerSideProps(context) {
     props: { posts: data, threads: da, cate: categorysdata, orig: orig },
   };
 }
-
+const sanitizer = dompurify.sanitize;
 const Home1 = ({ posts, threads, cate, orig }) => {
   const [searchResult, setSearchResult] = useState([]);
   const [searchResultOverlay, setSearchResultOverlay] = useState(false);
@@ -155,86 +155,119 @@ const Home1 = ({ posts, threads, cate, orig }) => {
   );
   const mobile_screen = (
     <>
-      <div className="testing">
+      <div className="testing p-2">
         <div
-          id="carouselExampleIndicators"
-          className="carousel slide"
-          data-ride="carousel"
+          id="carouselExampleCaptions"
+          className="carousel slide h-100 w-100"
+          data-bs-ride="carousel"
         >
-          <ol className="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              className="active"
-            ></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div className="carousel-inner trending_post_container">
-            {trending_posts.map(function (trending_post, id) {
-              return (
-                <div key={id} className="carousel-item active h-100">
-                  <Image
-                    layout="fill"
-                    className="d-block w-100 h-100"
-                    src={orig + trending_post.image}
-                    alt="First slide"
-                  />
-                  <div className="dark_overlay"></div>
-                  <div className="carousel-caption text-light">
-                    <h5>
-                      <a
-                        href={"/Blog/" + trending_post.id}
-                        className={styles.mobile_trending_text}
-                      >
-                        {trending_post.title}
-                      </a>
-                    </h5>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              className="active bg-primary"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+              className="bg-primary"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+              className="bg-primary"
+            ></button>
           </div>
-          <a
+          <div className="carousel-inner h-100 w-100">
+            <div className="carousel-item active bg-info h-100 w-100">
+              <Image
+                layout="fill"
+                sizes="50vw"
+                src={orig + trending_posts[0].image}
+                className="d-block w-100 h-100"
+                alt="..."
+              />
+              <div className="carousel-caption">
+                <Link href={/Blog/ + trending_posts[0].id} passHref>
+                  <h5 className="text-primary">{trending_posts[0].title}</h5>
+                </Link>
+              </div>
+            </div>
+            <div className="carousel-item h-100 w-100">
+              <Image
+                layout="fill"
+                sizes="50vw"
+                src={orig + trending_posts[1].image}
+                className="d-block"
+                alt="..."
+              />
+              <div className="carousel-caption ">
+                <Link href={/Blog/ + trending_posts[1].id} passHref>
+                  <h5 className="text-primary">{trending_posts[1].title}</h5>
+                </Link>
+              </div>
+            </div>
+            <div className="carousel-item h-100 w-100">
+              <Image
+                layout="fill"
+                sizes="50vw"
+                src={orig + trending_posts[2].image}
+                className="d-block w-100"
+                alt="..."
+              />
+              <div className="carousel-caption">
+                <Link href={/Blog/ + trending_posts[2].id} passHref>
+                  <h5 className="text-primary">{trending_posts[2].title}</h5>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <button
             className="carousel-control-prev"
-            href="#carouselExampleIndicators"
-            role="button"
-            data-slide="prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
           >
             <span
-              className="carousel-control-prev-icon"
+              className="bg-primary carousel-control-prev-icon"
               aria-hidden="true"
             ></span>
-            <span className="sr-only"></span>
-          </a>
-          <a
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
             className="carousel-control-next"
-            href="#carouselExampleIndicators"
-            role="button"
-            data-slide="next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
           >
             <span
-              className="carousel-control-next-icon"
+              className="bg-primary carousel-control-next-icon"
               aria-hidden="true"
             ></span>
-            <span className="sr-only"></span>
-          </a>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
     </>
   );
   const fetcher = (...args) =>
     fetch(...args).then((response) => response.json());
-  const size_page = 9
+  const size_page = 9;
   //posts
 
   const {
     data: data1,
     error,
-    
+
     size,
     setSize: setSize1,
-    
   } = useSWRInfinite(
     (index) => `${API_URL}/blog/posts_paginated?ps=${size_page}&p=${index + 1}`,
     fetcher
@@ -256,7 +289,8 @@ const Home1 = ({ posts, threads, cate, orig }) => {
     size: size2,
     setSize: setSize2,
   } = useSWRInfinite(
-    (index) => `${API_URL}/blog/paginated_threads/?ps=${size_page}&p=${index + 1}`,
+    (index) =>
+      `${API_URL}/blog/paginated_threads/?ps=${size_page}&p=${index + 1}`,
     fetcher
   );
 
@@ -280,11 +314,6 @@ const Home1 = ({ posts, threads, cate, orig }) => {
         for asking questions(threads) and buying web services/sites."
         />
         <link rel="icon" href="/favicon1.ico" />
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-          crossOrigin="anonymous"
-        ></script>
       </Head>
 
       <div className="position-relative">
@@ -443,7 +472,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                             <span
                               className={styles.post_box_body_text}
                               dangerouslySetInnerHTML={{
-                                __html: truncate(post.body),
+                                __html: sanitizer(truncate(post.body)),
                               }}
                             ></span>
                           </div>

@@ -2,7 +2,7 @@ import Navbar from "../Blog/blog_components/Navbar";
 import styles from "./portfolio.module.css";
 import Link from "next/link";
 import Image from "next/image";
-
+import Head from "next/head";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faWhatsapp,
@@ -61,6 +61,17 @@ function PortfolioContacts() {
   }
   return (
     <>
+      <Head>
+        <title>Abubakar Zakari | Contact</title>
+        <meta name="keywords" content="Abubakar Zakari" />
+        <meta
+          name="description"
+          content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
+          developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my portfolio site to see my skills, projects
+          and contact information."
+        />
+        <link rel="icon" href="/favicon1.ico" />
+      </Head>
       <div className={`${styles.main}`}>
         <div className="d-none d-lg-block">
           <Image
@@ -207,7 +218,7 @@ function PortfolioContacts() {
                         )}
                       </div>
                       <div className="position-relative w-100  d-flex justify-content-center align-items-center">
-                        PHONE 1: +2348055030991
+                        PHONE 2: +2348055030991
                         <FontAwesomeIcon
                           size={"1x"}
                           id="1"
@@ -228,7 +239,7 @@ function PortfolioContacts() {
                         )}
                       </div>
                       <div className=" position-relative w-100  d-flex justify-content-center align-items-center">
-                        PHONE 1: +2348088098110
+                        PHONE 3: +2348088098110
                         <FontAwesomeIcon
                           size={"1x"}
                           id="1"
