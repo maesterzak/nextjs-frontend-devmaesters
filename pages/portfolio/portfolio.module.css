@@ -18,8 +18,9 @@
     
 }
 .index_image{
-    object-fit:cover;
-    object-position: 18% 18%;
+    /* object-fit:fll;
+    object-position: 18% 18%; */
+    object-fit: contain;
     
 }
 .portfolio_button:hover{
