@@ -139,6 +139,20 @@
       height: 90%;
   }
 }
+.about_container{
+  min-width: 90%;
+  min-height: 20vh;
+  background: white;
+}
+.about_image{
+  width: 8em;
+  height: 8em;
+  border: solid 2px #7b1fa2;
+}
+.about_image1{
+  object-fit:cover;
+  object-position: 18% 18%;
+}
 @media only screen and (min-width: 900px){
   .header_text{
       font-size: xx-large;

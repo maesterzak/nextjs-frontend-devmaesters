@@ -25,7 +25,7 @@ export const getServerSideProps = GetServerSideProps = async(ctx)=>{
     for (let i=0; i < q; i++) {  
         fields.push(x[i])
     } 
-    var x = categories.map(category => ({loc: `${URL}/Blog/categorY/${category.name}`, lastmod: new Date().toISOString(),}))
+    var x = categories.map(category => ({loc: `${URL}/Blog/category/${category.name}`, lastmod: new Date().toISOString(),}))
     
     var q = x.length
     for (let i=0; i < q; i++) {  

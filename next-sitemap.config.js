@@ -1,8 +1,6 @@
 const URL = process.env.URL
 
-let policy = {
-    userAgent: "*"
-}
+
 
 
 module.exports={
@@ -10,11 +8,14 @@ module.exports={
     generateRobotsTxt: true,
     robotsTxtOptions: {
         policies: [
-            policy
-        ]
+            { userAgent: "*", disallow:["/Blog/blog_components/*", '/api/*','/components/*']},
+            { userAgent: "*", allow:"/"},
+
+        ],
+        additionalSitemaps: [`${URL}/server-sitemap.xml`],
     },
-    additionalSitemaps: [`${URL}/server-sitemap.xml`, `${URL}/sitemap.xml`],
-    excle:['/Blog/blog_components', ]
+    
+    exclude:['/Blog/blog_components/*', '/api/*','/components/*']
     
     
 }

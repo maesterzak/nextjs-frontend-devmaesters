@@ -45,7 +45,7 @@ function PortfolioProject({ project, orig }) {
           developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my portfolio site to see my skills, projects
           and contact information."
         />
-        <link rel="icon" href="/favicon1.ico" />
+        
       </Head>
       <div className={`${styles.main}`}>
         <div className="d-none d-lg-block">
@@ -56,6 +56,7 @@ function PortfolioProject({ project, orig }) {
             height={"80%"}
             layout="responsive"
             src="/svg/portfolio-background-wave.svg"
+            priority
           />
         </div>
         <div

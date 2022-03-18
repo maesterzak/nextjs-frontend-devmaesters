@@ -58,8 +58,8 @@ function Category_list({ name, orig, url }) {
     <>
       <Head>
         <title>SimpleLIFE | category- {name}</title>
-        <meta name="keywords" content="Home" />
-        <meta name="description" content="" />
+        <meta name="keywords" content={name} />
+        <meta name="description" content={name} posts in devMaesters />
         
       </Head>
       <div>
@@ -84,10 +84,10 @@ function Category_list({ name, orig, url }) {
                       Adds
                     </h1>
                   </div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>h</div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>i</div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                 </div>
               </div>
               <div className="col-12 col-md-9">

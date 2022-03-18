@@ -43,6 +43,7 @@ function MyApp({ Component, pageProps }) {
     <Head>
     <style>{dom.css()}</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon1.ico" />
     </Head>
     <Provider store={store}>
       

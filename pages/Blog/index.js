@@ -9,7 +9,7 @@ import {
   faHandshake,
   faComment,
   faPlusCircle,
-  faTimes,
+  faTimes, faAngleDown
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
@@ -112,11 +112,12 @@ const Home1 = ({ posts, threads, cate, orig }) => {
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
-
+  
   const sa = posts.slice().sort((a, b) => b.daily_views - a.daily_views);
   //change n
   const n = 3;
   const trending_posts = sa.slice(0, n);
+  
   const [window_width, changeWindow_width] = useState("");
   useEffect(() => {
     changeWindow_width(window.innerWidth);
@@ -162,6 +163,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
           data-bs-ride="carousel"
         >
           <div className="carousel-indicators">
+            {trending_posts[0] ? 
             <button
               type="button"
               data-bs-target="#carouselExampleCaptions"
@@ -169,65 +171,71 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               className="active bg-primary"
               aria-current="true"
               aria-label="Slide 1"
-            ></button>
+            ></button>:''}
+            {trending_posts[1] ? 
             <button
               type="button"
               data-bs-target="#carouselExampleCaptions"
               data-bs-slide-to="1"
               aria-label="Slide 2"
               className="bg-primary"
-            ></button>
+            ></button> :''}
+            {trending_posts[2] ? 
             <button
               type="button"
               data-bs-target="#carouselExampleCaptions"
               data-bs-slide-to="2"
               aria-label="Slide 3"
               className="bg-primary"
-            ></button>
+            ></button> :''}
           </div>
           <div className="carousel-inner h-100 w-100">
+            {trending_posts[0] ? 
             <div className="carousel-item active bg-info h-100 w-100">
               <Image
                 layout="fill"
                 sizes="50vw"
                 src={orig + trending_posts[0].image}
                 className="d-block w-100 h-100"
-                alt="..."
+                alt="first_trending_post"
+                priority
               />
               <div className="carousel-caption">
                 <Link href={/Blog/ + trending_posts[0].id} passHref>
                   <h5 className="text-primary">{trending_posts[0].title}</h5>
                 </Link>
               </div>
-            </div>
+            </div>:''}
+            {trending_posts[1] ?
             <div className="carousel-item h-100 w-100">
               <Image
                 layout="fill"
                 sizes="50vw"
                 src={orig + trending_posts[1].image}
                 className="d-block"
-                alt="..."
+                alt="second_trending_post"
               />
               <div className="carousel-caption ">
                 <Link href={/Blog/ + trending_posts[1].id} passHref>
                   <h5 className="text-primary">{trending_posts[1].title}</h5>
                 </Link>
               </div>
-            </div>
+            </div> : ''}
+            {trending_posts[2] ?
             <div className="carousel-item h-100 w-100">
               <Image
                 layout="fill"
                 sizes="50vw"
                 src={orig + trending_posts[2].image}
                 className="d-block w-100"
-                alt="..."
+                alt="third_trending_post"
               />
               <div className="carousel-caption">
                 <Link href={/Blog/ + trending_posts[2].id} passHref>
                   <h5 className="text-primary">{trending_posts[2].title}</h5>
                 </Link>
               </div>
-            </div>
+            </div> :''}
           </div>
           <button
             className="carousel-control-prev"
@@ -303,6 +311,11 @@ const Home1 = ({ posts, threads, cate, orig }) => {
   const isEmpty2 = data2?.[0]?.length === 0;
   const isReachingEnd2 = isEmpty2 || threads.length <= p_threads.length;
 
+  const [scroll_container, setScrollContainer] = useState(false)
+  const toggleScrollContainer=()=>{
+    setScrollContainer(!scroll_container)
+  }
+
   return (
     <>
       <Head>
@@ -313,14 +326,55 @@ const Home1 = ({ posts, threads, cate, orig }) => {
           content="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
         for asking questions(threads) and buying web services/sites."
         />
-        <link rel="icon" href="/favicon1.ico" />
+        
       </Head>
 
       <div className="position-relative">
         <Navbar links="white" icon="white" header_color="white" />
+        <div
+          style={{ top: "2vh", zIndex: "10",marginRight:"4vw" }}
+          className="mt-2 position-sticky   row"
+        >
+          <div className="col-12 d-flex justify-content-end">
+          <div onClick={toggleScrollContainer} className={`btn p-0 d-flex justify-content-around align-items-center  ${styles.scroll_btn}`}>scroll to <FontAwesomeIcon icon={faAngleDown} /></div>
+          </div>
+
+          
+          <div className={scroll_container ?`row d-grid justify-content-end position-absolute`: 'd-none'} style={{"top":"110%"}}>
+            <div className={`col-12 p-2  ${styles.scroll_container}`}>
+              <div  className="w-100 d-flex justify-content-center text-primary">
+              <Link href="#main" passHref>Home</Link>
+              </div>
+              <div className="w-100 d-flex justify-content-center text-primary">
+              <Link href="#trending_posts" passHref>Trending posts</Link>
+              </div>
+              <div className="w-100 d-flex justify-content-center text-primary">
+              <Link href="#categories" passHref>Categories</Link>
+              </div>
+              <div className="w-100 d-flex justify-content-center text-primary">
+              <Link href="#post_for_you" passHref>Post for you</Link>
+              </div>
+              <div className="w-100 d-flex justify-content-center text-primary">
+              <Link href="#latestPosts" passHref>Latest posts</Link>
+              </div>
+              <div className="w-100 d-flex justify-content-center text-primary">
+              <Link href="#threads" passHref>Threads</Link>
+              </div>
+              <div className="w-100 d-flex justify-content-center text-primary">
+              <Link href="#services" passHref>Services</Link>
+              </div>
+              <div className="w-100 d-flex justify-content-center text-primary">
+              <Link href="#contact" passHref>Contact</Link>
+              </div>
+            
+            
+            </div>
+            
+          </div>
+        </div>
 
         <div className={`container mt-2 overflow-hidden `}>
-          <div className="main">
+          <div id="main" className="main">
             <div className={`row g-2 p-3 + ${styles.row_background}`}>
               <div
                 className={`col-12 d-flex justify-content-center align-items-center ${styles.intro_box}`}
@@ -375,7 +429,10 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               {window_width >= 900 ? pcscreen : mobile_screen}
             </div>
           </div>
-          <div className={`row mt-3 p-3 + ${styles.row_background}`}>
+          <div
+            id="categories"
+            className={`row mt-3 p-3 + ${styles.row_background}`}
+          >
             <div className="col-12 col-md-4">
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
@@ -397,7 +454,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               </div>
             </div>
 
-            <div className="col-12 col-md-4 offset-md-4">
+            <div id="post_for_you" className="col-12 col-md-4 offset-md-4">
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
@@ -419,19 +476,19 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                 Adds
               </h1>
             </div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>h</div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>i</div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}>k</div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
+            <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
             <div
               className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}
             >
-              k
+              
             </div>
             <div
               className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}
             >
-              k
+              
             </div>
           </div>
 

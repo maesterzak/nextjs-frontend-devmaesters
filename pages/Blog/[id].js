@@ -111,18 +111,8 @@ function Post_detail({ url, orig }) {
       {data ? <> 
       <Head>
         <title>SimpleLIFE | Post- {data.title}</title>
-        <meta name="keywords" content={data.tags} />
-        <meta name="description" content={<span
-                          className={styles.post_box_body_text}
-                          dangerouslySetInnerHTML={{
-                            __html: sanitizer(truncate(data.body)),
-                          }}
-                        ></span>} />
-                        <hr />
-                        
-        <link rel="icon" href="/favicon1.ico" />
         
-        
+        <meta name="description" content={sanitizer(truncate(data.body))} />
       </Head>
       <div>
         <Navbar links="white" icon="white" header_color="white" />
@@ -462,14 +452,21 @@ function Post_detail({ url, orig }) {
                   </h1>
                 </div>
                 <div className="row g-0">
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>h</div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>i</div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                 </div>
                 <div className="row mt-3">
-                  <h6>Status</h6>
+                <div
+                  className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+                >
+                  <h1 className={`text-center + ${styles.header_label_text}`}>
+                    Status
+                  </h1>
+                </div>
                   <span>Published: {data.published_date}</span>
+                  <span>Updated: {data.updated_date}</span>
                   <span>Views: {data.views}</span>
                   <span>Handshakes: {data.handshakes}</span>
                 </div>

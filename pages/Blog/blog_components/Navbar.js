@@ -54,7 +54,7 @@ const Navbar = (props) => {
           
 
           <div className="nav-header" style={{"color":`${props.header_color}`}}>
-            <span>devMAESTERS.</span>
+            <span>devMaesters.</span>
           </div>
         
           </div>
@@ -64,8 +64,8 @@ const Navbar = (props) => {
             <div><Link href={'/Blog'}>Blog</Link></div>
             <div><Link href={'/portfolio'}>Portfolio</Link></div>
             <div className="d-flex align-items-center"><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" className="text-white" icon={faHardHat} /></div>
-            <div><Link href={'/aboutus'}>About</Link></div>
-            <div><Link href={'/contactus'}>Contact</Link></div>
+            <div><Link href={'/about'}>About</Link></div>
+            
             </div>
             
             
@@ -120,13 +120,10 @@ const Navbar = (props) => {
           
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-          <Link href="/aboutus">About us</Link>
+          <Link href="/about">About us</Link>
           <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
         </div>
-        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-          <Link href="/contactus">Contact us</Link>
-          <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
-        </div>
+        
         {isAuthenticated ? authlink : guest}
         
       </div>

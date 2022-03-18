@@ -11,7 +11,7 @@ const Footer = () =>{
                 <div className="row g-3">
 
                 
-                <div className="col-12 col-md-6 d-grid justify-content-center">
+                <div id="services" className="col-12 col-md-6 d-grid justify-content-center">
                     <h4 className="text-light text-center">Services </h4>
                     <ul className="text-light">
                         
@@ -27,12 +27,12 @@ const Footer = () =>{
                     </ul>
                 </div>
                 
-                <div style={{"fontWeight":"bold"}} className="col-12 col-md-4 d-grid justify-content-center">
+                <div id="contact" style={{"fontWeight":"bold"}} className="col-12 col-md-4 d-grid justify-content-center">
                     <h5 className="text-light text-center">Contact</h5>
                     <div className="text-light">
                         <span>Interested in hiring me or collaborating with me on a project, </span>
                         <span>click on any of the links below to get my social media handle, </span>
-                        <span>Or contact me via;</span>
+                        <span>or contact me via;</span>
                         <ul>
                             <li>tel: 08062257480</li>
                             <li>Email: angelzak1703@gmail.com</li>

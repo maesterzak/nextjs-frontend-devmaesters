@@ -41,7 +41,7 @@ function PortfolioSkills({ skills, orig }) {
           developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my portfolio site to see my skills, projects
           and contact information."
         />
-        <link rel="icon" href="/favicon1.ico" />
+        
       </Head>
       <div className={`${styles.main}`}>
         <div className="d-none d-lg-block">
@@ -52,6 +52,7 @@ function PortfolioSkills({ skills, orig }) {
             height={"80%"}
             layout="responsive"
             src="/svg/portfolio-background-wave.svg"
+            priority
           />
         </div>
         <div
@@ -64,6 +65,7 @@ function PortfolioSkills({ skills, orig }) {
             height={"100%"}
             layout="responsive"
             src="/svg/portfolio-background-wave.svg"
+            priority
           />
         </div>
         <div style={{ position: "absolute", top: "0vh", width: "100vw" }}>
@@ -152,7 +154,7 @@ function PortfolioSkills({ skills, orig }) {
           </div>
 
           <div className={`row mt-3 flex-wrap d-flex justify-content-center`}>
-            <h5 className="text-center p-3">
+            <h5 style={{"fontSize":"1em"}} className="text-center p-3">
               Below are the skills i have picked up, click/hover on any to see
               the skill name.
             </h5>

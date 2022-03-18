@@ -101,6 +101,9 @@ function Blog_chats({  orig, url }) {
   };
   
   const {data, error} = useSWR(url, fetcher)
+  const truncate = (str) => {
+    return str.length > 50 ? str.substring(0, 100) + "..." : str;
+  };
   
   if (error) return <>{error}</>
   
@@ -109,9 +112,7 @@ function Blog_chats({  orig, url }) {
       {data ? <>
       <Head>
         <title>SimpleLIFE | Thread- {data.title}</title>
-        <meta name="keywords" content="Home" />
-        <meta name="description" content="" />
-        <link rel="icon" href="/favicon1.ico" />
+        <meta name="description" content={truncate(data.description)} />
         
       </Head>
       <div>
@@ -150,7 +151,8 @@ function Blog_chats({  orig, url }) {
                     onClick={ToggleMessagemodal}
                     className="btn btn-outline-primary d-none d-md-block"
                   >
-                    Add Message
+                    {MessageModal ? 
+                    'Close Modal':'Add Message'}
                   </button>
                 </div>
               </div>
