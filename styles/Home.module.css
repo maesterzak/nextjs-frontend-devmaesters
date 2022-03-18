@@ -143,6 +143,7 @@
   min-width: 90%;
   min-height: 20vh;
   background: white;
+  font-size: medium;
 }
 .about_image{
   width: 8em;

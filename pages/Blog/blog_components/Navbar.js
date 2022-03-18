@@ -120,8 +120,8 @@ const Navbar = (props) => {
           
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-          <Link href="/about">About us</Link>
-          <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
+          <Link href="/about">About</Link>
+          
         </div>
         
         {isAuthenticated ? authlink : guest}

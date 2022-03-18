@@ -63,7 +63,7 @@ function Aboutus() {
                 </div>
                 <div className='d-flex align-items-center justify-content-center col-12 col-lg-3'>
                     <div className={`${styles.about_image}`}>
-                        <Image className={`${styles.about_image1}`} layout='responsive' width={100} height='100' src={'/images/abu_01.jpg'} />
+                        <Image alt='owner_image' className={`${styles.about_image1}`} layout='responsive' width={100} height='100' src={'/images/abu_01.jpg'} />
 
                     </div>
                 </div>
