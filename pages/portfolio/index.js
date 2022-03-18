@@ -157,7 +157,7 @@ function PortfolioIndex() {
                   className={`${styles.index_image}`}
                   layout="responsive"
                   priority
-                  src={"/images/abu_01.jpg"}
+                  src={"/images/owner_images/abu01.jpg"}
                   alt="owner_image"
                 />
               </div>

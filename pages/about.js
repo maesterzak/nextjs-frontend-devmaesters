@@ -41,7 +41,7 @@ function Aboutus() {
             <div className='p-3 row d-flex justify-content-center'>
                 
                     <div className='col-10 col-lg-7'>
-                        <p>devMaesters was designed and developed by Abubakar Zakari(maesterzak)
+                        <p> devMaesters was designed and developed by Abubakar Zakari(maesterzak)
                              using Nextjs (plus a couple of libraries like useSWR, redux, bootstrap, next-sitemap e.tc. 
                              for full Stack
                 list checkout the project in
@@ -57,13 +57,13 @@ function Aboutus() {
                 <div className='col-10 col-lg-7'>
                     <div className='row'>
                 <div className='col-12 col-lg-9 p-3 d-flex align-items-center justify-content-center'>
-                    <span>Hello, my name is Abubakar Zakari. I am a budding fullstack 
+                    <span> Hello, my name is Abubakar Zakari. I am a budding fullstack 
           developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my <span style={{"color":"blue"}}><Link  href={'/portfolio'}>Portfolio</Link></span> site to see my skills, projects
           and contact information. </span>
                 </div>
                 <div className='d-flex align-items-center justify-content-center col-12 col-lg-3'>
                     <div className={`${styles.about_image}`}>
-                        <Image alt='owner_image' className={`${styles.about_image1}`} layout='responsive' width={100} height='100' src={'/images/abu_01.jpg'} />
+                        <Image alt='owner_image' className={`${styles.about_image1}`} layout='responsive' width={100} height='100' src={'/images/owner_images/abubakar02.jpeg'} />
 
                     </div>
                 </div>
