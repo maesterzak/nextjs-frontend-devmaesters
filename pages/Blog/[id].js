@@ -18,9 +18,9 @@ import useSWR, { mutate } from "swr";
 import Loader from "../components/Loader";
 import dompurify from 'dompurify';
 import 'highlight.js/styles/agate.css'
-hljs = require('highlight.js');
+import Link from "next/link";
+import { useEffect } from "react";
 
-hljs.highlightAll()
 
 // export const getStaticPaths = async () => {
 //   const res = await fetch(`${API_URL}/blog/posts/`);
@@ -61,7 +61,13 @@ export async function getServerSideProps(context){
 
 const fetcher = (...args)=> fetch(...args).then((response) => response.json())
 function Post_detail({ url, orig }) {
-
+  const hljs = require('highlight.js');
+  useEffect(()=>{
+    hljs.highlightAll()
+  })
+  
+  
+  
   const createComment = async (activeitem) => {
     await fetch(`${API_URL}/blog/comment-create/`, {
       method: "POST",
@@ -115,7 +121,10 @@ function Post_detail({ url, orig }) {
       {data ? <> 
       <Head>
         <title>SimpleLIFE | Post- {data.title}</title>
-        
+        {/* <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/dark.min.css" />
+{/* <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> */} 
         <meta name="description" content={sanitizer(truncate(data.body))} />
       </Head>
       <div>
@@ -194,23 +203,23 @@ function Post_detail({ url, orig }) {
                         <div className="row w-100 d-flex justify-content-end align-self-end">
                           <div className="col-10 col-lg-5 d-flex align-items-end justify-content-between">
                             {data.author.twitter ?
-                            <button className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faTwitterSquare} />
                             </button>:''}
                             {data.author.facebook ?
-                            <button className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faFacebookSquare} />
                             </button>:''}
                             {data.author.whatsapp ?
-                            <button className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faWhatsappSquare} />
                             </button>:''}
                             {data.author.linkdn ?
-                            <button className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faLinkedin} />
                             </button>:''}
                             {data.author.instagram ?
-                            <button className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faInstagramSquare} />
                             </button>:''}
                           </div>

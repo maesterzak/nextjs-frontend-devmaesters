@@ -39,19 +39,19 @@ const Footer = () =>{
 
                         </ul>
                         <div className="d-flex justify-content-between  w-75">
-                            <button disabled className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faTwitterSquare} />
                             </button>
-                            <button className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faFacebookSquare} />
                             </button>
-                            <button disabled className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faLinkedin} />
                             </button>
-                            <button disabled className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faInstagramSquare} />
                             </button>
-                            <button className='btn p-0 m-0' href={'/'} passHref>
+                            <button className='btn p-0 m-0' href={'/'} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faWhatsappSquare} />
                             </button>
                             
