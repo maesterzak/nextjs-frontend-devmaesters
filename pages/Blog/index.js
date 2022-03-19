@@ -416,7 +416,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               </div>
             </div>
 
-            <div
+            <div id="trending_posts"
               className={`row d-flex justify-content-between g-2 p-3 mt-3 + ${styles.row_background}`}
             >
               <div

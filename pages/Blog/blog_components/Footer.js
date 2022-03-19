@@ -34,16 +34,29 @@ const Footer = () =>{
                         <span>click on any of the links below to get my social media handle, </span>
                         <span>or contact me via;</span>
                         <ul>
-                            <li>tel: 08062257480</li>
+                            <li>tel: +2348062257480</li>
                             <li>Email: angelzak1703@gmail.com</li>
 
                         </ul>
-                        <span><FontAwesomeIcon style={{"marginRight":"10px"}} size={"3x"}  icon={faTwitterSquare} />
-                        <FontAwesomeIcon style={{"marginRight":"10px"}} size={"3x"} icon={faFacebookSquare} />
-                        <FontAwesomeIcon style={{"marginRight":"10px" }} size={"3x"} icon={faWhatsappSquare} />
-                        <FontAwesomeIcon style={{"marginRight":"10px" }} size={"3x"} icon={faLinkedin} />
-                        <FontAwesomeIcon size={"3x"} height={40} icon={faInstagramSquare} />
-                        </span>
+                        <div className="d-flex justify-content-between  w-75">
+                            <button disabled className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faTwitterSquare} />
+                            </button>
+                            <button className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faFacebookSquare} />
+                            </button>
+                            <button disabled className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faLinkedin} />
+                            </button>
+                            <button disabled className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faInstagramSquare} />
+                            </button>
+                            <button className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faWhatsappSquare} />
+                            </button>
+                            
+                        
+                        </div>
                         <br />
                         <span>Checkout my <span style={{"color":"#0d6efd"}}><Link href={'/portfolio'}>Portfolio</Link></span> to see my past projects</span>
                     </div>

@@ -3,6 +3,21 @@
         {
             "type": "aws-sam",
             "request": "direct-invoke",
+            "name": "frontend:pages/server-sitemap.xml/index.GetServerSideProps (nodejs14.x)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "${workspaceFolder}/",
+                "lambdaHandler": "pages/server-sitemap.xml/index.GetServerSideProps"
+            },
+            "lambda": {
+                "runtime": "nodejs14.x",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
             "name": "frontend:pages/Blog/index.getStaticProps (nodejs12.x)",
             "invokeTarget": {
                 "target": "code",

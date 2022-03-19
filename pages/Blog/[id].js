@@ -165,7 +165,7 @@ function Post_detail({ url, orig }) {
                     Author
                   </h1>
                 </div>
-                <div className="col-12 col-md-4 d-flex justify-content-center">
+                <div className="col-12 col-md-4 d-flex justify-content-center align-items-center">
                   <div className={`${styles.author_profile_pic}`}>
                     <Image
                       alt="author-image"
@@ -186,13 +186,31 @@ function Post_detail({ url, orig }) {
                       ></span>
 
                     </div>
-                    <div className="col-12 d-flex justify-content-end align-self-end">
-                        <span><span><FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faTwitterSquare} />
-                        <FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faFacebookSquare} />
-                        <FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faWhatsappSquare} />
-                        <FontAwesomeIcon size="2x" style={{"marginRight":"10px"}} icon={faLinkedin} />
-                        <FontAwesomeIcon size="2x" icon={faInstagramSquare} />
-                        </span></span>
+                    <div className="col-12 d-flex align-items-end">
+                        <div className="row w-100 d-flex justify-content-end align-self-end">
+                          <div className="col-10 col-lg-5 d-flex align-items-end justify-content-between">
+                            {data.author.twitter ?
+                            <button className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faTwitterSquare} />
+                            </button>:''}
+                            {data.author.facebook ?
+                            <button className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faFacebookSquare} />
+                            </button>:''}
+                            {data.author.whatsapp ?
+                            <button className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faWhatsappSquare} />
+                            </button>:''}
+                            {data.author.linkdn ?
+                            <button className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faLinkedin} />
+                            </button>:''}
+                            {data.author.instagram ?
+                            <button className='btn p-0 m-0' href={'/'} passHref>
+                                <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faInstagramSquare} />
+                            </button>:''}
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>

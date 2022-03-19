@@ -4,7 +4,7 @@ import { API_URL} from "../../config/index"
 
 
 const URL = process.env.URL
-export const getServerSideProps = GetServerSideProps = async(ctx)=>{
+export async function getServerSideProps(ctx){
     const post_res = await fetch (`${API_URL}/blog/posts/`)
     const posts  = await post_res.json()
     const thread_res = await fetch (`${API_URL}/blog/threads/`)

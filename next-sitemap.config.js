@@ -15,7 +15,7 @@ module.exports={
         additionalSitemaps: [`${URL}/server-sitemap.xml`],
     },
     
-    exclude:['/Blog/blog_components/*', '/api/*','/components/*']
+    exclude:['/Blog/blog_components/*', '/api/*','/components/*', '/server-sitemap.xml']
     
     
 }
