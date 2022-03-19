@@ -19,19 +19,19 @@ export async function getServerSideProps(ctx){
     for (let i=0; i < q; i++) {  
         fields.push(x[i])
     }
-    var x = threads.map(threads => ({loc: `${URL}/Blog/thread/${threads.id}`, lastmod: new Date().toISOString(),}))
+    // var x = threads.map(threads => ({loc: `${URL}/Blog/thread/${threads.id}`, lastmod: new Date().toISOString(),}))
     
-    var q = x.length
-    for (let i=0; i < q; i++) {  
-        fields.push(x[i])
-    } 
-    var x = categories.map(category => ({loc: `${URL}/Blog/category/${category.name}`, lastmod: new Date().toISOString(),}))
+    // var q = x.length
+    // for (let i=0; i < q; i++) {  
+    //     fields.push(x[i])
+    // } 
+    // var x = categories.map(category => ({loc: `${URL}/Blog/category/${category.name}`, lastmod: new Date().toISOString(),}))
     
-    var q = x.length
-    for (let i=0; i < q; i++) {  
-        fields.push(x[i])
-    } 
-    
+    // var q = x.length
+    // for (let i=0; i < q; i++) {  
+    //     fields.push(x[i])
+    // } 
+    console.log('wer', fields)
     return getServerSideSitemap(ctx, fields)
 }
 export default function Site(){
