@@ -16,7 +16,11 @@ import { API_URL, NEXT_MODE } from "../../config/index";
 import { useRouter } from "next/router";
 import useSWR, { mutate } from "swr";
 import Loader from "../components/Loader";
-import dompurify from 'dompurify'
+import dompurify from 'dompurify';
+import 'highlight.js/styles/agate.css'
+hljs = require('highlight.js');
+
+hljs.highlightAll()
 
 // export const getStaticPaths = async () => {
 //   const res = await fetch(`${API_URL}/blog/posts/`);
