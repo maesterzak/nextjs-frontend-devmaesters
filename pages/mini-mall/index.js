@@ -1,8 +1,8 @@
-import styles from './store.module.css'
+import styles from './mini_mall.module.css'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-const Store = () => {
+const MiniMall = () => {
     const router = useRouter();
     useEffect(() => {
         setTimeout(() => {
@@ -25,4 +25,4 @@ const Store = () => {
     )
 }
 
-export default Store
+export default MiniMall;

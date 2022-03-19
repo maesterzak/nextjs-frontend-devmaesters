@@ -134,12 +134,18 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             key={id}
             className={`col-12 col-md-3 p-3 d-flex justify-content-center align-items-center  + ${styles.trending_box}`}
           >
+            {post.image ? 
             <Image
               layout="fill"
               className={styles.img}
               src={orig + post.image}
               alt="trending_post"
-            />
+            />:
+              <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
+                
+
+              </div>
+            }
             <div className={`${styles.dark_overlay}`}></div>
 
             <div className={`${styles.trending_box_img_text}`}>
@@ -192,6 +198,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
           <div className="carousel-inner h-100 w-100">
             {trending_posts[0] ? 
             <div className="carousel-item active bg-info h-100 w-100">
+              {trending_posts[0].image ? 
               <Image
                 layout="fill"
                 sizes="50vw"
@@ -200,6 +207,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                 alt="first_trending_post"
                 priority
               />
+              :
+              <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
+              </div>}
               <div className="carousel-caption">
                 <Link href={/Blog/ + trending_posts[0].id} passHref>
                   <h5 className="text-primary">{trending_posts[0].title}</h5>
@@ -208,13 +218,18 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             </div>:''}
             {trending_posts[1] ?
             <div className="carousel-item h-100 w-100">
+              {trending_posts[1].image ? 
               <Image
                 layout="fill"
                 sizes="50vw"
                 src={orig + trending_posts[1].image}
-                className="d-block"
-                alt="second_trending_post"
+                className="d-block w-100 h-100"
+                alt="first_trending_post"
+                priority
               />
+              :
+              <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
+              </div>}
               <div className="carousel-caption ">
                 <Link href={/Blog/ + trending_posts[1].id} passHref>
                   <h5 className="text-primary">{trending_posts[1].title}</h5>
@@ -223,13 +238,18 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             </div> : ''}
             {trending_posts[2] ?
             <div className="carousel-item h-100 w-100">
+              {trending_posts[2].image ? 
               <Image
                 layout="fill"
                 sizes="50vw"
                 src={orig + trending_posts[2].image}
-                className="d-block w-100"
-                alt="third_trending_post"
+                className="d-block w-100 h-100"
+                alt="first_trending_post"
+                priority
               />
+              :
+              <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
+              </div>}
               <div className="carousel-caption">
                 <Link href={/Blog/ + trending_posts[2].id} passHref>
                   <h5 className="text-primary">{trending_posts[2].title}</h5>
@@ -511,6 +531,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                           className={`col-12 col-md-4 + ${styles.post_box}`}
                         >
                           <div className={styles.post_box_img}>
+                            {post.image ? <>
                             <Image
                               layout="fill"
                               objectFit="fill"
@@ -521,6 +542,14 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                             <span className={styles.post_box_category}>
                               {post.category.name}
                             </span>
+                            </>:
+                              <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
+                              <span>
+                                {post.category.name}
+                              </span>
+              
+                            </div>
+                            }
                           </div>
                           <div className={styles.post_box_body}>
                             <h1 className={styles.post_box_heading}>

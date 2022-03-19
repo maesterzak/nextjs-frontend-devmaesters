@@ -3,6 +3,10 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHardHat,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   return (
@@ -19,22 +23,30 @@ export default function Home() {
         ></meta>
       </Head>
 
-      <main className={styles.main}>
+      <main className={`d-flex justify-content-end align-items-end ${styles.main}`}>
         <Image layout="fill" src={'/images/home-3.jpg'} alt="homepage image" />
-        <div className="position-absolute top-2 text-bold">
+        <div  className={`p-3 position-absolute text-bold mb-3 mr-2 ${styles.intro}`}>
           <h1>WELCOME</h1>
-          <h5>PAGE IS STILL BEING BUILT</h5>
-          <div className="d-grid justify-content-center">
-            <span>Some links are shown below click to visit page</span>
-            <span><Link href={'/Blog'}>Blog</Link></span>
-            <span><Link href={'/mini-mall'}>Mini-Mall</Link></span>
-          </div>
+          <h2>To devMaesters</h2>
+          <h5>Site is still being built</h5>
+          
+            <span>Some links are shown below click to visit any of our pages</span>
+            <div className="d-flex justify-content-around">
+            <span style={{"color":"blue"}}><Link href={'/Blog'}>Blog</Link></span>
+            <span style={{"color":"blue"}}><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
+            </div>
+            <div className="d-flex justify-content-around">
+            <span style={{"color":"blue"}}><Link href={'/portfolio/'}>Portfolio</Link></span>
+            <span style={{"color":"blue"}}><Link href={'/OnlineSolver'}>OnlineSolver</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
+            </div>
+            
+            
         </div>
         
       </main>
 
       <footer className={`text-light text-center ${styles.footer}`}>
-        <span>This website was coded and designed by Abubakar Zakari<br /> of @devmaesters.tk</span>
+        <span>This website was coded and designed by Abubakar Zakari<br /> of @devmaesters.com</span>
       </footer>
     </div>
   );

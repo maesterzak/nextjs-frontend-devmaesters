@@ -3,7 +3,7 @@ import { getServerSideSitemap } from "next-sitemap";
 import { API_URL} from "../../config/index"
 
 
-const URL = 'https://www.devmaesters.com'
+const URL = process.env.URL
 export async function getServerSideProps(ctx){
     const post_res = await fetch (`${API_URL}/blog/posts/`)
     const posts  = await post_res.json()
@@ -31,7 +31,7 @@ export async function getServerSideProps(ctx){
     for (let i=0; i < q; i++) {  
         fields.push(x[i])
     } 
-    console.log('wee', fields)
+    
     return getServerSideSitemap(ctx, fields)
 }
 export default function Site(){

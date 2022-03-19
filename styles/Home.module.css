@@ -6,14 +6,15 @@
 }
 
 .main {
-  min-height: 100vh;
+  height: 90vh;
   
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  
   position: relative;
+}
+.intro{
+  background: rgba(248, 244, 248, 0.651);
+  
 }
 
 .footer {
@@ -23,7 +24,9 @@
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
+  height: 10vh;
 }
+
 
 .footer a {
   display: flex;

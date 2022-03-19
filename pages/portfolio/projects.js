@@ -167,10 +167,10 @@ function PortfolioProject({ project, orig }) {
                 >
                   <div className={`col-12 col-md-6  ${styles.project_info}`}>
                     <div className={`d-flex justify-content-center mb-2`}>
-                      <h5
+                      <h5 style={{"fontSize":"medium"}}
                         className={`mt-2 text-center w-50 ${styles.project_header}`}
                       >
-                        {project.name}
+                        <b>{project.name}</b>
                       </h5>
                     </div>
                     <span className={`mb-2 ${styles.project_subheader}`}>
@@ -186,6 +186,7 @@ function PortfolioProject({ project, orig }) {
                       {project.description}
                     </div>
                     <div className={`d-flex justify-content-end mb-2`}>
+                      {project.github ? 
                       <Link href={project.github} passHref>
                         <button
                           className={`btn ${styles.repo_button} d-flex justify-content-between`}
@@ -193,6 +194,16 @@ function PortfolioProject({ project, orig }) {
                           repo <FontAwesomeIcon size={"1x"} icon={faGithub} />
                         </button>
                       </Link>
+                  
+                      :
+                      
+                      <button disabled
+                        className={`btn ${styles.repo_button} d-flex justify-content-between`}
+                      >
+                        private <FontAwesomeIcon size={"1x"} icon={faGithub} />
+                      </button>
+                    
+                      }
                     </div>
                   </div>
                   <div

@@ -1,0 +1,47 @@
+.body{
+    padding: 5% 5% 5% 5%;
+}
+.header{
+    height: 10vh;
+    width: 100%;
+
+}
+
+@media only screen and (min-width: 900px){
+    .header_text{
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+    .section{
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        
+    
+    }
+    .image{
+        width: 50%;
+        height: 50%;
+    }
+        
+}
+@media only screen and (max-width: 899px){
+    .header_text{
+        font-size: large;
+        font-weight: bolder;
+    }
+    .section{
+        width: 90vw;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        
+    
+    }
+    .image{
+        width: 90%;
+        height: 90%;
+    }
+    
+}
