@@ -31,7 +31,7 @@ export default function Home() {
           <h5>Site is still being built</h5>
           
             <span>Some links are shown below click to visit any of our pages</span>
-            <div className="d-flex justify-content-around">
+            <div className="d-flex justify-content-around mb-3">
             <span style={{"color":"blue"}}><Link href={'/Blog'}>Blog</Link></span>
             <span style={{"color":"blue"}}><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
             </div>
