@@ -8,14 +8,35 @@ import { API_URL, NEXT_MODE } from "../../../config";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 const Footer = dynamic(() => import("../blog_components/Footer"));
-import dompurify from "dompurify";
+import dompurify from "isomorphic-dompurify";
 
 import useSWR from "swr";
 import {useState } from "react";
 
-export async function getServerSideProps(context) {
+
+
+export const getStaticPaths = async () => {
+  const res = await fetch(`${API_URL}/blog/categories/`);
+  const data = await res.json();
+
+  const paths = data.map((category) => {
+    return {
+      params: { name: category.name.toString() },
+    };
+  });
+  return {
+    paths,
+    fallback: "blocking",
+  };
+  
+};
+export async function getStaticProps(context) {
   const name = context.params.name;
+  
   const url = `${API_URL}/blog/categories-paginated-posts/` + name;
+  const response = await fetch(`${url}?l=8`);
+  const res = await response.json()
+  
   if (`${NEXT_MODE}` == "DEV") {
     var orig = `${API_URL}`;
   } else if (`${NEXT_MODE}` == "PROD") {
@@ -23,18 +44,19 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: { name: name, orig: orig, url: url },
+    props: { name: name, orig: orig, url: url, res:res  }, revalidate: 10
   };
 }
 
 
-function Category_list({ name, orig, url }) {
+function Category_list({ name, orig, url, res }) {
+ 
   const sanitizer = dompurify.sanitize
   const fetcher = (...args) =>
     fetch(...args).then((response) => response.json());
   const [limit, setLimit] = useState(8);
 
-  const { data, error } = useSWR(`${url}?l=${limit}`, fetcher);
+  const { data, error } = useSWR(`${url}?l=${limit}`, fetcher, {fallback:res});
 
   const p_posts = data ? [].concat(...data["results"]) : [];
 
@@ -57,7 +79,7 @@ function Category_list({ name, orig, url }) {
   return (
     <>
       <Head>
-        <title>SimpleLIFE | category- {name}</title>
+        <title>category- {name}</title>
         <meta name="keywords" content={name} />
         <meta name="description" content={name} posts in devMaesters />
         
@@ -108,16 +130,25 @@ function Category_list({ name, orig, url }) {
                             className={`col-12 col-md-6 + ${styles.post_box}`}
                           >
                             <div className={styles.post_box_img}>
-                              <Image
-                                layout="fill"
-                                objectFit="fill"
-                                alt="post image"
-                                className="post_image"
-                                src={orig + post.image}
-                              />
-                              <span className={styles.post_box_category}>
+                            {post.image ? <>
+                            <Image
+                              layout="fill"
+                              objectFit="fill"
+                              alt="post image"
+                              className="post_image"
+                              src={orig + post.image}
+                            />
+                            <span className={styles.post_box_category}>
+                              {post.category.name}
+                            </span>
+                            </>:
+                              <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
+                              <span>
                                 {post.category.name}
                               </span>
+              
+                            </div>
+                            }
                             </div>
                             <div className={styles.post_box_body}>
                               <h1 className={styles.post_box_heading}>

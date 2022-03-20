@@ -14,10 +14,10 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { API_URL, NEXT_MODE } from "../../config";
-import dompurify from "dompurify";
+import dompurify from "isomorphic-dompurify";
 import useSWRInfinite from "swr/infinite";
 
-export async function getServerSideProps(context) {
+export async function getStaticProps() {
   const response = await fetch(`${API_URL}/blog/posts/`);
   const res = await fetch(`${API_URL}/blog/threads/`);
   const categorys = await fetch(`${API_URL}/blog/categories/`);
@@ -32,7 +32,7 @@ export async function getServerSideProps(context) {
     var orig = "";
   }
   return {
-    props: { posts: data, threads: da, cate: categorysdata, orig: orig },
+    props: { posts: data, threads: da, cate: categorysdata, orig: orig }, revalidate:10
   };
 }
 const sanitizer = dompurify.sanitize;
@@ -298,7 +298,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
     setSize: setSize1,
   } = useSWRInfinite(
     (index) => `${API_URL}/blog/posts_paginated?ps=${size_page}&p=${index + 1}`,
-    fetcher
+    fetcher, {fallbackdata:posts}
   );
 
   const p_posts = data1 ? [].concat(...data1) : [];
@@ -314,12 +314,12 @@ const Home1 = ({ posts, threads, cate, orig }) => {
   const {
     data: data2,
     error: error2,
-    size: size2,
+    size: size2, 
     setSize: setSize2,
   } = useSWRInfinite(
     (index) =>
       `${API_URL}/blog/paginated_threads/?ps=${size_page}&p=${index + 1}`,
-    fetcher
+    fetcher, {fallbackdata:threads}
   );
 
   const p_threads = data2 ? [].concat(...data2) : [];
@@ -544,9 +544,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                             </span>
                             </>:
                               <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
-                              <span>
+                              <div>
                                 {post.category.name}
-                              </span>
+                              </div>
               
                             </div>
                             }

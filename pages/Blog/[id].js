@@ -16,37 +16,36 @@ import { API_URL, NEXT_MODE } from "../../config/index";
 import { useRouter } from "next/router";
 import useSWR, { mutate } from "swr";
 import Loader from "../components/Loader";
-import dompurify from 'dompurify';
+import dompurify from 'isomorphic-dompurify';
 import 'highlight.js/styles/agate.css'
 import Link from "next/link";
 import { useEffect } from "react";
 
 
-// export const getStaticPaths = async () => {
-//   const res = await fetch(`${API_URL}/blog/posts/`);
-//   const data = await res.json();
+export const getStaticPaths = async () => {
+  const res = await fetch(`${API_URL}/blog/posts/`);
+  const data = await res.json();
 
-//   const paths = data.map((post) => {
-//     return {
-//       params: { id: post.id.toString() },
-//     };
-//   });
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
-
-
+  const paths = data.map((post) => {
+    return {
+      params: { id: post.id.toString() },
+    };
+  });
+  return {
+    paths,
+    fallback: "blocking",
+  };
+};
 
 
-export async function getServerSideProps(context){
+
+
+export async function getStaticProps(context){
   const id = context.params.id;
   const url = `${API_URL}/blog/post-detail/` + id + "/"
 
-  // const res = await fetch(`${API_URL}/blog/post-detail/` + id + "/");
-
-  
+  const response = await fetch(`${API_URL}/blog/post-detail/` + id + "/");
+  const res = await response.json()
   if (`${NEXT_MODE}` == "DEV") {
     var orig = `${API_URL}`;
   } else if (`${NEXT_MODE}` == "PROD") {
@@ -54,13 +53,13 @@ export async function getServerSideProps(context){
   }
 
   return {
-    props: { orig: orig, url:url },
+    props: { orig: orig, url:url, res:res },
   };
 };
 
 
 const fetcher = (...args)=> fetch(...args).then((response) => response.json())
-function Post_detail({ url, orig }) {
+function Post_detail({ url, orig, res }) {
   const hljs = require('highlight.js');
   useEffect(()=>{
     hljs.highlightAll()
@@ -111,7 +110,8 @@ function Post_detail({ url, orig }) {
   const refreshData = () => {
     router.replace(router.asPath);
   };
-  const {data, error} = useSWR(url, fetcher)
+  const {data, error} = useSWR(url, fetcher, {fallbackData:res})
+  
   const sanitizer = dompurify.sanitize
   
   
@@ -120,11 +120,8 @@ function Post_detail({ url, orig }) {
     <>
       {data ? <> 
       <Head>
-        <title>SimpleLIFE | Post- {data.title}</title>
-        {/* <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/dark.min.css" />
-{/* <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script> */} 
+        <title>{data.title}</title>
+        
         <meta name="description" content={sanitizer(truncate(data.body))} />
       </Head>
       <div>

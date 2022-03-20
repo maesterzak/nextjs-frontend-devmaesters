@@ -6,7 +6,7 @@ import {
   faComments,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { useRouter } from "next/router";
+
 import Image from "next/image";
 import Head from "next/head";
 import { API_URL, NEXT_MODE } from "../../../config";
@@ -16,30 +16,30 @@ import Loader from "../../components/Loader";
 
 
 
-// export const getStaticPaths = async () => {
-//   const res = await fetch(`${API_URL}/blog/threads/`);
-//   const data = await res.json();
+export const getStaticPaths = async () => {
+  const res = await fetch(`${API_URL}/blog/threads/`);
+  const data = await res.json();
 
-//   const paths = data.map((thread) => {
-//     return {
-//       params: { id: thread.id.toString() },
-//     };
-//   });
-//   return {
-//     paths,
-//     fallback: "blocking",
-//   };
+  const paths = data.map((thread) => {
+    return {
+      params: { id: thread.id.toString() },
+    };
+  });
+  return {
+    paths,
+    fallback: "blocking",
+  };
   
-// };
+};
 
-export async function getServerSideProps(context){
+export async function getStaticProps(context){
   
   const id = context.params.id;
 
-  // const res = await fetch(`${API_URL}/blog/thread-detail/` + id + "/");
+  const res = await fetch(`${API_URL}/blog/thread-detail/` + id + "/");
   const url = `${API_URL}/blog/thread-detail/` + id + "/"
 
-  // const data = await res.json();
+  const thread = await res.json();
   if (`${NEXT_MODE}` == "DEV") {
     var orig = `${API_URL}`;
   } else if (`${NEXT_MODE}` == "PROD") {
@@ -47,14 +47,14 @@ export async function getServerSideProps(context){
   }
 
   return {
-    props: { orig: orig, url:url },
+    props: { orig: orig, url:url, thread:thread }, revalidate:60
     
   };
 }
 
 
 const fetcher = (...args)=> fetch(...args).then((response) => response.json())
-function Blog_chats({  orig, url }) {
+function Blog_chats({  orig, url, thread }) {
   const createTask = async (activeitem) => {
     await fetch(`${API_URL}/blog/message-create/`, {
       method: "POST",
@@ -95,12 +95,9 @@ function Blog_chats({  orig, url }) {
     SetMessagemodal(!MessageModal);
   };
 
-  const router = useRouter();
-  const refreshData = () => {
-    router.replace(router.asPath);
-  };
   
-  const {data, error} = useSWR(url, fetcher)
+  
+  const {data, error} = useSWR(url, fetcher,{fallbackData:thread})
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
@@ -111,7 +108,7 @@ function Blog_chats({  orig, url }) {
     <>
       {data ? <>
       <Head>
-        <title>SimpleLIFE | Thread- {data.title}</title>
+        <title>{data.title}</title>
         <meta name="description" content={truncate(data.description)} />
         
       </Head>

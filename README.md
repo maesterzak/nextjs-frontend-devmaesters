@@ -8,5 +8,5 @@ This repository contains the code of a nextjs app for the frontend of devmaester
 
 ## The project is still ongoing
 
-Go to [devmaesters.tk](https://devmaesters.tk) to check on the project
+Go to [devmaesters.tk](https://www.devmaesters.com) to check on the project
 
