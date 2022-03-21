@@ -61,7 +61,7 @@ const Navbar = (props) => {
           <div className="col-6 col-md-5 d-none d-md-block ">
             <div style={{"color": `${props.links}`}} className="d-flex justify-content-between align-items-center h-100">
             <div><Link href={'/'}>Home</Link></div>
-            <div><Link href={'/Blog'}>Blog</Link></div>
+            <div><Link href={'/blog'}>Blog</Link></div>
             <div><Link href={'/portfolio'}>Portfolio</Link></div>
             <div className="d-flex align-items-center"><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" className="text-white" icon={faHardHat} /></div>
             <div><Link href={'/about'}>About</Link></div>
@@ -109,7 +109,7 @@ const Navbar = (props) => {
         </div>
 
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-          <Link href="/Blog">Blog</Link>
+          <Link href="/blog">Blog</Link>
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center ">
           <Link href="/mini-mall">Mini-Mall </Link>

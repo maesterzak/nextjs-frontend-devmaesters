@@ -13,13 +13,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { API_URL, NEXT_MODE } from "../../config/index";
-import { useRouter } from "next/router";
 import useSWR, { mutate } from "swr";
 import Loader from "../components/Loader";
 import dompurify from 'isomorphic-dompurify';
 import 'highlight.js/styles/agate.css'
 import Link from "next/link";
 import { useEffect } from "react";
+import Router , {useRouter}  from 'next/router';
+
 
 
 export const getStaticPaths = async () => {
@@ -60,6 +61,7 @@ export async function getStaticProps(context){
 
 const fetcher = (...args)=> fetch(...args).then((response) => response.json())
 function Post_detail({ url, orig, res }) {
+  
   const hljs = require('highlight.js');
   useEffect(()=>{
     hljs.highlightAll()
@@ -132,12 +134,13 @@ function Post_detail({ url, orig, res }) {
               <div
                 className={`row  ${styles.row_background} + ${styles.post_detail_page}`}
               >
+                <br />
                 <h1>{data.title}</h1>
                 <br />
                 <div className="mt-3"  dangerouslySetInnerHTML={{ __html: sanitizer(data.body) }}></div>
-                <br />
                 
-                <hr />
+                
+                {/* <hr />
                 <div className={`row g-0 p-2`}>
                   <span>
                     If you have enjoyed what you read give this author a
@@ -145,24 +148,24 @@ function Post_detail({ url, orig, res }) {
                     this post with your friends on social media, just click on
                     the share button below.
                   </span>
-                </div>
+                </div> */}
                 <hr />
                 <div className="row">
                   <div className="col-2 d-flex align-items-center justify-content-center">
-                    <FontAwesomeIcon
+                    {/* <FontAwesomeIcon
                       size="2x"
                       icon={faHandshake}
-                    />
+                    /> */}
                   </div>
                   <div className="col-8 d-flex align-items-center justify-content-center">
                     <span>Thanks for reading</span>
                   </div>
-                  <div
+                  {/* <div
                     
                     className={`col-2 d-flex align-items-center justify-content-center btn ${styles.sharebutton}`}
                   >
                     <FontAwesomeIcon size="1x" icon={faShare} />
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -200,23 +203,23 @@ function Post_detail({ url, orig, res }) {
                         <div className="row w-100 d-flex justify-content-end align-self-end">
                           <div className="col-10 col-lg-5 d-flex align-items-end justify-content-between">
                             {data.author.twitter ?
-                            <button className='btn p-0 m-0' href={'/'}>
+                            <button className='btn p-0 m-0' onClick={() => router.push(`${data.author.twitter}`)}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faTwitterSquare} />
                             </button>:''}
                             {data.author.facebook ?
-                            <button className='btn p-0 m-0' href={'/'}>
+                            <button className='btn p-0 m-0' onClick={() => router.push(`${data.author.facebook}`)}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faFacebookSquare} />
                             </button>:''}
                             {data.author.whatsapp ?
-                            <button className='btn p-0 m-0' href={'/'}>
+                            <button className='btn p-0 m-0' onClick={() => router.push(`https://api.whatsapp.com/send?phone=${data.author.whatsapp}`)}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faWhatsappSquare} />
                             </button>:''}
                             {data.author.linkdn ?
-                            <button className='btn p-0 m-0' href={'/'}>
+                            <button className='btn p-0 m-0' onClick={() => router.push(`${data.author.linkdn}`)}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faLinkedin} />
                             </button>:''}
                             {data.author.instagram ?
-                            <button className='btn p-0 m-0' href={'/'}>
+                            <button className='btn p-0 m-0' onClick={() => router.push(`${data.author.instagram}`)}>
                                 <FontAwesomeIcon style={{"color":"#7b1fa2"}}  size={"2x"}  icon={faInstagramSquare} />
                             </button>:''}
                           </div>
@@ -451,7 +454,10 @@ function Post_detail({ url, orig, res }) {
                       </div>
 
                       <div className={`col-10 ${styles.thread_message}`}>
-                        {message.body}
+                        
+                        <div dangerouslySetInnerHTML={{
+                                  __html: sanitizer(message.body),
+                                }}></div>
                         <hr />
                         <div className="d-flex justify-content-between">
                           <span><b>{message.name}</b></span>
@@ -496,7 +502,7 @@ function Post_detail({ url, orig, res }) {
                   <span>Published: {data.published_date}</span>
                   <span>Updated: {data.updated_date}</span>
                   <span>Views: {data.views}</span>
-                  <span>Handshakes: {data.handshakes}</span>
+                  {/* <span>Handshakes: {data.handshakes}</span> */}
                 </div>
               </div>
             </div>

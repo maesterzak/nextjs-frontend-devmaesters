@@ -165,7 +165,7 @@ function Category_list({ name, orig, url, res }) {
                               className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
                             >
                               <span className="blog-link">
-                                <Link role="button" href={"/Blog/" + post.id}>
+                                <Link role="button" href={"/blog/" + post.id}>
                                   Readmore
                                 </Link>
                               </span>

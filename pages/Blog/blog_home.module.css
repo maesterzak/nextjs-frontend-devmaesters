@@ -62,6 +62,7 @@
 }
 .thread_message{
     border: solid rgba(102, 51, 153, 0.747) ;
+    overflow-x: hidden;
 }
 .thread_message_image{
     border: solid rgba(102, 51, 153, 0.747) ;

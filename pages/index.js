@@ -32,12 +32,12 @@ export default function Home() {
           
             <span>Some links are shown below click to visit any of our pages</span>
             <div className="d-flex justify-content-around mb-3">
-            <span style={{"color":"blue"}}><Link href={'/Blog'}>Blog</Link></span>
+            <span style={{"color":"blue"}}><Link href={'/blog'}>Blog</Link></span>
             <span style={{"color":"blue"}}><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
             </div>
             <div className="d-flex justify-content-around">
             <span style={{"color":"blue"}}><Link href={'/portfolio/'}>Portfolio</Link></span>
-            <span style={{"color":"blue"}}><Link href={'/OnlineSolver'}>OnlineSolver</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
+            <span style={{"color":"blue"}}><Link href={'/online-solver'}>OnlineSolver</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
             </div>
             
             

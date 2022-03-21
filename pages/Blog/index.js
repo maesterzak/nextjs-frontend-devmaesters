@@ -150,7 +150,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
 
             <div className={`${styles.trending_box_img_text}`}>
               <h3 className={`text-center ${styles.post_box_heading}`}>
-                <a className={`${styles.w_link}`} href={"/Blog/" + post.id}>
+                <a className={`${styles.w_link}`} href={"/blog/" + post.id}>
                   {post.title}
                 </a>
               </h3>
@@ -211,7 +211,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
               </div>}
               <div className="carousel-caption">
-                <Link href={/Blog/ + trending_posts[0].id} passHref>
+                <Link href={/blog/ + trending_posts[0].id} passHref>
                   <h5 className="text-primary">{trending_posts[0].title}</h5>
                 </Link>
               </div>
@@ -231,7 +231,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
               </div>}
               <div className="carousel-caption ">
-                <Link href={/Blog/ + trending_posts[1].id} passHref>
+                <Link href={/blog/ + trending_posts[1].id} passHref>
                   <h5 className="text-primary">{trending_posts[1].title}</h5>
                 </Link>
               </div>
@@ -251,7 +251,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
               </div>}
               <div className="carousel-caption">
-                <Link href={/Blog/ + trending_posts[2].id} passHref>
+                <Link href={/blog/ + trending_posts[2].id} passHref>
                   <h5 className="text-primary">{trending_posts[2].title}</h5>
                 </Link>
               </div>
@@ -465,7 +465,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                 {cate.map(function (category, id) {
                   return (
                     <div className="p-2 blog-link" key={id}>
-                      <Link href={"/Blog/category/" + category.name}>
+                      <Link href={"/blog/category/" + category.name}>
                         {category.name}
                       </Link>
                     </div>
@@ -566,7 +566,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                             className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
                           >
                             <span className="blog-link">
-                              <Link role="button" href={"/Blog/" + post.id}>
+                              <Link role="button" href={"/blog/" + post.id}>
                                 Readmore
                               </Link>
                             </span>
@@ -628,7 +628,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                           <li key={id} className={`mb-3 ${styles.thread_link}`}>
                             <div className="row w-100">
                               <div className="col-10 col-md-11">
-                                <Link href={"/Blog/thread/" + thread.id}>
+                                <Link href={"/blog/thread/" + thread.id}>
                                   {thread.title}
                                 </Link>
                               </div>
@@ -750,7 +750,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                                 className={`w-100 d-flex justify-content-between align-items-center ${styles.index_item_detail_2}`}
                               >
                                 <span>By {item.author.name}</span>
-                                <Link href={"/Blog/" + item.id} passHref>
+                                <Link href={"/blog/" + item.id} passHref>
                                   <button
                                     className={`btn btn-sm ${styles.search_btn}`}
                                   >
@@ -786,7 +786,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                                 <span>
                                   Messages: {item.thread_messages.length}
                                 </span>
-                                <Link href={"/Blog/thread/" + item.id} passHref>
+                                <Link href={"/blog/thread/" + item.id} passHref>
                                   <button
                                     className={`btn btn-sm ${styles.search_btn}`}
                                   >

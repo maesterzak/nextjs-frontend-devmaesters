@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Head from 'next/head'
-import Navbar from './Blog/blog_components/Navbar'
+import Navbar from './blog/blog_components/Navbar'
 import styles from '../styles/Home.module.css'
-import Footer from './Blog/blog_components/Footer'
+import Footer from './blog/blog_components/Footer'
 import Link from 'next/link'
 
 function Aboutus() {

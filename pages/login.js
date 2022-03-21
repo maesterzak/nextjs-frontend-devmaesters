@@ -40,7 +40,7 @@ const LoginPage = () => {
     
     if (typeof window !==undefined && isAuthenticated){
       
-      router.push('/Blog/dashboard')
+      router.push('/blog/dashboard')
     }
     return (
         <>

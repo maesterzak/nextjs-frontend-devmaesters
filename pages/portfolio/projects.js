@@ -1,4 +1,4 @@
-import Navbar from "../Blog/blog_components/Navbar";
+import Navbar from "../blog/blog_components/Navbar";
 import styles from "./portfolio.module.css";
 import Link from "next/link";
 import Image from "next/image";

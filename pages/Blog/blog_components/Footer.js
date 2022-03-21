@@ -3,8 +3,13 @@ import {
     faTwitterSquare, faFacebookSquare, faWhatsappSquare, faInstagramSquare, faLinkedin
   } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
+import Router , {useRouter}  from 'next/router';
 
-const Footer = () =>{
+
+
+
+function Footer(){
+    const router = useRouter()
     return(
         <footer>
             <div className='container'>
@@ -39,19 +44,19 @@ const Footer = () =>{
 
                         </ul>
                         <div className="d-flex justify-content-between  w-75">
-                            <button disabled className='btn p-0 m-0' href={'/'} >
+                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faTwitterSquare} />
                             </button>
-                            <button className='btn p-0 m-0' href={'/'} >
+                            <button className='btn p-0 m-0' onClick={() => router.push('https://web.facebook.com/devmaesters/')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faFacebookSquare} />
                             </button>
-                            <button className='btn p-0 m-0' href={'/'} >
+                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faLinkedin} />
                             </button>
-                            <button disabled className='btn p-0 m-0' href={'/'} >
+                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faInstagramSquare} />
                             </button>
-                            <button className='btn p-0 m-0' href={'/'} >
+                            <button className='btn p-0 m-0' onClick={() => router.push('https://api.whatsapp.com/send?phone=+2348062257480')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faWhatsappSquare} />
                             </button>
                             

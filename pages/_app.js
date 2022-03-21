@@ -4,7 +4,7 @@ import '../styles/globals.css'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gitag'
 
-import Layout from './Blog/blog_components/Layout';
+import Layout from './blog/blog_components/Layout';
 import { useEffect, useState } from "react";
 import { Provider } from 'react-redux'
 import { useStore } from '../store'

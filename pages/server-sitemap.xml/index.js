@@ -13,19 +13,19 @@ export async function getServerSideProps(ctx){
     const categories  = await category_res.json()
 
     const fields = []
-    var x = posts.map(post => ({loc: `${URL}/Blog/${post.id}`, lastmod: new Date().toISOString(),}))
+    var x = posts.map(post => ({loc: `${URL}/blog/${post.id}`, lastmod: new Date().toISOString(),}))
     
     var q = x.length
     for (let i=0; i < q; i++) {  
         fields.push(x[i])
     }
-    var x = threads.map(threads => ({loc: `${URL}/Blog/thread/${threads.id}`, lastmod: new Date().toISOString(),}))
+    var x = threads.map(threads => ({loc: `${URL}/blog/thread/${threads.id}`, lastmod: new Date().toISOString(),}))
     
     var q = x.length
     for (let i=0; i < q; i++) {  
         fields.push(x[i])
     } 
-    var x = categories.map(category => ({loc: `${URL}/Blog/category/${category.name}`, lastmod: new Date().toISOString(),}))
+    var x = categories.map(category => ({loc: `${URL}/blog/category/${category.name}`, lastmod: new Date().toISOString(),}))
     
     var q = x.length
     for (let i=0; i < q; i++) {  
