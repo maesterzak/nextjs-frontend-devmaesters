@@ -12,8 +12,9 @@ import Head from "next/head";
 import { API_URL, NEXT_MODE } from "../../../config";
 import useSWR, { mutate } from "swr";
 import Loader from "../../components/Loader";
-
-
+import dompurify from "isomorphic-dompurify";
+import 'highlight.js/styles/agate.css'
+import { useEffect } from "react";
 
 
 export const getStaticPaths = async () => {
@@ -55,6 +56,10 @@ export async function getStaticProps(context){
 
 const fetcher = (...args)=> fetch(...args).then((response) => response.json())
 function Blog_chats({  orig, url, thread }) {
+  const hljs = require('highlight.js');
+  useEffect(()=>{
+    hljs.highlightAll()
+  })
   const createTask = async (activeitem) => {
     await fetch(`${API_URL}/blog/message-create/`, {
       method: "POST",
@@ -103,13 +108,13 @@ function Blog_chats({  orig, url, thread }) {
   };
   
   if (error) return <>{error}</>
-  
+  const sanitizer = dompurify.sanitize
   return (
     <>
       {data ? <>
       <Head>
         <title>{data.title}</title>
-        <meta name="description" content={truncate(data.description)} />
+        <meta name="description" content={sanitizer(truncate(data.description))} />
         
       </Head>
       <div>
@@ -177,10 +182,12 @@ function Blog_chats({  orig, url, thread }) {
             </div>
             <div className={`col-12 col-md-6 p-3 ${styles.threads_body}`}>
               <div className={`row d-grid p-3 ${styles.row_background}`}>
-                <h1 className="">{data.title}</h1>
+                <h1 style={{"fontSize":"medium"}}><b>{data.title}</b></h1>
 
                 <div className="col-12 bg-light">
-                  <span>{data.description}</span>
+                  <span dangerouslySetInnerHTML={{
+                                  __html: sanitizer(data.description),
+                                }}></span>
                 </div>
 
                 <br />
@@ -216,7 +223,9 @@ function Blog_chats({  orig, url, thread }) {
                       </div>
 
                       <div className={`col-10 ${styles.thread_message}`}>
-                        {message.body}
+                        <div dangerouslySetInnerHTML={{
+                                  __html: sanitizer(message.body),
+                                }}></div>
                         <hr />
                         <div className="d-flex justify-content-between">
                           <span><b>{message.name}</b></span>
