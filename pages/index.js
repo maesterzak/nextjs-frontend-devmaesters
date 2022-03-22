@@ -36,7 +36,7 @@ export default function Home() {
             <span style={{"color":"blue"}}><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
             </div>
             <div className="d-flex justify-content-around">
-            <span style={{"color":"blue"}}><Link href={'/portfolio/'}>Portfolio</Link></span>
+            <span style={{"color":"white"}}><Link href={'/portfolio/'}>Portfolio</Link></span>
             <span style={{"color":"blue"}}><Link href={'/online-solver'}>OnlineSolver</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
             </div>
             
