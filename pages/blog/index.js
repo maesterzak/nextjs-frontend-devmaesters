@@ -9,7 +9,7 @@ import {
   faHandshake,
   faComment,
   faPlusCircle,
-  faTimes, faAngleDown
+  faTimes, faAngleDown, faEye
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
@@ -571,8 +571,8 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                               </Link>
                             </span>
                             <span>
-                              <FontAwesomeIcon size="1x" icon={faHandshake} />
-                              {post.handshakes}
+                              <FontAwesomeIcon color="#7b1fa2" size="1x" icon={faEye} />
+                              {post.views}
                             </span>
                             <span>By {post.author.name}</span>
                           </div>

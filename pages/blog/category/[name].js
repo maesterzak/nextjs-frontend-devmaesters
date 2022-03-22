@@ -3,7 +3,7 @@ import Head from "next/head";
 import styles from "../blog_home.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandshake } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faHandshake } from "@fortawesome/free-solid-svg-icons";
 import { API_URL, NEXT_MODE } from "../../../config";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -81,7 +81,7 @@ function Category_list({ name, orig, url, res }) {
       <Head>
         <title>category- {name}</title>
         <meta name="keywords" content={name} />
-        <meta name="description" content={name} posts in devMaesters />
+        <meta name="description" content={name} />
         
       </Head>
       <div>
@@ -170,8 +170,8 @@ function Category_list({ name, orig, url, res }) {
                                 </Link>
                               </span>
                               <span>
-                                <FontAwesomeIcon size="1x" icon={faHandshake} />
-                                10
+                              <FontAwesomeIcon color="#7b1fa2" size="1x" icon={faEye} />
+                              {post.views}
                               </span>
                               <span>By {post.author.name}</span>
                             </div>

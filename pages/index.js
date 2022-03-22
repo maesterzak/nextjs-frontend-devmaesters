@@ -24,7 +24,7 @@ export default function Home() {
       </Head>
 
       <main className={`d-flex justify-content-end align-items-end ${styles.main}`}>
-        <Image layout="fill" src={'/images/home-3.jpg'} alt="homepage image" />
+        <Image layout="fill" src={'/images/home-3.jpg'} alt="homepage image" priority />
         <div  className={`p-3 position-absolute text-bold mb-3 mr-2 ${styles.intro}`}>
           <h1>WELCOME</h1>
           <h2>To devMaesters</h2>
@@ -36,7 +36,7 @@ export default function Home() {
             <span style={{"color":"blue"}}><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
             </div>
             <div className="d-flex justify-content-around">
-            <span style={{"color":"white"}}><Link href={'/portfolio/'}>Portfolio</Link></span>
+            <span style={{"color":"blue"}}><Link href={'/portfolio/'}>Portfolio</Link></span>
             <span style={{"color":"blue"}}><Link href={'/online-solver'}>OnlineSolver</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
             </div>
             
