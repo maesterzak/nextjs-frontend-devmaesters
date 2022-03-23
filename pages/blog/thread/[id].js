@@ -102,7 +102,7 @@ function Blog_chats({  orig, url, thread }) {
 
   
   
-  const {data, error} = useSWR(url, fetcher,{fallbackData:thread})
+  const {data, error} = useSWR(url, fetcher,{fallbackData:thread, revalidateOnFocus:false})
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };

@@ -56,7 +56,7 @@ function Category_list({ name, orig, url, res }) {
     fetch(...args).then((response) => response.json());
   const [limit, setLimit] = useState(8);
 
-  const { data, error } = useSWR(`${url}?l=${limit}`, fetcher, {fallback:res});
+  const { data, error } = useSWR(`${url}?l=${limit}`, fetcher, {fallback:res, revalidateOnFocus:false});
 
   const p_posts = data ? [].concat(...data["results"]) : [];
 

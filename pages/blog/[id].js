@@ -112,7 +112,7 @@ function Post_detail({ url, orig, res }) {
   const refreshData = () => {
     router.replace(router.asPath);
   };
-  const {data, error} = useSWR(url, fetcher, {fallbackData:res})
+  const {data, error} = useSWR(url, fetcher, {fallbackData:res, revalidateOnFocus:false})
   
   const sanitizer = dompurify.sanitize
   

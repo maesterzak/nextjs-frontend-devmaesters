@@ -298,7 +298,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
     setSize: setSize1,
   } = useSWRInfinite(
     (index) => `${API_URL}/blog/posts_paginated?ps=${size_page}&p=${index + 1}`,
-    fetcher, {fallbackdata:posts}
+    fetcher, {fallbackdata:posts, revalidateOnFocus:false}
   );
 
   const p_posts = data1 ? [].concat(...data1) : [];
@@ -319,7 +319,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
   } = useSWRInfinite(
     (index) =>
       `${API_URL}/blog/paginated_threads/?ps=${size_page}&p=${index + 1}`,
-    fetcher, {fallbackdata:threads}
+    fetcher, {fallbackdata:threads, revalidateOnFocus:false}
   );
 
   const p_threads = data2 ? [].concat(...data2) : [];
