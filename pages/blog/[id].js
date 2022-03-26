@@ -166,6 +166,7 @@ function Post_detail({ url, orig, res }) {
                   >
                     <FontAwesomeIcon size="1x" icon={faShare} />
                   </div> */}
+                  
                 </div>
               </div>
 
@@ -174,9 +175,9 @@ function Post_detail({ url, orig, res }) {
               <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
-                  <h1 className={`text-center + ${styles.header_label_text}`}>
+                  <h2 className={`text-center + ${styles.header_label_text}`}>
                     Author
-                  </h1>
+                  </h2>
                 </div>
                 <div className="col-12 col-md-4 d-flex justify-content-center align-items-center">
                   <div className={`${styles.author_profile_pic}`}>
@@ -235,9 +236,9 @@ function Post_detail({ url, orig, res }) {
             <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
-                  <h1 className={`text-center + ${styles.header_label_text}`}>
+                  <h2 className={`text-center + ${styles.header_label_text}`}>
                     Comments
-                  </h1>
+                  </h2>
                 </div>
               <div style={{"minHeight":"75vh"}}>
                 <form
@@ -420,9 +421,9 @@ function Post_detail({ url, orig, res }) {
               <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
-                  <h1 className={`text-center + ${styles.header_label_text}`}>
+                  <h2 className={`text-center + ${styles.header_label_text}`}>
                     Comment Message
-                  </h1>
+                  </h2>
                 </div>
                {data.posts_comments.map(function (message, id) {
                   return (
@@ -481,9 +482,9 @@ function Post_detail({ url, orig, res }) {
                 <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
-                  <h1 className={`text-center + ${styles.header_label_text}`}>
+                  <h2 className={`text-center + ${styles.header_label_text}`}>
                     Adds
-                  </h1>
+                  </h2>
                 </div>
                 <div className="row g-0">
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
@@ -495,9 +496,9 @@ function Post_detail({ url, orig, res }) {
                 <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
-                  <h1 className={`text-center + ${styles.header_label_text}`}>
+                  <h2 className={`text-center + ${styles.header_label_text}`}>
                     Status
-                  </h1>
+                  </h2>
                 </div>
                   <span>Published: {data.published_date}</span>
                   <span>Updated: {data.updated_date}</span>
@@ -508,6 +509,15 @@ function Post_detail({ url, orig, res }) {
             </div>
             
           </div>
+          {/* <div className={`row p-3 ${styles.row_background}`}>
+          <div
+                  className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+                >
+                  <h2 className={`text-center + ${styles.header_label_text}`}>
+                    Similar posts
+                  </h2>
+                </div>
+          </div> */}
         </div>
         <div className="mt-3 container g-0">
           <Footer />

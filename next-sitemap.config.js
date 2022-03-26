@@ -8,7 +8,7 @@ module.exports={
     generateRobotsTxt: true,
     robotsTxtOptions: {
         policies: [
-            { userAgent: "*", disallow:["/blog/blog_components/*", '/api/*','/components/*']},
+            { userAgent: "*", disallow:["/blog/blog_components/*", '/api/*','/components/*', '/mini-mall/*', '/online-solver/*', '/login/*', '/register/*']},
             { userAgent: "*", allow:"/"},
 
         ],

@@ -163,9 +163,9 @@ function Blog_chats({  orig, url, thread }) {
                 <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
-                  <h1 className={`text-center + ${styles.header_label_text}`}>
+                  <h2 className={`text-center + ${styles.header_label_text}`}>
                     Thread detail
-                  </h1>
+                  </h2>
                 </div>
                 <div className="d-grid w-100">
                   <div>
@@ -246,23 +246,23 @@ function Blog_chats({  orig, url, thread }) {
                 <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
-                  <h1 className={`text-center + ${styles.header_label_text}`}>
+                  <h2 className={`text-center + ${styles.header_label_text}`}>
                     Adds
-                  </h1>
+                  </h2>
                 </div>
-                <div className={`col-6 col-md-6 + ${styles.add_box1}`}>h</div>
-                <div className={`col-6 col-md-6 + ${styles.add_box1}`}>i</div>
-                <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
-                <div className={`col-6 col-md-6 + ${styles.add_box1}`}>k</div>
+                <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                 <div
                   className={`col-6 col-md-6 d-none d-md-block + ${styles.add_box1}`}
                 >
-                  k
+                  
                 </div>
                 <div
                   className={`col-6 col-md-6 d-none d-md-block + ${styles.add_box1}`}
                 >
-                  k
+                  
                 </div>
               </div>
             </div>

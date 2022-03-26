@@ -24,9 +24,9 @@ function Footer(){
                         <li>Backend Development</li>
                         <li>Full Website Development</li>
                         <li>Bootstrap Website upgrades</li>
-                        <li>Mobile App Development</li>
+                        {/* <li>Mobile App Development</li>
                         
-                        <li>Website Selling</li>
+                        <li>Website Selling</li> */}
                         <li>Website Debbugging</li>
                         <li>Website Hosting & deployment</li>
                     </ul>

@@ -442,9 +442,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
-                <h1 className={`text-center + ${styles.header_label_text}`}>
+                <h2 className={`text-center + ${styles.header_label_text}`}>
                   Trending Topics
-                </h1>
+                </h2>
               </div>
               {window_width >= 900 ? pcscreen : mobile_screen}
             </div>
@@ -457,9 +457,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
-                <h1 className={`text-center + ${styles.header_label_text}`}>
+                <h2 className={`text-center + ${styles.header_label_text}`}>
                   Categories
-                </h1>
+                </h2>
               </div>
               <div className="d-flex justify-content-around flex-wrap">
                 {cate.map(function (category, id) {
@@ -478,9 +478,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
-                <h1 className={`text-center + ${styles.header_label_text}`}>
+                <h2 className={`text-center + ${styles.header_label_text}`}>
                   Post for you
-                </h1>
+                </h2>
               </div>
               <h5 className="text-center">Comming soon</h5>
               <span className="text-center">
@@ -492,9 +492,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             <div
               className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
             >
-              <h1 className={`text-center + ${styles.header_label_text}`}>
+              <h2 className={`text-center + ${styles.header_label_text}`}>
                 Adds
-              </h1>
+              </h2>
             </div>
             <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
             <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
@@ -517,9 +517,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
-                <h1 className={`text-center + ${styles.header_label_text}`}>
+                <h2 className={`text-center + ${styles.header_label_text}`}>
                   Latest Posts
-                </h1>
+                </h2>
               </div>
               <div className={`row mt-3 p-2 + ${styles.row_background}`}>
                 {p_posts ? (
@@ -552,9 +552,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                             }
                           </div>
                           <div className={styles.post_box_body}>
-                            <h1 className={styles.post_box_heading}>
+                            <h2 className={styles.post_box_heading}>
                               {post.title}
-                            </h1>
+                            </h2>
                             <span
                               className={styles.post_box_body_text}
                               dangerouslySetInnerHTML={{
@@ -582,7 +582,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                   </>
                 ) : (
                   <>
-                    <h1>Loading...</h1>
+                    <h2>Loading...</h2>
                   </>
                 )}
               </div>
@@ -604,9 +604,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               <div
                 className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
-                <h1 className={`text-center + ${styles.header_label_text}`}>
+                <h2 className={`text-center + ${styles.header_label_text}`}>
                   Threads
-                </h1>
+                </h2>
               </div>
               <div
                 className={`d-flex justify-content-end ${styles.add_thread}`}
@@ -651,7 +651,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                     </>
                   ) : (
                     <>
-                      <h1>Loading Threads...</h1>
+                      <h2>Loading Threads...</h2>
                     </>
                   )}
                 </ul>

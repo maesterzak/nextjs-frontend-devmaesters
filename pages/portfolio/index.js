@@ -32,8 +32,7 @@ function PortfolioIndex() {
         <meta
           name="description"
           content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
-          developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my portfolio site to see my skills, projects
-          and contact information."
+          developer from Nigeria who loves developing softwares and learning new frameworks and langauges."
         />
         
       </Head>

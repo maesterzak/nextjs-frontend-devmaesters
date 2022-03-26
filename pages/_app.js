@@ -24,11 +24,11 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageview(url)
-      console.log('roure changing end')
+      
       setLoading(false)
     }
     router.events.on('routeChangeStart', (url) =>{
-      console.log("route chang begin")
+       
       setLoading(true)
     })
     router.events.on('routeChangeComplete', handleRouteChange)
@@ -44,6 +44,8 @@ function MyApp({ Component, pageProps }) {
     <style>{dom.css()}</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon1.ico" />
+    <meta charset="UTF-8" />
+    <html lang="en" />
     
     </Head>
     <Provider store={store}>

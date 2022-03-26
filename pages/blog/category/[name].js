@@ -72,7 +72,7 @@ function Category_list({ name, orig, url, res }) {
   if (error)
     return (
       <>
-        <h1>{error}</h1>
+        <h2>{error}</h2>
       </>
     );
 
@@ -81,7 +81,7 @@ function Category_list({ name, orig, url, res }) {
       <Head>
         <title>category- {name}</title>
         <meta name="keywords" content={name} />
-        <meta name="description" content={name} />
+        <meta name="description" content="This page offers a list of all the posts we have under..." />
         
       </Head>
       <div>
@@ -102,9 +102,9 @@ function Category_list({ name, orig, url, res }) {
                   <div
                     className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                   >
-                    <h1 className={`text-center + ${styles.header_label_text}`}>
+                    <h2 className={`text-center + ${styles.header_label_text}`}>
                       Adds
-                    </h1>
+                    </h2>
                   </div>
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
@@ -151,9 +151,9 @@ function Category_list({ name, orig, url, res }) {
                             }
                             </div>
                             <div className={styles.post_box_body}>
-                              <h1 className={styles.post_box_heading}>
+                              <h2 className={styles.post_box_heading}>
                                 {post.title}
-                              </h1>
+                              </h2>
                               <span
                                 className={styles.post_box_body_text}
                                 dangerouslySetInnerHTML={{
@@ -181,7 +181,7 @@ function Category_list({ name, orig, url, res }) {
                     </>
                   ) : (
                     <>
-                      <h1>Loading Posts</h1>
+                      <h2>Loading Posts</h2>
                     </>
                   )}
                 </div>
