@@ -13,6 +13,7 @@ import { useState } from "react";
 import { API_URL, NEXT_MODE } from "../../config";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Head from "next/head";
+import Router , {useRouter}  from 'next/router';
 
 if (`${NEXT_MODE}` == "DEV") {
   var orig = `${API_URL}`;
@@ -24,6 +25,7 @@ function PortfolioIndex() {
   const ToggleMiniNav = () => {
     setMini_nav(!mini_nav);
   };
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -173,7 +175,7 @@ function PortfolioIndex() {
               </div>
             <div className="d-flex justify-content-center mt-1">
               <Link href={"/"} passHref>
-                <button className={`${styles.download_button}`}>
+                <button onClick={() => router.push('')} className={`${styles.download_button}`}>
                   Download cv{" "}
                   <FontAwesomeIcon height={20} icon={faFileDownload} />
                 </button>
