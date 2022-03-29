@@ -127,7 +127,7 @@ function Post_detail({ url, orig, res }) {
         <meta name="description" content={sanitizer(truncate(data.body))} />
       </Head>
       <div>
-        <Navbar links="white" icon="white" header_color="white" />
+        <Navbar links="white" icon="white" header_color="white" link="blog" />
         <div className="container mt-3">
           <div className="row">
             <div className="col-12 col-md-9 p-4">

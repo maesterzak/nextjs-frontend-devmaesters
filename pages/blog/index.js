@@ -350,7 +350,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
       </Head>
 
       <div className="position-relative">
-        <Navbar links="white" icon="white" header_color="white" />
+        <Navbar links="white" icon="white" header_color="white" link='blog' />
         <div
           style={{ top: "2vh", zIndex: "10",marginRight:"4vw" }}
           className="mt-2 position-sticky   row"

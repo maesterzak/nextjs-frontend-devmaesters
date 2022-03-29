@@ -60,11 +60,12 @@ const Navbar = (props) => {
           </div>
           <div className="col-6 col-md-5 d-none d-md-block ">
             <div style={{"color": `${props.links}`}} className="d-flex justify-content-between align-items-center h-100">
-            <div><Link href={'/'}>Home</Link></div>
-            <div><Link href={'/blog'}>Blog</Link></div>
-            <div><Link href={'/portfolio'}>Portfolio</Link></div>
+            <div className={props.link=='home' ? 'nav_link_underline': ''}><Link href={'/'}>Home</Link></div>
+            <div className={props.link=='blog' ? 'nav_link_underline': ''}><Link href={'/blog'}>Blog</Link></div>
+            <div className={props.link=='portfolio' ? 'nav_link_underline': ''}><Link href={'/portfolio'}>Portfolio</Link></div>
             <div className="d-flex align-items-center"><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" className="text-white" icon={faHardHat} /></div>
-            <div><Link href={'/about'}>About</Link></div>
+            <div className="d-flex align-items-center"><Link href={'/online-solver'}>Online-Solver</Link><FontAwesomeIcon size="1x" className="text-white" icon={faHardHat} /></div>
+            <div className={props.link=='about' ? 'nav_link_underline': ''}><Link href={'/about'}>About</Link></div>
             
             </div>
             
@@ -102,24 +103,28 @@ const Navbar = (props) => {
         <div onClick={ToggleNav1} className="dark_overlay3"></div>
       <div className="nav-toggle-links1 blog-link d-flex  justify-content-center flex-wrap vh-80">
         
-        <div className="nav-toggle-link-link d-flex align-items-center  justify-content-center">
+        <div className={props.link == "home" ? "nav-toggle-link-link d-flex align-items-center justify-content-center nav_link_underline2": "nav-toggle-link-link d-flex align-items-center justify-content-center"}>
           <Link href="/">
             <a>Home</a>
           </Link>
         </div>
 
-        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
+        <div className={props.link == "blog" ? "nav-toggle-link-link d-flex align-items-center justify-content-center nav_link_underline2": "nav-toggle-link-link d-flex align-items-center justify-content-center"}>
           <Link href="/blog">Blog</Link>
         </div>
         <div className="nav-toggle-link-link d-flex align-items-center justify-content-center ">
           <Link href="/mini-mall">Mini-Mall </Link>
           <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
         </div>
-        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
+        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center ">
+          <Link href="/online-solver">Online-Solver </Link>
+          <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
+        </div>
+        <div className={props.link == "portfolio" ? "nav-toggle-link-link d-flex align-items-center justify-content-center nav_link_underline2": "nav-toggle-link-link d-flex align-items-center justify-content-center"}>
           <Link href="/portfolio">Portfolio</Link>
           
         </div>
-        <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
+        <div className={props.link == "about" ? "nav-toggle-link-link d-flex align-items-center justify-content-center nav_link_underline2": "nav-toggle-link-link d-flex align-items-center justify-content-center"}>
           <Link href="/about">About</Link>
           
         </div>

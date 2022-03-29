@@ -18,7 +18,7 @@ function Aboutus() {
         />
     </Head>
     <div style={{"minHeight":"100vh"}}>
-        <Navbar links="white" icon="white" header_color="white"/>
+        <Navbar links="white" icon="white" header_color="white" link="about"/>
         <br />
         <div className={`container ${styles.about_container}`}>
             <h4 className='text-center p-3'>About Site</h4>

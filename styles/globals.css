@@ -57,7 +57,12 @@ button{
   
   
 }
-
+.nav_link_underline{
+  text-decoration: underline white 0.4em;
+}
+.nav_link_underline2{
+  text-decoration: underline rgb(123, 28, 247) 0.4em;
+}
 @media (max-width: 900px){
   body{
     font-size: small;

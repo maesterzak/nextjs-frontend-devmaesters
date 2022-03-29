@@ -73,6 +73,7 @@ function PortfolioSkills({ skills, orig }) {
             links="white"
             icon="white"
             header_color="white"
+            link="portfolio"
           />
           <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
             <button

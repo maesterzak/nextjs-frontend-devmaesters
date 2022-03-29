@@ -34,6 +34,12 @@ function PortfolioProject({ project, orig }) {
   const ToggleMiniNav = () => {
     setMini_nav(!mini_nav);
   };
+  const [videoModal, setVideoModal] = useState(false);
+  const [vidURL, setVidUrl] = useState ('')
+  const ToggleVidUrl=(e)=>{
+    setVidUrl(e)
+    setVideoModal(true)
+  }
   return (
     <>
       <Head>
@@ -42,10 +48,8 @@ function PortfolioProject({ project, orig }) {
         <meta
           name="description"
           content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
-          developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my portfolio site to see my skills, projects
-          and contact information."
+          developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Click link to see projects I have built."
         />
-        
       </Head>
       <div className={`${styles.main}`}>
         <div className="d-none d-lg-block">
@@ -77,6 +81,7 @@ function PortfolioProject({ project, orig }) {
             links="white"
             icon="white"
             header_color="white"
+            link = "portfolio"
           />
 
           <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
@@ -163,17 +168,18 @@ function PortfolioProject({ project, orig }) {
               return (
                 <div
                   key={id}
-                  className={`row mb-3 flex-wrap ${styles.project_sub_container} d-flex justify-content-center`}
+                  className={`row  mb-3 flex-wrap ${styles.project_sub_container} d-flex justify-content-center`}
                 >
-                  <div className={`col-12 col-md-6  ${styles.project_info}`}>
-                    <div className={`d-flex justify-content-center mb-2`}>
-                      <h5 style={{"fontSize":"medium"}}
+                  <div className={`col-12 col-md-10  ${styles.project_info}`}>
+                    <div className={`d-flex justify-content-center mb-1`}>
+                      <h5
+                        style={{ fontSize: "medium" }}
                         className={`mt-2 text-center w-50 ${styles.project_header}`}
                       >
                         <b>{project.name}</b>
                       </h5>
                     </div>
-                    <span className={`mb-2 ${styles.project_subheader}`}>
+                    <span className={`mb-1 ${styles.project_subheader}`}>
                       Stack
                     </span>
                     <div className={`text-center ${styles.project_stack}`}>
@@ -186,34 +192,78 @@ function PortfolioProject({ project, orig }) {
                       {project.description}
                     </div>
                     <div className={`d-flex justify-content-end mb-2`}>
-                      {project.github ? 
-                      <Link href={project.github} passHref>
+                      {project.github ? (
+                        <Link href={project.github} passHref>
+                          <button
+                            className={`btn ${styles.repo_button} d-flex justify-content-between`}
+                          >
+                            repo <FontAwesomeIcon size={"1x"} icon={faGithub} />
+                          </button>
+                        </Link>
+                      ) : (
                         <button
+                          disabled
                           className={`btn ${styles.repo_button} d-flex justify-content-between`}
                         >
-                          repo <FontAwesomeIcon size={"1x"} icon={faGithub} />
+                          private{" "}
+                          <FontAwesomeIcon size={"1x"} icon={faGithub} />
                         </button>
-                      </Link>
-                  
-                      :
-                      
-                      <button disabled
-                        className={`btn ${styles.repo_button} d-flex justify-content-between`}
-                      >
-                        private <FontAwesomeIcon size={"1x"} icon={faGithub} />
-                      </button>
-                    
-                      }
+                      )}
                     </div>
                   </div>
                   <div
-                    className={`col-12 flex-wrap col-md-6 ${styles.project_video} d-flex justify-content-center align-items-center`}
+                    className={`col-12 flex-wrap col-md-2 ${styles.project_video_container}`}
                   >
-                    <FontAwesomeIcon size={"3x"} color="white" icon={faVideo} />
+                    <div
+                      className={`d-flex justify-content-center align-items-center ${styles.project_box_right}`}
+                    >
+                      <button disabled={!project.video}
+                        onClick={() => ToggleVidUrl(project.video)}
+                        className="p-0 btn"
+                      >
+                        <FontAwesomeIcon
+                          size={"3x"}
+                          color="white"
+                          icon={faVideo}
+                        />
+                      </button>
+                    </div>
+                    <span className="text-light">Size: {project.videoSize ? project.videoSize: 'unavailable'}</span>
                   </div>
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        <div
+          className={
+            videoModal
+              ? `position-absolute top-0 ${styles.video_modal_overlay}`
+              : "d-none"
+          }
+        >
+          <div className="mt-2 d-flex justify-content-center">
+            <button onClick={() => [setVideoModal(false), setVidUrl('')]} className="btn p-0">
+              <FontAwesomeIcon color="white" size="3x" icon={faTimes} />
+            </button>
+          </div>
+          <div style={{ width: "100%", height: "85%" }} className="p-3">
+            <div
+              className={`d-flex align-items-center flex-wrap mb-3 ${styles.video_modal}`}
+            >
+              {vidURL !=='' ? (
+                <video
+                  src={vidURL}
+                  className={`${styles.project_vid}`}
+                  controls
+                >
+                  Your browser does not support video tag
+                </video>
+              ) : (
+                "hello"
+              )}
+            </div>
           </div>
         </div>
       </div>

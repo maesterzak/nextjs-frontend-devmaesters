@@ -66,6 +66,7 @@ function PortfolioIndex() {
             links="white"
             icon="white"
             header_color="white"
+            link='portfolio'
           />
           <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
             <button
@@ -160,7 +161,9 @@ function PortfolioIndex() {
                   alt="owner_image"
                 />
               </div>
-              <div className={``}>
+              
+            </div>
+            <div>
                 <div className={`text-center ${styles.name}`}>
                   <b>ABUBAKAR A. ZAKARI</b>
                 </div>
@@ -168,8 +171,7 @@ function PortfolioIndex() {
                   <b>Software Developer</b>
                 </div>
               </div>
-            </div>
-            <div className="d-flex justify-content-center mt-3">
+            <div className="d-flex justify-content-center mt-1">
               <Link href={"/"} passHref>
                 <button className={`${styles.download_button}`}>
                   Download cv{" "}
@@ -184,7 +186,7 @@ function PortfolioIndex() {
             </div>
           </div>
 
-          <div className="row d-flex justify-content-center mt-4 ">
+          <div className="row d-flex justify-content-center mt-2 ">
             <div
               className={`col-10 col-md-6 d-flex justify-content-center align-items-center ${styles.short_info}`}
             >

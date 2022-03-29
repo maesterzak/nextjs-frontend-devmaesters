@@ -67,8 +67,7 @@ function PortfolioContacts() {
         <meta
           name="description"
           content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
-          developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my portfolio site to see my skills, projects
-          and contact information."
+          developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Click link to see my contact information."
         />
         
       </Head>
@@ -102,6 +101,7 @@ function PortfolioContacts() {
             links="white"
             icon="white"
             header_color="white"
+            link = "portfolio"
           />
 
           <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
@@ -331,7 +331,7 @@ function PortfolioContacts() {
                       className={`col-8 d-flex justify-content-center align-items-center col-lg-12 ${styles.contacts_sub_container2}`}
                     >
                       <div className="d-flex justify-content-center align-items-center">
-                        Angelzak1703@gmail.com
+                        angelzak1703@gmail.com
                       </div>
                     </div>
                   </div>

@@ -13,7 +13,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>devmaesters</title>
-        <meta name="description" content="Welcome to devmaesters.com we offer free programming tips, tricks and coding support." />
+        <meta name="description" content="Welcome to devmaesters.com we offer free programming tips,tutorials, tricks and coding support." />
         <meta name="keywords" content="programming, nextjs, reactjs, coding, websites, python tutorials, prisma, graphql, django, django rest framework" />
         <link rel="icon" href="/favicon1.ico" />
         

@@ -123,6 +123,7 @@ function Blog_chats({  orig, url, thread }) {
           links="white"
           icon="white"
           header_color="white"
+          link="blog"
         />
         
         <div className="container">

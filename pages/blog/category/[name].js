@@ -90,6 +90,7 @@ function Category_list({ name, orig, url, res }) {
           links="white"
           icon="white"
           header_color="white"
+          link="blog"
         />
 
         <div className="container ">
