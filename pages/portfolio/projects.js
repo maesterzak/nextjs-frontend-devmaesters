@@ -12,6 +12,8 @@ import {
 import { useState } from "react";
 import { API_URL, NEXT_MODE } from "../../config";
 import Head from "next/head";
+import dompurify from "isomorphic-dompurify";
+
 
 export const getStaticProps = async () => {
   const response = await fetch(`${API_URL}/blog/portfolio-projects/`);
@@ -28,7 +30,7 @@ export const getStaticProps = async () => {
     revalidate: 10,
   };
 };
-
+const sanitizer = dompurify.sanitize
 function PortfolioProject({ project, orig }) {
   const [mini_nav, setMini_nav] = useState(false);
   const ToggleMiniNav = () => {
@@ -188,8 +190,8 @@ function PortfolioProject({ project, orig }) {
                     <span className={`mb-2 ${styles.project_subheader}`}>
                       Description
                     </span>
-                    <div className={`text-center mb-2 ${styles.project_stack}`}>
-                      {project.description}
+                    <div className={`text-center mb-2 ${styles.project_stack}`} dangerouslySetInnerHTML={{ __html: sanitizer(project.description) }}>
+                      
                     </div>
                     <div className={`d-flex justify-content-end mb-2`}>
                       {project.github ? (
