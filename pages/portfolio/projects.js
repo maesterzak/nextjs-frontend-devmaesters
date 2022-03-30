@@ -205,7 +205,7 @@ function PortfolioProject({ project, orig }) {
                       ) : (
                         <button
                           disabled
-                          className={`btn ${styles.repo_button} d-flex justify-content-between`}
+                          className={`btn p-2 ${styles.repo_button} d-flex justify-content-between`}
                         >
                           private{" "}
                           <FontAwesomeIcon size={"1x"} icon={faGithub} />
