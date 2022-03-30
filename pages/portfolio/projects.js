@@ -197,7 +197,7 @@ function PortfolioProject({ project, orig }) {
                       {project.github ? (
                         <Link href={project.github} passHref>
                           <button
-                            className={`btn p-1 ${styles.repo_button} d-flex justify-content-between align-items-center`}
+                            className={`btn p-0 ${styles.repo_button} d-flex justify-content-between align-items-center`}
                           >
                             repo <FontAwesomeIcon size={"1x"} icon={faGithub} />
                           </button>
@@ -205,7 +205,7 @@ function PortfolioProject({ project, orig }) {
                       ) : (
                         <button
                           disabled
-                          className={`btn p-2 ${styles.repo_button} d-flex justify-content-between align-items-center`}
+                          className={`btn ${styles.repo_button} d-flex justify-content-between align-items-center`}
                         >
                           private{" "}
                           <FontAwesomeIcon size={"1x"} icon={faGithub} />

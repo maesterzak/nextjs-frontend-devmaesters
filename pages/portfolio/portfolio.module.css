@@ -108,7 +108,12 @@
     width: 8em;
     display: flex;
     align-items: center;
-    height: 1.5em;
+    min-height: 1.5em;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
 }
 .repo_button:hover{
     background: #7b1fa2;
