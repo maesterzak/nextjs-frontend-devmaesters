@@ -197,7 +197,7 @@ function PortfolioProject({ project, orig }) {
                       {project.github ? (
                         <Link href={project.github} passHref>
                           <button
-                            className={`btn ${styles.repo_button} d-flex justify-content-between`}
+                            className={`btn p-1 ${styles.repo_button} d-flex justify-content-between`}
                           >
                             repo <FontAwesomeIcon size={"1x"} icon={faGithub} />
                           </button>
