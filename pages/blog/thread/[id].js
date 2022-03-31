@@ -182,13 +182,13 @@ function Blog_chats({  orig, url, thread }) {
               </div>
             </div>
             <div className={`col-12 col-md-6 p-3 ${styles.threads_body}`}>
-              <div className={`row d-grid p-3 ${styles.row_background}`}>
+              <div className={`row  p-3 ${styles.row_background}`}>
                 <h1 style={{"fontSize":"medium"}}><b>{data.title}</b></h1>
 
-                <div className="col-12 bg-light">
-                  <span dangerouslySetInnerHTML={{
+                <div className={`col-12 bg-light ${styles.thread_bd}`}>
+                  <div dangerouslySetInnerHTML={{
                                   __html: sanitizer(data.description),
-                                }}></span>
+                                }}></div>
                 </div>
 
                 <br />
