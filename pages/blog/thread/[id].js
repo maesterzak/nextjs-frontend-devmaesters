@@ -59,7 +59,7 @@ function Blog_chats({  orig, url, thread }) {
   const hljs = require('highlight.js');
   useEffect(()=>{
     hljs.highlightAll()
-    hljs.configure({ignoreUnescapedHtml: true})
+    hljs.configure({ignoreUnescapedHTML: true})
   })
   const createTask = async (activeitem) => {
     await fetch(`${API_URL}/blog/message-create/`, {

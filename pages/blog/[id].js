@@ -65,7 +65,7 @@ function Post_detail({ url, orig, res }) {
   const hljs = require('highlight.js');
   useEffect(()=>{
     hljs.highlightAll()
-    hljs.configure({ignoreUnescapedHtml: true})
+    hljs.configure({ignoreUnescapedHTML: true})
   })
   
   
