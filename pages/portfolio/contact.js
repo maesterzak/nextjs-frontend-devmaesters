@@ -331,7 +331,7 @@ function PortfolioContacts() {
                       className={`col-8 d-flex justify-content-center align-items-center col-lg-12 ${styles.contacts_sub_container2}`}
                     >
                       <div className="d-flex justify-content-center align-items-center">
-                        angelzak1703@gmail.com
+                        abubakarzakari1703@gmail.com
                       </div>
                     </div>
                   </div>

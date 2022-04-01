@@ -40,7 +40,7 @@ function Footer(){
                         <span>or contact me via;</span>
                         <ul>
                             <li>tel: +2348062257480</li>
-                            <li>Email: angelzak1703@gmail.com</li>
+                            <li>Email: abubakarzakari1703@gmail.com</li>
 
                         </ul>
                         <div className="d-flex justify-content-between  w-75">
