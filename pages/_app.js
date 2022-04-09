@@ -25,6 +25,7 @@ function MyApp({ Component, pageProps }) {
     const handleRouteChange = (url) => {
       gtag.pageview(url)
       
+      
       setLoading(false)
     }
     router.events.on('routeChangeStart', (url) =>{

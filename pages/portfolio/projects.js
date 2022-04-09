@@ -7,7 +7,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
   faVideo,
   faAngleDown,
-  faTimes,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { API_URL, NEXT_MODE } from "../../config";
@@ -193,7 +193,14 @@ function PortfolioProject({ project, orig }) {
                     <div className={`text-center mb-2 ${styles.project_stack}`} dangerouslySetInnerHTML={{ __html: sanitizer(project.description) }}>
                       
                     </div>
-                    <div className={`d-flex justify-content-end mb-2`}>
+                    <div className={project.demo ?  `d-flex justify-content-between mb-2`:"d-flex justify-content-end mb-2"}>
+                      {project.demo ? 
+                      <Link href={project.demo} passHref>
+                        <button className={`btn p-0 ${styles.demo_button} d-flex justify-content-between align-items-center`}>
+                        demo <FontAwesomeIcon size={"1x"} icon={faGithub} />
+                        </button>
+                      </Link>
+                      :''}
                       {project.github ? (
                         <Link href={project.github} passHref>
                           <button
