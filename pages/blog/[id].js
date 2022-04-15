@@ -130,8 +130,8 @@ function Post_detail({ url, orig, res }) {
       <div>
         <Navbar links="white" icon="white" header_color="white" link="blog" />
         <div className="container mt-3">
-          <div className="row">
-            <div className="col-12 col-md-9 p-2">
+          <div className="row g-0">
+            <div className="col-12 col-md-9 p-3">
               <div
                 className={`row g-0  ${styles.row_background} + ${styles.post_detail_page}`}
               >
@@ -151,7 +151,7 @@ function Post_detail({ url, orig, res }) {
                   </span>
                 </div> */}
                 <hr />
-                <div className="row">
+                <div className="row g-0">
                   <div className="col-2 d-flex align-items-center justify-content-center">
                     {/* <FontAwesomeIcon
                       size="2x"
@@ -233,7 +233,7 @@ function Post_detail({ url, orig, res }) {
             </div>
 
             <br />
-            <div className={`row p-3 ${styles.row_background}`} >
+            <div className={`row g-0 p-3 ${styles.row_background}`} >
             <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
@@ -417,7 +417,7 @@ function Post_detail({ url, orig, res }) {
             </div>
 
             <br />
-            <div className={`row ${styles.row_background}`}>
+            <div className={`row g-0 ${styles.row_background}`}>
               <div className="col-12 p-3">
               <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
@@ -428,7 +428,7 @@ function Post_detail({ url, orig, res }) {
                 </div>
                {data.posts_comments.map(function (message, id) {
                   return (
-                    <div className="row mb-3" key={id}>
+                    <div className="row g-0 mb-3" key={id}>
                       <div className="col-2" style={{ height: "40px" }}>
                         <div className={`${styles.thread_message_image}`}>
                           {message.profile_image ? (
@@ -493,7 +493,7 @@ function Post_detail({ url, orig, res }) {
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                 </div>
-                <div className="row mt-3 p-2">
+                <div className="row g-0 mt-3 p-2">
                 <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
