@@ -131,9 +131,9 @@ function Post_detail({ url, orig, res }) {
         <Navbar links="white" icon="white" header_color="white" link="blog" />
         <div className="container mt-3">
           <div className="row">
-            <div className="col-12 col-md-9 p-4">
+            <div className="col-12 col-md-9 p-2">
               <div
-                className={`row  ${styles.row_background} + ${styles.post_detail_page}`}
+                className={`row g-0  ${styles.row_background} + ${styles.post_detail_page}`}
               >
                 <br />
                 <h1>{data.title}</h1>
@@ -171,8 +171,8 @@ function Post_detail({ url, orig, res }) {
                 </div>
               </div>
 
-              <div className="col-12 col-md-12 p-3  d-flex justify-content-center ">
-              <div className={`row p-3 g-0 w-100 ${styles.row_background}`}>
+              <div className="col-12 col-md-12 p-0  d-flex justify-content-center ">
+              <div className={`row p-1 g-0 w-100 ${styles.row_background}`}>
               <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
@@ -192,8 +192,8 @@ function Post_detail({ url, orig, res }) {
                   </div>
                 </div>
                 <div className="col-12 col-md-8 ">
-                  <div className="row d-flex justify-content-center h-100">
-                    <div className="col-10 col-md-10">
+                  <div className="row g-0 d-flex justify-content-center h-100">
+                    <div className="col-11 col-md-11">
                       <span
                         dangerouslySetInnerHTML={{
                           __html: sanitizer(data.author.about_me),
@@ -202,7 +202,7 @@ function Post_detail({ url, orig, res }) {
 
                     </div>
                     <div className="col-12 d-flex align-items-end">
-                        <div className="row w-100 d-flex justify-content-end align-self-end">
+                        <div className="row g-0 w-100 d-flex justify-content-end align-self-end">
                           <div className="col-10 col-lg-5 d-flex align-items-end justify-content-between">
                             {data.author.twitter ?
                             <button className='btn p-0 m-0' onClick={() => router.push(`${data.author.twitter}`)}>
