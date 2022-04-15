@@ -5,12 +5,16 @@ body {
   font-family: pristine;
   font-size: large;
   
+  
   /* font-family:'inter', Arial,BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
   /* font-size: medium;   */
   /* background-color: #dee2e6; */
-  background: white;
+  /* background: white; */
 
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: Roboto;
 }
 .btni{
   
@@ -28,9 +32,11 @@ body {
 /* others*/
 h5{
   color: #212529;
+  font-family: Roboto;
 }
 h6 {
   color: white;
+  font-family: Roboto;
  
 }
 
@@ -69,7 +75,7 @@ button{
 
 @media (max-width: 900px){
   body{
-    font-size: medium;
+    font-size: small;
   }
   nav {
     width: 100%;

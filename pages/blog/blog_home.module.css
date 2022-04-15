@@ -4,7 +4,7 @@
     background: linear-gradient(45deg,#303f9f,#7b1fa2);
 }
 .row_background{
-    /* background-color: white; */
+    background-color: white;
 }
 .nav_text{
     color: white;
@@ -89,6 +89,7 @@
 .header_label_text{
     font-size: x-large;
     color: white;
+    font-family: Roboto;
     
 }
 .trending_box{
@@ -153,11 +154,13 @@
     font-size: x-large;
     font-weight: bold;
     padding: 0.5em;
+    font-family: Roboto;
 }
 .post_box_heading_2{
     font-size: large;
     font-weight: bold;
     padding: 0.5em;
+    font-family: Roboto;
 }
 .post_box_body_text{
     /* font-size: medium; */
@@ -331,12 +334,17 @@
     /* font-size: medium; */
     
 }
+.hh_color{
+    color: #7b1fa2;
+    font-weight: 800;
+}
 @media only screen and (min-width: 761px)  {
 
 }
 @media only screen and (max-width: 760px)  {
     .post_box_heading{
         font-size: large;
+
     }
     .post_box_heading_2{
         font-size: medium;

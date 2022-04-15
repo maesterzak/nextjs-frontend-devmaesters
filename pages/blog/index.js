@@ -150,7 +150,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
 
             <div className={`${styles.trending_box_img_text}`}>
               <h3 className={`text-center ${styles.post_box_heading_2}`}>
-                <a className={`${styles.w_link}`} href={"/blog/" + post.id}>
+                <a className={`${styles.w_link} p-1`} href={"/blog/" + post.id}>
                   {post.title}
                 </a>
               </h3>
@@ -407,7 +407,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                 /> */}
                 {/* <div className={`${styles.dark_overlay}`}></div> */}
                 <div className={`w-100 ${styles.intro_text}`}>
-                  <h1 className="text-primary text-center">BLOG</h1>
+                  <h1 className={`text-center ${styles.hh_color}`}>BLOG</h1>
 
                   <div
                     className={`row w-100 g-0 d-flex justify-content-center`}
@@ -619,14 +619,14 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                   />
                 </button>
               </div>
-              <div className=" p-3 ">
+              <div>
                 <ul>
                   {p_threads ? (
                     <>
                       {p_threads.map(function (thread, id) {
                         return (
                           <li key={id} className={`mb-3 ${styles.thread_link}`}>
-                            <div className="row w-100">
+                            <div className="row g-0 w-100">
                               <div className="col-10 col-md-11">
                                 <Link href={"/blog/thread/" + thread.id}>
                                   {thread.title}
@@ -672,7 +672,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             </div>
           </div>
         </div>
-        <div className="mt-3 container g-0">
+        <div className="mt-3">
           <Footer />
         </div>
 
