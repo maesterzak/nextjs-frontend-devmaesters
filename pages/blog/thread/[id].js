@@ -184,7 +184,7 @@ function Blog_chats({  orig, url, thread }) {
             </div>
             <div className={`col-12 col-md-6 p-3 ${styles.threads_body}`}>
               <div className={`row  p-3 ${styles.row_background}`}>
-                <h1 style={{"fontSize":"medium"}}><b>{data.title}</b></h1>
+                <h1><b>{data.title}</b></h1>
 
                 <div className={`col-12 bg-light ${styles.thread_bd}`}>
                   <div dangerouslySetInnerHTML={{
@@ -279,7 +279,7 @@ function Blog_chats({  orig, url, thread }) {
               <div
                 className={`row g-0 align-items-center ${styles.thread_add_message_box}`}
               >
-                <div className="col-9 col-md-4 w-100 h-100 p-3 ">
+                <div className="col-9 col-md-4 w-100 h-100 p-2 ">
                   <form
                     onSubmit={threadchat_handle}
                     className={`d-flex flex-wrap justify-content-center ${styles.thread_form}`}

@@ -32,7 +32,7 @@ function Footer(){
                     </ul>
                 </div>
                 
-                <div id="contact" style={{"fontWeight":"bold"}} className="col-12 col-md-4 d-grid justify-content-center">
+                <div id="contact"  className="col-12 col-md-4 d-grid justify-content-center">
                     <h5 className="text-light text-center">Contact</h5>
                     <div className="text-light">
                         <span>Interested in hiring me or collaborating with me on a project, </span>

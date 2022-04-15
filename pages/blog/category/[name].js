@@ -111,6 +111,8 @@ function Category_list({ name, orig, url, res }) {
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                 </div>
               </div>
               <div className="col-12 col-md-9">

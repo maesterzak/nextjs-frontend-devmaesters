@@ -132,24 +132,24 @@ const Home1 = ({ posts, threads, cate, orig }) => {
         return (
           <div
             key={id}
-            className={`col-12 col-md-3 p-3 d-flex justify-content-center align-items-center  + ${styles.trending_box}`}
+            className={`col-12 col-md-4 p-3 d-flex justify-content-center align-items-center  + ${styles.trending_box}`}
           >
-            {post.image ? 
+            {post.image ? <>
             <Image
               layout="fill"
               className={styles.img}
               src={orig + post.image}
               alt="trending_post"
-            />:
+            /><div className={`${styles.dark_overlay_z}`}></div></>:
               <div className={`d-flex justify-content-center align-items-center ${styles.backup_img}`}>
                 
 
               </div>
             }
-            <div className={`${styles.dark_overlay}`}></div>
+            
 
             <div className={`${styles.trending_box_img_text}`}>
-              <h3 className={`text-center ${styles.post_box_heading}`}>
+              <h3 className={`text-center ${styles.post_box_heading_2}`}>
                 <a className={`${styles.w_link}`} href={"/blog/" + post.id}>
                   {post.title}
                 </a>
@@ -399,15 +399,15 @@ const Home1 = ({ posts, threads, cate, orig }) => {
               <div
                 className={`col-12 d-flex justify-content-center align-items-center ${styles.intro_box}`}
               >
-                <Image
+                {/* <Image
                   layout="fill"
                   src={"/images/image3.jpg"}
                   alt="home_image"
                   priority
-                />
-                <div className={`${styles.dark_overlay}`}></div>
+                /> */}
+                {/* <div className={`${styles.dark_overlay}`}></div> */}
                 <div className={`w-100 ${styles.intro_text}`}>
-                  <h1 className="text-light text-center">BLOG</h1>
+                  <h1 className="text-primary text-center">BLOG</h1>
 
                   <div
                     className={`row w-100 g-0 d-flex justify-content-center`}

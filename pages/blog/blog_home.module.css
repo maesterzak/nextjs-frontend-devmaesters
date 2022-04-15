@@ -4,7 +4,7 @@
     background: linear-gradient(45deg,#303f9f,#7b1fa2);
 }
 .row_background{
-    background-color: white;
+    /* background-color: white; */
 }
 .nav_text{
     color: white;
@@ -24,7 +24,7 @@
     height: 100%;
     background: linear-gradient(45deg,#303f9f,#7b1fa2);
     color: white;
-    font-size: x-large;
+    font-size: xx-large;
 }
 .sharebutton{
     
@@ -72,7 +72,7 @@
 }
 /* end of color designs*/
 .intro_box{
-    height: 50vh;
+    height: 20vh;
     position: relative;
     
 }
@@ -82,12 +82,12 @@
 }
 .header_label{
     width: 100%;
-    height: 4vh;
+    height: auto;
     
     border-radius: 10px;
 }
 .header_label_text{
-    font-size: large;
+    font-size: x-large;
     color: white;
     
 }
@@ -111,6 +111,13 @@
     background-color: rgba(0, 0, 0, 0.226);
     width: 100%;
     height: 100%;
+    position: absolute;
+    
+}
+.dark_overlay_z{
+    background-color: rgba(0, 0, 0, 0.226);
+    width: 100%;
+    height: 87%;
     position: absolute;
     
 }
@@ -143,12 +150,17 @@
     
 }
 .post_box_heading{
-    font-size: medium;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 0.5em;
+}
+.post_box_heading_2{
+    font-size: large;
     font-weight: bold;
     padding: 0.5em;
 }
 .post_box_body_text{
-    font-size: medium;
+    /* font-size: medium; */
 }
 .post_box_category{
     position: absolute;
@@ -162,7 +174,7 @@
 .post_box_footer{
     height: 5vh;
     
-    font-size: small;
+    /* font-size: small; */
 }
 .thread_link{
     color: royalblue;
@@ -217,7 +229,7 @@
 }
 .post_detail_page{
     min-height: 50vh;
-    font-size: medium;
+    /* font-size: medium; */
 }
 .author_profile_pic{
     width: 12em;
@@ -316,7 +328,7 @@
     line-height: 3em;
     background: white;
     border: solid 2px #7b1fa2;
-    font-size: medium;
+    /* font-size: medium; */
     
 }
 @media only screen and (min-width: 761px)  {
