@@ -492,6 +492,7 @@ function Post_detail({ url, orig, res }) {
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
                   <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  
                 </div>
                 <div className="row g-0 mt-3 p-2">
                 <div

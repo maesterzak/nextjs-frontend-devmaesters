@@ -583,7 +583,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                               <FontAwesomeIcon color="#7b1fa2" size="1x" icon={faEye} />
                               {post.views}
                             </span>
-                            <span>By {post.author.name}</span>
+                            <span >By {post.author.name}</span>
                           </div>
                         </div>
                       );
@@ -591,13 +591,13 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                   </>
                 ) : (
                   <>
-                    <h2>Loading...</h2>
+                    <h6>Loading...</h6>
                   </>
                 )}
               </div>
               <div className="d-flex justify-content-center mb-3 mt-2">
                 <button
-                  className={`btn ${styles.loadmore_btn} p-1`}
+                  className={`btn ${styles.loadmore_btn} p-0`}
                   disabled={isLoadingMore || isReachingEnd}
                   onClick={() => setSize1(size + 1)}
                 >
@@ -667,13 +667,13 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                     </>
                   ) : (
                     <>
-                      <h2>Loading Threads...</h2>
+                      <h6>Loading Threads...</h6>
                     </>
                   )}
                 </ul>
                 <div className="d-flex justify-content-center mb-3 mt-2">
                   <button
-                    className={`btn ${styles.loadmore_btn} p-1`}
+                    className={`btn ${styles.loadmore_btn} p-0`}
                     disabled={isLoadingMore2 || isReachingEnd2}
                     onClick={() => setSize2(size2 + 1)}
                   >

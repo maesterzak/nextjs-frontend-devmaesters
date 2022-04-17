@@ -154,6 +154,7 @@
     
     
 }
+
 .post_box_heading{
     font-size: x-large;
     font-weight: bold;
@@ -180,6 +181,7 @@
 }
 .post_box_footer{
     height: 5vh;
+    font-size: medium;
     
     /* font-size: small; */
 }
@@ -351,6 +353,12 @@
 @media only screen and (max-width: 760px)  {
     .loadmore_btn{
         width: 90vw;
+    }
+    .post_box_footer{
+        
+        font-size: small;
+        
+        /* font-size: small; */
     }
     .post_box_heading{
         font-size: large;
