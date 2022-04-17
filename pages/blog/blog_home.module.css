@@ -1,10 +1,12 @@
 /*color designs*/
 
 .header_label_color1{
-    background: linear-gradient(45deg,#303f9f,#7b1fa2);
+    /* background: linear-gradient(45deg,#303f9f,#7b1fa2); */
+    background: #03031b;
 }
 .row_background{
-    background-color: white;
+    /* background-color: white; */
+    background: #03031b;
 }
 .nav_text{
     color: white;
@@ -22,7 +24,8 @@
 .backup_img{
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg,#303f9f,#7b1fa2);
+    /* background: linear-gradient(45deg,#303f9f,#7b1fa2); */
+    background: rgb(172, 168, 168);
     color: white;
     font-size: xx-large;
 }
@@ -46,7 +49,8 @@
     color: blue;
 }
 .loadmore_btn:hover{
-    background: #7b1fa2;
+    /* background: #7b1fa2; */
+    background: whitesmoke;
     color: white;
 }
 .faHandshake{
@@ -54,10 +58,11 @@
     height: 1em;
 }
 .faPlusCircle{
-    color: #7b1fa2;
+    /* color: #7b1fa2; */
 }
 .post_box_category{
-    background-color: rgba(102, 51, 153, 0.747);
+    /* background-color: rgba(102, 51, 153, 0.747); */
+    background: #03031b;
     color: white;
 }
 .thread_message{
@@ -246,10 +251,11 @@
     width: 100%;
     background: white;
     border-radius: 15px;
-    border-color: #7b1fa2;
+    /* border-color: #7b1fa2; */
 }
 .search_btn{
-    background: #7b1fa2;
+    /* background: #7b1fa2; */
+    background: rgb(38, 38, 226);
     color: white;
 }
 .search_btn:hover{
@@ -273,7 +279,8 @@
     z-index: 999;
 }
 .index_search_modal_box{
-    background: linear-gradient(45deg,#303f9f,#7b1fa2);
+    /* background: linear-gradient(45deg,#303f9f,#7b1fa2); */
+    background: #03031b;
     height: 90vh;
     width: 70%;
     
@@ -292,7 +299,8 @@
     width: 0.5em;
 }
 .search_box_result::-webkit-scrollbar-thumb {
-    background: #7b1fa2;
+    /* background: #7b1fa2; */
+    background: whitesmoke;
     
   }
 .search_item_container{
@@ -319,7 +327,8 @@
     color: white;
 }
 .scroll_btn{
-    background: #7b1fa2;
+    /* background: #7b1fa2; */
+    background: rgb(38, 38, 226);
     color: white;
     border-radius: 15px;
     min-width: 7em;
@@ -329,13 +338,15 @@
     min-width: 10em;
     min-height: 20vh;
     line-height: 3em;
-    background: white;
-    border: solid 2px #7b1fa2;
+    /* background: white; */
+    background: #03031b;
+    /* border: solid 2px #7b1fa2; */
     /* font-size: medium; */
     
 }
 .hh_color{
-    color: #7b1fa2;
+    /* color: #7b1fa2; */
+    color: white;
     font-weight: 800;
 }
 @media only screen and (min-width: 761px)  {
