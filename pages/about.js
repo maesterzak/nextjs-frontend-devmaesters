@@ -73,7 +73,7 @@ function Aboutus() {
             </div>
 
         </div>
-        <div className='mt-3 g-0 container align-self-baseline'>
+        <div className='mt-3 align-self-baseline'>
         <Footer />
         </div>
     </div>

@@ -602,13 +602,20 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             </div>
             <div id="threads" className="col-12 col-md-12 ">
               <div
-                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+                className={`d-flex justify-content-center align-items-center mt-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >
                 <h2 className={`text-center + ${styles.header_label_text}`}>
                   Threads
                 </h2>
+                <button className="btn">
+                  <FontAwesomeIcon
+                    size="2x"
+                    className={styles.faPlusCircle}
+                    icon={faPlusCircle}
+                  />
+                </button>
               </div>
-              <div
+              {/* <div
                 className={`d-flex justify-content-end ${styles.add_thread}`}
               >
                 <button className="btn">
@@ -618,7 +625,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                     icon={faPlusCircle}
                   />
                 </button>
-              </div>
+              </div> */}
               <div>
                 <ul>
                   {p_threads ? (

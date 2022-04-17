@@ -205,7 +205,7 @@ function Category_list({ name, orig, url, res }) {
             </div>
           </div>
         </div>
-        <div className="mt-3 container g-0">
+        <div className="mt-3">
           <Footer />
         </div>
       </div>

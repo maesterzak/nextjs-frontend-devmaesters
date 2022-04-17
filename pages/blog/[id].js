@@ -520,7 +520,7 @@ function Post_detail({ url, orig, res }) {
                 </div>
           </div> */}
         </div>
-        <div className="mt-3 container g-0">
+        <div className="mt-3">
           <Footer />
         </div>
       </div>
