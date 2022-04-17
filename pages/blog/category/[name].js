@@ -107,12 +107,12 @@ function Category_list({ name, orig, url, res }) {
                       Adds
                     </h2>
                   </div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
-                  <div className={`col-6 col-md-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-xs-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-xs-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-xs-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-xs-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-xs-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
+                  <div className={`col-xs-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
                 </div>
               </div>
               <div className="col-12 col-md-9">
@@ -130,12 +130,14 @@ function Category_list({ name, orig, url, res }) {
                         return (
                           <div
                             key={id}
-                            className={`col-12 col-md-6 + ${styles.post_box}`}
+                            className={`col-xs-12 col-md-6 col-lg-4 + ${styles.post_box}`}
                           >
                             <div className={styles.post_box_img}>
                             {post.image ? <>
                             <Image
-                              layout="fill"
+                              layout="responsive"
+                              width={100}
+                              height={100}
                               objectFit="fill"
                               alt="post image"
                               className="post_image"

@@ -49,7 +49,7 @@ const Navbar = (props) => {
     <div>
       <nav className={`position-sticky`} style={{"backgroundColor":`${props.background}`}}>
         <div className="row w-100">
-          <div className="col-8 col-md-4 d-flex align-items-center">
+          <div className="col-8 col-md-3 d-flex align-items-center">
           
           
 
@@ -58,7 +58,7 @@ const Navbar = (props) => {
           </div>
         
           </div>
-          <div className="col-6 col-md-5 d-none d-md-block ">
+          <div className="col-6 col-md-6 d-none d-md-block ">
             <div style={{"color": `${props.links}`}} className="d-flex justify-content-between align-items-center h-100">
             <div className={props.link=='home' ? 'nav_link_underline': ''}><Link href={'/'}>Home</Link></div>
             <div className={props.link=='blog' ? 'nav_link_underline': ''}><Link href={'/blog'}>Blog</Link></div>

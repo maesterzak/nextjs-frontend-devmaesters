@@ -137,6 +137,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             {post.image ? <>
             <Image
               layout="fill"
+              
               className={styles.img}
               src={orig + post.image}
               alt="trending_post"
@@ -197,11 +198,13 @@ const Home1 = ({ posts, threads, cate, orig }) => {
           </div>
           <div className="carousel-inner h-100 w-100">
             {trending_posts[0] ? 
-            <div className="carousel-item active bg-info h-100 w-100">
+            <div className="carousel-item active h-100 w-100">
               {trending_posts[0].image ? 
               <Image
-                layout="fill"
-                sizes="50vw"
+                layout="responsive"
+                // sizes="50vw"
+                width={100}
+                height={100}
                 src={orig + trending_posts[0].image}
                 className="d-block w-100 h-100"
                 alt="first_trending_post"
@@ -220,8 +223,10 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             <div className="carousel-item h-100 w-100">
               {trending_posts[1].image ? 
               <Image
-                layout="fill"
-                sizes="50vw"
+                layout="responsive"
+                height={100}
+                width={100}
+                // sizes="50vw"
                 src={orig + trending_posts[1].image}
                 className="d-block w-100 h-100"
                 alt="first_trending_post"
@@ -240,8 +245,10 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             <div className="carousel-item h-100 w-100">
               {trending_posts[2].image ? 
               <Image
-                layout="fill"
-                sizes="50vw"
+                layout="responsive"
+                height={100}
+                width={100}
+                // sizes="50vw"
                 src={orig + trending_posts[2].image}
                 className="d-block w-100 h-100"
                 alt="first_trending_post"
@@ -482,7 +489,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                   Post for you
                 </h2>
               </div>
-              <h5 className="text-center">Comming soon</h5>
+              {/* <h5 className="text-center">Comming soon</h5> */}
               <span className="text-center">
                 Get posts tailored to your particular tastes{" "}
               </span>
@@ -496,17 +503,17 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                 Adds
               </h2>
             </div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
-            <div className={`col-6 col-md-2 + ${styles.add_box1}`}></div>
+            <div className={`col-6 col-md-4 + ${styles.add_box1}`}></div>
+            <div className={`col-6 col-md-4 + ${styles.add_box1}`}></div>
+            <div className={`col-6 col-md-4 + ${styles.add_box1}`}></div>
+            <div className={`col-6 col-md-4 + ${styles.add_box1}`}></div>
             <div
-              className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}
+              className={`col-6 col-md-4 d-none d-md-block + ${styles.add_box1}`}
             >
               
             </div>
             <div
-              className={`col-6 col-md-2 d-none d-md-block + ${styles.add_box1}`}
+              className={`col-6 col-md-4 d-none d-md-block + ${styles.add_box1}`}
             >
               
             </div>
@@ -528,12 +535,14 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                       return (
                         <div
                           key={id}
-                          className={`col-12 col-md-4 + ${styles.post_box}`}
+                          className={`col-xs-12 col-md-4 col-lg-3 + ${styles.post_box}`}
                         >
                           <div className={styles.post_box_img}>
                             {post.image ? <>
                             <Image
-                              layout="fill"
+                              layout="responsive"
+                              width={100}
+                              height={100}
                               objectFit="fill"
                               alt="post image"
                               className="post_image"
