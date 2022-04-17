@@ -252,10 +252,10 @@ function Blog_chats({  orig, url, thread }) {
                     Adds
                   </h2>
                 </div>
-                <div className={`col-xs-6 col-md-12 col-lg-6  + ${styles.add_box1}`}></div>
-                <div className={`col-xs-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
-                <div className={`col-xs-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
-                <div className={`col-xs-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
+                <div className={`col-6 col-md-12 col-lg-6  + ${styles.add_box1}`}></div>
+                <div className={`col-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
+                <div className={`col-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
+                <div className={`col-6 col-md-12 col-lg-6 + ${styles.add_box1}`}></div>
                 <div
                   className={`col-6 col-md-12 col-lg-6 d-none d-md-block + ${styles.add_box1}`}
                 >
