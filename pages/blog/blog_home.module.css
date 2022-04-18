@@ -5,7 +5,9 @@
     background: unset;
 }
 .row_background{
-    background-color: white;
+    /* background-color: white; */
+    background: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff
 }
 .nav_text{
     color: white;

@@ -426,6 +426,7 @@ function Post_detail({ url, orig, res }) {
                     Comment Message
                   </h2>
                 </div>
+                {data.posts_comments.length !=0 ? '':<div className="d-flex justify-content-center">No comment yet</div>}
                {data.posts_comments.map(function (message, id) {
                   return (
                     <div className="row g-0 mb-3" key={id}>
