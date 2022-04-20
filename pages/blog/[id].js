@@ -133,7 +133,7 @@ function Post_detail({ url, orig, res }) {
           <div className="row g-0">
             <div className="col-12 col-md-9 p-3">
               <div
-                className={`row g-0  ${styles.row_background} + ${styles.post_detail_page}`}
+                className={`row g-0 p-1 ${styles.row_background} + ${styles.post_detail_page}`}
               >
                 <br />
                 <h1>{data.title}</h1>
@@ -158,7 +158,7 @@ function Post_detail({ url, orig, res }) {
                       icon={faHandshake}
                     /> */}
                   </div>
-                  <div className="col-8 d-flex align-items-center justify-content-center">
+                  <div className="col-8 mb-3 d-flex align-items-center justify-content-center">
                     <span>Thanks for reading</span>
                   </div>
                   {/* <div
@@ -472,6 +472,41 @@ function Post_detail({ url, orig, res }) {
                 })} 
 
               </div>
+
+            </div>
+            <br />
+            <div className={`row g-0 ${styles.row_background}`}>
+            <div className="col-12 p-3">
+              <div
+                  className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+                >
+                  <h2 className={`text-center + ${styles.header_label_text}`}>
+                    Similar Posts
+                  </h2>
+                  
+                </div>
+                <div className="row">
+                  <div style={{"fontSize":"x-large"}} className="col-1 d-flex  align-items-center">01</div>
+                  <div className="col-11 text-primary d-flex align-items-center">
+                    How to create a gigantic dome protection for your web app
+                    </div>
+                  </div>
+                  <div className="row">
+                  <div style={{"fontSize":"x-large"}} className="col-1 d-flex  align-items-center">01</div>
+                  <div className="col-11 text-primary d-flex align-items-center">
+                    How to create a gigantic dome protection for your web app
+                    </div>
+                  </div>
+                  <div className="row">
+                  <div style={{"fontSize":"x-large"}} className="col-1 d-flex  align-items-center">01</div>
+                  <div className="col-11 text-primary d-flex align-items-center">
+                    How to create a gigantic dome protection for your web app
+                    </div>
+                  </div>
+                  
+                  
+                </div>
+                
 
             </div>
 

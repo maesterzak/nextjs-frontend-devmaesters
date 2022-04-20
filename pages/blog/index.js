@@ -294,7 +294,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
   );
   const fetcher = (...args) =>
     fetch(...args).then((response) => response.json());
-  const size_page = 9;
+  const size_page = 8;
   //posts
 
   const {
@@ -519,23 +519,23 @@ const Home1 = ({ posts, threads, cate, orig }) => {
             </div>
           </div>
 
-          <div className={`row mt-3 p-2 + ${styles.row_background}`}>
-            <div id="latestPosts" className="col-12 col-md-12">
+          <div className={`row mt-3 p-2 `}>
+            <div id="latestPosts" className={`col-12 col-md-12 ${styles.row_background}`}>
               <div
-                className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
+                className={`d-flex justify-content-center mb-2  ${styles.header_label}  ${styles.header_label_color1}`}
               >
                 <h2 className={`text-center + ${styles.header_label_text}`}>
                   Latest Posts
                 </h2>
               </div>
-              <div className={`row mt-3 p-2 + ${styles.row_background}`}>
+              <div className={`row mt-3 p-2  `}>
                 {p_posts ? (
                   <>
                     {p_posts.map(function (post, id) {
                       return (
                         <div
                           key={id}
-                          className={`col-xs-12 col-md-4 col-lg-3 + ${styles.post_box}`}
+                          className={`col-xs-12 col-md-4 col-lg-3 ${styles.post_box}`}
                         >
                           <div className={styles.post_box_img}>
                             {post.image ? <>
@@ -595,7 +595,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                   </>
                 )}
               </div>
-              <div className="d-flex justify-content-center mb-3 mt-2">
+              <div className={`d-flex justify-content-center mb-3 mt-2 `}>
                 <button
                   className={`btn ${styles.loadmore_btn} p-0`}
                   disabled={isLoadingMore || isReachingEnd}
@@ -609,7 +609,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                 </button>
               </div>
             </div>
-            <div id="threads" className="col-12 col-md-12 ">
+            <div id="threads" className={`col-12 col-md-12 mt-4 ${styles.row_background}`}>
               <div
                 className={`d-flex justify-content-center align-items-center mt-2 + ${styles.header_label} + ${styles.header_label_color1}`}
               >

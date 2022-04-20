@@ -20,10 +20,10 @@ import {
 import { useState } from "react";
 
 function PortfolioContacts() {
-  const [mini_nav, setMini_nav] = useState(false);
-  const ToggleMiniNav = () => {
-    setMini_nav(!mini_nav);
-  };
+  // const [mini_nav, setMini_nav] = useState(false);
+  // const ToggleMiniNav = () => {
+  //   setMini_nav(!mini_nav);
+  // };
 
   const [tooltip1, setTooltip1] = useState(false);
   const [tooltip2, setTooltip2] = useState(false);
@@ -104,7 +104,7 @@ function PortfolioContacts() {
             link = "portfolio"
           />
 
-          <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
+          {/* <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
             <button
               onClick={ToggleMiniNav}
               className={`p-1 btn d-flex justify-content-around align-items-center ${styles.mini_navtoggler}`}
@@ -152,10 +152,10 @@ function PortfolioContacts() {
             ) : (
               ""
             )}
-          </div>
-          <div className="d-none d-md-block">
+          </div> */}
+          <div>
             <div className=" row d-flex justify-content-center mt-3">
-              <div className="col-7 d-flex justify-content-between">
+              <div className="col-11 col-md-7 d-flex justify-content-between">
                 <Link href={"/portfolio"} passHref>
                   <button className={`btn ${styles.portfolio_button} `}>
                     HOME

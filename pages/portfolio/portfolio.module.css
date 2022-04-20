@@ -1,11 +1,11 @@
 .main{
-    background: white;
+    background: #ecf0f3;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
     position: relative;
 }
-.mini_navtoggler{
+/* .mini_navtoggler{
     width: 6em;
     background: #7b1fa2;
     color: white;
@@ -16,7 +16,7 @@
     width: 50%;
     z-index: 3;
     
-}
+} */
 .index_image{
     /* object-fit:fll;
     object-position: 18% 18%; */
@@ -55,7 +55,8 @@
 
 .short_info{
     min-height: 5em;
-    background: white;
+    background: #ecf0f3;
+    
 }
 .download_button{
     background: #7b1fa2;
@@ -151,14 +152,16 @@
     color: white;
 }
 .skills_container{
-    border: #7b1fa2 2px solid;
+    /* border: #7b1fa2 2px solid; */
     min-height: 20vh;
     overflow: hidden;
     position: relative;
+    
     background: white;
+    color: #7b1fa2;
 
 }
-.skills_sub_container1{
+/* .skills_sub_container1{
     background-color: #7b1fa2;
     position: absolute;
     top: 0;
@@ -167,9 +170,9 @@
     height: 100%;
     transition: all 3s ease; 
     
-}
+} */
 .skills_image{
-    height: 2em;
+    height: auto;
     width: 2em;
     
     
@@ -201,7 +204,7 @@
 .skills_sub_container2{
     width: 100%;
     height: 100%;
-    background: white;
+    /* background: white; */
     
 }
 .skills_fontawesome{
@@ -273,5 +276,26 @@
     .contacts_sub_container2{
         height: 100%;
         
+    }
+    .portfolio_button{
+        font-size: smaller;
     }    
+    .portfolio_button:hover{
+        
+        font-size: smaller;
+        height: 2em;
+        width: 5em;
+       
+        border-radius: 0 0 15px 15px;
+        
+    }
+    .active{
+        
+        font-size: smaller;
+        height: 3em;
+        width:6.5em;
+        
+        border-radius: 0 0 15px 15px;
+        
+    }
 }

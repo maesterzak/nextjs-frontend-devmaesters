@@ -27,10 +27,10 @@ export const getStaticProps = async () => {
 };
 
 function PortfolioSkills({ skills, orig }) {
-  const [mini_nav, setMini_nav] = useState(false);
-  const ToggleMiniNav = () => {
-    setMini_nav(!mini_nav);
-  };
+  // const [mini_nav, setMini_nav] = useState(false);
+  // const ToggleMiniNav = () => {
+  //   setMini_nav(!mini_nav);
+  // };
   return (
     <>
       <Head>
@@ -75,7 +75,7 @@ function PortfolioSkills({ skills, orig }) {
             header_color="white"
             link="portfolio"
           />
-          <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
+          {/* <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
             <button
               onClick={ToggleMiniNav}
               className={`p-1 btn d-flex justify-content-around align-items-center ${styles.mini_navtoggler}`}
@@ -123,10 +123,10 @@ function PortfolioSkills({ skills, orig }) {
             ) : (
               ""
             )}
-          </div>
-          <div className="d-none d-md-block">
+          </div> */}
+          <div>
             <div className=" row d-flex justify-content-center mt-3">
-              <div className="col-7 d-flex justify-content-between">
+              <div className="col-11 col-md-7 d-flex justify-content-between">
                 <Link href={"/portfolio"} passHref>
                   <button className={`btn ${styles.portfolio_button} `}>
                     HOME
@@ -154,17 +154,14 @@ function PortfolioSkills({ skills, orig }) {
           </div>
 
           <div className={`row mt-3 flex-wrap d-flex justify-content-center`}>
-            <h5 style={{ fontSize: "1em" }} className="text-center p-3">
-              Below are the skills i have picked up, click/hover on any to see
-              the skill name.
-            </h5>
+            
             <div className={`col-10 col-lg-8 `}>
               <div className="row flex-wrap d-flex justify-content-between">
 
               <div
                   className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
                 >
-                  <div
+                  {/* <div
                     className={`p-3 d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
                   >
                     <FontAwesomeIcon
@@ -172,11 +169,16 @@ function PortfolioSkills({ skills, orig }) {
                       size={"4x"}
                       icon={faBootstrap}
                     />
-                  </div>
+                  </div> */}
                   <div
                     className={`d-grid justify-content-center align-items-center ${styles.skills_sub_container2}`}
                   >
-                    <span>
+                    <FontAwesomeIcon
+                      
+                      size={"4x"}
+                      icon={faBootstrap}
+                    />
+                    <span className="w-100 text-center">
                       <b>Bootstrap</b>
                     </span>
                   </div>
@@ -185,7 +187,7 @@ function PortfolioSkills({ skills, orig }) {
               <div
                   className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
                 >
-                  <div
+                  {/* <div
                     className={`p-3 d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
                   >
                     <FontAwesomeIcon
@@ -193,43 +195,26 @@ function PortfolioSkills({ skills, orig }) {
                       size={"4x"}
                       icon={faPython}
                     />
-                  </div>
+                  </div> */}
                   <div
-                    className={`d-grid justify-content-center align-items-center ${styles.skills_sub_container2}`}
+                    className={`d-flex flex-wrap justify-content-center align-items-center ${styles.skills_sub_container2}`}
                   >
-                    <span>
+                    <FontAwesomeIcon
+                      style={{ color: "yellow" }}
+                      size={"4x"}
+                      icon={faPython}
+                    />
+                    <span className="w-100 text-center">
                       <b>Python</b>
                     </span>
                   </div>
                 </div>
 
+                
                 <div
                   className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
                 >
-                  <div
-                    className={`p-3 d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
-                  >
-                    <Image
-                      alt="skill_image"
-                      width={"100%"}
-                      height={"100%"}
-                      className={`${styles.skills_image}`}
-                      layout="fixed"
-                      src={"/svg/django.svg"}
-                    />
-                  </div>
-                  <div
-                    className={`d-grid justify-content-center align-items-center ${styles.skills_sub_container2}`}
-                  >
-                    <span>
-                      <b>Django</b>
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
-                >
-                  <div
+                  {/* <div
                     className={`p-3 d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
                   >
                     <FontAwesomeIcon
@@ -237,11 +222,16 @@ function PortfolioSkills({ skills, orig }) {
                       size={"4x"}
                       icon={faCss3}
                     />
-                  </div>
+                  </div> */}
                   <div
-                    className={`d-grid justify-content-center align-items-center ${styles.skills_sub_container2}`}
+                    className={`d-flex flex-wrap justify-content-center align-items-center ${styles.skills_sub_container2}`}
                   >
-                    <span>
+                    <FontAwesomeIcon
+                      style={{ color: "blue" }}
+                      size={"4x"}
+                      icon={faCss3}
+                    />
+                    <span className="w-100 text-center">
                       <b>Css</b>
                     </span>
                   </div>
@@ -250,45 +240,22 @@ function PortfolioSkills({ skills, orig }) {
                   className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
                 >
                   <div
-                    className={`p-3 d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
+                    className={`d-flex flex-wrap justify-content-center align-items-center ${styles.skills_sub_container2}`}
                   >
                     <FontAwesomeIcon
-                      style={{ color: "#ffff" }}
+                      style={{ color: "orange" }}
                       size={"4x"}
                       icon={faHtml5}
                     />
-                  </div>
-                  <div
-                    className={`d-grid justify-content-center align-items-center ${styles.skills_sub_container2}`}
-                  >
-                    <span>
+                    <span className="w-100 text-center">
                       <b>Html</b>
                     </span>
                   </div>
                 </div>
-                <div
-                  className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
-                >
-                  <div
-                    className={`p-3 d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
-                  >
-                    <Image
-                      alt="skill_image"
-                      width={"100%"}
-                      height={"100%"}
-                      className={`${styles.skills_image}`}
-                      layout="fixed"
-                      src={"/svg/heroku.svg"}
-                    />
-                  </div>
-                  <div
-                    className={`d-grid justify-content-center align-items-center ${styles.skills_sub_container2}`}
-                  >
-                    <span>
-                      <b>Heroku</b>
-                    </span>
-                  </div>
-                </div>
+                
+                
+              
+                
 
                 {skills.map(function (skill, id) {
                   return (
@@ -296,7 +263,7 @@ function PortfolioSkills({ skills, orig }) {
                       key={id}
                       className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
                     >
-                      <div
+                      {/* <div
                         className={`p-3 d-flex justify-content-center align-items-center ${styles.skills_sub_container1}`}
                       >
                         <Image
@@ -307,10 +274,18 @@ function PortfolioSkills({ skills, orig }) {
                           layout="fixed"
                           src={`${orig + skill.svg_image}`}
                         />
-                      </div>
+                      </div> */}
                       <div
-                        className={`d-grid justify-content-center align-items-center ${styles.skills_sub_container2}`}
+                        className={`d-flex flex-wrap justify-content-center align-items-center ${styles.skills_sub_container2}`}
                       >
+                        <Image
+                          alt="skill_image"
+                          width={"100%"}
+                          height={"100%"}
+                          className={`${styles.skills_image}`}
+                          layout="fixed"
+                          src={`${orig + skill.svg_image}`}
+                        />
                         <span>
                           <b>{skill.name}</b>
                         </span>

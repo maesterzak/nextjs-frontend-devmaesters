@@ -21,10 +21,10 @@ if (`${NEXT_MODE}` == "DEV") {
   var orig = "";
 }
 function PortfolioIndex() {
-  const [mini_nav, setMini_nav] = useState(false);
-  const ToggleMiniNav = () => {
-    setMini_nav(!mini_nav);
-  };
+  // const [mini_nav, setMini_nav] = useState(false);
+  // const ToggleMiniNav = () => {
+  //   setMini_nav(!mini_nav);
+  // };
   const router = useRouter()
   return (
     <>
@@ -39,7 +39,7 @@ function PortfolioIndex() {
         
       </Head>
       <div className={`${styles.main}`}>
-        <div className="d-none d-md-block">
+        <div className="d-none d-lg-block">
           <Image
             className={`${styles.background}`}
             alt="background-2"
@@ -70,7 +70,7 @@ function PortfolioIndex() {
             header_color="white"
             link='portfolio'
           />
-          <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
+          {/* <div className="d-md-none container position-relative d-flex justify-content-end mt-2">
             <button
               onClick={ToggleMiniNav}
               className={`p-1 btn d-flex justify-content-around align-items-center ${styles.mini_navtoggler}`}
@@ -118,10 +118,11 @@ function PortfolioIndex() {
             ) : (
               ""
             )}
-          </div>
-          <div className="d-none d-md-block">
+          </div> */}
+          {/* <div className="d-none d-md-block"> */}
+            <div>
             <div className=" row d-flex justify-content-center mt-3">
-              <div className="col-7 d-flex justify-content-between">
+              <div className="col-11 col-md-7 d-flex justify-content-between">
                 <Link href={"/portfolio"} passHref>
                   <button
                     className={`btn ${styles.portfolio_button} ${styles.active}`}
