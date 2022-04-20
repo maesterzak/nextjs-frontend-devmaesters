@@ -94,9 +94,9 @@
 
 .project_header {
   background: unset;
-  border-radius: 10px;
+  /* border-radius: 10px;
   border: solid 2px;
-  border-color: #7b1fa2;
+  border-color: #7b1fa2; */
 }
 .project_subheader {
   text-decoration: underline;
