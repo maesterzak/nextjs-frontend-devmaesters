@@ -6,7 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 
 import { faAngleDown, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { faPython, faCss3, faHtml5, faBootstrap } from "@fortawesome/free-brands-svg-icons";
+import {
+  faPython,
+  faCss3,
+  faHtml5,
+  faBootstrap,
+} from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import { API_URL, NEXT_MODE } from "../../config";
 
@@ -67,7 +72,10 @@ function PortfolioSkills({ skills, orig }) {
             priority
           />
         </div>
-        <div style={{ position: "absolute", top: "0vh", width: "100vw" }}>
+        <div
+          className={`${styles.main_sub}`}
+          
+        >
           <Navbar
             background="black"
             links="white"
@@ -154,11 +162,9 @@ function PortfolioSkills({ skills, orig }) {
           </div>
 
           <div className={`row mt-3 flex-wrap d-flex justify-content-center`}>
-            
             <div className={`col-10 col-lg-8 `}>
               <div className="row flex-wrap d-flex justify-content-between">
-
-              <div
+                <div
                   className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
                 >
                   {/* <div
@@ -173,18 +179,14 @@ function PortfolioSkills({ skills, orig }) {
                   <div
                     className={`d-grid justify-content-center align-items-center ${styles.skills_sub_container2}`}
                   >
-                    <FontAwesomeIcon
-                      
-                      size={"4x"}
-                      icon={faBootstrap}
-                    />
+                    <FontAwesomeIcon size={"4x"} icon={faBootstrap} />
                     <span className="w-100 text-center">
                       <b>Bootstrap</b>
                     </span>
                   </div>
                 </div>
 
-              <div
+                <div
                   className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
                 >
                   {/* <div
@@ -210,7 +212,6 @@ function PortfolioSkills({ skills, orig }) {
                   </div>
                 </div>
 
-                
                 <div
                   className={`col-3 m-2 col-lg-2 ${styles.skills_container}`}
                 >
@@ -252,10 +253,6 @@ function PortfolioSkills({ skills, orig }) {
                     </span>
                   </div>
                 </div>
-                
-                
-              
-                
 
                 {skills.map(function (skill, id) {
                   return (
