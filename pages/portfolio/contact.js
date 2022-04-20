@@ -204,7 +204,7 @@ function PortfolioContacts() {
                           size={"1x"}
                           className={` ${styles.contact_links_icon}`}
                           onClick={() => copyText("+2348062257480", 1)}
-                          icon={faCopy}
+                          icon={faCopy }
                         />
                         {tooltip1 ? (
                           <>

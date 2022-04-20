@@ -32,23 +32,23 @@
 }
 .portfolio_button:hover {
   background-color: #7b1fa2;
-  height: 3em;
-  width: 8em;
+  height: 2em;
+  width: 6em;
   color: white;
   border-radius: 0 0 15px 15px;
   border-color: unset;
 }
 .active {
   background-color: #7b1fa2;
-  height: 3em;
-  width: 8em;
+  height: 2em;
+  width: 6em;
   color: white;
   border-radius: 0 0 15px 15px;
   border-color: unset;
 }
 .image_container {
   width: 100%;
-  height: 32vh;
+  height: auto;
   overflow: hidden;
   position: relative;
   border: #7b1fa2 solid 2px;
@@ -71,8 +71,9 @@
 }
 .project_sub_container {
   background: white;
-  border: #7b1fa2 2px solid;
+  /* border: #7b1fa2 2px solid; */
   min-height: 20vh;
+  border-radius: 25px;
   width: 75vw;
 }
 .project_container {
@@ -157,6 +158,7 @@
   min-height: 20vh;
   overflow: hidden;
   position: relative;
+  border-radius: 20px;
 
   background: white;
   color: #7b1fa2;
@@ -217,15 +219,17 @@
 }
 .contact_links_icon {
   color: #7b1fa2;
-
+  /* text-shadow: #7b1fa2 3px 3px 3px; */
+  
   margin-left: 6px;
   margin-right: 10px;
   cursor: pointer;
 }
 .contacts_container {
-  min-height: 20vh;
-  border: #7b1fa2 solid 2px;
+  min-height: 22vh;
+  /* border: #7b1fa2 solid 2px; */
   background: white;
+  border-radius: 20px;
 }
 .contacts_sub_container1 {
   height: 40%;
