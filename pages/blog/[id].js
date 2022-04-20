@@ -475,7 +475,7 @@ function Post_detail({ url, orig, res }) {
 
             </div>
             <br />
-            <div className={`row g-0 ${styles.row_background}`}>
+            {/* <div className={`row g-0 ${styles.row_background}`}>
             <div className="col-12 p-3">
               <div
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
@@ -508,7 +508,7 @@ function Post_detail({ url, orig, res }) {
                 </div>
                 
 
-            </div>
+            </div> */}
 
             </div>
 
