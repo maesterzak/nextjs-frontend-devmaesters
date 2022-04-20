@@ -159,6 +159,7 @@
     
     background: white;
     color: #7b1fa2;
+    
 
 }
 /* .skills_sub_container1{
@@ -283,8 +284,8 @@
     .portfolio_button:hover{
         
         font-size: smaller;
-        height: 2em;
-        width: 5em;
+        height: 3em;
+        width: 6.5em;
        
         border-radius: 0 0 15px 15px;
         

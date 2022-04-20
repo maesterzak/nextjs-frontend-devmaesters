@@ -200,7 +200,7 @@ function PortfolioSkills({ skills, orig }) {
                     className={`d-flex flex-wrap justify-content-center align-items-center ${styles.skills_sub_container2}`}
                   >
                     <FontAwesomeIcon
-                      style={{ color: "yellow" }}
+                      style={{ color: "#5a36ec" }}
                       size={"4x"}
                       icon={faPython}
                     />
