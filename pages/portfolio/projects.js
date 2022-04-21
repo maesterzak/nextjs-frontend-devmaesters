@@ -181,16 +181,16 @@ function PortfolioProject({ project, orig }) {
                         <b>{project.name}</b>
                       </h5>
                     </div>
-                    <span className={`mb-1 ${styles.project_subheader}`}>
+                    <div className={`mb-1 ${styles.project_subheader}`}>
                       Stack
-                    </span>
-                    <div className={`text-center ${styles.project_stack}`}>
+                    </div>
+                    <div className={`${styles.project_stack}`}>
                       {project.stack}
                     </div>
-                    <span className={`mb-2 ${styles.project_subheader}`}>
+                    <div className={`mb-2 ${styles.project_subheader}`}>
                       Description
-                    </span>
-                    <div className={`text-center mb-2 ${styles.project_stack}`} dangerouslySetInnerHTML={{ __html: sanitizer(project.description) }}>
+                    </div>
+                    <div className={`mb-2 ${styles.project_stack}`} dangerouslySetInnerHTML={{ __html: sanitizer(project.description) }}>
                       
                     </div>
                     <div className={project.demo ?  `d-flex justify-content-between mb-2`:"d-flex justify-content-end mb-2"}>

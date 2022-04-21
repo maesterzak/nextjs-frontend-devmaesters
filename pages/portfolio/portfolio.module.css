@@ -103,6 +103,7 @@
 }
 .project_stack {
   border: #7b1fa2 2px solid;
+  font-size: 14px;
   min-height: 2em;
 }
 .repo_button {
