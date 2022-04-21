@@ -360,7 +360,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
         <Navbar links="white" icon="white" header_color="white" link='blog' />
         <div
           style={{ top: "2vh", zIndex: "10",marginRight:"4vw" }}
-          className="mt-2 position-sticky   row"
+          className="mt-2 position-sticky row"
         >
           <div className="col-12 d-flex justify-content-end">
           <div onClick={toggleScrollContainer} className={`btn p-0 d-flex justify-content-around align-items-center  ${styles.scroll_btn}`}>scroll to <FontAwesomeIcon icon={faAngleDown} /></div>

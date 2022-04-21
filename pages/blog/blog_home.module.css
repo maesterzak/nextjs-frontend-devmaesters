@@ -91,7 +91,7 @@
     border-radius: 10px;
 }
 .header_label_text{
-    font-size: xx-large;
+    font-size: x-large;
     /* color: white; */
     color: #7b1fa2;
     font-family: Roboto;
@@ -170,7 +170,7 @@
     font-family: Roboto;
 }
 .post_box_body_text{
-    /* font-size: medium; */
+    font-size: medium;
 }
 .post_box_category{
     position: absolute;
@@ -183,7 +183,7 @@
 }
 .post_box_footer{
     height: 5vh;
-    font-size: medium;
+    font-size: small;
     
     /* font-size: small; */
 }
@@ -290,7 +290,7 @@
 }
 .search_box_result{
     overflow-y: auto;
-    max-height: 50vh;
+    max-height: 53%;
     border-top: solid 2px white;
     border-bottom: solid 2px white;
 }
@@ -358,7 +358,7 @@
     }
     .post_box_footer{
         
-        font-size: small;
+        /* font-size: small; */
         
         /* font-size: small; */
     }
@@ -405,6 +405,9 @@
     .search_box_result::-webkit-scrollbar{
         background: unset;
         width: 0.2em;
+    }
+    .search_box_result{
+        max-height: 60%;
     }
 }
    

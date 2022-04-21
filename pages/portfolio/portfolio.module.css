@@ -108,7 +108,7 @@
 .repo_button {
   border-color: #7b1fa2;
   border-radius: 10px;
-  width: 8em;
+  width: 4.5em;
   display: flex;
   align-items: center;
   min-height: 1.5em;
@@ -123,7 +123,7 @@
   background: #7b1fa2;
   color: white;
   border-radius: 10px;
-  width: 8em;
+  width: 4em;
   display: flex;
   align-items: center;
   min-height: 1.5em;
