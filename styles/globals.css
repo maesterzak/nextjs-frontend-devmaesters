@@ -3,18 +3,15 @@ body {
   padding: 0;
   margin: 0;
   font-family: pristine;
-  font-size: medium;
+  font-size: 15px;
   background: #ecf0f3;
-  
-  /* font-family:'inter', Arial,BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
-  /* font-size: medium;   */
-  /* background-color: #dee2e6; */
-  /* background: white; */
 
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: Roboto;
+}
+h2{
+  font-size: 33px;
 }
 .btni{
   
@@ -75,7 +72,7 @@ button{
 
 @media (max-width: 900px){
   body{
-    font-size: small;
+    font-size: 16px;
   }
   nav {
     width: 100%;
@@ -85,7 +82,7 @@ button{
   }
   .nav-header{
     color: white;
-    font-size: x-large;
+    font-size: 32px;
     margin-left: 5%;
     
     /* font-family: sans-serif; */
@@ -155,7 +152,7 @@ button{
   
   .nav-header{
     
-    font-size: xx-large;
+    font-size: 33px;
     margin-left: 5%;
     
     
@@ -308,7 +305,7 @@ footer{
 }
 .togg2{
   margin-left: 10px;
-  /* font-size: 1em; */
+  
   color: white;
 }
 .togg1{
@@ -339,7 +336,7 @@ footer{
   width: 100%;
   border-radius: 10px;
   
-  /* font-size: medium; */
+  
 }
 .modal-background{
   color: white;

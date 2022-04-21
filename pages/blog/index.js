@@ -535,7 +535,7 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                       return (
                         <div
                           key={id}
-                          className={`col-xs-12 col-md-4 col-lg-3 ${styles.post_box}`}
+                          className={`col-xs-12 col-md-4 col-lg-4  ${styles.post_box}`}
                         >
                           <div className={styles.post_box_img}>
                             {post.image ? <>
@@ -561,9 +561,9 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                             }
                           </div>
                           <div className={styles.post_box_body}>
-                            <h2 className={styles.post_box_heading}>
+                            <span className={styles.post_box_heading}>
                               {post.title}
-                            </h2>
+                            </span>
                             <span
                               className={styles.post_box_body_text}
                               dangerouslySetInnerHTML={{

@@ -27,7 +27,7 @@
     height: 100%;
     background: linear-gradient(45deg,#303f9f,#7b1fa2);
     color: white;
-    font-size: xx-large;
+    /* font-size: xx-large; */
 }
 .sharebutton{
     
@@ -91,7 +91,7 @@
     border-radius: 10px;
 }
 .header_label_text{
-    font-size: x-large;
+    /* font-size: x-large; */
     /* color: white; */
     color: #7b1fa2;
     font-family: Roboto;
@@ -158,20 +158,17 @@
 }
 
 .post_box_heading{
-    font-size: x-large;
-    font-weight: bold;
-    padding: 0.5em;
+    font-size: 18px;
+    font-weight: 600;
     font-family: Roboto;
 }
 .post_box_heading_2{
-    font-size: large;
+    font-size: 18px;
     font-weight: bold;
     padding: 0.5em;
     font-family: Roboto;
 }
-.post_box_body_text{
-    font-size: medium;
-}
+
 .post_box_category{
     position: absolute;
     top: 4%;
@@ -185,7 +182,7 @@
     height: 5vh;
     
     
-    font-size: medium;
+    font-size: 14px;
 }
 .thread_link{
     color: royalblue;
@@ -362,18 +359,18 @@
         
         /* font-size: small; */
     }
-    .post_box_heading{
-        font-size: large;
+    /* .post_box_heading{
+        font-size: l;
 
     }
     .post_box_heading_2{
         font-size: medium;
-    }
-    .header_label_text{
+    } */
+    /* .header_label_text{
         font-size: x-large;
         
         
-    }
+    } */
     .adds_container{
         position: static;
     }

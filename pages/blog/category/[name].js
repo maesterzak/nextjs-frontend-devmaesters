@@ -130,7 +130,7 @@ function Category_list({ name, orig, url, res }) {
                         return (
                           <div
                             key={id}
-                            className={`col-xs-12 col-md-6 col-lg-4 + ${styles.post_box}`}
+                            className={`col-xs-12 col-md-6 col-lg-6 + ${styles.post_box}`}
                           >
                             <div className={styles.post_box_img}>
                             {post.image ? <>
