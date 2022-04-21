@@ -194,11 +194,11 @@ function Post_detail({ url, orig, res }) {
                 <div className="col-12 col-md-8 ">
                   <div className="row g-0 d-flex justify-content-center h-100">
                     <div className="col-11 col-md-11">
-                      <span
+                      <div className="text-center"
                         dangerouslySetInnerHTML={{
                           __html: sanitizer(data.author.about_me),
                         }}
-                      ></span>
+                      ></div>
 
                     </div>
                     <div className="col-12 d-flex align-items-end">
@@ -238,7 +238,7 @@ function Post_detail({ url, orig, res }) {
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
                   <h2 className={`text-center + ${styles.header_label_text}`}>
-                    Comments
+                    Comment
                   </h2>
                 </div>
               <div style={{"minHeight":"75vh"}}>
@@ -423,7 +423,7 @@ function Post_detail({ url, orig, res }) {
                   className={`d-flex justify-content-center mb-2 + ${styles.header_label} + ${styles.header_label_color1}`}
                 >
                   <h2 className={`text-center + ${styles.header_label_text}`}>
-                    Comment Message
+                    Comments
                   </h2>
                 </div>
                 {data.posts_comments.length !=0 ? '':<div className="d-flex justify-content-center">No comment yet</div>}

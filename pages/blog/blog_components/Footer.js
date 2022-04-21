@@ -12,8 +12,8 @@ function Footer(){
     const router = useRouter()
     return(
         <footer>
-            <div className='container'>
-                <div className="row g-3">
+            <div className=''>
+                <div className="row g-0">
 
                 
                 <div id="services" className="col-12 col-md-6 d-grid justify-content-center">
