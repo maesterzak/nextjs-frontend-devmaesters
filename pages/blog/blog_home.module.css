@@ -169,6 +169,7 @@
     font-family: Roboto;
 }
 
+
 .post_box_category{
     position: absolute;
     top: 4%;
@@ -350,6 +351,9 @@
 
 }
 @media only screen and (max-width: 760px)  {
+    .post_box_body_text{
+        font-size: 14px;
+    }
     .loadmore_btn{
         width: 90vw;
     }
