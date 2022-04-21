@@ -564,12 +564,12 @@ const Home1 = ({ posts, threads, cate, orig }) => {
                             <span className={styles.post_box_heading}>
                               {post.title}
                             </span>
-                            <span
+                            <div
                               className={styles.post_box_body_text}
                               dangerouslySetInnerHTML={{
                                 __html: sanitizer(truncate(post.body)),
                               }}
-                            ></span>
+                            ></div>
                           </div>
                           <div
                             className={`d-flex justify-content-between align-items-center ${styles.post_box_footer}`}
