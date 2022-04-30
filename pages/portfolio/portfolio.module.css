@@ -1,9 +1,49 @@
+
+.card_skill{
+  background: #16151d;
+}
+.card_contact{
+  background: #16151d;
+}
+.contact_links_icon {
+  color: #FFA000;
+  /* text-shadow: #7b1fa2 3px 3px 3px; */
+  
+  margin-left: 6px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.tooltip {
+  width: 4em;
+  border-radius: 10px;
+  background: #FFA000;
+  color: white;
+  right: -1em;
+}
+.name {
+  text-decoration: solid;
+}
+.short_info {
+  min-height: 5em;
+  background: #16151d;
+}
+.project_vid {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+
 .main {
-  background: #ecf0f3;
-  height: 100vh;
+  /* background: #ecf0f3; */
+  
   width: 100vw;
   overflow: hidden;
   position: relative;
+  
 }
 .main_sub {
   position: absolute;
@@ -25,11 +65,7 @@
     z-index: 3;
     
 } */
-.index_image {
-  /* object-fit:fll;
-    object-position: 18% 18%; */
-  object-fit: contain;
-}
+
 .portfolio_button:hover {
   background-color: #7b1fa2;
   height: 2em;
@@ -47,28 +83,14 @@
   border-color: unset;
 }
 .image_container {
-  width: 100%;
-  height: auto;
+  
+  border-radius: 20px;
   overflow: hidden;
-  position: relative;
-  border: #7b1fa2 solid 2px;
-  border-radius: 15px;
-}
-.name {
-  text-decoration: solid;
 }
 
-.short_info {
-  min-height: 5em;
-  background: #ecf0f3;
-}
-.download_button {
-  background: #7b1fa2;
-  color: white;
-  border: unset;
-  border-radius: 10px;
-  margin-right: 10px;
-}
+
+
+
 .project_sub_container {
   background: white;
   /* border: #7b1fa2 2px solid; */
@@ -87,10 +109,7 @@
 .project_box_right {
   height: 80%;
 }
-.project_vid {
-  width: 100%;
-  height: 100%;
-}
+
 
 .project_header {
   background: unset;
@@ -219,14 +238,7 @@
   width: 100%;
   height: 100%;
 }
-.contact_links_icon {
-  color: #7b1fa2;
-  /* text-shadow: #7b1fa2 3px 3px 3px; */
-  
-  margin-left: 6px;
-  margin-right: 10px;
-  cursor: pointer;
-}
+
 .contacts_container {
   min-height: 22vh;
   /* border: #7b1fa2 solid 2px; */
@@ -243,13 +255,7 @@
   font-size: 0.9em;
 }
 
-.tooltip {
-  width: 4em;
-  border-radius: 10px;
-  background: #7b1fa2;
-  color: white;
-  right: -1em;
-}
+
 
 @media only screen and (max-width: 900px) {
   .image_container {

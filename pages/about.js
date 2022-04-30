@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Head from 'next/head'
-import Navbar from './blog/blog_components/Navbar'
+import Navbar from '../components/navbar/Navbar'
 import styles from '../styles/Home.module.css'
-import Footer from './blog/blog_components/Footer'
+import Footer from '../components/footer/Footer'
 import Link from 'next/link'
 
 function Aboutus() {
@@ -14,13 +14,13 @@ function Aboutus() {
         <meta
           name="description"
           content="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
-        for asking questions(threads) and buying web services/sites."
+        for asking questions(threads)"
         />
     </Head>
     <div style={{"minHeight":"100vh"}}>
-        <Navbar links="white" icon="white" header_color="white" link="about"/>
+        <Navbar loc="about"/>
         <br />
-        <div className={`container ${styles.about_container}`}>
+        <div className={`container about_container`}>
             <h4 className='text-center p-3'>About Site</h4>
             <div className='p-3 row d-flex justify-content-center'>
                 <div className='col-10 col-lg-7'>

@@ -25,19 +25,19 @@ export default function Home() {
 
       <main className={`d-flex justify-content-end align-items-end ${styles.main}`}>
         {/* <Image layout="fill" src={'/images/home-3.jpg'} alt="homepage image" priority /> */}
-        <div  className={`p-3 position-absolute text-bold mb-3 mr-2 ${styles.intro}`}>
+        <div  className={`card text-light p-3`}>
           <h1>WELCOME</h1>
           <h2>To devMaesters</h2>
           <h5>Site is still being built</h5>
           
             <span>Some links are shown below click to visit any of our pages</span>
             <div className="d-flex justify-content-around mb-3">
-            <span style={{"color":"blue"}}><Link href={'/blog'}>Blog</Link></span>
-            <span style={{"color":"blue"}}><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
+            <span><Link href={'/blog'}>Blog</Link></span>
+            <span ><Link href={'/mini-mall'}>Mini-Mall</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
             </div>
             <div className="d-flex justify-content-around">
-            <span style={{"color":"blue"}}><Link href={'/portfolio/'}>Portfolio</Link></span>
-            <span style={{"color":"blue"}}><Link href={'/online-solver'}>OnlineSolver</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
+            <span ><Link href={'/portfolio/'}>Portfolio</Link></span>
+            <span ><Link href={'/online-solver'}>OnlineSolver</Link><FontAwesomeIcon size="1x" icon={faHardHat} /></span>
             </div>
             
             
@@ -46,7 +46,7 @@ export default function Home() {
       </main>
 
       <footer className={`text-light text-center ${styles.footer}`}>
-        <span>This website was coded and designed by Abubakar Zakari<br /> of @devmaesters.com</span>
+        <div>This website was coded and designed by Abubakar Zakari<br /> of @devmaesters.com</div>
       </footer>
     </div>
   );

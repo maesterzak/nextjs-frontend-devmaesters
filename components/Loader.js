@@ -9,6 +9,7 @@ export default function Loader() {
         className={styles.image}
         layout="fill"
         src="/loader.svg"
+        priority
       />
     </div>
   );

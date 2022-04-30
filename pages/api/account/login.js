@@ -29,7 +29,7 @@ const loggin = async (req, res) => {
             const data = await apiRes.json()
             
             if (apiRes.status === 200){
-                console.log(data)
+                
                 res.setHeader('Set-Cookie', [
                     cookie.serialize(
                         'access', data.access, {

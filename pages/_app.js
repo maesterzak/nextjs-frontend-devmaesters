@@ -4,12 +4,12 @@ import '../styles/globals.css'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gitag'
 
-import Layout from './blog/blog_components/Layout';
+import Layout from '../components/Layout';
 import { useEffect, useState } from "react";
 import { Provider } from 'react-redux'
 import { useStore } from '../store'
 import Head from "next/head";
-import Loader from './components/Loader'
+import Loader from '../components/Loader'
 import { config, dom } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 

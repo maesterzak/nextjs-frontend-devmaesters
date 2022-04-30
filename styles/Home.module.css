@@ -151,7 +151,7 @@
 .about_image{
   width: 8em;
   height: 8em;
-  border: solid 2px #7b1fa2;
+  
 }
 .about_image1{
   object-fit:cover;

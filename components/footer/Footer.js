@@ -13,6 +13,11 @@ function Footer(){
     return(
         <footer>
             <div className=''>
+                <h2 className="text-center text-light mb-2 site-title">DEVMAESTERS</h2>
+                <div className="d-flex justify-content-center mb-5">
+                <button className="btn button">Hire Me</button>
+
+                </div>
                 <div className="row g-0">
 
                 
@@ -63,7 +68,7 @@ function Footer(){
                         
                         </div>
                         <br />
-                        <span>Checkout my <span style={{"color":"#0d6efd"}}><Link href={'/portfolio'}>Portfolio</Link></span> to see my past projects</span>
+                        <span>Checkout my <span><Link href={'/portfolio'}>Portfolio</Link></span> to see my past projects</span>
                     </div>
                 </div>
                 </div>

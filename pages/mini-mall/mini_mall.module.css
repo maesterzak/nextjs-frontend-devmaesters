@@ -1,5 +1,7 @@
 .body{
     padding: 5% 5% 5% 5%;
+    background: white;
+    height: 100vh;
 }
 .header{
     height: 10vh;
