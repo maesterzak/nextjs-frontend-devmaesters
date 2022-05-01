@@ -4,7 +4,7 @@ import { API_URL } from "../../../config";
 import useSWR, { mutate } from "swr";
 
 function CommentForm(props){
-    const data = props? props:null
+    const data = props
 
     const createComment = async (activeitem) => {
         await fetch(`${API_URL}/blog/comment-create/`, {

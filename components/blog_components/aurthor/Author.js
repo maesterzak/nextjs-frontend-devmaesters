@@ -17,9 +17,9 @@ if (`${NEXT_MODE}` == "DEV") {
 }
 
 
-function Author(props){
+function Author({data, orig}){
   const router = useRouter()
-  const data = props? props:null
+  
     
      
     return(
@@ -33,7 +33,7 @@ function Author(props){
                       width="100%"
                       height="100%"
                       layout="responsive"
-                      src={data.orig + data.data.author.profile_image}
+                      // src={ori + dat.data.author.profile_image}
                     />
 
                     </div>
