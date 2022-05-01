@@ -28,7 +28,7 @@ function CreateThread() {
       <div
         className="modal fade "
         id="createThread"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="createThreadLabel"
         aria-hidden="true"
       >
