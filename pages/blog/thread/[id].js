@@ -16,7 +16,6 @@ import { useEffect } from "react";
 import Categories from "../../../components/blog_components/categories/Categories";
 import CreateThread from "../../../components/blog_components/threads/CreateThread";
 import SuccessAlert from "../../../components/blog_components/alerts/successAlert";
-import WarningAlert from "../../../components/blog_components/alerts/warningAlert";
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/threads/`);
@@ -134,7 +133,7 @@ function Blog_chats({ orig, url, thread }) {
             <Navbar loc="blog" />
 
             <div className="container mt-3 position-relative">
-              <WarningAlert />
+              
             {S_Alert ? 
               <SuccessAlert  type="Message" /> :''}
 

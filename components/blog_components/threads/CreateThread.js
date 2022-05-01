@@ -1,6 +1,6 @@
 import styles from "./thread.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComments, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function CreateThread() {
   return (

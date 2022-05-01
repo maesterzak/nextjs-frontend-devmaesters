@@ -87,7 +87,7 @@ function TrendingPosts(props){
                     alt="first_trending_post"
                     priority
                   />
-                  :<div className=""></div>}
+                  :<div></div>}
                 
                 <div className="carousel-caption">
                   <Link href={/blog/ + trending_posts[0].id} passHref>
@@ -98,9 +98,9 @@ function TrendingPosts(props){
             ) : (
               ""
             )}
-            {trending_posts[1]?.image ? (
+            {trending_posts[1]? (
               <div className="carousel-item h-100 w-100">
-                
+                {trending_posts[1].image ?
                   <Image
                     layout="responsive"
                     height={100}
@@ -112,6 +112,7 @@ function TrendingPosts(props){
                     alt="first_trending_post"
                     priority
                   />
+                  :<div></div>}
                 
                 
                 <div className="carousel-caption ">
@@ -123,9 +124,9 @@ function TrendingPosts(props){
             ) : (
               ""
             )}
-            {trending_posts[2]?.image ? (
+            {trending_posts[2]? (
               <div className="carousel-item h-100 w-100">
-
+                  {trending_posts[2].image ?
                   <Image
                     layout="responsive"
                     height={100}
@@ -136,6 +137,7 @@ function TrendingPosts(props){
                     alt="first_trending_post"
                     priority
                   />
+                   :<div></div>}
                 
                 <div className="carousel-caption">
                   <Link href={/blog/ + trending_posts[2].id} passHref>

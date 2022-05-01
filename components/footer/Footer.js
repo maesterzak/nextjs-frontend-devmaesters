@@ -3,7 +3,7 @@ import {
     faTwitterSquare, faFacebookSquare, faWhatsappSquare, faInstagramSquare, faLinkedin,
   } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
-import Router , {useRouter}  from 'next/router';
+import {useRouter}  from 'next/router';
 
 
 
@@ -15,7 +15,7 @@ function Footer(){
             <div className=''>
                 <h2 className="text-center mb-2 site-title">DEVMAESTERS</h2>
                 <div className="d-flex justify-content-center mb-5">
-                <button className="btn button">Hire Me</button>
+                {/* <button className="btn button">Hire Me</button> */}
 
                 </div>
                 <div className="row g-0">

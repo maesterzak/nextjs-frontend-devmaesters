@@ -55,7 +55,7 @@ const Home1 = ({orig}) => {
               <aside className="col-md-4 col-lg-3">
                 
                   
-                    <Categories />
+                    {/* <Categories /> */}
                     
                   
                 

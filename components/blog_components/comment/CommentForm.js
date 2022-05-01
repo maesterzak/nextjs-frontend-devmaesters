@@ -1,7 +1,7 @@
 import styles from "./comment.module.css";
 import Image from "next/image";
 import { API_URL } from "../../../config";
-import useSWR, { mutate } from "swr";
+import { mutate } from "swr";
 import SuccessAlert from "../alerts/successAlert";
 import { useState } from "react";
 
@@ -32,7 +32,7 @@ function CommentForm(props) {
       .then((res) => res.json)
       .then((result) => SVGMetadataElement(result.rows))
       .catch((err) => console.log(err));
-    // alert("Comment added");
+    
     mutate(props.url);
     alertToggler('success')
 

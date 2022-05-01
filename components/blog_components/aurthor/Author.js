@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./author.module.css"
-import { NEXT_MODE, API_URL } from "../../../config";
-import Router, { useRouter } from "next/router";
+
+import { useRouter } from "next/router";
 import dompurify from "isomorphic-dompurify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 
-import { faAngleDown, faTimes } from "@fortawesome/free-solid-svg-icons";
+
 import {
   faPython,
   faCss3,

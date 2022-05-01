@@ -1,4 +1,3 @@
-import styles from "./comment.module.css"
 import Image from "next/image";
 import dompurify from 'isomorphic-dompurify';
 import 'highlight.js/styles/agate.css'

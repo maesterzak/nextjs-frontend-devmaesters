@@ -1,6 +1,6 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import {
-  faSearch,
+  
   faBars,
   faTimes,
   faHardHat,

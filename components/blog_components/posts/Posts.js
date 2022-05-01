@@ -3,7 +3,6 @@ import dompurify from "isomorphic-dompurify";
 import useSWRInfinite from "swr/infinite";
 import Link from "next/link";
 import useSWR from "swr";
-import { useState } from "react";
 
 
 const sanitizer = dompurify.sanitize;

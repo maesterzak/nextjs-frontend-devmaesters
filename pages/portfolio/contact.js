@@ -13,9 +13,7 @@ import {
   faPhone,
   faCopy,
   faEnvelope,
-  faAngleDown,
-  faMapMarkerAlt,
-  faTimes,
+  
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
