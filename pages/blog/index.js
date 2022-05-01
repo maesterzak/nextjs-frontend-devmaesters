@@ -6,6 +6,7 @@ import TrendingPosts from "../../components/blog_components/trending_posts/Trend
 import Navbar from "../../components/navbar/Navbar";
 import { API_URL, NEXT_MODE } from "../../config";
 import Threads from "../../components/blog_components/threads/Threads";
+import CreateThread from "../../components/blog_components/threads/CreateThread";
 
 
 export async function getStaticProps() {
@@ -60,6 +61,7 @@ const Home1 = ({ orig }) => {
                 
                   
                     <TrendingPosts orig={orig}/>
+                    <CreateThread />
                   
                   
                 

@@ -1,0 +1,15 @@
+.input{
+    background: #222;
+    color: white;
+}
+.input:focus{
+    background: #16151dc8;
+    color: white;
+    box-shadow: unset;
+}
+
+
+.thread_form{
+    height: 100%;
+    width: 100%;
+} 

@@ -10,6 +10,7 @@ const Footer = dynamic(() => import("../../../components/footer/Footer"));
 import CategoryPost from "../../../components/blog_components/posts/CategoryPost";
 import Categories from "../../../components/blog_components/categories/Categories";
 import TrendingPosts from "../../../components/blog_components/trending_posts/TrendingPosts";
+import CreateThread from "../../../components/blog_components/threads/CreateThread";
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/categories/`);
@@ -73,6 +74,7 @@ function Category_list({ name, url, orig }) {
             <div className="col-12 col-md-3 mb-3">
               <Categories />
               <TrendingPosts orig={orig} />
+              <CreateThread />
             </div>
           </div>
         </div>
