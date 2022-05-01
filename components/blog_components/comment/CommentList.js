@@ -4,6 +4,7 @@ import dompurify from 'isomorphic-dompurify';
 import 'highlight.js/styles/agate.css'
 
 function Comments(props){
+  const data = props? props:null
     const sanitizer = dompurify.sanitize
     return(
         <>
@@ -11,8 +12,8 @@ function Comments(props){
             <div className="card-header header-main mb-3">
                 <h5>Comments</h5>
                 </div>
-            {props.data.posts_comments.length !=0 ? '':<div className="d-flex justify-content-center">No comment yet</div>}
-               {props.data.posts_comments.map(function (message, id) {
+            {data.data.posts_comments.length !=0 ? '':<div className="d-flex justify-content-center">No comment yet</div>}
+               {data.data.posts_comments.map(function (message, id) {
                   return (
                     <div className="row mb-3" key={id}>
                       <div className="col-3 col-md-1">

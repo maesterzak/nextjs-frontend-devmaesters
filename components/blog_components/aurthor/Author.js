@@ -19,6 +19,7 @@ if (`${NEXT_MODE}` == "DEV") {
 
 function Author(props){
   const router = useRouter()
+  const data = props? props:null
     
      
     return(
@@ -32,34 +33,34 @@ function Author(props){
                       width="100%"
                       height="100%"
                       layout="responsive"
-                      src={props.orig + props.data.author.profile_image}
+                      src={data.orig + data.data.author.profile_image}
                     />
 
                     </div>
                     <span dangerouslySetInnerHTML={{
-                          __html: sanitizer(props.data.author.about_me),
+                          __html: sanitizer(data.data.author.about_me),
                         }}></span>
                         <div className="col-12 d-flex align-items-end">
                         <div className="row g-0 w-100 d-flex justify-content-end align-self-end">
                           <div className="col-12 d-flex align-items-center justify-content-center ">
-                            {props.data.author.twitter ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.author.twitter}`)}>
+                            {data.data.author.twitter ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`${data.data.author.twitter}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faTwitterSquare} />
                             </button>:''}
-                            {props.data.author.facebook ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.author.facebook}`)}>
+                            {data.data.author.facebook ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`${data.data.author.facebook}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faFacebookSquare} />
                             </button>:''}
-                            {props.data.author.whatsapp ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`https://api.whatsapp.com/send?phone=${props.data.author.whatsapp}`)}>
+                            {data.data.author.whatsapp ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`https://api.whatsapp.com/send?phone=${data.data.author.whatsapp}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faWhatsappSquare} />
                             </button>:''}
-                            {props.data.author.linkdn ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.author.linkdn}`)}>
+                            {data.data.author.linkdn ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`${data.data.author.linkdn}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faLinkedin} />
                             </button>:''}
-                            {props.data.author.instagram ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.author.instagram}`)}>
+                            {data.data.author.instagram ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`${data.data.author.instagram}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faInstagramSquare} />
                             </button>:''}
                           </div>

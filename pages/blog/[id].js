@@ -50,27 +50,27 @@ export async function getStaticProps(context){
   }
 
   return {
-    props: { orig: orig, url:url, data:res },
+    props: { orig: orig, url:url, res:res },
   };
 };
 
 
 const fetcher = (...args)=> fetch(...args).then((response) => response.json())
-function Post_detail({ url, orig, data }) {
+function Post_detail({ url, orig, res }) {
   
   const truncate = (str) => {
     return str.length > 50 ? str.substring(0, 100) + "..." : str;
   };
 
   
-  // const {data, error} = useSWR(url, fetcher, {fallbackData:res, revalidateOnFocus:false})
+  const {data, error} = useSWR(url, fetcher, {fallbackData:res, revalidateOnFocus:false})
   
   const sanitizer = dompurify.sanitize
     
-  // if (error) return <>{error}</>
+  if (error) return <>{error}</>
   return (
     <>
-      {/* {data ? <>  */}
+      {data ? <> 
       <Head>
         <title>{data.title}</title>
         
@@ -130,7 +130,7 @@ function Post_detail({ url, orig, data }) {
           <Footer />
         </div>
       </div>
-      {/* </> : <><Loader /></>} */}
+      </> : <><Loader /></>}
     </>
   );
 };

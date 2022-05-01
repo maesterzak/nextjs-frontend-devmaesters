@@ -4,6 +4,7 @@ import { API_URL } from "../../../config";
 import useSWR, { mutate } from "swr";
 
 function CommentForm(props){
+    const data = props? props:null
 
     const createComment = async (activeitem) => {
         await fetch(`${API_URL}/blog/comment-create/`, {
@@ -19,7 +20,7 @@ function CommentForm(props){
           .then((result) => SVGMetadataElement(result.rows))
           .catch((err) => console.log(err));
         // alert("Comment added");
-        mutate(props.url)
+        mutate(data.url)
       };
       
     
@@ -58,7 +59,7 @@ function CommentForm(props){
                       id="post_id"
                       name="post_id"
                       className="d-none"
-                      defaultValue={props.data.id}
+                      defaultValue={data.data.id}
                     ></input>
                     <div className="form-group w-100">
                       <input
