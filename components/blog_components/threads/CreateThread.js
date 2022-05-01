@@ -26,16 +26,16 @@ function CreateThread() {
       {/* create thread modal*/}
 
       <div
-        class="modal fade "
+        className="modal fade "
         id="createThread"
         tabindex="-1"
         aria-labelledby="createThreadLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-scrollable">
-          <div class="modal-content card">
-            <div class="modal-header">
-              <h5 class="modal-title" id="createThreadLabel">
+        <div className="modal-dialog modal-dialog-scrollable">
+          <div className="modal-content card">
+            <div className="modal-header">
+              <h5 className="modal-title" id="createThreadLabel">
                 Create Thread
               </h5>
               <button
@@ -47,7 +47,7 @@ function CreateThread() {
                               <FontAwesomeIcon className="faComments" size={"2x"} icon={faTimes} />
                             </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form
                 className={`d-flex flex-wrap justify-content-center ${styles.thread_form}`}
               >
@@ -89,7 +89,7 @@ function CreateThread() {
                         </div>
               </form>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <span>This feauture is still being worked on</span>
             </div>
           </div>
