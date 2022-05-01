@@ -9,7 +9,7 @@ import { API_URL, NEXT_MODE } from "../../../config/";
 
 
 function TrendingPosts(){
-  var orig = `${API_URL}`
+  // var orig = `${API_URL}`
   if (`${NEXT_MODE}` == "DEV") {
     var orig = `${API_URL}`;
   } else if (`${NEXT_MODE}` == "PROD") {
@@ -76,7 +76,7 @@ function TrendingPosts(){
             )}
           </div>
           <div className="carousel-inner h-100 w-100">
-            {trending_posts[0] ? (
+            {trending_posts[0]?.image ? (
               <div className="carousel-item active h-100 w-100">
                 
                   <Image
@@ -99,7 +99,7 @@ function TrendingPosts(){
             ) : (
               ""
             )}
-            {trending_posts[1] ? (
+            {trending_posts[1]?.image ? (
               <div className="carousel-item h-100 w-100">
                 
                   <Image
@@ -124,9 +124,9 @@ function TrendingPosts(){
             ) : (
               ""
             )}
-            {trending_posts[2] ? (
+            {trending_posts[2]?.image ? (
               <div className="carousel-item h-100 w-100">
-                
+                  
                   <Image
                     layout="responsive"
                     height={100}

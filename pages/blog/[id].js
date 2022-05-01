@@ -432,7 +432,7 @@ function Post_detail({ url, orig, res }) {
               Tags
             </h5>
             <div className="card-body ">
-              {data.tags.map(function(tag, id){
+              {data.tags?.map(function(tag, id){
                 return(
                   <div key={id}>
                     <a  href="#"> {tag}</a>
