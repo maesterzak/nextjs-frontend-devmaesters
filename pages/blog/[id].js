@@ -13,7 +13,6 @@ import Categories from "../../components/blog_components/categories/Categories";
 import CommentForm from "../../components/blog_components/comment/CommentForm";
 
 import Comments from "../../components/blog_components/comment/CommentList";
-import PostDetail from "../../components/blog_components/post_detail/PostDetail";
 import Author from "../../components/blog_components/aurthor/Author"
 import TrendingPosts from "../../components/blog_components/trending_posts/TrendingPosts";
 
@@ -84,7 +83,16 @@ function Post_detail({ url, orig, res }) {
           <main className="col-12 col-md-9">
             
           <div className={`row g-0 `} >
-            <PostDetail data={data} />
+          <div className="card p-2">
+              <h1 className="h2 text-light mb-3">
+                {data.title}
+              </h1>
+              <article className="card-body p-0" dangerouslySetInnerHTML={{ __html: sanitizer(data.body) }}>
+
+              </article>
+
+            </div>
+            
             <Author data={data} orig={orig}/>
             <CommentForm url={url} data={data} />
             <Comments data={data} />
