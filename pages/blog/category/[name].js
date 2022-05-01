@@ -1,7 +1,6 @@
 import Navbar from "../../../components/navbar/Navbar";
 import Head from "next/head";
 
-
 import { API_URL, NEXT_MODE } from "../../../config";
 
 import dynamic from "next/dynamic";
@@ -15,7 +14,7 @@ import CreateThread from "../../../components/blog_components/threads/CreateThre
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/categories/`);
   const data = await res.json();
-  
+
   const paths = data.map((category) => {
     return {
       params: { name: category.name.toString() },
@@ -30,19 +29,19 @@ export async function getStaticProps(context) {
   const name = context.params.name;
 
   const url = `${API_URL}/blog/categories-paginated-posts/` + name;
-  
-  
+  if (`${NEXT_MODE}` == "DEV") {
+    var orig = `${API_URL}`;
+  } else if (`${NEXT_MODE}` == "PROD") {
+    var orig = "";
+  }
 
   return {
-    props: { name: name, url:url },
+    props: { name: name, url: url, orig: orig },
     revalidate: 10,
   };
 }
 
-function Category_list({ name, url }) {
-  
-  
-  
+function Category_list({ name, url, orig }) {
   return (
     <>
       <Head>
@@ -58,20 +57,15 @@ function Category_list({ name, url }) {
 
         <div className="container mt-3">
           <div className="row">
-            <main className="col-12 col-md-9">
-              <CategoryPost
-                
-                url={url}
-                header={`Posts under ${name} category`}
-                
-              />
+            <main className="col-12 col-md-8 col-lg-9">
+              <CategoryPost url={url} header={`Posts under ${name} category`} />
             </main>
 
-            <div className="col-12 col-md-3 mb-3">
+            <aside className="col-12 col-md-4 col-lg-3 mb-3">
               <Categories />
-              <TrendingPosts />
+              <TrendingPosts orig={orig} />
               <CreateThread />
-            </div>
+            </aside>
           </div>
         </div>
 

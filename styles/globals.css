@@ -42,6 +42,8 @@ nav{
 .modal-content{
   background: var(--background-color);
   height: 95vh;
+  
+  
 }
 .modal-title{
   color: var(--font-color);
@@ -99,6 +101,11 @@ footer{
 }
 .carousel-caption{
   background: #03031b8c;
+}
+.carousel-inner{
+  height: 280px;
+  background: var(--second-background);
+  overflow: hidden;
 }
 
 .card-header{
@@ -174,7 +181,7 @@ a .btn{
 @media (max-width: 900px){
   
   footer{
-    font-size: 16px;
+    font-size: 14px;
   }
   body{
     font-size: 16px;

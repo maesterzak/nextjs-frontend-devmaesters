@@ -29,7 +29,7 @@ import useSWR from "swr";
                       );
                     })}
                     </div>
-                    </div> :<h1>loading</h1>}
+                    </div> :<div>loading..</div>}
 
           </>
       )

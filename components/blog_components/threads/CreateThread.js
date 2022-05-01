@@ -39,13 +39,17 @@ function CreateThread() {
                 Create Thread
               </h5>
               <button
-                              type="button"
-                              className="comment-button"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                            >
-                              <FontAwesomeIcon className="faComments" size={"2x"} icon={faTimes} />
-                            </button>
+                type="button"
+                className="comment-button"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <FontAwesomeIcon
+                  className="faComments"
+                  size={"2x"}
+                  icon={faTimes}
+                />
+              </button>
             </div>
             <div className="modal-body">
               <form
@@ -79,14 +83,16 @@ function CreateThread() {
                   />
                 </div>
                 <div className="form-group form-group-lg w-100 h-50">
-                          <textarea
-                            type="text"
-                            className={`form-control h-100 ${styles.input}`}
-                            id="thread_description"
-                            name="thread_description"
-                            placeholder="Enter question description"
-                          />
-                        </div>
+                  <textarea
+                    type="text"
+                    className={`form-control h-100 ${styles.input}`}
+                    id="thread_description"
+                    name="thread_description"
+                    placeholder="Enter question description"
+                  />
+                </div>
+                
+            <input className="btn button mt-1" type="submit" value="Submit" />
               </form>
             </div>
             <div className="modal-footer">

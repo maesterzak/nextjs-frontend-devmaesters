@@ -9,23 +9,23 @@ import Threads from "../../components/blog_components/threads/Threads";
 import CreateThread from "../../components/blog_components/threads/CreateThread";
 
 
-// export async function getStaticProps() {
+export async function getStaticProps() {
  
  
   
 
-//   if (`${NEXT_MODE}` == "DEV") {
-//     var orig = `${API_URL}`;
-//   } else if (`${NEXT_MODE}` == "PROD") {
-//     var orig = "";
-//   }
-//   return {
-//     props: { orig: orig },
-//     revalidate: 10,
-//   };
-// }
+  if (`${NEXT_MODE}` == "DEV") {
+    var orig = `${API_URL}`;
+  } else if (`${NEXT_MODE}` == "PROD") {
+    var orig = "";
+  }
+  return {
+    props: { orig: orig },
+    revalidate: 10,
+  };
+}
 
-const Home1 = () => {
+const Home1 = ({orig}) => {
 
   
 
@@ -48,11 +48,11 @@ const Home1 = () => {
         <div className={`container mt-2 overflow-hidden mt-3`}>
           <div id="main" className="main">
             <div className="row">
-              <main className="col-12 col-md-9">
+              <main className="col-12 col-md-8 col-lg-9">
                 <Posts header="Posts"/>          
                 <Threads />
               </main>
-              <div className="col-md-3">
+              <aside className="col-md-4 col-lg-3">
                 
                   
                     <Categories />
@@ -60,7 +60,7 @@ const Home1 = () => {
                   
                 
                   
-                    <TrendingPosts/>
+                    <TrendingPosts orig={orig}/>
                     <CreateThread />
                   
                   
@@ -68,7 +68,7 @@ const Home1 = () => {
                 <div className="col-12 card">
                   <div className="card-header"></div>
                 </div>
-              </div>
+              </aside>
             </div>
 
             

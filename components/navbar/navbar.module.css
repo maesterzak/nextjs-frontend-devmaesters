@@ -1,8 +1,8 @@
 
 
 .input{
-    background: #222;
-    border: none;
+    background: #16151dc8;
+    border: 1px solid white;
     color: white;
 }
 .input:focus{
@@ -19,7 +19,7 @@
     z-index: 1000;
 }
 .index_search_modal_box{
-    background: #03031b;
+    background: #222;
     height: 90vh;
     width: 70%;
     position: fixed;
@@ -74,7 +74,7 @@
 @media only screen and (max-width: 760px)  {
 
     .index_search_modal_box{
-        width: 90%;
+        width: 95%;
     } 
     .search_box_result::-webkit-scrollbar{
         background: unset;

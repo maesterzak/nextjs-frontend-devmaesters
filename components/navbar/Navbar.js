@@ -214,7 +214,7 @@ const Navbar = (props) => {
           <div className={`${styles.index_search_modal_overlay}`}>
             <div className="row d-flex justify-content-center align-items-center w-100 h-100 g-0">
               <div
-                className={`col-10 col-md-8 d-flex flex-wrap justify-content-center p-1  ${styles.index_search_modal_box}`}
+                className={`col-10 col-md-8 d-flex flex-wrap justify-content-center  ${styles.index_search_modal_box}`}
               >
                 <div className="w-100 d-flex justify-content-end">
                   <div onClick={ToggleResultOverlay} className=" btn">
@@ -234,7 +234,7 @@ const Navbar = (props) => {
                     className={`form-control ${styles.input}`}
                   />
                   <div className="d-flex justify-content-center mt-1">
-                    <button className={`btn ${styles.search_btn}`}>
+                    <button className={`btn  button`}>
                       search
                     </button>
                   </div>

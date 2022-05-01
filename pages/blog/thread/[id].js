@@ -15,6 +15,8 @@ import "highlight.js/styles/agate.css";
 import { useEffect } from "react";
 import Categories from "../../../components/blog_components/categories/Categories";
 import CreateThread from "../../../components/blog_components/threads/CreateThread";
+import SuccessAlert from "../../../components/blog_components/alerts/successAlert";
+import WarningAlert from "../../../components/blog_components/alerts/warningAlert";
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/threads/`);
@@ -57,6 +59,18 @@ function Blog_chats({ orig, url, thread }) {
     hljs.highlightAll();
     hljs.configure({ ignoreUnescapedHTML: true });
   });
+
+  const [S_Alert, setS_Alert] = useState(false);
+  const [W_Alert, setW_Alert] = useState(false);
+  const alertToggler = (e) => {
+    
+    if(e === 'success' ){
+      setS_Alert(true)
+      setTimeout(() => {
+                setS_Alert(false);
+            }, 7000)
+    }
+  };
   const createTask = async (activeitem) => {
     await fetch(`${API_URL}/blog/message-create/`, {
       method: "POST",
@@ -72,6 +86,7 @@ function Blog_chats({ orig, url, thread }) {
       .catch((err) => console.log(err));
     // alert("Message added");
     mutate(url);
+    alertToggler('success')
   };
 
   const threadchat_handle = (e) => {
@@ -118,7 +133,11 @@ function Blog_chats({ orig, url, thread }) {
           <div>
             <Navbar loc="blog" />
 
-            <div className="container mt-3">
+            <div className="container mt-3 position-relative">
+              <WarningAlert />
+            {S_Alert ? 
+              <SuccessAlert  type="Message" /> :''}
+
               <div className="sticky-top d-flex  justify-content-end top-2 ">
                 <button data-bs-toggle="modal" data-bs-target="#exampleModal"
                   

@@ -9,6 +9,7 @@ const categories = async (req, res) => {
             const apiRes = await fetch (`${API_URL}/blog/categories/`)
             const data = await apiRes.json();
             
+            
             res.json({
                 data:data
             })
