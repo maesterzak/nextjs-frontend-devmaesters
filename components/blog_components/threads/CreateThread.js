@@ -5,7 +5,7 @@ import { faComments, faTimes } from "@fortawesome/free-solid-svg-icons";
 function CreateThread() {
   return (
     <>
-      <div className="card">
+      <div className="card mb-3">
         <h5 className="card-header ">Thread Create</h5>
 
         <div className="card-body d-flex justify-content-center flex-wrap">

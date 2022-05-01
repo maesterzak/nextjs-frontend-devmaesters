@@ -8,7 +8,13 @@ import { API_URL, NEXT_MODE } from "../../../config/";
 
 
 
-function TrendingPosts(props){
+function TrendingPosts(){
+  var orig = `${API_URL}`
+  if (`${NEXT_MODE}` == "DEV") {
+    var orig = `${API_URL}`;
+  } else if (`${NEXT_MODE}` == "PROD") {
+    var orig = "";
+  }
   
   const fetcher = (...args) =>
     fetch(...args).then((response) => response.json());
@@ -78,7 +84,7 @@ function TrendingPosts(props){
                     // sizes="50vw"
                     width={100}
                     height={100}
-                    src={props.orig + trending_posts[0].image}
+                    src={orig + trending_posts[0].image}
                     className="d-block w-100 h-100"
                     alt="first_trending_post"
                     priority
@@ -102,7 +108,7 @@ function TrendingPosts(props){
                     width={100}
                     // sizes="50vw"
                     
-                    src={props.orig + trending_posts[1].image}
+                    src={orig + trending_posts[1].image}
                     className="d-block w-100 h-100"
                     alt="first_trending_post"
                     priority
@@ -126,7 +132,7 @@ function TrendingPosts(props){
                     height={100}
                     width={100}
                     
-                    src={props.orig + trending_posts[2].image}
+                    src={orig + trending_posts[2].image}
                     className="d-block w-100 h-100"
                     alt="first_trending_post"
                     priority

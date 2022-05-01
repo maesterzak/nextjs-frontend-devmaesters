@@ -9,23 +9,23 @@ import Threads from "../../components/blog_components/threads/Threads";
 import CreateThread from "../../components/blog_components/threads/CreateThread";
 
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
  
  
   
 
-  if (`${NEXT_MODE}` == "DEV") {
-    var orig = `${API_URL}`;
-  } else if (`${NEXT_MODE}` == "PROD") {
-    var orig = "";
-  }
-  return {
-    props: { orig: orig },
-    revalidate: 10,
-  };
-}
+//   if (`${NEXT_MODE}` == "DEV") {
+//     var orig = `${API_URL}`;
+//   } else if (`${NEXT_MODE}` == "PROD") {
+//     var orig = "";
+//   }
+//   return {
+//     props: { orig: orig },
+//     revalidate: 10,
+//   };
+// }
 
-const Home1 = ({ orig }) => {
+const Home1 = () => {
 
   
 
@@ -60,7 +60,7 @@ const Home1 = ({ orig }) => {
                   
                 
                   
-                    <TrendingPosts orig={orig}/>
+                    <TrendingPosts/>
                     <CreateThread />
                   
                   

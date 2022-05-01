@@ -448,7 +448,7 @@ function Post_detail({ url, orig, res }) {
             
             
               <Categories />
-              <TrendingPosts orig={orig} />
+              <TrendingPosts />
               <CreateThread />
 
             

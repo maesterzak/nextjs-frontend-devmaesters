@@ -14,6 +14,7 @@ import dompurify from "isomorphic-dompurify";
 import "highlight.js/styles/agate.css";
 import { useEffect } from "react";
 import Categories from "../../../components/blog_components/categories/Categories";
+import CreateThread from "../../../components/blog_components/threads/CreateThread";
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/threads/`);
@@ -446,6 +447,7 @@ function Blog_chats({ orig, url, thread }) {
                       </div>
                     </div>
                   </div>
+                  <CreateThread />
 
                   <Categories />
                 </div>

@@ -30,20 +30,16 @@ export async function getStaticProps(context) {
   const name = context.params.name;
 
   const url = `${API_URL}/blog/categories-paginated-posts/` + name;
-  if (`${NEXT_MODE}` == "DEV") {
-    var orig = `${API_URL}`;
-  } else if (`${NEXT_MODE}` == "PROD") {
-    var orig = "";
-  }
+  
   
 
   return {
-    props: { name: name, url:url, orig:orig },
+    props: { name: name, url:url },
     revalidate: 10,
   };
 }
 
-function Category_list({ name, url, orig }) {
+function Category_list({ name, url }) {
   
   
   
@@ -73,7 +69,7 @@ function Category_list({ name, url, orig }) {
 
             <div className="col-12 col-md-3 mb-3">
               <Categories />
-              <TrendingPosts orig={orig} />
+              <TrendingPosts />
               <CreateThread />
             </div>
           </div>

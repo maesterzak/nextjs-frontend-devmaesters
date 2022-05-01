@@ -13,7 +13,7 @@ function Footer(){
     return(
         <footer>
             <div className=''>
-                <h2 className="text-center text-light mb-2 site-title">DEVMAESTERS</h2>
+                <h2 className="text-center mb-2 site-title">DEVMAESTERS</h2>
                 <div className="d-flex justify-content-center mb-5">
                 <button className="btn button">Hire Me</button>
 
