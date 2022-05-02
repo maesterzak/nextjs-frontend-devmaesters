@@ -57,23 +57,23 @@ function PortfolioSkills({ skills, orig }) {
               <div className="col-11 col-md-7 d-flex justify-content-between">
                 <Link href={"/portfolio"} passHref>
                   <button
-                    className={`btn button`}
+                    className={`btn button ${styles.nav_btn}`}
                   >
                     Home
                   </button>
                 </Link>
                 <Link href={"/portfolio/projects"} passHref>
-                  <button className={`btn button`}>
+                  <button className={`btn button ${styles.nav_btn}`}>
                     Projects
                   </button>
                 </Link>
                 <Link href={"/portfolio/skills"} passHref>
-                  <button className={`btn active-btn`}>
+                  <button className={`btn active-btn ${styles.nav_btn}`}>
                     Skills
                   </button>
                 </Link>
                 <Link href={"/portfolio/contact"} passHref>
-                  <button className={`btn button`}>
+                  <button className={`btn button ${styles.nav_btn}`}>
                     Contact
                   </button>
                 </Link>

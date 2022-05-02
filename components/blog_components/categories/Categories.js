@@ -18,14 +18,15 @@ import useSWR from "swr";
           {data ?  
           <div className="col-12 card mb-3">
                   <h5 className="card-header">Categories</h5>
-                  <div className="d-flex flex-wrap justify-content-between card-body">
+                  <div className=" card-body d-flex flex-wrap">
             {data.data.map(function (category, id) {
                       return (
-                        <div className="blog-link" key={id}>
-                          <Link href={"/blog/category/" + category.name}>
-                            {category.name}
+                        
+                          <Link href={"/blog/category/" + category.name} key={id} passHref>
+                            <a className="m-1">
+                            {category.name}</a>
                           </Link>
-                        </div>
+                        
                       );
                     })}
                     </div>

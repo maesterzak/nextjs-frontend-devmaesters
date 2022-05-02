@@ -103,7 +103,7 @@ footer{
   background: #03031b8c;
 }
 .carousel-inner{
-  height: 280px;
+  height: 240px;
   background: var(--second-background);
   overflow: hidden;
 }
@@ -175,6 +175,9 @@ a .btn{
   font-size: 40px;
   color: transparent;
   -webkit-text-stroke: 0.5px #fff;
+}
+.blog-link{
+  padding: auto 5px auto 10px;
 }
 
 

@@ -446,6 +446,30 @@ function Blog_chats({ orig, url, thread }) {
                       </button>
                     </div>
                   </div>
+                  
+                  <div className="card mb-3">
+                    <div className="card-header">
+                      <h4>Tags</h4>
+                    </div>
+                    {data.tags?
+                    <div className="card-body">
+                      <div className="d-grid w-100">
+                        <div>
+                        <>
+                          {data.tags?.map(function (tag, id) {
+                            return (
+                             
+                                <span key={id}> <a href="#">#</a>{tag}</span>
+                            
+                            );
+                          })}
+                        </>
+                        </div>
+                        
+                      </div>
+                    </div>:<div className="text-center">No Tags</div>}
+                  </div>
+                  
 
                   <div className="card mb-3">
                     <div className="card-header">

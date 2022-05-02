@@ -49,13 +49,13 @@ const Home1 = ({orig}) => {
           <div id="main" className="main">
             <div className="row">
               <main className="col-12 col-md-8 col-lg-9">
-                <Posts header="Posts"/>          
+                <Posts header="Posts" orig={orig}/>          
                 <Threads />
               </main>
               <aside className="col-md-4 col-lg-3">
                 
                   
-                    {/* <Categories /> */}
+                    <Categories  />
                     
                   
                 

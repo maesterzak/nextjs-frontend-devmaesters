@@ -3,6 +3,7 @@ import dompurify from "isomorphic-dompurify";
 import useSWRInfinite from "swr/infinite";
 import Link from "next/link";
 import useSWR from "swr";
+import Image from "next/image";
 
 
 const sanitizer = dompurify.sanitize;
@@ -69,6 +70,20 @@ const Posts = (props)=> {
                     <Link role="button" href={"/blog/" + post.id}>
                       Readmore
                     </Link>
+                    <div className="row d-flex justify-content-center mt-2">
+                      <div className="col-12 col-md-6 col-lg-4">
+                      {post.image? 
+                    <Image 
+                      layout="responsive"
+                      width={100}
+                      height={100}
+                      src={props.orig + post.image}
+                    />
+                    :''}
+
+                      </div>
+                    </div>
+                    
                   </article>
                 </div>
               );

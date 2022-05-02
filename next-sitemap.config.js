@@ -8,14 +8,14 @@ module.exports={
     generateRobotsTxt: true,
     robotsTxtOptions: {
         policies: [
-            { userAgent: "*", disallow:["/blog/blog_components/*", '/api/*','/components/*', '/mini-mall/*', '/online-solver/*', '/login/*', '/register/*']},
+            { userAgent: "*", disallow:['/mini-mall/*', '/online-solver/*', '/login/*', '/register/*']},
             { userAgent: "*", allow:"/"},
 
         ],
         additionalSitemaps: [`${URL}/server-sitemap.xml`],
     },
     
-    exclude:['/blog/blog_components/*', '/api/*','/components/*', '/server-sitemap.xml', '/blog/dashboard', '/mini-mall', '/OnlineSolver', '/login', '/register']
+    exclude:[ '/server-sitemap.xml', '/blog/dashboard', '/mini-mall', '/OnlineSolver', '/login', '/register']
     
     
 }

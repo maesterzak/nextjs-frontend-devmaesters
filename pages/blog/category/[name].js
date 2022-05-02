@@ -58,7 +58,7 @@ function Category_list({ name, url, orig }) {
         <div className="container mt-3">
           <div className="row">
             <main className="col-12 col-md-8 col-lg-9">
-              <CategoryPost url={url} header={`Posts under ${name} category`} />
+              <CategoryPost orig={orig} url={url} header={`Posts under ${name} category`} />
             </main>
 
             <aside className="col-12 col-md-4 col-lg-3 mb-3">
