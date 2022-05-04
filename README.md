@@ -1,4 +1,4 @@
-# Devmaesters.com testing
+# Devmaesters.com
 This is an ongoing project thats going to contain 
 * A blog for programming tips, tricks and articles,
 * Personal portfoilio to showcase my projects,
