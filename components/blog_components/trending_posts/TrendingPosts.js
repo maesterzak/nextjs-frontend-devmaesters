@@ -80,7 +80,7 @@ function TrendingPosts(props){
                   <Image
                     layout="responsive"
                     
-                    width={auto}
+                    width={100}
                     height={100}
                     src={props.orig + trending_posts[0].image}
                     className="d-block w-100 h-100"

@@ -16,6 +16,7 @@ import CreateThread from "../../components/blog_components/threads/CreateThread"
 import Author from "../../components/blog_components/aurthor/Author";
 import CommentForm from "../../components/blog_components/comment/CommentForm";
 import CommentList from "../../components/blog_components/comment/CommentList";
+import Image from "next/image";
 
 
 
@@ -92,15 +93,43 @@ function Post_detail({ url, orig, res }) {
               <div className="row">
                 <main className="col-12 col-md-8 col-lg-9">
                   <div className={`row g-0 `}>
-                    <div className="card p-2">
+                    <article className="card p-2">
+                    
                       <h1 className="h2 text-light mb-3">{data.title}</h1>
-                      <article
+                      {/* {data.image? 
+                    <Image 
+                      layout="responsive"
+                      width={100}
+                      height={100}
+                      src={orig + data.image}
+                    />
+                    :''} */}
+                      <div
                         className="card-body p-0"
                         dangerouslySetInnerHTML={{
                           __html: sanitizer(data.body),
                         }}
-                      ></article>
-                    </div>
+                      ></div>
+                      <div className="mt-2">
+                      {data.video ? (
+                        <div className="mt-3 mb-2">
+                          <div className="row g-0 d-flex justify-content-center">
+                            
+                            <div className="col-12 col-md-10">
+                            <iframe className="w-100 h-100"
+                            src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
+                            </iframe>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+
+                      </div>
+
+                      
+                    </article>
 
                     <Author data={data} orig={orig} />
                     <CommentForm data={data} url={url} />
@@ -116,7 +145,7 @@ function Post_detail({ url, orig, res }) {
                           {data.tags?.map(function (tag, id) {
                             return (
                              
-                                <span key={id}> <a href="#">#</a>{tag}</span>
+                                <span className="me-1" key={id}> <a href="#">#</a>{tag}</span>
                             
                             );
                           })}
