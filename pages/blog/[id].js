@@ -110,7 +110,7 @@ function Post_detail({ url, orig, res }) {
                           __html: sanitizer(data.body),
                         }}
                       ></div>
-                      <div className="mt-2">
+                      {/* <div className="mt-2">
                       {data.video ? (
                         <div className="mt-3 mb-2">
                           <div className="row g-0 d-flex justify-content-center">
@@ -126,7 +126,7 @@ function Post_detail({ url, orig, res }) {
                         ""
                       )}
 
-                      </div>
+                      </div> */}
 
                       
                     </article>
