@@ -110,14 +110,14 @@ function Post_detail({ url, orig, res }) {
                           __html: sanitizer(data.body),
                         }}
                       ></div>
-                      {/* <div className="mt-2">
+                      <div className="mt-2">
                       {data.video ? (
                         <div className="mt-3 mb-2">
                           <div className="row g-0 d-flex justify-content-center">
                             
                             <div className="col-12 col-md-10">
-                            <iframe className="w-100 h-100"
-                            src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
+                            <iframe className="post-video "
+                            src={`${data.video}`}>
                             </iframe>
                             </div>
                           </div>
@@ -126,7 +126,7 @@ function Post_detail({ url, orig, res }) {
                         ""
                       )}
 
-                      </div> */}
+                      </div>
 
                       
                     </article>

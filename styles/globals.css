@@ -66,6 +66,11 @@ input{
   background: #222;
   background: var(--card-color);
 }
+.post-video{
+  width: 100%;
+  min-height: 350px;
+  height: auto;
+}
 
 
 h1, h2, h3, h4, h5, h6 {
@@ -189,7 +194,11 @@ a .btn{
   body{
     font-size: 16px;
   }
-  
+  .post-video{
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+  }
   
   
   
