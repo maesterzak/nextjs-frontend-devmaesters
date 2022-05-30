@@ -1,10 +1,6 @@
 
-.card_skill{
-  background: #16151d;
-}
-.card_contact{
-  background: #16151d;
-}
+
+
 .contact_links_icon {
   color: #FFA000;
   /* text-shadow: #7b1fa2 3px 3px 3px; */
@@ -25,7 +21,7 @@
 }
 .short_info {
   min-height: 5em;
-  background: #16151d;
+  
 }
 .project_vid {
   width: 100%;

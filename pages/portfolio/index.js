@@ -85,7 +85,7 @@ function PortfolioIndex() {
                   
                   layout="responsive"
                   priority
-                  src={"/images/owner_images/abubakar01.jpeg"}
+                  src={"/images/owner_images/abu_02.png"}
                   alt="owner_image"
                 />
               </div>
@@ -118,7 +118,7 @@ function PortfolioIndex() {
 
             <div className="row d-flex justify-content-center mt-2 ">
             <div
-              className={`col-10 col-md-6 d-flex justify-content-center align-items-center ${styles.short_info}`}
+              className={`col-10 col-md-6 d-flex justify-content-center align-items-center body-color ${styles.short_info}`}
             >
               <div className="text-center p-4">
                 Hi, my name is Abubakar Zakari. I am budding fullstack developer

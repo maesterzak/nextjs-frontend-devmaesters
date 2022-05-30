@@ -1,9 +1,9 @@
 
 
 .input{
-    background: #16151dc8;
+    
     border: 1px solid white;
-    color: white;
+    
 }
 .input:focus{
     background: #16151dc8;
@@ -19,7 +19,7 @@
     z-index: 1000;
 }
 .index_search_modal_box{
-    background: #222;
+    
     height: 90vh;
     width: 70%;
     position: fixed;
@@ -50,7 +50,7 @@
 }
 .index_item_info{
     border-right: solid 2px white;
-    color: white;
+    /* color: white; */
 }
 /* .index_item_info_1{
     font-size: xx-large;
@@ -58,13 +58,13 @@
 
 .index_item_detail_1{
     width: 100%;
-   color: white;
+   /* color: white; */
    
 }
 .index_item_detail_2{
     height: 2.5em;
     border-top: solid 1px white;
-    color: white;
+    /* color: white; */
 }
 
 

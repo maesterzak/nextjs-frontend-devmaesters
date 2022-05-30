@@ -7,7 +7,9 @@ import {
     SET_AUTH_LOADING,
     REMOVE_AUTH_LOADING,
     LOGOUT_SUCCESS,
-    LOGOUT_FAIL
+    LOGOUT_FAIL,
+    AUTHENTICATION_SUCCESS,
+    AUTHENTICATION_FAIL
 } from './types'
 
 export const register = (
@@ -136,6 +138,31 @@ export const logout = () => async dispatch => {
     catch{
         dispatch({
             type:LOGOUT_FAIL
+        })
+    }
+}
+
+export const check_auth_status = () => async dispatch => {
+    try {
+        const res = await fetch('/api/account/verify', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        if (res.status === 200 ){
+            dispatch({
+                type:AUTHENTICATION_SUCCESS
+            })
+        }
+        else{
+            dispatch({
+                type:AUTHENTICATION_FAIL
+            })
+        }
+    } catch (error) {
+        dispatch({
+            type:AUTHENTICATION_FAIL
         })
     }
 }

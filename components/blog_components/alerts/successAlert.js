@@ -3,12 +3,7 @@ import styles from './alerts.module.css'
 
 function SuccessAlert(props){
     
-    
-    
-    
-    
-    
-    
+        
     return(
         <>
             <div className={`row g-0 fixed-top mt-3 me-3 d-flex justify-content-end`}>

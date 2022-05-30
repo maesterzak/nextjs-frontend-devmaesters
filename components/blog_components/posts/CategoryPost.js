@@ -52,7 +52,7 @@ const isLoadingMore =
                 <div className="card mb-3" key={id}>
                   <div className="card-header">{post.category.name}</div>
                   <article className="card-body">
-                    <h5 className="card-title text-light">{post.title}</h5>
+                    <h5 className="card-title">{post.title}</h5>
                     <p
                       className="card-text"
                       dangerouslySetInnerHTML={{
@@ -70,6 +70,7 @@ const isLoadingMore =
                       layout="responsive"
                       width={100}
                       height={100}
+                      alt={post.title}
                       src={props.orig + post.image}
                     />
                     :''}

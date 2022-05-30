@@ -26,15 +26,14 @@ function Aboutus() {
                 <div className='col-10 col-lg-7'>
                     <p>
                         At devMaesters we offer;
-                        <ul>
+                    </p>
+                    <ul>
                             <li><b>devMaesters Blog</b> for free programming hints, tricks and tutorials on various programming 
                         languages and frameworks.</li>
                         <li><b>devMaesters Mini-Mall</b> to purchase and sell various software related products.</li>
                         <li><b>devMaesters Online-Solver</b> to automate the solving of mathematical problems with basic python codes and output
                         results in a step by step manner. </li>    
                         </ul> 
-                        
-                    </p>
                 </div>
             </div>
             <h4 className='text-center'>About Stack</h4>
@@ -63,7 +62,7 @@ function Aboutus() {
                 </div>
                 <div className='d-flex align-items-center justify-content-center col-12 col-lg-3'>
                     <div className={`${styles.about_image}`}>
-                        <Image alt='owner_image' className={`${styles.about_image1}`} layout='responsive' width={100} height='100' src={'/images/owner_images/abubakar01.jpeg'} />
+                        <Image alt='owner_image' className={`${styles.about_image1}`} layout='responsive' width={100} height='100' src={'/images/owner_images/abu_02.png'} />
 
                     </div>
                 </div>

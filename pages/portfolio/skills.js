@@ -88,10 +88,10 @@ function PortfolioSkills({ skills, orig }) {
             <div className="row">
               <div className="col-5 col-md-2">
                 <div className="card mb-3">
-                  <div className={`card-header ${styles.card_skill}`}>
+                  <div className={`card-header body-color`}>
                     Python
                   </div>
-                  <div className={`card-body d-flex justify-content-center ${styles.card_skill}`}>
+                  <div className={`card-body d-flex justify-content-center body-color`}>
                   <FontAwesomeIcon
                       style={{ color: "#5a36ec" }}
                       size={"4x"}
@@ -103,10 +103,10 @@ function PortfolioSkills({ skills, orig }) {
 
               <div className="col-5 col-md-2">
                 <div className="card mb-3">
-                  <div className={`card-header ${styles.card_skill}`}>
+                  <div className={`card-header body-color`}>
                     Css
                   </div>
-                  <div className={`card-body d-flex justify-content-center ${styles.card_skill}`}>
+                  <div className={`card-body d-flex justify-content-center body-color`}>
                   <FontAwesomeIcon
                       style={{ color: "blue" }}
                       size={"4x"}
@@ -119,10 +119,10 @@ function PortfolioSkills({ skills, orig }) {
               
               <div className="col-5 col-md-2">
                 <div className="card mb-3">
-                  <div className={`card-header ${styles.card_skill}`}>
+                  <div className={`card-header body-color`}>
                     Bootstrap
                   </div>
-                  <div className={`card-body d-flex justify-content-center ${styles.card_skill}`}>
+                  <div className={`card-body d-flex justify-content-center body-color`}>
                   <FontAwesomeIcon
                       
                       size={"4x"}
@@ -134,10 +134,10 @@ function PortfolioSkills({ skills, orig }) {
 
               <div className="col-5 col-md-2">
                 <div className="card mb-3">
-                  <div className={`card-header ${styles.card_skill}`}>
+                  <div className={`card-header body-color`}>
                     Html
                   </div>
-                  <div className={`card-body d-flex justify-content-center ${styles.card_skill}`}>
+                  <div className={`card-body d-flex justify-content-center body-color`}>
                   <FontAwesomeIcon
                       color="orange"
                       size={"4x"}
@@ -152,10 +152,10 @@ function PortfolioSkills({ skills, orig }) {
                 return(
                   <div className="col-5 col-md-2 " key={id}>
                 <div className="card mb-3">
-                  <div className={`card-header ${styles.card_skill}`}>
+                  <div className={`card-header body-color`}>
                     {skill.name}
                   </div>
-                  <div className={`card-body d-flex justify-content-center ${styles.card_skill}`}>
+                  <div className={`card-body d-flex justify-content-center body-color`}>
                   <Image
                           alt="skill_image"
                           width={"100%"}

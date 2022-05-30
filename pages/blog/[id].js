@@ -95,7 +95,7 @@ function Post_detail({ url, orig, res }) {
                   <div className={`row g-0 `}>
                     <article className="card p-2">
                     
-                      <h1 className="h2 text-light mb-3">{data.title}</h1>
+                      <h1 className="h2 mb-3">{data.title}</h1>
                       {/* {data.image? 
                     <Image 
                       layout="responsive"

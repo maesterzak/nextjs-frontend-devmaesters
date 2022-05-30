@@ -19,6 +19,10 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
   }, []);
+  
+  
+  
+
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   useEffect(() => {

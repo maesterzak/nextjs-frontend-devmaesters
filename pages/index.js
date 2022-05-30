@@ -8,7 +8,13 @@ import {
   faHardHat,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { useSelector, useDispatch } from "react-redux";
+
+
+
 export default function Home() {
+  
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +31,7 @@ export default function Home() {
 
       <main className={`d-flex justify-content-end align-items-end ${styles.main}`}>
         {/* <Image layout="fill" src={'/images/home-3.jpg'} alt="homepage image" priority /> */}
-        <div  className={`card text-light p-3`}>
+        <div  className={`card p-3`}>
           <h1>WELCOME</h1>
           <h2>To devMaesters</h2>
           <h5>Site is still being built</h5>
@@ -46,7 +52,7 @@ export default function Home() {
       </main>
 
       <footer className={`text-light text-center ${styles.footer}`}>
-        <div>This website was coded and designed by Abubakar Zakari<br /> of @devmaesters.com</div>
+        <div>This website was coded and designed by Abubakar Zakari<br /> @devmaesters.com</div>
       </footer>
     </div>
   );

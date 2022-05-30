@@ -1,31 +1,67 @@
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { fas, faUser } from "@fortawesome/free-solid-svg-icons";
 import {
   
   faBars,
   faTimes,
   faHardHat,
+  faSun,
+  faMoon,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { logout } from "../../actions/auth";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./navbar.module.css";
 import useSWR from "swr";
-
+import { dark_theme, light_theme } from "../../actions/theme";
 
 const Navbar = (props) => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  
   const logoutHandler = () => {
     if (dispatch && dispatch !== null && dispatch !== undefined) {
       dispatch(logout());
     }
   };
+
+  
+   
+  const [theme, setTheme] = useState('dark')
+  useEffect(()=>{
+    const Storedtheme = JSON.parse(localStorage.getItem('theme')) ?? 'dark'
+    setTheme(Storedtheme)
+  }) 
+  
+  const themeHandler=()=>{
+    
+    if(theme === 'dark'){
+      if (dispatch && dispatch !== null && dispatch !== undefined) {
+        dispatch(light_theme());
+        
+      }
+      localStorage.setItem('theme', JSON.stringify('light'))
+      setTheme('light')
+      
+      
+    }
+    else if(theme === 'light'){
+      if (dispatch && dispatch !== null && dispatch !== undefined) {
+        dispatch(dark_theme());
+      }
+      localStorage.setItem('theme', JSON.stringify('dark')) 
+      setTheme('dark')
+      
+    }
+    
+  }
+  
+  
   const authlink = (
     <>
-      <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
+      <div className="nav-toggle-link-link d-flex align-items-center justify-content-center ">
         <a href="#" onClick={logoutHandler}>
           Logout
         </a>
@@ -35,13 +71,13 @@ const Navbar = (props) => {
   const guest = (
     <>
       <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-        <button className="btn" disabled>
+        <button className="btn" >
           <Link href="/login">Login</Link>
         </button>
         <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
       </div>
       <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
-        <button disabled className="btn">
+        <button className="btn">
           <Link href="/register">Register</Link>
         </button>
         <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
@@ -149,6 +185,9 @@ const Navbar = (props) => {
             <a className="navbar-brand" href="#">
               DM.
             </a>
+            
+            <FontAwesomeIcon onClick={themeHandler} className={theme=='dark' ? 'faSun':'faMoon' } size={'1x'} icon={theme === 'dark'  ? faSun:faMoon} />
+            
             <button
               onClick={ToggleNavbar}
               className="navbar-toggler"
@@ -166,6 +205,7 @@ const Navbar = (props) => {
                 icon={navbar ? faTimes : faBars}
               />
             </button>
+            
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                 <Link href={"/"}>
@@ -190,12 +230,12 @@ const Navbar = (props) => {
                 </Link>
               </div>
             </div>
-
+            
             <form className="d-flex" onSubmit={searchForm}>
               <input
                 id="searchform"
                 name="search_input"
-                className={`form-control me-2 ${styles.input}`}
+                className={`form-control me-2 body-color ${styles.input}`}
                 defaultValue={setsearchBoxValue}
                 type="search"
                 placeholder="Search"
@@ -205,6 +245,16 @@ const Navbar = (props) => {
                 Search
               </button>
             </form>
+            {/* <div>
+              {isAuthenticated ? 
+              
+                authlink 
+                :
+              
+                guest 
+              
+            }
+            </div> */}
           </div>
         </nav>
       </div>
@@ -214,7 +264,7 @@ const Navbar = (props) => {
           <div className={`${styles.index_search_modal_overlay}`}>
             <div className="row d-flex justify-content-center align-items-center w-100 h-100 g-0">
               <div
-                className={`col-10 col-md-8 d-flex flex-wrap justify-content-center  ${styles.index_search_modal_box}`}
+                className={`col-10 col-md-8 d-flex flex-wrap justify-content-center body-color  ${styles.index_search_modal_box}`}
               >
                 <div className="w-100 d-flex justify-content-end">
                   <div onClick={ToggleResultOverlay} className=" btn">
@@ -239,7 +289,7 @@ const Navbar = (props) => {
                     </button>
                   </div>
                 </form>
-                <div className="mt-2 w-100 d-flex flex-wrap justify-content-center  text-light">
+                <div className="mt-2 w-100 d-flex flex-wrap justify-content-center ">
                   <h4 className="w-100 text-center">
                     Search results found: {searchResult.length}
                   </h4>

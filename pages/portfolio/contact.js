@@ -97,7 +97,7 @@ function PortfolioContacts() {
               <div className="col-12 col-md-8">
                 <div className="row">
                   <div
-                    className={`col-12 col-md-5 card mb-3 ${styles.card_contact}`}
+                    className={`col-12 col-md-5  mb-3 body-color`}
                   >
                     <div className="d-flex justify-content-center mt-3">
                       <FontAwesomeIcon size={"1x"} icon={faPhone} />
@@ -173,7 +173,7 @@ function PortfolioContacts() {
                     </div>
                   </div>
                   <div
-                    className={`col-12 col-md-5 offset-md-2 card mb-3 ${styles.card_contact}`}
+                    className={`col-12 col-md-5 offset-md-2 mb-3 body-color`}
                   >
                     <div className="d-flex justify-content-center mt-3">
                       <FontAwesomeIcon size={"1x"} icon={faWhatsapp} />
@@ -201,7 +201,7 @@ function PortfolioContacts() {
                     </div>
                   </div>
                   <div
-                    className={`col-12 col-md-5 card mb-3 ${styles.card_contact}`}
+                    className={`col-12 col-md-5 mb-3 body-color`}
                   >
                     <div className="d-flex justify-content-center mt-3">
                       <FontAwesomeIcon size={"1x"} icon={faEnvelope} />
@@ -211,7 +211,7 @@ function PortfolioContacts() {
                     </div>
                   </div>
                   <div
-                    className={`col-12 col-md-5 offset-md-2 card ${styles.card_contact}`}
+                    className={`col-12 col-md-5 offset-md-2 body-color`}
                   >
                     <div className="d-flex justify-content-center mt-2">
                       <FontAwesomeIcon size={"1x"} icon={faFacebook} />

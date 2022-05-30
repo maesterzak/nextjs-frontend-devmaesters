@@ -25,7 +25,7 @@ const LoginPage = () => {
       if (dispatch && dispatch !== null && dispatch !== undefined){
         dispatch(reset_register_success());
       }
-    })
+    }, [dispatch])
     const onChange = e =>setFormData({...formData, [e.target.name]: e.target.value});
     
 
