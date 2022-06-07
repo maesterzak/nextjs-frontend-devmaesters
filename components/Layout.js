@@ -2,9 +2,13 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { check_auth_status } from "../actions/auth";
 import { useSelector } from "react-redux";
+import Link from "next/link";
+import { useRouter } from 'next/router';
 
 
 const Layout = ({children}) => {
+  const { asPath } = useRouter();
+  
   const dispatch = useDispatch();
   const Reduxtheme = useSelector(state => state.theme.theme)
   useEffect(() => {
@@ -31,6 +35,7 @@ const Layout = ({children}) => {
     fontcolor:"black",
     secondbackground: "rgb(150, 98, 1)",
     cardheadercolor: "rgb(200, 131, 4)", 
+    
   }
   const dark = {
     cardcolor : "#222",
@@ -66,13 +71,37 @@ const Layout = ({children}) => {
     
   }, [theme])
 
+  const [PrivacyPolicy, setPrivacyPolicy] = useState('d-none')
+  
+  useEffect(()=>{
+    if (asPath != '/portfolio'){
+    setPrivacyPolicy('d-block')}
+  }, []) 
+
+
+
   
 
    
     return ( 
-        <div>
+        <div className="position-relative">
             
             {children }
+              
+              <div style={{"bottom":0, }} className={`col-8 col-md-4 mx-3 mb-1 card p-policy position-fixed outline-light p-1 ${PrivacyPolicy}`}>
+                <div className="card-body">
+                <h6 className="h3 text-center">Privacy Policy </h6>
+                <p>
+
+By using our website, <br/>you agree that devmaesters can store cookies on your device and disclose information in accordance with our <Link href={'/privacy-policy'}>privacy policy</Link>.
+                </p>
+                <div className="d-flex justify-content-center">
+                  <button onClick={()=>setPrivacyPolicy('d-none')} className="btn button">Accept</button>
+                </div>
+                </div>
+              </div>
+
+            
             
         </div>
         

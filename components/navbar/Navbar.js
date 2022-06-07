@@ -173,19 +173,20 @@ const Navbar = (props) => {
   const ToggleNavbar = () => {
     setNavbar(!navbar);
   };
-
+  
+  
 
   
   
   return (
     <>
-      <div>
+      <div className="sticky-top">
         <nav className="navbar navbar-expand-lg ">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
               DM.
             </a>
-            
+           
             <FontAwesomeIcon onClick={themeHandler} className={theme=='dark' ? 'faSun':'faMoon' } size={'1x'} icon={theme === 'dark'  ? faSun:faMoon} />
             
             <button

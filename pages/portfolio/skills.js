@@ -86,7 +86,7 @@ function PortfolioSkills({ skills, orig }) {
           </div>
           <div className="card-body">
             <div className="row">
-              <div className="col-5 col-md-2">
+              {/* <div className="col-5 col-md-2">
                 <div className="card mb-3">
                   <div className={`card-header body-color`}>
                     Python
@@ -99,7 +99,7 @@ function PortfolioSkills({ skills, orig }) {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="col-5 col-md-2">
                 <div className="card mb-3">

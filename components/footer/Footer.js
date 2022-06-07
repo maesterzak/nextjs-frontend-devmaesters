@@ -4,6 +4,7 @@ import {
   } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import {useRouter}  from 'next/router';
+import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -69,10 +70,11 @@ function Footer(){
                         </div>
                         <br />
                         <span>Checkout my <span><Link href={'/portfolio'}>Portfolio</Link></span> to see my past projects</span>
+                        
                     </div>
                 </div>
                 </div>
-                
+                <div className="d-flex justify-content-around align-items-end mt-3"><a href={'/sitemap-0.xml'}><FontAwesomeIcon className="sitemap" icon={faSitemap} size={'2x'} /></a><div className="text-light">Copywright@devmaesters.com </div><Link href={'/privacy-policy'}>privacy policy</Link></div>
             </div>
         </footer>
     )

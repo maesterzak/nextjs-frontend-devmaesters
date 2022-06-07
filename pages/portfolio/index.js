@@ -103,7 +103,7 @@ function PortfolioIndex() {
             </div>
 
             <div className="d-flex justify-content-center mt-1">
-              <Link href={"https://mega.nz/file/muhgHBQb#zzqgD8Pr063T2fskV4iNYwF0KH0PxOFM7Nz2pzHB6Ak"} passHref>
+              <Link href={"https://mega.nz/file/a6wCQIiQ#E8N2qgicpdY6QsPWrxFEt-lnJf35D6xRaKwE81CGgzw"} passHref>
                 <button className={`btn button`}>
                   Download cv{" "}
                   <FontAwesomeIcon size={"1x"} icon={faFileDownload} />
