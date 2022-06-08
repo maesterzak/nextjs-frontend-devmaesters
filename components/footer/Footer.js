@@ -74,7 +74,18 @@ function Footer(){
                     </div>
                 </div>
                 </div>
-                <div className="d-flex justify-content-around align-items-end mt-3"><a href={'/sitemap-0.xml'}><FontAwesomeIcon className="sitemap" icon={faSitemap} size={'2x'} /></a><div className="text-light">Copywright@devmaesters.com </div><Link href={'/privacy-policy'}>privacy policy</Link></div>
+                <div className="row mt-3">
+                    <div className="col-2 col-md-2 d-flex align-items-end justify-content-center">
+                    <a href={'/sitemap-0.xml'}><FontAwesomeIcon className="sitemap" icon={faSitemap} size={'2x'} /></a>
+                    </div>
+                    <div className="col-7 col-md-8 d-flex align-items-end justify-content-center">
+                    <div className="text-light">Copywright@devmaesters.com </div>
+                    </div>
+                    <div className="col-3 col-md-2 d-flex align-items-end justify-content-center">
+                    <Link href={'/privacy-policy'}>privacy policy</Link>
+                    </div>
+
+                </div>
             </div>
         </footer>
     )
