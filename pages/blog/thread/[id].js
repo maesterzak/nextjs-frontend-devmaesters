@@ -16,10 +16,13 @@ import { useEffect } from "react";
 import Categories from "../../../components/blog_components/categories/Categories";
 import CreateThread from "../../../components/blog_components/threads/CreateThread";
 import SuccessAlert from "../../../components/blog_components/alerts/successAlert";
+import SimilarContent from "../../../components/blog_components/similar_content";
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${API_URL}/blog/threads/`);
+  const res = await fetch(`${API_URL}/blog/all-threads/`);
+  
   const data = await res.json();
+ 
 
   const paths = data.map((thread) => {
     return {
@@ -120,13 +123,13 @@ function Blog_chats({ orig, url, thread }) {
   const sanitizer = dompurify.sanitize;
   return (
     <>
-      {data ? (
+      {data.threads ? (
         <>
           <Head>
-            <title>{data.title}</title>
+            <title>{data.threads.title}</title>
             <meta
               name="description"
-              content={sanitizer(truncate(data.description))}
+              content={sanitizer(truncate(data.threads.description))}
             />
           </Head>
           <div>
@@ -137,7 +140,7 @@ function Blog_chats({ orig, url, thread }) {
             {S_Alert ? 
               <SuccessAlert  type="Message" /> :''}
 
-              <div className="sticky-top d-flex  justify-content-end top-2 ">
+              <div className={`sticky-top d-flex  justify-content-end top-2 ${styles.thread_comment}`}>
                 <button data-bs-toggle="modal" data-bs-target="#exampleModal"
                   
                   className="comment-button mt-3 d-block d-sm-none"
@@ -156,19 +159,19 @@ function Blog_chats({ orig, url, thread }) {
                     <div className="card mb-3">
                       <div className="card-header">
                         <div className="card-title">
-                          <h1 className="h3">{data.title}</h1>
+                          <h1 className="h3">{data.threads.title}</h1>
                         </div>
                         <div
                           className={`card-description`}
                           dangerouslySetInnerHTML={{
-                            __html: sanitizer(data.description),
+                            __html: sanitizer(data.threads.description),
                           }}
                         ></div>
                       </div>
                     </div>
 
                     {/* thread messages */}
-                    {data.thread_messages.map(function (message, id) {
+                    {data.threads.thread_messages.map(function (message, id) {
                       return (
                         <div className="card mb-3" key={id}>
                           <div className="row g-0">
@@ -250,7 +253,7 @@ function Blog_chats({ orig, url, thread }) {
                           id="thread_id"
                           name="thread_id"
                           className="d-none"
-                          defaultValue={data.id}
+                          defaultValue={data.threads.id}
                         ></input>
                         <div className="form-group w-100">
                           <input
@@ -422,6 +425,8 @@ function Blog_chats({ orig, url, thread }) {
                         </div>
                       </div>
                     </div>
+                    {data.similar_content.length === 0 ? '': 
+                    <SimilarContent data = {data.similar_content} /> }
 
                     {/* end of message modal */}
                   </main>
@@ -459,7 +464,7 @@ function Blog_chats({ orig, url, thread }) {
                           {data.tags?.map(function (tag, id) {
                             return (
                              
-                                <span key={id}> <a href="#">#</a>{tag}</span>
+                                <span key={id}> <a href="#">#</a>{tag.name}</span>
                             
                             );
                           })}
@@ -478,14 +483,14 @@ function Blog_chats({ orig, url, thread }) {
                     <div className="card-body">
                       <div className="d-grid w-100">
                         <div>
-                          {data.status ? (
+                          {data.threads.status ? (
                             <span>Satus: Open</span>
                           ) : (
                             <span>Status: Close</span>
                           )}
                         </div>
-                        <span>Messages: {data.thread_messages.length}</span>
-                        <span>Started: {data.started}</span>
+                        <span>Messages: {data.threads.thread_messages.length}</span>
+                        <span>Started: {data.threads.started}</span>
                       </div>
                     </div>
                   </div>

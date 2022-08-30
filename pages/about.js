@@ -10,7 +10,7 @@ function Aboutus() {
     return (
     <>
     <Head>
-        <title>devMaesters | About Page</title>
+        <title>About Page | DEVMAESTERS</title>
         <meta
           name="description"
           content="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
@@ -23,7 +23,7 @@ function Aboutus() {
         <div className={`container about_container`}>
             <h4 className='text-center p-3'>About Site</h4>
             <div className='p-3 row d-flex justify-content-center'>
-                <div className='col-10 col-lg-7'>
+                <div className='col-10 col-lg-8'>
                     <p>
                         At devMaesters we offer;
                     </p>

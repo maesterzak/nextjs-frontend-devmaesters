@@ -4,7 +4,10 @@ import useSWRInfinite from "swr/infinite";
 import Link from "next/link";
 import useSWR from "swr";
 import Image from "next/image";
+import { Loading, Grid } from "@nextui-org/react";
+// import { Button } from '@nextui-org/react';
 
+// const ButtonComponent = () => <Button>Click me</Button>;
 
 const sanitizer = dompurify.sanitize;
 
@@ -16,36 +19,50 @@ const Posts = (props)=> {
   const fetcher = (...args) =>
     fetch(...args).then((response) => response.json());
 
-  const {data:data1, error:error1} = useSWR('/api/blog/postlist', fetcher,{revalidateOnFocus:false})
-  const posts = data1 ? data1.data: []
+  // const {data:data1, error:error1} = useSWR('/api/blog/postlist', fetcher,{revalidateOnFocus:false})
+  // const posts = data1 ? data1.data: []
   
   
   
-  const size_page = 8;
+  const page_limit = 8;
+   
   const {
-    data: data,
+    data,
     error,
 
     size,
-    setSize: setSize1,
+    setSize,
+    isValidating
   } = useSWRInfinite(
-    (index) => `${API_URL}/blog/posts_paginated?ps=${size_page}&p=${index + 1}`,
+    (index) => `${API_URL}/blog/posts?page=${index + 1}&limit=${page_limit}`,
     fetcher,
-    { fallbackdata: posts, revalidateOnFocus: false }
+    { revalidateOnFocus: false }
+    
   );
+  if (error) return <>{error}</>
+  if(!data) return <>Loading</>
 
-  const p_posts = data ? [].concat(...data) : [];
-  const AA = p_posts.length;
-  const BB = posts.length;
-  const CC = data?.[0]?.length;
+  const posts = data?.map((item, index)=>{
+    return item.results
+  }).flat()
+    
+  
+  
+  const postLength = posts?.length;
+  const totalPosts = data[0]?.count;
+ 
+
+  
   const isLoadingInitialData = !data && !error;
   const isLoadingMore =
-    isLoadingInitialData ||
-    (size > 0 && data && typeof data[size - 1] === "undefined");
-  const isEmpty = CC === 0;
-  const isReachingEnd = isEmpty || BB <= AA;
- 
-  if (error) return <>{error}</>
+    isLoadingInitialData || isValidating ||
+    (size > 0 && posts && typeof posts[size - 1] === "undefined");
+  const isEmpty = postLength === 0;
+  const isReachingEnd = isEmpty || totalPosts == postLength;
+  
+  
+  
+  
   return (
     <>
       <div className="col-12 mb-3 ">
@@ -53,9 +70,9 @@ const Posts = (props)=> {
           <h5>{props.header}</h5>
         </div>
 
-        {p_posts ? (
+        {posts ? (
           <>
-            {p_posts.map(function (post, id) {
+            {posts.map(function (post, id) {
               return (
                 <div className="card mb-3" key={id}>
                   <div className="card-header">{post.category.name}</div>
@@ -92,7 +109,11 @@ const Posts = (props)=> {
           </>
         ) : (
           <>
-            <h6>Loading...</h6>
+            <Grid>
+              <Loading color="primary" textColor="primary">
+                Primary
+              </Loading>
+            </Grid>
           </>
         )}
       </div>
@@ -100,7 +121,7 @@ const Posts = (props)=> {
         <button
           className={`btn button btn-md btn-block  w-100 `}
           disabled={isLoadingMore || isReachingEnd}
-          onClick={() => setSize1(size + 1)}
+          onClick={() => setSize(size + 1)}
         >
           {isLoadingMore
             ? "loading..."

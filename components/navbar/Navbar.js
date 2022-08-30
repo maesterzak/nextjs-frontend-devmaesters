@@ -3,7 +3,7 @@ import {
   
   faBars,
   faTimes,
-  faHardHat,
+  
   faSun,
   faMoon,
 } from "@fortawesome/free-solid-svg-icons";
@@ -14,13 +14,36 @@ import { logout } from "../../actions/auth";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./navbar.module.css";
-import useSWR from "swr";
-import { dark_theme, light_theme } from "../../actions/theme";
+import React from "react";
+import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
+import { ThemeContext } from "../Layout";
+// import { Mail } from "./Mail";
+// import { Password } from "./Password";
+
+
 
 const Navbar = (props) => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   
+  const [visible, setVisible] = useState(false);
+  const [Regvisible, setRegvisible] = useState(false)
+  const handler = () => setVisible(true);
+  const Registerhandler = () => setRegvisible(true);
+  const closeHandler = () => {
+    setVisible(false);
+    
+  };
+  const regcloseHandler = () => {
+    setRegvisible(false);
+    
+  };
+
+  const switchHandler =() =>{
+    setRegvisible(!Regvisible)
+    setVisible(!visible)
+  }
+
   const logoutHandler = () => {
     if (dispatch && dispatch !== null && dispatch !== undefined) {
       dispatch(logout());
@@ -28,35 +51,23 @@ const Navbar = (props) => {
   };
 
   
-   
-  const [theme, setTheme] = useState('dark')
+  const value = React.useContext(ThemeContext);  
+  const {theme, setTheme} = value
+  
+  // const [theme, setTheme] = useState('dark')
   useEffect(()=>{
-    const Storedtheme = JSON.parse(localStorage.getItem('theme')) ?? 'dark'
+    const Storedtheme = JSON.parse(localStorage.getItem('theme')) ?? 'true'
     setTheme(Storedtheme)
   }) 
   
   const themeHandler=()=>{
+    setTheme(!theme)
+    localStorage.setItem('theme', JSON.stringify(!theme))
+
     
-    if(theme === 'dark'){
-      if (dispatch && dispatch !== null && dispatch !== undefined) {
-        dispatch(light_theme());
-        
-      }
-      localStorage.setItem('theme', JSON.stringify('light'))
-      setTheme('light')
-      
-      
-    }
-    else if(theme === 'light'){
-      if (dispatch && dispatch !== null && dispatch !== undefined) {
-        dispatch(dark_theme());
-      }
-      localStorage.setItem('theme', JSON.stringify('dark')) 
-      setTheme('dark')
-      
-    }
     
   }
+
   
   
   const authlink = (
@@ -69,8 +80,14 @@ const Navbar = (props) => {
     </>
   );
   const guest = (
-    <>
-      <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
+    <div className="d-flex gap-2">
+    <Button auto color="warning" onClick={handler}>
+        Login
+      </Button>
+      <Button auto color="warning" onClick={Registerhandler}>
+        Register
+      </Button>
+      {/* <div className="nav-toggle-link-link d-flex align-items-center justify-content-center">
         <button className="btn" >
           <Link href="/login">Login</Link>
         </button>
@@ -81,92 +98,35 @@ const Navbar = (props) => {
           <Link href="/register">Register</Link>
         </button>
         <FontAwesomeIcon size="1x" className="faHardHat" icon={faHardHat} />
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 
-  const fetcher = (...args) =>
-    fetch(...args).then((response) => response.json());
-
-  const {data:data, error:error} = useSWR('/api/blog/postlist', fetcher,{revalidateOnFocus:false})
-  
-  const posts = data ? data.data: []
-
-  const {data:data1, error:error1} = useSWR('/api/blog/threadlist', fetcher,{revalidateOnFocus:false})
-  
-  const threads = data1 ? data1.data: []
-
   const [searchResult, setSearchResult] = useState([]);
-  const [searchResultOverlay, setSearchResultOverlay] = useState(false);
-  const ToggleResultOverlay = () => {
-    setSearchResultOverlay(false);
-    setsearchBoxValue("");
-    // document.getElementById("searchform").reset();
-  };
+  
   const [searchBoxValue, setsearchBoxValue] = useState("");
 
-  const searchForm = (e) => {
+  const searchForm =async(e) => {
     e.preventDefault();
     var formData = new FormData(e.target);
     const form_values = Object.fromEntries(formData);
-    var m = form_values.search_input;
-    var x = form_values.search_input;
-    var x = x.toLowerCase();
-    var x = x.split(" ");
-
-    var o = x.length;
-    var searchResult = [];
-
-    var y = posts.length;
-
-    //searching through posts
-    for (let p = 0; p < y; p++) {
-      var a = posts[p].title;
-      var a = a.toLowerCase();
-      var searchR = [];
-      for (let i = 0; i < o; i++) {
-        if (a.includes(x[i])) {
-          searchR.push(posts[p]);
-        }
-      }
-      var j = searchR.length;
-      var k = (j / o) * 100;
-      // console.log(`${a}`, k)
-      if (k > 45) {
-        searchR[0].match = k;
-
-        var searchResult = searchResult.concat(searchR[0]);
-      }
-    }
-
-    //searching through threads
-    var t = threads.length;
-    for (let p = 0; p < t; p++) {
-      var a = threads[p].title;
-      var a = a.toLowerCase();
-      var searchR = [];
-      for (let i = 0; i < o; i++) {
-        if (a.includes(x[i])) {
-          searchR.push(threads[p]);
-        }
-      }
-      var j = searchR.length;
-      var k = (j / o) * 100;
-      // console.log(`${a}`, k)
-      if (k > 45) {
-        searchR[0].match = k;
-
-        var searchResult = searchResult.concat(searchR[0]);
-      }
-    }
-
-    var searchResult = searchResult.sort(function (a, b) {
-      return b.match - a.match;
+    const body = JSON.stringify(form_values.search_input)
+   
+    await fetch('api/blog/search', {
+      method: "POST",
+      headers: {
+          'Accept': 'application/json',
+          'content-type': 'application/json',
+      },
+      body: body    
+    })
+    .then(response => response.json())
+    .then(data => {setSearchResult(data)
+      console.log(searchResult)
     });
-
-    setSearchResult(searchResult);
-    setSearchResultOverlay(true);
-    setsearchBoxValue(m);
+    
+    
+    
   };
 
   const [navbar, setNavbar] = useState(false);
@@ -187,7 +147,7 @@ const Navbar = (props) => {
               DM.
             </a>
            
-            <FontAwesomeIcon onClick={themeHandler} className={theme=='dark' ? 'faSun':'faMoon' } size={'1x'} icon={theme === 'dark'  ? faSun:faMoon} />
+            <FontAwesomeIcon onClick={themeHandler} className={theme ? 'faSun':'faMoon' } size={'1x'} icon={theme  ? faSun:faMoon} />
             
             <button
               onClick={ToggleNavbar}
@@ -210,7 +170,7 @@ const Navbar = (props) => {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                 <Link href={"/"}>
-                  <a className="nav-link" aria-current="page">
+                  <a className={props.loc ==="home" ? "nav-link active":"nav-link"} aria-current="page">
                     Home
                   </a>
                 </Link>
@@ -232,7 +192,7 @@ const Navbar = (props) => {
               </div>
             </div>
             
-            <form className="d-flex" onSubmit={searchForm}>
+            {/* <form method="post" className="d-flex" onSubmit={searchForm}>
               <input
                 id="searchform"
                 name="search_input"
@@ -242,11 +202,11 @@ const Navbar = (props) => {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn button" type="submit">
+              <button data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" onClick={()=>setSearchResultOverlay(true)} className="btn button" type="submit">
                 Search
               </button>
-            </form>
-            {/* <div>
+            </form> */}
+            <div >
               {isAuthenticated ? 
               
                 authlink 
@@ -255,139 +215,140 @@ const Navbar = (props) => {
                 guest 
               
             }
-            </div> */}
+            </div>
           </div>
+            
+
+
+
         </nav>
       </div>
 
       <div>
-        {searchResultOverlay ? (
-          <div className={`${styles.index_search_modal_overlay}`}>
-            <div className="row d-flex justify-content-center align-items-center w-100 h-100 g-0">
-              <div
-                className={`col-10 col-md-8 d-flex flex-wrap justify-content-center body-color  ${styles.index_search_modal_box}`}
-              >
-                <div className="w-100 d-flex justify-content-end">
-                  <div onClick={ToggleResultOverlay} className=" btn">
-                    <FontAwesomeIcon
-                      style={{ color: "white" }}
-                      size={"2x"}
-                      icon={faTimes}
-                    />
-                  </div>
-                </div>
-                <form className="w-75" onSubmit={searchForm}>
-                  <input
-                    type="text"
-                    name="search_input"
+      
 
-                    defaultValue={searchBoxValue}
-                    className={`form-control ${styles.input}`}
-                  />
-                  <div className="d-flex justify-content-center mt-1">
-                    <button className={`btn  button`}>
-                      search
-                    </button>
-                  </div>
-                </form>
-                <div className="mt-2 w-100 d-flex flex-wrap justify-content-center ">
-                  <h4 className="w-100 text-center">
-                    Search results found: {searchResult.length}
-                  </h4>
-                  <span>Searching Posts and Threads</span>
-                </div>
-                <div
-                  className={`mt-4 w-100 d-flex flex-wrap justify-content-center ${styles.search_box_result}`}
-                >
-                  {searchResult.map(function (item, id) {
-                    return (
-                      <div
-                        key={id}
-                        className={`row ${styles.search_item_container}`}
-                      >
-                        {item.category ? (
-                          <>
-                            <div
-                              className={`col-3 col-lg-1 d-flex flex-wrap align-items-center ${styles.index_item_info}`}
-                            >
-                              <div className="w-100 d-flex justify-content-start">
-                                <span>Post</span>
-                              </div>
-                              <br />
-                              <div className={`${styles.index_item_info_1}`}>
-                                <span>0{id}</span>
-                              </div>
-                            </div>
-                            <div
-                              className={`col-9 col-lg-11 h-100 d-flex flex-wrap align-items-between ${styles.index_item_detail}`}
-                            >
-                              <div className={` ${styles.index_item_detail_1}`}>
-                                <span className="card-title">{item.title}</span>
-                              </div>
+      <Modal
+        closeButton
+        blur
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+      >
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+            Login to 
+            <Text className="text-warning mx-2" b size={18}>
+              DEVMAESTERS
+            </Text>
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Email"
+            // contentLeft={<Mail fill="currentColor" />}
+          />
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Password"
+            // contentLeft={<Password fill="currentColor" />}
+          />
+          <Row justify="space-between">
+            <Checkbox>
+              <Text size={14}>Remember me</Text>
+            </Checkbox>
+            <Text size={14}>Forgot password?</Text>
+          </Row>
+          <Row justify="space-between">
+            
+              <Text size={14}>New member?</Text>
+            
+            <Text size={14} onClick={switchHandler} className="active">SignUp</Text>
+          </Row>
+        </Modal.Body>
+        <Modal.Footer>
+          
+          <Button className="button btn" auto onClick={closeHandler}>
+            Sign in
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
-                              <div
-                                className={`w-100 d-flex justify-content-between align-items-center ${styles.index_item_detail_2}`}
-                              >
-                                <span className="card-body">
-                                  {item.updated_date}
-                                </span>
-                                <Link href={"/blog/" + item.id} passHref>
-                                  <button
-                                    className={`btn button btn-sm`}
-                                  >
-                                    Read
-                                  </button>
-                                </Link>
-                              </div>
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <div
-                              className={`col-3 col-lg-1 d-flex flex-wrap align-items-center ${styles.index_item_info}`}
-                            >
-                              <div className="w-100 d-flex justify-content-start">
-                                <span>Thread</span>
-                              </div>
-                              <br />
-                              <div className={`${styles.index_item_info_1}`}>
-                                <span>0{id}</span>
-                              </div>
-                            </div>
-                            <div
-                              className={`col-9 col-lg-11 h-100 d-flex flex-wrap align-items-between ${styles.index_item_detail}`}
-                            >
-                              <div className={` ${styles.index_item_detail_1}`}>
-                                <span className="card-title">{item.title}</span>
-                              </div>
-
-                              <div
-                                className={`w-100 d-flex justify-content-between align-items-center ${styles.index_item_detail_2}`}
-                              >
-                                <span className="card-body">
-                                  Messages: {item.thread_messages.length}
-                                </span>
-                                <Link href={"/blog/thread/" + item.id} passHref>
-                                  <button
-                                    className={`btn button btn-sm`}
-                                  >
-                                    open
-                                  </button>
-                                </Link>
-                              </div>
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
+      {/* register */}
+      <Modal
+        closeButton
+        blur
+        aria-labelledby="modal-title"
+        open={Regvisible}
+        onClose={regcloseHandler}
+      >
+        <Modal.Header>
+          <Text id="reg-modal-title" size={18}>
+            SignUP to 
+            <Text className="text-warning mx-2" b size={18}>
+              DEVMAESTERS
+            </Text>
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+        <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Name"
+            // contentLeft={<Mail fill="currentColor" />}
+          />
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Email"
+            // contentLeft={<Mail fill="currentColor" />}
+          />
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Password"
+            // contentLeft={<Password fill="currentColor" />}
+          />
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Re-type password"
+            // contentLeft={<Mail fill="currentColor" />}
+          />
+          <Row justify="space-between">
+            
+              <Text size={14}>Already a member?</Text>
+            
+            <Text size={14} onClick={switchHandler} className="active">Login</Text>
+          </Row>
+        </Modal.Body>
+        <Modal.Footer>
+          
+          <Button className="button btn" auto onClick={regcloseHandler}>
+            Sign Up
+          </Button>
+        </Modal.Footer>
+      </Modal>
       </div>
     </>
   );

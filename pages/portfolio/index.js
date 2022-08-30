@@ -2,7 +2,7 @@ import Navbar from "../../components/navbar/Navbar";
 
 import styles from "./portfolio.module.css";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFileDownload,
@@ -12,6 +12,7 @@ import {
 import { API_URL, NEXT_MODE } from "../../config";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Head from "next/head";
+import { Image } from "@nextui-org/react";
 
 
 if (`${NEXT_MODE}` == "DEV") {
@@ -72,22 +73,21 @@ function PortfolioIndex() {
 
 
         <div className="row">
-        <main className="col-12 col-md-9">
+        <main className={`col-12 col-md-9 ${styles.main}`}>
+        
           <div className="card mb-3 p-3">
             <div className="row d-flex justify-content-center mt-3">
               <div className="col-10 col-md-3">
               <div
                 className={`d-grid align-content-center  `}
               >
-                <Image
-                  width="100"
-                  height="100"
-                  
-                  layout="responsive"
-                  priority
-                  src={"/images/owner_images/abu_02.png"}
-                  alt="owner_image"
-                />
+                <Image   
+              showSkeleton
+              autoResize 
+              maxDelay={10000}
+              src="/images/owner_images/abubakar02.jpeg"
+              alt="Default Image"
+            />
               </div>
 
               </div>
@@ -170,6 +170,9 @@ function PortfolioIndex() {
         </div>
 
       </div>
+
+      <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="abubakar-zakari-05711822a" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ng.linkedin.com/in/abubakar-zakari-05711822a?trk=profile-badge">Abubakar Zakari</a></div>
+              
       
 
 

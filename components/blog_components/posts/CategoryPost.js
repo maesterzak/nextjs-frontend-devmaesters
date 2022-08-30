@@ -2,9 +2,11 @@ import dompurify from "isomorphic-dompurify";
 import Link from "next/link";
 import { useState } from "react";
 import useSWR from "swr";
+import useSWRInfinite from "swr/infinite";
 import Image from "next/image";
 
 const sanitizer = dompurify.sanitize;
+
 
 function CategoryPost(props) {
   const truncate = (str) => {
@@ -13,29 +15,44 @@ function CategoryPost(props) {
   const fetcher = (...args) =>
     fetch(...args).then((response) => response.json());
   
-  //posts
-
   
+const page_limit = 8;
+   
+  const {
+    data,
+    error,
+
+    size,
+    setSize,
+    isValidating
+  } = useSWRInfinite(
+    (index) => `${props.url}?page=${index + 1}&limit=${page_limit}`,
+    fetcher,
+    { revalidateOnFocus: false }
+    
+  );
+  if (error) return <>{error}</>
+  if(!data) return <>Loading</>
+
+  const posts = data?.map((item, index)=>{
+    return item.results
+  }).flat()
     
   
   
-    
-  const [limit, setLimit] = useState(8);
+  const postLength = posts?.length;
+  const totalPosts = data[0]?.count;
+ 
 
-  const { data, error } = useSWR(`${props.url}?l=${limit}`, fetcher, {revalidateOnFocus:false});
   
-  const p_posts = data ? [].concat(...data["results"]) : [];
-  const AA = data?.["count"]
-  const BB = p_posts?.length
+  const isLoadingInitialData = !data && !error;
+  const isLoadingMore =
+    isLoadingInitialData || isValidating ||
+    (size > 0 && posts && typeof posts[size - 1] === "undefined");
+  const isEmpty = postLength === 0;
+  const isReachingEnd = isEmpty || totalPosts == postLength;
   
-  const isLoadingInitialData = !data  && !error;
-const isLoadingMore =
-    isLoadingInitialData || (data && typeof data === "undefined");
 
-    const isEmpty = AA === 0;
-    
-    const isReachingEnd = isEmpty || BB === AA;
-  
   
   
   return (
@@ -45,9 +62,9 @@ const isLoadingMore =
           <h5>{props.header}</h5>
         </div>
 
-        {p_posts ? (
+        {posts ? (
           <>
-            {p_posts.map(function (post, id) {
+            {posts.map(function (post, id) {
               return (
                 <div className="card mb-3" key={id}>
                   <div className="card-header">{post.category.name}</div>
@@ -94,7 +111,7 @@ const isLoadingMore =
       <button
                     className={`btn button btn-md btn-block  w-100`}
                     disabled={isLoadingMore || isReachingEnd}
-                    onClick={() => setLimit(limit + 8)}
+                    onClick={() => setSize(size + 1)}
                   >
                     {isLoadingMore
                       ? "loading..."

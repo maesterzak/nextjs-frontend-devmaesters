@@ -8,22 +8,12 @@
     overflow: hidden;
     
 }
-.input{
-    background: #16151d;
-    color: white;
-}
-.input:focus{
-    background: #16151dc8;
-    color: white;
+
+.input:focus{   
     box-shadow: unset;
 }
-.textarea{
-    background: #16151d;
-    color: white;
-}
+
 .textarea:focus{
-    background: #16151dc8;
-    color: white;
     box-shadow: unset;
 }
 .textarea_div{

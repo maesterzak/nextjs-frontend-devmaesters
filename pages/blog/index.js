@@ -7,13 +7,17 @@ import Navbar from "../../components/navbar/Navbar";
 import { API_URL, NEXT_MODE } from "../../config";
 import Threads from "../../components/blog_components/threads/Threads";
 import CreateThread from "../../components/blog_components/threads/CreateThread";
+import { Input, Spacer } from "@nextui-org/react";import {useRouter}  from 'next/router';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from '@nextui-org/react';
+
+import {
+    faTwitterSquare, faFacebookSquare, faInstagramSquare, faLinkedin, faYoutube
+  } from "@fortawesome/free-brands-svg-icons";
+
 
 
 export async function getStaticProps() {
- 
- 
-  
-
   if (`${NEXT_MODE}` == "DEV") {
     var orig = `${API_URL}`;
   } else if (`${NEXT_MODE}` == "PROD") {
@@ -27,12 +31,13 @@ export async function getStaticProps() {
 
 const Home1 = ({orig}) => {
 
-  
+  const router = useRouter()
 
   return (
+    
     <>
       <Head>
-        <title>devMaesters| Blog Homepage</title>
+        <title>BLOG | DEVMAESTERS</title>
         <meta name="keywords" content="Home" />
         <meta
           name="description"
@@ -47,36 +52,72 @@ const Home1 = ({orig}) => {
 
         <div className={`container mt-2 overflow-hidden mt-3`}>
           <div id="main" className="main">
+            
             <div className="row">
-              <main className="col-12 col-md-8 col-lg-9">
+              <main className="col-12 col-md-8 col-lg-9 ">
+              {/* <h1 className="text-center site-title">Blog</h1> */}
+              <div className="d-flex justify-content-center ">
+                <div className=" card mb-3 position-relative w-100 d-flex align-items-center justify-content-center">
+              {/* <Image   
+              showSkeleton
+              autoResize 
+              maxDelay={10000}
+              src="/images/home_images/blog.png"
+              alt="Default Image"
+            /> */}
+            <div  className={` w-100 p-3 mb-3`}>
+              <h1 className="text-center site-title">BLOG</h1>
+              <Spacer y={1.5} />
+              <div className="row p-2">
+              <Input
+                clearable
+                underlined
+                
+                labelPlaceholder="Seach posts & threads"
+                // initialValue="Search"
+              />
+              </div>
+              <Spacer y={0.5} />
+              <div className="d-flex justify-content-center flex-wrap">
+              <Button disabled className="button btn" >
+                Search
+              </Button>
+
+              </div>
+              <h5 className="text-center mt-2">Please follow us on our various social media handles to get notified on latest information</h5>
+          <div className="d-flex justify-content-between flex-wrap gap-1">
+                            
+                            <button className='btn p-0 m-0' onClick={() => router.push('https://web.facebook.com/devmaesters/')} >
+                                <FontAwesomeIcon className={`fontawesome`}   size={"3x"}  icon={faFacebookSquare} />
+                            </button>
+                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
+                                <FontAwesomeIcon className={`fontawesome`}  size={"3x"}  icon={faLinkedin} />
+                            </button>
+                            
+                            <button disabled className='btn p-0 m-0' onClick={() => router.push('#')} >
+                                <FontAwesomeIcon className={`fontawesome`}  size={"3x"}  icon={faTwitterSquare} />
+                            </button>
+                            <button className='btn p-0 m-0' onClick={() => router.push('https://www.youtube.com/channel/UCTtHtIyFzxyQtF5P8fBpaew')} >
+                                <FontAwesomeIcon className={`fontawesome`}  size={"3x"}  icon={faYoutube} />
+                            </button>
+                            
+                        
+          </div>
+
+            </div>
+            </div>
+            </div>
+         
                 <Posts header="Posts" orig={orig}/>          
                 <Threads />
               </main>
               <aside className="col-md-4 col-lg-3">
-                
-                  
-                    <Categories  />
-                    
-                  
-                
-                  
-                    <TrendingPosts orig={orig}/>
+                    <Categories  />   
+                    {/* <TrendingPosts orig={orig}/> */}
                     <CreateThread />
-                  
-                  
-                
-                <div className="col-12 card">
-                  <div className="card-header"></div>
-                </div>
               </aside>
             </div>
-
-            
-
-            
-          </div>
-
-          
+          </div> 
 
         </div>
         <div className="mt-3">

@@ -12,6 +12,7 @@ import Head from "next/head";
 import Loader from '../components/Loader'
 import { config, dom } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
+import { NextUIProvider } from '@nextui-org/react';
 
 
 
@@ -48,18 +49,37 @@ function MyApp({ Component, pageProps }) {
     <Head>
     <style>{dom.css()}</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon1.ico" />
+    <link rel="icon" href="/images/logo.png" />
     <meta charSet="UTF-8" />
     
     
     </Head>
     <Provider store={store}>
-      
+    <NextUIProvider>
+      <div className='main-body'>
+        <div className='main-content'>
       <Layout>
       {loading && <Loader />}
       <Component {...pageProps} />  
       </Layout>
-      </Provider>  
+      </div>
+      <div className="area" >
+            <ul className="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+      </div>
+      </NextUIProvider>
+    </Provider>  
       </>
   )
 }

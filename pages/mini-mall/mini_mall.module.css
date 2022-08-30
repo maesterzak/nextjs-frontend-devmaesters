@@ -8,6 +8,26 @@
     width: 100%;
 
 }
+.bottomNav{
+    position: sticky;
+    bottom: 0;
+    height: 5vh;
+    
+}
+.bottomNav div{
+    background-color: var(--second-background);
+}
+
+.cartAmount{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--card-color);
+    color: var(--font-color);
+    position: absolute;
+    top: -60%;
+    right: 15%;
+}
 
 @media only screen and (min-width: 900px){
     .header_text{
