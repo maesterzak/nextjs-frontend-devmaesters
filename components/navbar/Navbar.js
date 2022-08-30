@@ -206,7 +206,9 @@ const Navbar = (props) => {
                 Search
               </button>
             </form> */}
-            <div >
+            
+          </div>
+          <div >
               {isAuthenticated ? 
               
                 authlink 
@@ -216,7 +218,6 @@ const Navbar = (props) => {
               
             }
             </div>
-          </div>
             
 
 

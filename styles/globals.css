@@ -197,6 +197,7 @@ a {
   color: #FFA000;
   color: var(--link-color);
   text-decoration: none;
+  color: rgb(249, 179, 49);
 }
 a:hover{
   color: #ffa200a4;
@@ -204,6 +205,7 @@ a:hover{
 }
 a .btn{
   outline: #FFA000;
+  
 }
 
 
@@ -244,6 +246,7 @@ a .btn{
 }
 .blog-link{
   padding: auto 5px auto 10px;
+  
 }
 li{
   color: var(--font-color);
@@ -407,8 +410,12 @@ li{
 .main-content{
   position: absolute;
   top: 0vh;
+  width: 100vw;
   height: 100vh;
   overflow:scroll;
   pointer-events: all;
   z-index: 2;
+}
+.modal-backdrop.show {
+  opacity: unset;
 }

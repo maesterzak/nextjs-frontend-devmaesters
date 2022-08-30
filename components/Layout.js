@@ -38,7 +38,7 @@ const Layout = ({children}) => {
   }, [])
 
     const light = {
-    cardcolor:"rgba(255, 255, 255, .2)",
+    cardcolor:"rgba(255, 255, 255, .8)",
     
     backgroundcolor:"rgb(211, 210, 210)",
     linkcolor: "rgb(255, 168, 6)",

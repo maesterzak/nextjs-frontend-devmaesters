@@ -80,7 +80,12 @@
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
-
+.header_card{
+  /* backdrop-filter: blur(10px); */
+  /* background: rgba(96, 95, 95, 0.474); */
+  -webkit-backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px);
+}
 
 
 

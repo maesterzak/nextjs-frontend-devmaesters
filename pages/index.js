@@ -85,7 +85,7 @@ export default function Home() {
               showSkeleton
               autoResize 
               maxDelay={10000}
-              src="/images/home_images/blog.png"
+              src="/images/home-2.png"
               alt="Default Image"
             />
           <a href="https://lovepik.com/images/png-avatars.html">Avatars Png vectors by Lovepik.com</a>
