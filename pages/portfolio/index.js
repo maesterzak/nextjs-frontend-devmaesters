@@ -171,7 +171,7 @@ function PortfolioIndex() {
 
       </div>
 
-      <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="abubakar-zakari-05711822a" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ng.linkedin.com/in/abubakar-zakari-05711822a?trk=profile-badge">Abubakar Zakari</a></div>
+      
               
       
 
