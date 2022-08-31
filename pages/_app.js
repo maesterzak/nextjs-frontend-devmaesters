@@ -19,7 +19,9 @@ import { NextUIProvider } from '@nextui-org/react';
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
+    window.scrollTo(0, 0)
   }, []);
+  
   
   
   
