@@ -21,9 +21,14 @@ function MyApp({ Component, pageProps }) {
     import("bootstrap/dist/js/bootstrap");
     window.scrollTo(0, 0)
   }, []);
+  const {
+    asPath,        // the value: "/question/how-do-you-get-the-current-url-in-nextjs/"
+       // the value: "/question/[slug]"
+  } = useRouter();
   
   
-  
+  const pathname = asPath
+  const currentPath = `https://devmaesters.com${pathname}`
   
 
   const [loading, setLoading] = useState(false)
@@ -54,6 +59,11 @@ function MyApp({ Component, pageProps }) {
     <link rel="icon" href="/favicon1.ico" />
     
     <meta charSet="UTF-8" />
+
+    <meta property='og:title' content='DEVMAESTERS HOME PAGE'/>
+    <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
+    <meta property='og:description' content='Welcome to devmaesters.com we offer programming tips,tutorials, tricks, freelance web development, coding support and sales of web related products.'/>
+    <meta property='og:url' content={currentPath} />
     
     
     </Head>

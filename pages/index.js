@@ -22,7 +22,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>devmaesters</title>
-        <meta name="description" content="Welcome to devmaesters.com we offer free programming tips,tutorials, tricks and coding support." />
+        <meta name="description" content="Welcome to devmaesters.com we offer programming tips,tutorials, tricks, freelance web development and coding support." />
         <meta name="keywords" content="programming, nextjs, reactjs, coding, websites, python tutorials, prisma, graphql, django, django rest framework" />
         <link rel="icon" href="/images/logo.png" />
         

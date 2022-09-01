@@ -16,6 +16,8 @@ function Aboutus() {
           content="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
         for asking questions(threads)"
         />
+        <meta property='og:title' content='DEVMAESTERS ABOUT PAGE'/>
+        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
     </Head>
     <div style={{"minHeight":"100vh"}}>
         <Navbar loc="about"/>

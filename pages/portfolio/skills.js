@@ -46,6 +46,8 @@ function PortfolioSkills({ skills, orig }) {
           content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
           developer from Nigeria with skills in html, css, javascript, next.js, django, drf, bootstrap..."
         />
+        <meta property='og:title' content='Abubakar Zakari'/>
+        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
       </Head>
 
       <Navbar loc="portfolio" />

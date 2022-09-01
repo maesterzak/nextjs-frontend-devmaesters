@@ -33,6 +33,8 @@ function PortfolioIndex() {
           content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
           developer from Nigeria who loves developing softwares and learning new frameworks and langauges."
         />
+        <meta property='og:title' content='Abubakar Zakari'/>
+        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
         
       </Head>
       <Navbar

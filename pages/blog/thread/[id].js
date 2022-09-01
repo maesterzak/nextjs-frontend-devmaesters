@@ -131,6 +131,10 @@ function Blog_chats({ orig, url, thread }) {
               name="description"
               content={sanitizer(truncate(data.threads.description))}
             />
+            <meta property='og:title' content='DEVMAESTERS THREAD'/>
+          <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
+          
+          
           </Head>
           <div>
             <Navbar loc="blog" />

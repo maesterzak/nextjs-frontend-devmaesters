@@ -37,6 +37,8 @@ function PortfolioProject({ project, orig }) {
           content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
           developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Click link to see projects I have built."
         />
+        <meta property='og:title' content='Abubakar Zakari'/>
+        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
       </Head>
 
       <Navbar loc="portfolio" />

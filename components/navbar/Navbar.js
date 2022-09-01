@@ -190,6 +190,16 @@ const Navbar = (props) => {
                   <a className={props.loc ==="about" ? "nav-link active":"nav-link"}>About</a>
                 </Link>
               </div>
+              <div >
+              {isAuthenticated ? 
+              
+                authlink 
+                :
+              
+                guest 
+              
+            }
+            </div>
             </div>
             
             {/* <form method="post" className="d-flex" onSubmit={searchForm}>
@@ -208,16 +218,7 @@ const Navbar = (props) => {
             </form> */}
             
           </div>
-          <div >
-              {isAuthenticated ? 
-              
-                authlink 
-                :
-              
-                guest 
-              
-            }
-            </div>
+          
             
 
 

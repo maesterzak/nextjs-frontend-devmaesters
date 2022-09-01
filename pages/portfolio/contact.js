@@ -17,11 +17,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
+
 function PortfolioContacts() {
   // const [mini_nav, setMini_nav] = useState(false);
   // const ToggleMiniNav = () => {
   //   setMini_nav(!mini_nav);
   // };
+  
 
   const [tooltip1, setTooltip1] = useState(false);
   const [tooltip2, setTooltip2] = useState(false);
@@ -67,6 +69,10 @@ function PortfolioContacts() {
           content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
           developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Click link to see my contact information."
         />
+        <meta property='og:title' content='Abubakar Zakari'/>
+        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
+        
+        
       </Head>
       <Navbar loc="portfolio" />
 

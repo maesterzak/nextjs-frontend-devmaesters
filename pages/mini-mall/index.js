@@ -75,6 +75,10 @@ const MiniMall = () => {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
+        <meta property='og:title' content='DEVMAESTERS MINI-MALL'/>
+        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
+        
+        <meta property='og:url' content='devmaesters.com/mini-mall' />
         </Head>
         <Navbar loc='mini-mall' />
 

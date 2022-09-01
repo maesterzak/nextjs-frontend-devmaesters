@@ -91,7 +91,7 @@ const Layout = ({children}) => {
   useEffect(()=>{
     if (asPath != '/portfolio'){
     const currentPolicyState = localStorage.getItem('Accept-Privacy-Policy')
-    console.log(currentPolicyState)
+    
     if (currentPolicyState != 'true') {
       setPrivacyPolicy('d-block')}
     }  

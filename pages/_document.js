@@ -40,9 +40,9 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          {/* <script>
+          <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
-            </script> */}
+            </script>
         </body>
       </Html>
     )
