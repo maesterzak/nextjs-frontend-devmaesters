@@ -9,6 +9,8 @@
     "postbuild": "cross-env next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^35.1.0",
+    "@ckeditor/ckeditor5-react": "^5.0.2",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

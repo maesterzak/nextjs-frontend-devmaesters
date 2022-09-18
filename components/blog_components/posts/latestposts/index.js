@@ -30,7 +30,7 @@ function NewPosts() {
                     <ul className={`list-group  `}>
                         {posts.map((post, index)=>{
                             return(
-                                <li className={` mt-1 mb-1 ${styles.list}`} key={index}><Link href={'#'}>{post.title}</Link></li>
+                                <li className={` mt-1 mb-1 ${styles.list}`} key={index}><Link href={'/blog/'+post.id}>{post.title}</Link></li>
                             )
                         })}
                     </ul>

@@ -236,7 +236,7 @@ export default function Home() {
         <div className="row">
           <div className="col-12 col-md-4">
             <h2 className="h3">CONTACT US</h2>
-            <p>We at DEVMAESTERS are always open to suggestions and inquiries from our users. Please fill the contact from
+            <p>We at DEVMAESTERS are always open to suggestions and inquiries from our users. Please fill the contact form
               if you wish to talk to us.
             </p>
 

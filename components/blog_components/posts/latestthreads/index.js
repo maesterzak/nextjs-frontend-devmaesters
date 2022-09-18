@@ -28,7 +28,7 @@ function NewThreads() {
             <ul className={`list-group  `}>
                 {threads.map((thread, index)=>{
                     return(
-                        <li className={` mt-1 mb-1 ${styles.list}`} key={index}><Link href={'#'}>{thread.title}</Link></li>
+                        <li className={` mt-1 mb-1 ${styles.list}`} key={index}><Link href={'blog/thread/'+ thread.id}>{thread.title}</Link></li>
                     )
                 })}
             </ul>
