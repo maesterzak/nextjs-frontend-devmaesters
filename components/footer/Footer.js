@@ -20,19 +20,19 @@ function Footer(){
 
                 </div>
                 <div className="row g-0">
-                    <div className="col-12 col-md-2">
-                        <h4 className="text-center">Quick links</h4>
+                    <div className="col-12 col-md-2 mb-3">
+                        <h4 className="text-center text-light">Quick links</h4>
                         <ul className="d-grid justify-content-center">
-                            <li>Home</li>
-                            <li>Blog</li>
-                            <li>Mini Mall</li>
-                            <li>Portfolio</li>
-                            <li>About</li>
+                            <li className="text-light">Home</li>
+                            <li className="text-light">Blog</li>
+                            <li className="text-light">Mini Mall</li>
+                            <li className="text-light">Portfolio</li>
+                            <li className="text-light">About</li>
                         </ul>
                     </div>
 
                 
-                <div id="services" className="col-12 col-md-3 d-grid justify-content-center">
+                <div className="col-12 col-md-3 d-grid justify-content-center mb-3">
                     <h4 className="text-light text-center">Services </h4>
                     <ul className="text-light">
                         
@@ -51,7 +51,7 @@ function Footer(){
                     </div>
                 </div>
                 
-                <div id="contact"  className="col-12 col-md-4 d-grid justify-content-center">
+                <div id="contact"  className="col-12 col-md-4 d-grid justify-content-center mb-3">
                     <h5 className="text-light text-center">Contact</h5>
                     <div className="text-light">
                         <span className="text-light">Interested in hiring me or collaborating with me on a project, </span>
@@ -87,8 +87,8 @@ function Footer(){
                     </div>
                 </div>
 
-                <div className="col-12 col-md-3">
-                    <h4 className="text-center">Newsletter</h4>
+                <div className="col-12 col-md-3 mb-3">
+                    <h4 className="text-center text-light">Newsletter</h4>
                     <form>
                     <div className=" d-flex justify-content-center">
               <input className="form-control w-75 mb-3" placeholder="enter email" />

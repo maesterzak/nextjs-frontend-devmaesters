@@ -143,7 +143,7 @@ const Navbar = (props) => {
       <div className="sticky-top">
         <nav className="navbar navbar-expand-lg ">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand d-flex align-items-center" href="/">
             <svg xmlns="http://www.w3.org/2000/svg" width="110.161" height="30.977" viewBox="0 0 155.161 77.977">
   <g id="Group_20" data-name="Group 20" transform="translate(0)">
     <path id="Path_1" data-name="Path 1" d="M11.389,0H37.932a11.385,11.385,0,0,1,9.849,5.685l1.013,1.76.009.009v.009c0,.009.01.019.019.037l14.9,25.806a11.4,11.4,0,0,1,0,11.378l-15.938,27.6a11.31,11.31,0,0,1-4.763,4.477.275.275,0,0,0-.056.037.061.061,0,0,0-.027.019h-.01a.028.028,0,0,1-.018.009,11.336,11.336,0,0,1-4.975,1.151H11.773a8.808,8.808,0,0,1-1.474-.11A43.9,43.9,0,0,0,31.111,55.221h.24L38.122,43.5a9.045,9.045,0,0,0,0-9.038L31.351,22.745h-.065A43.929,43.929,0,0,0,10.965.01C11.112,0,11.241,0,11.389,0Z" fill="#fff"/>
@@ -218,7 +218,7 @@ const Navbar = (props) => {
 
             
             </a>
-           <div>
+           <div className="d-flex align-items-center">
             <FontAwesomeIcon onClick={themeHandler} className={theme ? 'faSun':'faMoon' } size={'1x'} icon={theme  ? faSun:faMoon} />
             
             <button
