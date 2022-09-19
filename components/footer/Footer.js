@@ -16,7 +16,7 @@ function Footer(){
             <div className=''>
                 <h2 className="text-center mb-2 text-light site-title">DEVMAESTERS</h2>
                 <div className="d-flex justify-content-center mb-5">
-                {/* <button className="btn button">Hire Me</button> */}
+                
 
                 </div>
                 <div className="row g-0">
@@ -46,6 +46,9 @@ function Footer(){
                         <li className="text-light">Website Debbugging</li>
                         <li className="text-light">Website Hosting & deployment</li>
                     </ul>
+                    <div className="d-flex justify-content-center">
+                        <button disabled className="btn button">Hire Me</button>
+                    </div>
                 </div>
                 
                 <div id="contact"  className="col-12 col-md-4 d-grid justify-content-center">
