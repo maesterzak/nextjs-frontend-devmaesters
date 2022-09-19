@@ -247,7 +247,7 @@ export default function Home() {
               <input className="form-control" placeholder="enter full name" />
               </div>
               <div className="w-50 mx-1">
-              <input className="form-control" type={'email'} placeholder="enter full name" />
+              <input className="form-control" type={'email'} placeholder="enter email" />
               </div>
               
             </div>

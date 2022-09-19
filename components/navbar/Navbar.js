@@ -216,8 +216,9 @@ const Navbar = (props) => {
 </svg>
 
 
+            
             </a>
-           
+           <div>
             <FontAwesomeIcon onClick={themeHandler} className={theme ? 'faSun':'faMoon' } size={'1x'} icon={theme  ? faSun:faMoon} />
             
             <button
@@ -237,7 +238,7 @@ const Navbar = (props) => {
                 icon={navbar ? faTimes : faBars}
               />
             </button>
-            
+            </div>
             <div className="collapse navbar-collapse navbarBackground" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                 <Link href={"/"}>

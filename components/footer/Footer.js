@@ -20,9 +20,19 @@ function Footer(){
 
                 </div>
                 <div className="row g-0">
+                    <div className="col-12 col-md-2">
+                        <h4 className="text-center">Quick links</h4>
+                        <ul className="d-grid justify-content-center">
+                            <li>Home</li>
+                            <li>Blog</li>
+                            <li>Mini Mall</li>
+                            <li>Portfolio</li>
+                            <li>About</li>
+                        </ul>
+                    </div>
 
                 
-                <div id="services" className="col-12 col-md-6 d-grid justify-content-center">
+                <div id="services" className="col-12 col-md-3 d-grid justify-content-center">
                     <h4 className="text-light text-center">Services </h4>
                     <ul className="text-light">
                         
@@ -72,6 +82,19 @@ function Footer(){
                         <span>Checkout my <span><Link href={'/portfolio'}>Portfolio</Link></span> to see my past projects</span>
                         
                     </div>
+                </div>
+
+                <div className="col-12 col-md-3">
+                    <h4 className="text-center">Newsletter</h4>
+                    <form>
+                    <div className=" d-flex justify-content-center">
+              <input className="form-control w-75 mb-3" placeholder="enter email" />
+              </div>
+              <div className="d-flex justify-content-center">
+                  <button disabled className="button btn">Subscribe</button>
+              </div>
+                    </form>
+
                 </div>
                 </div>
                 <div className="row mt-3">
