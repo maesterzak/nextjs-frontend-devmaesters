@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>devmaesters</title>
+        <title>DEVMAESTERS</title>
         <meta name="description" content="Welcome to devmaesters.com we offer programming tips,tutorials, tricks, freelance web development and coding support." />
         <meta name="keywords" content="programming, nextjs, reactjs, coding, websites, python tutorials, prisma, graphql, django, django rest framework" />
         <link rel="icon" href="/images/logo.png" />
@@ -33,6 +33,19 @@ export default function Home() {
       </Head>
       <Navbar loc="home"  />
       <div className = {`d-flex justify-content-center align-items-center ${styles.header_container}`}>
+        
+          <div className={styles.overlay}>
+
+          </div>
+          {/* <Image
+          showSkeleton
+          autoResize 
+          
+          maxDelay={10000}
+          src="/images/home_images/35.jpg"
+          
+          /> */}
+        
         <div className={`card ${styles.header_card} w-75 p-2 w-lg-50  d-flex justify-content-center align-items-center position-absolute`}>
           <h1 >WELCOME TO <br/> DEVMAESTERS</h1>
           <p>We offer free programming tips,tutorials, tricks and coding support.</p>
