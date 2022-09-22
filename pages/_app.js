@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }) {
     <meta charSet="UTF-8" />
 
     <meta property='og:title' content='DEVMAESTERS HOME PAGE'/>
-    <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
+    <meta property='og:image' content='/images/devmaesters-link-image.png'/>
     <meta property='og:description' content='Welcome to devmaesters.com we offer programming tips,tutorials, tricks, freelance web development, coding support and sales of web related products.'/>
     <meta property='og:url' content={currentPath} />
     

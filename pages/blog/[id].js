@@ -86,8 +86,8 @@ function Post_detail({ url, orig, res }) {
 
             <meta name="description" content={sanitizer(truncate(post.body))} />
             <meta property='og:title' content={post.title}/>
-            <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
-            <meta property='og:description' content={sanitizer(truncate(post.body))}/>
+            
+            <meta property='og:description' content={sanitizer(post.summary)}/>
             
           </Head>
           <div>

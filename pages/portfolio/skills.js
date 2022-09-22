@@ -47,7 +47,8 @@ function PortfolioSkills({ skills, orig }) {
           developer from Nigeria with skills in html, css, javascript, next.js, django, drf, bootstrap..."
         />
         <meta property='og:title' content='Abubakar Zakari'/>
-        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
+        <meta property='og:image' content='/images/owner_images/abubakar02.jpeg'/>
+        <meta property='og:description' content='This is my portfolio page within which you can access links to all my projects'/>
       </Head>
 
       <Navbar loc="portfolio" />

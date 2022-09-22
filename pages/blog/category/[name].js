@@ -52,7 +52,7 @@ function Category_list({ name, url, orig }) {
           content="This page offers a list of all the posts we have under..."
         />
         <meta property='og:title' content={name}/>
-        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
+       
         
         
       </Head>

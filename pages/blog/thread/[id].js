@@ -132,8 +132,8 @@ function Blog_chats({ orig, url, thread }) {
               content={sanitizer(truncate(data.threads.description))}
             />
             <meta property='og:title' content='DEVMAESTERS THREAD'/>
-          <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
-          
+          <meta property='og:image' content='/images/devmaesters-link-image.png'/>
+          <meta property='og:description' content={sanitizer(truncate(data.threads.description))}/>
           
           </Head>
           <div>
