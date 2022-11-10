@@ -92,8 +92,8 @@ function Checkout(params) {
                        methods of payment listed below
                    </p>
                    <Button  className="mb-3 bg-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWire" aria-expanded="false" aria-controls="collapseExample">Wire transfer</Button>
-                   <div class="collapse" id="collapseWire">
-                        <div class="card card-body">
+                   <div className="collapse" id="collapseWire">
+                        <div className="card card-body">
                             <p>This method involves sending a wire transfer in usd to the account that is stated below. 
                                 Please ensure that you use the transaction ID as your reference when making the transfer.
                             </p>
@@ -117,16 +117,16 @@ function Checkout(params) {
                         </div>
                    <Divider />
                    <Button className="bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsdt" aria-expanded="false" aria-controls="collapseExample">Crypto USTD</Button>
-                   <div class="collapse" id="collapseUsdt">
-                    <div class="card card-body">
+                   <div className="collapse" id="collapseUsdt">
+                    <div className="card card-body">
                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                     </div>
                     </div>
 
                    <Divider />
                    <Button className="mt-3 bg-warning" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFlutterwave" aria-expanded="false" aria-controls="collapseExample">Flutterwave</Button>
-                   <div class="collapse" id="collapseFlutterwave">
-                    <div class="card card-body">
+                   <div className="collapse" id="collapseFlutterwave">
+                    <div className="card card-body">
                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                     </div>
                     </div>
