@@ -31,6 +31,13 @@
   height: 100%;
 }
 
+.projectTagWrapper{
+  width: 30px;
+  border-radius: 50%;
+  height: 30px;
+  
+  overflow: hidden;
+}
 
 @media only screen and (max-width: 900px) {
   .nav_btn{

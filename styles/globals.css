@@ -39,6 +39,15 @@ body {
   
 
 }
+
+.list-group-item{
+  background-color: var(--second-background);
+  color: white;
+}
+.project_visuals{
+  border: 4px solid var(--second-background);
+  border-radius: 15px;
+}
 .body-color{
   background: var(--background-color);
   border-radius: 13px;
@@ -73,6 +82,10 @@ nav{
   height: 8vh;
   
 }
+.navbar-toggler:focus {
+  box-shadow: unset;
+}
+
 
 .navbar-brand{
   font-size: x-large;
@@ -159,7 +172,7 @@ footer{
   color: white;
   color: var(--font-color);
   border-radius: 15px;
-  
+  overflow: hidden;
   
 }
 
@@ -167,8 +180,8 @@ footer{
   background: #03031b8c;
 }
 .carousel-inner{
-  height: 240px;
-  background: var(--second-background);
+  /* height: 240px; */
+  /* background: var(--second-background); */
   overflow: hidden;
 }
 
@@ -179,7 +192,7 @@ footer{
   
   font-family: fira sans,sans-serif;
   color: white;
-  color: var(--font-color);
+  /* color: var(--font-color); */
   
 }
 .header-main{

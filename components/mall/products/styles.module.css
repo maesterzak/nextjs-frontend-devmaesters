@@ -1,0 +1,8 @@
+
+.product_tag{
+    padding: 5px;
+    background-color: var(--second-background);
+    color: white;
+    border-radius: 10px;
+    font-size: small;
+}

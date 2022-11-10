@@ -10,7 +10,7 @@ function NewPosts() {
     const {data, error} = useSWR('/api/blog/postlist', fetcher,{revalidateOnFocus:false})
     if (data) {
         const b = Object.values(data)[0].results
-        console.log(b.slice(0, 4))
+        
     }
     
     

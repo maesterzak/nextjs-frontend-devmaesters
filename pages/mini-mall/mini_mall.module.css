@@ -1,3 +1,19 @@
+.minimall_popup{
+    padding: 10px;
+    width: 300px;
+    height: 600px;
+}
+.product_tag{
+    padding: 5px;
+    background-color: var(--second-background);
+    color: white;
+    border-radius: 10px;
+    font-size: small;
+}
+.cart_header{
+    background: var(--card-header-color);
+    color: white;
+}
 .body{
     padding: 5% 5% 5% 5%;
     background: white;
@@ -49,6 +65,11 @@
         
 }
 @media only screen and (max-width: 899px){
+    .minimall_popup{
+        
+        width: 80vw;
+        height: 600px;
+    }
     .header_text{
         font-size: large;
         font-weight: bolder;

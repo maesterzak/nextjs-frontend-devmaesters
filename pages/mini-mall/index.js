@@ -2,16 +2,17 @@ import styles from './mini_mall.module.css'
 
 import { useRouter } from 'next/router'
 import Head from "next/head";
-import { Popover, Button, Text, Grid } from "@nextui-org/react";
+import { Popover, Button, Text, Grid, Divider, Link } from "@nextui-org/react";
 import Navbar from '../../components/navbar/Navbar'
 import { Card, Row } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faSearch, faTag, faUserCheck } from "@fortawesome/free-solid-svg-icons";
 
-import { faDiscourse } from '@fortawesome/free-brands-svg-icons'
+import { faDashcube, faDiscourse } from '@fortawesome/free-brands-svg-icons'
 import NewPosts from '../../components/blog_components/posts/latestposts';
 import { Image } from "@nextui-org/react";
 import NewThreads from '../../components/blog_components/posts/latestthreads';
+import Products from '../../components/mall/products';
 
 
 const MiniMall = () => {
@@ -69,7 +70,10 @@ const MiniMall = () => {
         <title>Mini-Mall | DEVMAESTERS</title>
         <meta name="description" content="Welcome to devmaesters.com we offer free programming tips,tutorials, tricks and coding support." />
         <meta name="keywords" content="programming, nextjs, reactjs, coding, websites, python tutorials, prisma, graphql, django, django rest framework" />
-        <link rel="icon" href="/favicon1.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/newlogo/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/newlogo/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/newlogo/favicon-16x16.png"/>
+        <link rel="manifest" href="/site.webmanifest"/>
         
         <meta
           name="viewport"
@@ -119,34 +123,11 @@ const MiniMall = () => {
 
             </div> */}
           
+            <Products />
+
             
 
-            <Grid.Container gap={1} justify="flex-start">
-      {list.map((item, index) => (
-        <Grid xs={12} sm={6} md={6}  key={index}>
-          <Card isHoverable isPressable>
-            <Card.Body css={{ p: 0 }}>
-              <Card.Image
-                autoResize
-                src={'/images/home_images/tutorial.png'}
-                maxDelay={10000}
-                alt={item.title}
-              />
-            </Card.Body>
-            <Card.Footer css={{ justifyItems: "flex-start" }}>
-              <Row wrap="wrap" justify="space-between" align="center">
-                <Text b>Django on vercel with ckeditor</Text>
-                <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
-                  {item.price}
-                </Text>
-              </Row>
-            </Card.Footer>
-          </Card>
-        </Grid>
-      ))}
-    </Grid.Container>
-
-    <button className='button w-100 btn'>Load more</button>
+    
     <div className={`row mt-3 g-0 ${styles.bottomNav} d-flex justify-content-center`}>
       <div className='col-10 col-md-5 card p-2'>
         <div className='row g-0'>
@@ -154,7 +135,7 @@ const MiniMall = () => {
             <FontAwesomeIcon className={`${styles.fontawesome}`}   size={"1x"}  icon={faTag} />
           </div>
           <div className='col-3 d-flex justify-content-center align-items-center'>
-          <FontAwesomeIcon className={`${styles.fontawesome}`}   size={"1x"}  icon={faDiscourse} />
+          <FontAwesomeIcon className={`${styles.fontawesome}`}   size={"1x"}  icon={faDashcube} />
           </div>
           <div className='col-3 d-flex justify-content-center align-items-center'>
           <FontAwesomeIcon className={`${styles.fontawesome}`}   size={"1x"}  icon={faSearch} />
@@ -167,10 +148,47 @@ const MiniMall = () => {
 
           </div>
             </Popover.Trigger>
-            <Popover.Content>
-              <Text css={{ p: "$10" }}>
-                This is the content of the popover.
-              </Text>
+            <Popover.Content className={`${styles.minimall_popup}`} >
+              <h4 className={`text-center ${styles.cart_header}`}>
+                Cart
+              </h4>
+              <Grid.Container gap={1} justify="flex-start">
+      {list.map((item, index) => (
+        <Grid xs={12} sm={12} md={12}  key={index}>
+          <Card isHoverable isPressable>
+            <Card.Body css={{ p: 0 }}>
+              {/* <Card.Image
+                autoResize
+                src={'/images/home_images/tutorial.png'}
+                maxDelay={10000}
+                alt={item.name}
+              /> */}
+              
+            </Card.Body>
+            <Card.Footer css={{ justifyItems: "flex-start" }}>
+              <Row wrap="wrap" justify="space-between" align="space-between">
+                <Text b>{item.title}</Text>
+                <Text  css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm", display:"flex", justifyContent:"space-between", width:"stretch", alignItems:"center" }}>
+                  <span>${item.price} </span><button  className={`btn rounded-circle`}><FontAwesomeIcon className={`${styles.fontawesome}`}   size={"1x"}  icon={faCartPlus} /></button>
+                </Text>
+                <Divider />
+                <h6>technologies</h6><Divider />
+                
+                <div className={`${styles.product_tag}`}>Django</div><div className={`${styles.product_tag}`}>Ckeditor</div><div className={`${styles.product_tag}`}>Vercel</div>
+                
+              </Row>
+              
+              
+            </Card.Footer>
+          </Card>
+        </Grid>
+      ))}
+      <Divider />
+      <div className={`position-sticky bottom-0 mt-3 w-100 p-1  ${styles.cart_header}`}>
+      <Text css={{p:"$10", color:"White"}} b>Total: $3000</Text><Link href={'/mini-mall/checkout'} className='active-btn btn '>Checkout</Link>
+      </div>
+      
+    </Grid.Container>
             </Popover.Content>
           </Popover>
           

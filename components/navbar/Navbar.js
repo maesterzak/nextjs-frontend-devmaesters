@@ -219,8 +219,9 @@ const Navbar = (props) => {
             
             </a>
            <div className="d-flex align-items-center">
-            <FontAwesomeIcon onClick={themeHandler} className={theme ? 'faSun':'faMoon' } size={'1x'} icon={theme  ? faSun:faMoon} />
-            
+             <div className="d-md-none">
+            <FontAwesomeIcon onClick={themeHandler} className={theme ? 'faSun':'faMoon' } size={'lg'} icon={theme  ? faSun:faMoon} />
+            </div>
             <button
               onClick={ToggleNavbar}
               className="navbar-toggler"
@@ -233,7 +234,8 @@ const Navbar = (props) => {
             >
               {/* <span class="navbar-toggler-icon"></span> */}
               <FontAwesomeIcon
-                size={"1x"}
+                
+                size={"lg"}
                 color="white"
                 icon={navbar ? faTimes : faBars}
               />
@@ -262,7 +264,22 @@ const Navbar = (props) => {
                   <a className={props.loc ==="about" ? "nav-link active":"nav-link"}>About</a>
                 </Link>
               </div>
-              <div >
+              <div className="d-md-none">
+              {isAuthenticated ? 
+              
+                authlink 
+                :
+              
+                guest 
+              
+            }
+            </div>  
+              
+            </div>
+
+            <div className="d-none d-md-block">
+            <div className="d-flex align-items-center gap-2">  
+            <FontAwesomeIcon onClick={themeHandler} className={theme ? 'faSun':'faMoon' } size={'lg'} icon={theme  ? faSun:faMoon} />
               {isAuthenticated ? 
               
                 authlink 
@@ -272,8 +289,7 @@ const Navbar = (props) => {
               
             }
             </div>
-            </div>
-            
+            </div>            
             {/* <form method="post" className="d-flex" onSubmit={searchForm}>
               <input
                 id="searchform"
