@@ -179,7 +179,7 @@ function PortfolioProject({ project, orig }) {
                       <div className="row">
                       <div className="col-12 col-md-6">
                       <h2 className="h5">Stack</h2>
-                      <div>{proj.stack}</div>
+                      <p>{proj.stack}</p>
                       <h2 className="h5 mt-1">Description</h2>
                       <div
                         dangerouslySetInnerHTML={{
