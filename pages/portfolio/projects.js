@@ -126,8 +126,8 @@ function PortfolioProject({ project, orig }) {
         </div>
 
         <main>
-          <div className="card">
-            <div className="card-header header-main">Projects</div>
+          {/* <div className="card">
+            <div className="card-header header-main">Projects</div> */}
             {/* <div>
               <ul className="d-flex flex-wrap">
                 {project.skills.map((item, index)=>{
@@ -285,7 +285,7 @@ function PortfolioProject({ project, orig }) {
                 );
               })}
             </div>
-          </div>
+          {/* </div> */}
 
           
 
