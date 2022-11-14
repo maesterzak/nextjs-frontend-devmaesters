@@ -64,6 +64,7 @@ const MiniMall = () => {
           price: "$12.20",
         },
       ];
+      console.log("hello")
     return (
         <>
         <Head>

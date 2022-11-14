@@ -1,6 +1,9 @@
 
 
-
+.card_body{
+  padding: 0 !important;
+  margin-top: 15px;
+}
 .contact_links_icon {
   color: #FFA000;
   /* text-shadow: #7b1fa2 3px 3px 3px; */
@@ -32,9 +35,9 @@
 }
 
 .projectTagWrapper{
-  width: 30px;
+  width: 22px;
   border-radius: 50%;
-  height: 30px;
+  height: 22px;
   
   overflow: hidden;
 }

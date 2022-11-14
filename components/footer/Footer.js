@@ -15,79 +15,12 @@ function Footer(){
         <footer>
             <div className=''>
                 <h2 className="text-center mb-2 text-light site-title">DEVMAESTERS</h2>
-                <div className="d-flex justify-content-center mb-5">
                 
-
-                </div>
                 <div className="row g-0">
-                    <div className="col-12 col-md-2 mb-3">
-                        <h4 className="text-center text-light">Quick links</h4>
-                        <ul className="d-grid justify-content-center">
-                            <li className="text-light">Home</li>
-                            <li className="text-light">Blog</li>
-                            <li className="text-light">Mini Mall</li>
-                            <li className="text-light">Portfolio</li>
-                            <li className="text-light">About</li>
-                        </ul>
-                    </div>
 
                 
-                <div className="col-12 col-md-3 d-grid justify-content-center mb-3">
-                    <h4 className="text-light text-center">Services </h4>
-                    <ul className="text-light">
-                        
-                        <li className="text-light">Frontend Development</li>
-                        <li className="text-light">Backend Development</li>
-                        <li className="text-light">Full Website Development</li>
-                        <li className="text-light">Bootstrap Website upgrades</li>
-                        {/* <li>Mobile App Development</li>
-                        
-                        <li>Website Selling</li> */}
-                        <li className="text-light">Website Debbugging</li>
-                        <li className="text-light">Website Hosting & deployment</li>
-                    </ul>
-                    <div className="d-flex justify-content-center">
-                        <button disabled className="btn button">Hire Me</button>
-                    </div>
-                </div>
-                
-                <div id="contact"  className="col-12 col-md-4 d-grid justify-content-center mb-3">
-                    <h5 className="text-light text-center">Contact</h5>
-                    <div className="text-light">
-                        <span className="text-light">Interested in hiring me or collaborating with me on a project, </span>
-                        <span className="text-light">click on any of the links below to get my social media handle, </span>
-                        <span className="text-light">or contact me via;</span>
-                        <ul className="text-light">
-                            <li className="text-light">tel: +2348062257480</li>
-                            <li className="text-light">Email: abubakarzakari1703@gmail.com</li>
 
-                        </ul>
-                        <div className="d-flex justify-content-between  w-75">
-                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
-                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faTwitterSquare} />
-                            </button>
-                            <button className='btn p-0 m-0' onClick={() => router.push('https://web.facebook.com/devmaesters/')} >
-                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faFacebookSquare} />
-                            </button>
-                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
-                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faLinkedin} />
-                            </button>
-                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
-                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faInstagramSquare} />
-                            </button>
-                            <button className='btn p-0 m-0' onClick={() => router.push('https://api.whatsapp.com/send?phone=+2348062257480')} >
-                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faWhatsappSquare} />
-                            </button>
-                            
-                        
-                        </div>
-                        <br />
-                        <span>Checkout my <span><Link href={'/portfolio'}>Portfolio</Link></span> to see my past projects</span>
-                        
-                    </div>
-                </div>
-
-                <div className="col-12 col-md-3 mb-3">
+                <div className="col-12 col-md-4 mb-3">
                     <h4 className="text-center text-light">Newsletter</h4>
                     <form>
                     <div className=" d-flex justify-content-center">
@@ -99,6 +32,56 @@ function Footer(){
                     </form>
 
                 </div>
+
+                    
+
+                
+                <div className="col-12 col-md-4 mb-3">
+                    <h4 className="text-light r">Services </h4>
+                    <div className="">
+                        
+                        <span className="text-light p-2">Frontend Development</span> |
+                        <span className="text-light p-2">Backend Development</span> |
+                        <span className="text-light p-2">Full Website Development</span> | 
+                        <span className="text-light p-2">Bootstrap Website upgrades</span> | 
+                        {/* <li>Mobile App Development</li>
+                        
+                        <li>Website Selling</li> */}
+                        <span className="text-light"> Website Debbugging</span> | 
+                        <span className="text-light"> Website Hosting & deployment</span>
+                    </div>
+                    <div className="d-flex justify-content-center">
+                        <button disabled className="btn button">Hire Me</button>
+                    </div>
+                </div>
+
+                <div className="col-12 col-md-4 mb-3">
+                        <h4 className=" text-light">Contact</h4>
+                        <p className="text-light">Interested in hiring me or collaborating with me on a project, click on any of the links below to get my social media handle</p>
+                        <div className="d-flex  w-75">
+                            <button disabled className='btn p-1 m-0' onClick={() => router.push('/')} >
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faTwitterSquare} />
+                            </button>
+                            <button className='btn p-1 m-0' onClick={() => router.push('https://web.facebook.com/devmaesters/')} >
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faFacebookSquare} />
+                            </button>
+                            <button disabled className='btn p-1 m-0' onClick={() => router.push('/')} >
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faLinkedin} />
+                            </button>
+                            <button disabled className='btn p-1 m-0' onClick={() => router.push('/')} >
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faInstagramSquare} />
+                            </button>
+                            <button className='btn p-1 m-0' onClick={() => router.push('https://api.whatsapp.com/send?phone=+2348062257480')} >
+                                <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faWhatsappSquare} />
+                            </button>
+                            
+                        
+                        </div>
+                        <p className="text-light">Or contact me via  Tel: (+234)-806-225-7480 | Email: abubakarzakari1703@gmail.com</p>
+                        
+                    </div>
+                
+                
                 </div>
                 <div className="row mt-3">
                     <div className="col-2 col-md-2 d-flex align-items-end justify-content-center">

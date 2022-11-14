@@ -50,7 +50,8 @@ body {
 }
 .body-color{
   background: var(--background-color);
-  border-radius: 13px;
+  /* border-radius: 13px; */
+  text-align: center;
   color: var(--font-color);
 }
 .home_img{
@@ -73,6 +74,9 @@ body {
 }
 .faMoon:hover{
   color:var(--link-color) ;
+}
+.about-list{
+  padding: 0;
 }
 nav{
   background: #03031b;
@@ -228,7 +232,7 @@ a .btn{
   
   color: #FFA000;
   color:var(--button-color) ;
-  
+  background: white;
   border: solid 2px var(--button-color) ;
   
 }

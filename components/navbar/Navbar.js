@@ -251,12 +251,12 @@ const Navbar = (props) => {
                 <Link href="/blog">
                   <a className={props.loc ==="blog" ? "nav-link active":"nav-link"}>Blog</a>
                 </Link>
-                <Link href="/mini-mall">
+                {/* <Link href="/mini-mall">
                   <a className={props.loc ==="mini-mall" ? "nav-link active":"nav-link"}>Mini-Mall</a>
-                </Link>
-                <Link href="/online-solver">
+                </Link> */}
+                {/* <Link href="/online-solver">
                   <a className={props.loc ==="online-solver" ? "nav-link active":"nav-link"}>Online-Solver</a>
-                </Link>
+                </Link> */}
                 <Link href="/portfolio">
                   <a className={props.loc ==="portfolio" ? "nav-link active":"nav-link"}>Portfolio</a>
                 </Link>

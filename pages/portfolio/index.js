@@ -9,7 +9,7 @@ import {
   
 } from "@fortawesome/free-solid-svg-icons";
 
-import { API_URL, NEXT_MODE } from "../../config";
+import { API_URL, NEXT_MODE, CV_URL } from "../../config";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Head from "next/head";
 import { Image } from "@nextui-org/react";
@@ -106,12 +106,12 @@ function PortfolioIndex() {
             </div>
 
             <div className="d-flex justify-content-center mt-1">
-              <Link href={"https://mega.nz/file/a6wCQIiQ#E8N2qgicpdY6QsPWrxFEt-lnJf35D6xRaKwE81CGgzw"} passHref>
+              <a href={`https://mega.nz/file/OiAnARBD#870KPNt-GSqRxPsh7ehg890sDpjhcWy7q2Bh1doljdE`} passHref>
                 <button className={`btn button`}>
                   Download cv{" "}
                   <FontAwesomeIcon size={"1x"} icon={faFileDownload} />
                 </button>
-              </Link>
+              </a>
               <Link href={"https://github.com/maesterzak"} passHref>
                 <button className={`btn button`}>
                   My Github <FontAwesomeIcon size={"1x"} icon={faGithub} />

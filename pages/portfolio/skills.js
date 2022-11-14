@@ -87,7 +87,7 @@ function PortfolioSkills({ skills, orig }) {
           <div className="card-header">
             <h4>Skills</h4>
           </div>
-          <div className="card-body">
+          <div className={`${styles.card_body} card-body`}>
             <div className="row">
               {/* <div className="col-5 col-md-2">
                 <div className="card mb-3">
@@ -104,7 +104,7 @@ function PortfolioSkills({ skills, orig }) {
                 </div>
               </div> */}
 
-              <div className="col-5 col-md-2">
+              {/* <div className="col-5 col-md-2">
                 <div className="card mb-3">
                   <div className={`card-header body-color`}>
                     Css
@@ -117,10 +117,10 @@ function PortfolioSkills({ skills, orig }) {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               
-              <div className="col-5 col-md-2">
+              {/* <div className="col-5 col-md-2">
                 <div className="card mb-3">
                   <div className={`card-header body-color`}>
                     Bootstrap
@@ -133,9 +133,9 @@ function PortfolioSkills({ skills, orig }) {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="col-5 col-md-2">
+              {/* <div className="col-5 col-md-2">
                 <div className="card mb-3">
                   <div className={`card-header body-color`}>
                     Html
@@ -148,21 +148,21 @@ function PortfolioSkills({ skills, orig }) {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               
               {skills.map(function(skill, id){
                 return(
-                  <div className="col-5 col-md-2 " key={id}>
+                  <div className="col-4 col-md-2 " key={id}>
                 <div className="card mb-3">
-                  <div className={`card-header body-color`}>
+                  <div className={` body-color`}>
                     {skill.name}
                   </div>
                   <div className={`card-body d-flex justify-content-center body-color`}>
                   <Image
                           alt="skill_image"
-                          width={"100%"}
-                          height={"100%"}
+                          width={"100"}
+                          height={"100"}
                           
                           layout="fixed"
                           src={`${orig + skill.svg_image}`}

@@ -140,7 +140,7 @@ function PortfolioProject({ project, orig }) {
                 })}
               </ul>
             </div> */}
-            <div className="card-body">
+            <div className={`${styles.card_body} card-body`}>
               
               {projectList?.map(function (proj, id) {
                 return (
@@ -175,7 +175,7 @@ function PortfolioProject({ project, orig }) {
                     </div>
                     
                     
-                    <div className="card-body">
+                    <div className={` card-body`}>
                       <div className="row">
                       <div className="col-12 col-md-6">
                       <h2 className="h5">Stack</h2>
