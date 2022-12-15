@@ -196,7 +196,7 @@ footer{
   
   font-family: fira sans,sans-serif;
   color: white;
-  /* color: var(--font-color); */
+  color: var(--font-color);
   
 }
 .header-main{
