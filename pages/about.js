@@ -10,24 +10,26 @@ function Aboutus() {
     return (
     <>
     <Head>
-        <title>devMaesters | About Page</title>
+        <title>About Page | DEVMAESTERS</title>
         <meta
           name="description"
           content="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
         for asking questions(threads)"
         />
+        <meta property='og:title' content='DEVMAESTERS ABOUT PAGE'/>
+        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
     </Head>
     <div style={{"minHeight":"100vh"}}>
         <Navbar loc="about"/>
         <br />
         <div className={`container about_container`}>
-            <h4 className='text-center p-3'>About Site</h4>
-            <div className='p-3 row d-flex justify-content-center'>
-                <div className='col-10 col-lg-7'>
+            <h4 className='text-center'>About Site</h4>
+            <div className='row d-flex justify-content-center'>
+                <div className='col-10 col-lg-8'>
                     <p>
                         At devMaesters we offer;
                     </p>
-                    <ul>
+                    <ul className='about-list'>
                             <li><b>devMaesters Blog</b> for free programming hints, tricks and tutorials on various programming 
                         languages and frameworks.</li>
                         <li><b>devMaesters Mini-Mall</b> to purchase and sell various software related products.</li>
@@ -37,7 +39,7 @@ function Aboutus() {
                 </div>
             </div>
             <h4 className='text-center'>About Stack</h4>
-            <div className='p-3 row d-flex justify-content-center'>
+            <div className='row d-flex justify-content-center'>
                 
                     <div className='col-11 col-lg-7'>
                         <span className='text-center'> devMaesters was designed and developed by Abubakar Zakari(maesterzak)
@@ -52,10 +54,10 @@ function Aboutus() {
                 
             </div>
             <h4 className='text-center'>About Me</h4>
-            <div className='row d-flex justify-content-center p-3'>
+            <div className='row d-flex justify-content-center '>
                 <div className='col-11 col-lg-7'>
                     <div className='row'>
-                <div className='col-12 col-lg-9 p-3 d-flex align-items-center justify-content-center'>
+                <div className='col-12 col-lg-9 d-flex align-items-center justify-content-center'>
                     <span> Hello, my name is Abubakar Zakari. I am a budding fullstack 
           developer from Nigeria who loves developing softwares and learning new frameworks and langauges. Check out my <span style={{"color":"blue"}}><Link  href={'/portfolio'}>Portfolio</Link></span> site to see my skills, projects
           and contact information. </span>

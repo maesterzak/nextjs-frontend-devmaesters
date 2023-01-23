@@ -14,65 +14,74 @@ function Footer(){
     return(
         <footer>
             <div className=''>
-                <h2 className="text-center mb-2 site-title">DEVMAESTERS</h2>
-                <div className="d-flex justify-content-center mb-5">
-                {/* <button className="btn button">Hire Me</button> */}
-
-                </div>
+                <h2 className="text-center mb-2 text-light site-title">DEVMAESTERS</h2>
+                
                 <div className="row g-0">
 
                 
-                <div id="services" className="col-12 col-md-6 d-grid justify-content-center">
-                    <h4 className="text-light text-center">Services </h4>
-                    <ul className="text-light">
+
+                <div className="col-12 col-md-4 mb-3">
+                    <h4 className="text-center text-light">Newsletter</h4>
+                    <form>
+                    <div className=" d-flex justify-content-center">
+              <input className="form-control w-75 mb-3" placeholder="enter email" />
+              </div>
+              <div className="d-flex justify-content-center">
+                  <button disabled className="button btn">Subscribe</button>
+              </div>
+                    </form>
+
+                </div>
+
+                    
+
+                
+                <div className="col-12 col-md-4 mb-3">
+                    <h4 className="text-light r">Services </h4>
+                    <div className="">
                         
-                        <li>Frontend Development</li>
-                        <li>Backend Development</li>
-                        <li>Full Website Development</li>
-                        <li>Bootstrap Website upgrades</li>
+                        <span className="text-light p-2">Frontend Development</span> |
+                        <span className="text-light p-2">Backend Development</span> |
+                        <span className="text-light p-2">Full Website Development</span> | 
+                        <span className="text-light p-2">Bootstrap Website upgrades</span> | 
                         {/* <li>Mobile App Development</li>
                         
                         <li>Website Selling</li> */}
-                        <li>Website Debbugging</li>
-                        <li>Website Hosting & deployment</li>
-                    </ul>
+                        <span className="text-light"> Website Debbugging</span> | 
+                        <span className="text-light"> Website Hosting & deployment</span>
+                    </div>
+                    <div className="d-flex justify-content-center">
+                        <button disabled className="btn button">Hire Me</button>
+                    </div>
                 </div>
-                
-                <div id="contact"  className="col-12 col-md-4 d-grid justify-content-center">
-                    <h5 className="text-light text-center">Contact</h5>
-                    <div className="text-light">
-                        <span>Interested in hiring me or collaborating with me on a project, </span>
-                        <span>click on any of the links below to get my social media handle, </span>
-                        <span>or contact me via;</span>
-                        <ul>
-                            <li>tel: +2348062257480</li>
-                            <li>Email: abubakarzakari1703@gmail.com</li>
 
-                        </ul>
-                        <div className="d-flex justify-content-between  w-75">
-                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
+                <div className="col-12 col-md-4 mb-3">
+                        <h4 className=" text-light">Contact</h4>
+                        <p className="text-light">Interested in hiring me or collaborating with me on a project, click on any of the links below to get my social media handle</p>
+                        <div className="d-flex  w-75">
+                            <button disabled className='btn p-1 m-0' onClick={() => router.push('/')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faTwitterSquare} />
                             </button>
-                            <button className='btn p-0 m-0' onClick={() => router.push('https://web.facebook.com/devmaesters/')} >
+                            <button className='btn p-1 m-0' onClick={() => router.push('https://web.facebook.com/devmaesters/')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faFacebookSquare} />
                             </button>
-                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
+                            <button disabled className='btn p-1 m-0' onClick={() => router.push('/')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faLinkedin} />
                             </button>
-                            <button disabled className='btn p-0 m-0' onClick={() => router.push('/')} >
+                            <button disabled className='btn p-1 m-0' onClick={() => router.push('/')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faInstagramSquare} />
                             </button>
-                            <button className='btn p-0 m-0' onClick={() => router.push('https://api.whatsapp.com/send?phone=+2348062257480')} >
+                            <button className='btn p-1 m-0' onClick={() => router.push('https://api.whatsapp.com/send?phone=+2348062257480')} >
                                 <FontAwesomeIcon style={{"color":"white"}}  size={"3x"}  icon={faWhatsappSquare} />
                             </button>
                             
                         
                         </div>
-                        <br />
-                        <span>Checkout my <span><Link href={'/portfolio'}>Portfolio</Link></span> to see my past projects</span>
+                        <p className="text-light">Or contact me via  Tel: (+234)-806-225-7480 | Email: abubakarzakari1703@gmail.com</p>
                         
                     </div>
-                </div>
+                
+                
                 </div>
                 <div className="row mt-3">
                     <div className="col-2 col-md-2 d-flex align-items-end justify-content-center">

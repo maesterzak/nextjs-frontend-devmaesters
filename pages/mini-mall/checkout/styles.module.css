@@ -1,0 +1,18 @@
+.checkout{
+    /* height: 85vh; */
+    
+}
+
+.cart{
+    /* height: 85vh; */
+    /* overflow-y: auto; */
+    
+}
+
+.product_tag{
+    padding: 5px;
+    background-color: var(--second-background);
+    color: white;
+    border-radius: 10px;
+    font-size: small;
+}

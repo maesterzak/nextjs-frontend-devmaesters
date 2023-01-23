@@ -17,11 +17,11 @@ import Author from "../../components/blog_components/aurthor/Author";
 import CommentForm from "../../components/blog_components/comment/CommentForm";
 import CommentList from "../../components/blog_components/comment/CommentList";
 import Image from "next/image";
-
+import SimilarContent from "../../components/blog_components/similar_content";
 
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${API_URL}/blog/posts/`);
+  const res = await fetch(`${API_URL}/blog/all-posts/`);
   const data = await res.json();
 
   const paths = data.map((post) => {
@@ -36,6 +36,7 @@ export const getStaticPaths = async () => {
 };
 
 export async function getStaticProps(context) {
+  
   const id = context.params.id;
   const url = `${API_URL}/blog/post-detail/` + id + "/";
 
@@ -46,7 +47,7 @@ export async function getStaticProps(context) {
   } else if (`${NEXT_MODE}` == "PROD") {
     var orig = "";
   }
-
+  
   return {
     props: { orig: orig, url: url, res: res },
   };
@@ -69,18 +70,25 @@ function Post_detail({ url, orig, res }) {
     fallbackData: res,
     revalidateOnFocus: false,
   });
-
+  
   const sanitizer = dompurify.sanitize;
-
+  
   if (error) return <>{error}</>;
+  const post = data.post ?? ''
+  
+  
   return (
     <>
-      {data ? (
+      {post ? (
         <>
           <Head>
-            <title>{data.title}</title>
+            <title>{post.title}</title>
 
-            <meta name="description" content={sanitizer(truncate(data.body))} />
+            <meta name="description" content={sanitizer(truncate(post.body))} />
+            <meta property='og:title' content={post.title}/>
+            
+            <meta property='og:description' content={sanitizer(post.summary)}/>
+            
           </Head>
           <div>
             <Navbar loc="blog" />
@@ -95,7 +103,7 @@ function Post_detail({ url, orig, res }) {
                   <div className={`row g-0 `}>
                     <article className="card p-2">
                     
-                      <h1 className="h2 mb-3">{data.title}</h1>
+                      <h1 className="h2 mb-3">{post.title}</h1>
                       {/* {data.image? 
                     <Image 
                       layout="responsive"
@@ -107,17 +115,17 @@ function Post_detail({ url, orig, res }) {
                       <div
                         className="card-body p-0"
                         dangerouslySetInnerHTML={{
-                          __html: sanitizer(data.body),
+                          __html: sanitizer(post.body),
                         }}
                       ></div>
                       <div className="mt-2">
-                      {data.video ? (
+                      {post.video ? (
                         <div className="mt-3 mb-2">
                           <div className="row g-0 d-flex justify-content-center">
                             
                             <div className="col-12 col-md-10">
                             <iframe className="post-video "
-                            src={`${data.video}`}>
+                            src={`${post.video}`}>
                             </iframe>
                             </div>
                           </div>
@@ -131,9 +139,13 @@ function Post_detail({ url, orig, res }) {
                       
                     </article>
 
-                    <Author data={data} orig={orig} />
-                    <CommentForm data={data} url={url} />
-                    <CommentList data={data} orig={orig} />
+                    
+
+                    <Author data={post.author} orig={orig} />
+                    <CommentForm data={post} url={url} />
+                    <CommentList data={post.posts_comments} orig={orig} />
+                    {data.similar_post.length === 0  ? '':
+                    <SimilarContent data= {data.similar_post} /> }
                   </div>
                 </main>
                 <aside className="col-12 col-md-4 col-lg-3">
@@ -145,7 +157,7 @@ function Post_detail({ url, orig, res }) {
                           {data.tags?.map(function (tag, id) {
                             return (
                              
-                                <span className="me-1" key={id}> <a href="#">#</a>{tag}</span>
+                                <span className="me-1" key={id}> <a href="#">#</a>{tag.name}</span>
                             
                             );
                           })}
@@ -159,7 +171,7 @@ function Post_detail({ url, orig, res }) {
                   </div>
 
                   <Categories />
-                  <TrendingPosts orig={orig} />
+                  {/* <TrendingPosts orig={orig} /> */}
                   <CreateThread />
                 </aside>
               </div>

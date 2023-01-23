@@ -1,0 +1,12 @@
+
+.mainColor{
+    background: var(--second-background);
+}
+.secColor{
+    background: var(--background-color);
+}
+.list{
+    list-style: none;
+    
+    
+}

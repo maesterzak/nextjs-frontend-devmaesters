@@ -28,7 +28,7 @@ export const getStaticPaths = async () => {
 export async function getStaticProps(context) {
   const name = context.params.name;
 
-  const url = `${API_URL}/blog/categories-paginated-posts/` + name;
+  const url = `${API_URL}/blog/category-posts/` + name;
   if (`${NEXT_MODE}` == "DEV") {
     var orig = `${API_URL}`;
   } else if (`${NEXT_MODE}` == "PROD") {
@@ -45,12 +45,16 @@ function Category_list({ name, url, orig }) {
   return (
     <>
       <Head>
-        <title>category- {name}</title>
+        <title>{name} | DEVMAESTERS</title>
         <meta name="keywords" content={name} />
         <meta
           name="description"
           content="This page offers a list of all the posts we have under..."
         />
+        <meta property='og:title' content={name}/>
+       
+        
+        
       </Head>
       <div>
         <Navbar loc="blog" />
@@ -63,7 +67,7 @@ function Category_list({ name, url, orig }) {
 
             <aside className="col-12 col-md-4 col-lg-3 mb-3">
               <Categories />
-              <TrendingPosts orig={orig} />
+              {/* <TrendingPosts orig={orig} /> */}
               <CreateThread />
             </aside>
           </div>

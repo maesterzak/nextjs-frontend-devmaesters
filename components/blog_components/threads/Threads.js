@@ -15,31 +15,68 @@ function Threads(){
     const fetcher = (...args) =>
     fetch(...args).then((response) => response.json());
 
-  const {data:data1, error:error1} = useSWR('/api/blog/threadlist', fetcher,{revalidateOnFocus:false})
+  // const {data:data1, error:error1} = useSWR('/api/blog/threadlist', fetcher,{revalidateOnFocus:false})
   
-  const threads = data1 ? data1.data: []
-  const size_page = 8;
+  // const threads = data1 ? data1.data: []
+  // const size_page = 8;
 
+  // const {
+  //   data,
+  //   error,
+  //   size,
+  //   setSize,
+  // } = useSWRInfinite(
+  //   (index) =>
+  //     `${API_URL}/blog/paginated_threads/?ps=${size_page}&p=${index + 1}`,
+  //   fetcher,
+  //   { revalidateOnFocus: false }
+  // );
+  // if (error) return <>{error}</>
+  // if(!data) return <>Loading</>
+  // const p_threads = data ? [].concat(...data) : [];
+  //   console.log('dd', p_threads)
+  // const isLoadingInitialData2 = !data && !error;
+  // const isLoadingMore2 =
+  //   isLoadingInitialData2 ||
+  //   (size > 0 && data && typeof p_threads[0].result[size - 1] === "undefined");
+  // const isEmpty2 = p_threads[0].result?.[0]?.length === 0;
+  // const isReachingEnd2 = isEmpty2 || data.count <= p_threads[0].result.length;
+
+  const page_limit = 8;
+   
   const {
-    data: data2,
-    error: error2,
-    size: size2,
-    setSize: setSize2,
+    data,
+    error,
+
+    size,
+    setSize,
+    isValidating
   } = useSWRInfinite(
-    (index) =>
-      `${API_URL}/blog/paginated_threads/?ps=${size_page}&p=${index + 1}`,
+    (index) => `${API_URL}/blog/threads?page=${index + 1}&limit=${page_limit}`,
     fetcher,
-    { fallbackdata: threads, revalidateOnFocus: false }
+    { revalidateOnFocus: false }
+    
   );
+  if (error) return <>{error}</>
+  if(!data) return <>Loading</>
 
-  const p_threads = data2 ? [].concat(...data2) : [];
-
-  const isLoadingInitialData2 = !data2 && !error2;
-  const isLoadingMore2 =
-    isLoadingInitialData2 ||
-    (size2 > 0 && data2 && typeof data2[size2 - 1] === "undefined");
-  const isEmpty2 = data2?.[0]?.length === 0;
-  const isReachingEnd2 = isEmpty2 || threads.length <= p_threads.length;
+  const threads = data?.map((item, index)=>{
+    return item.results
+  }).flat()
+    
+  
+  
+  const threadLength = threads?.length;
+  const totalThreads = data[0]?.count;
+  
+  
+  const isLoadingInitialData = !data && !error;
+  const isLoadingMore =
+    isLoadingInitialData || isValidating ||
+    (size > 0 && threads && typeof threads[size - 1] === "undefined");
+  const isEmpty = threadLength === 0;
+  const isReachingEnd = isEmpty || totalThreads  == threadLength;
+  
 
     return(
         <>
@@ -56,9 +93,9 @@ function Threads(){
                     </div>
 
                   <div className="card-body">
-                    {p_threads ? (
+                  {threads ? (
                       <>
-                        {p_threads.map(function (thread, id) {
+                        {threads.map(function (thread, id) {
                           return (
                             <article
                               key={id}
@@ -76,9 +113,9 @@ function Threads(){
                                     className="faComments"
                                     icon={faComment}
                                   />
-                                  <sup>
+                                  {/* <sup>
                                     {Object.keys(thread.thread_messages).length}
-                                  </sup>
+                                  </sup> */}
                                 </div>
                               </div>
                             </article>
@@ -94,12 +131,12 @@ function Threads(){
                     <div className="d-flex justify-content-center mb-3 mt-2">
                       <button
                         className={`btn button btn-md btn-block  w-100 `}
-                        disabled={isLoadingMore2 || isReachingEnd2}
-                        onClick={() => setSize2(size2 + 1)}
+                        disabled={isLoadingMore || isReachingEnd}
+                        onClick={() => setSize(size + 1)}
                       >
-                        {isLoadingMore2
+                        {isLoadingMore
                           ? "loading..."
-                          : isReachingEnd2
+                          : isReachingEnd
                           ? "No more threads"
                           : "load more"}
                       </button>

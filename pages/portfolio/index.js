@@ -2,16 +2,17 @@ import Navbar from "../../components/navbar/Navbar";
 
 import styles from "./portfolio.module.css";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFileDownload,
   
 } from "@fortawesome/free-solid-svg-icons";
 
-import { API_URL, NEXT_MODE } from "../../config";
+import { API_URL, NEXT_MODE, CV_URL } from "../../config";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Head from "next/head";
+import { Image } from "@nextui-org/react";
 
 
 if (`${NEXT_MODE}` == "DEV") {
@@ -32,6 +33,9 @@ function PortfolioIndex() {
           content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
           developer from Nigeria who loves developing softwares and learning new frameworks and langauges."
         />
+        <meta property='og:title' content='Abubakar Zakari'/>
+        <meta property='og:image' content='/images/owner_images/abubakar02.jpeg'/>
+        <meta property='og:description' content='This is my portfolio page within which you can access links to all my projects'/>
         
       </Head>
       <Navbar
@@ -72,22 +76,21 @@ function PortfolioIndex() {
 
 
         <div className="row">
-        <main className="col-12 col-md-9">
+        <main className={`col-12 col-md-9 ${styles.main}`}>
+        
           <div className="card mb-3 p-3">
             <div className="row d-flex justify-content-center mt-3">
               <div className="col-10 col-md-3">
               <div
                 className={`d-grid align-content-center  `}
               >
-                <Image
-                  width="100"
-                  height="100"
-                  
-                  layout="responsive"
-                  priority
-                  src={"/images/owner_images/abu_02.png"}
-                  alt="owner_image"
-                />
+                <Image   
+              showSkeleton
+              autoResize 
+              maxDelay={10000}
+              src="/images/owner_images/abubakar02.jpeg"
+              alt="Default Image"
+            />
               </div>
 
               </div>
@@ -103,12 +106,12 @@ function PortfolioIndex() {
             </div>
 
             <div className="d-flex justify-content-center mt-1">
-              <Link href={"https://mega.nz/file/a6wCQIiQ#E8N2qgicpdY6QsPWrxFEt-lnJf35D6xRaKwE81CGgzw"} passHref>
+              <a href={`https://mega.nz/file/OiAnARBD#870KPNt-GSqRxPsh7ehg890sDpjhcWy7q2Bh1doljdE`} passHref>
                 <button className={`btn button`}>
                   Download cv{" "}
                   <FontAwesomeIcon size={"1x"} icon={faFileDownload} />
                 </button>
-              </Link>
+              </a>
               <Link href={"https://github.com/maesterzak"} passHref>
                 <button className={`btn button`}>
                   My Github <FontAwesomeIcon size={"1x"} icon={faGithub} />
@@ -170,6 +173,9 @@ function PortfolioIndex() {
         </div>
 
       </div>
+
+      
+              
       
 
 

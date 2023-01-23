@@ -29,34 +29,34 @@ function Author(props){
                       width="100%"
                       height="100%"
                       layout="responsive"
-                      src={props.orig + props.data.author.profile_image}
+                      src={props.orig + props.data.profile_image}
                     />
 
                     </div>
                     <span dangerouslySetInnerHTML={{
-                          __html: sanitizer(props.data.author.about_me),
+                          __html: sanitizer(props.data.about_me),
                         }}></span>
                         <div className="col-12 d-flex align-items-end">
                         <div className="row g-0 w-100 d-flex justify-content-end align-self-end">
                           <div className="col-12 d-flex align-items-center justify-content-center ">
-                            {props.data.author.twitter ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.author.twitter}`)}>
+                            {props.data.twitter ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.twitter}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faTwitterSquare} />
                             </button>:''}
-                            {props.data.author.facebook ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.author.facebook}`)}>
+                            {props.data.facebook ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.facebook}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faFacebookSquare} />
                             </button>:''}
-                            {props.data.author.whatsapp ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`https://api.whatsapp.com/send?phone=${data.data.author.whatsapp}`)}>
+                            {props.data.whatsapp ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`https://api.whatsapp.com/send?phone=${data.data.whatsapp}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faWhatsappSquare} />
                             </button>:''}
-                            {props.data.author.linkdn ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.author.linkdn}`)}>
+                            {props.data.linkdn ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.linkdn}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faLinkedin} />
                             </button>:''}
-                            {props.data.author.instagram ?
-                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.author.instagram}`)}>
+                            {props.data.instagram ?
+                            <button className='btn button p-0 m-2' onClick={() => router.push(`${props.data.instagram}`)}>
                                 <FontAwesomeIcon   size={"2x"}  icon={faInstagramSquare} />
                             </button>:''}
                           </div>

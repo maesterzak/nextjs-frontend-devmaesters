@@ -3,7 +3,7 @@ import { API_URL } from "../../../config";
 
 const categories = async (req, res) => {
     if (req.method === 'GET') {
-        res.setHeader('Cache-Control', 's-maxage=3000')
+        res.setHeader('Cache-Control', 's-maxage=60000')
         try{
             
             const apiRes = await fetch (`${API_URL}/blog/categories/`)
