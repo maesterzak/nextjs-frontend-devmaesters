@@ -5,7 +5,6 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 
-
 import {
   faPython,
   faCss3,
@@ -46,48 +45,50 @@ function PortfolioSkills({ skills, orig }) {
           content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
           developer from Nigeria with skills in html, css, javascript, next.js, django, drf, bootstrap..."
         />
-        <meta property='og:title' content='Abubakar Zakari'/>
-        <meta property='og:image' content='/images/owner_images/abubakar02.jpeg'/>
-        <meta property='og:description' content='This is my portfolio page within which you can access links to all my projects'/>
+        <meta property="og:title" content="Abubakar Zakari" />
+        <meta
+          property="og:image"
+          content="/images/owner_images/abubakar02.jpeg"
+        />
+        <meta
+          property="og:description"
+          content="This is my portfolio page within which you can access links to all my projects"
+        />
       </Head>
 
       <Navbar loc="portfolio" />
 
       <div className="container mt-3">
-
-      <div>
-            <div className=" row d-flex justify-content-center mt-3 mb-3">
-              <div className="col-11 col-md-7 d-flex justify-content-between">
-                <Link href={"/portfolio"} passHref>
-                  <button
-                    className={`btn button ${styles.nav_btn}`}
-                  >
-                    Home
-                  </button>
-                </Link>
-                <Link href={"/portfolio/projects"} passHref>
-                  <button className={`btn button ${styles.nav_btn}`}>
-                    Projects
-                  </button>
-                </Link>
-                <Link href={"/portfolio/skills"} passHref>
-                  <button className={`btn active-btn ${styles.nav_btn}`}>
-                    Skills
-                  </button>
-                </Link>
-                <Link href={"/portfolio/contact"} passHref>
-                  <button className={`btn button ${styles.nav_btn}`}>
-                    Contact
-                  </button>
-                </Link>
-              </div>
+        <div>
+          <div className=" row shadow-lg p-3 g-0 d-flex justify-content-center mt-3 mb-5">
+            <div className="col-11 col-md-7 d-flex justify-content-between">
+              <Link href={"/portfolio"} passHref>
+                <button className={`btn button ${styles.nav_btn}`}>Home</button>
+              </Link>
+              <Link href={"/portfolio/projects"} passHref>
+                <button className={`btn button ${styles.nav_btn}`}>
+                  Projects
+                </button>
+              </Link>
+              <Link href={"/portfolio/skills"} passHref>
+                <button className={`btn active-btn ${styles.nav_btn}`}>
+                  Skills
+                </button>
+              </Link>
+              <Link href={"/portfolio/contact"} passHref>
+                <button className={`btn button ${styles.nav_btn}`}>
+                  Contact
+                </button>
+              </Link>
             </div>
           </div>
-        <main className="card mb-3">
-          <div className="card-header">
+        </div>
+        <main className="shadow-lg mb-3 ">
+          {/* <div className="card-header">
             <h4>Skills</h4>
-          </div>
-          <div className={`${styles.card_body} card-body`}>
+          </div> */}
+          <div className={` p-3`}>
+            <h4>Skills</h4>
             <div className="row">
               {/* <div className="col-5 col-md-2">
                 <div className="card mb-3">
@@ -119,7 +120,6 @@ function PortfolioSkills({ skills, orig }) {
                 </div>
               </div> */}
 
-              
               {/* <div className="col-5 col-md-2">
                 <div className="card mb-3">
                   <div className={`card-header body-color`}>
@@ -150,38 +150,30 @@ function PortfolioSkills({ skills, orig }) {
                 </div>
               </div> */}
 
-              
-              {skills.map(function(skill, id){
-                return(
+              {skills.map(function (skill, id) {
+                return (
                   <div className="col-4 col-md-2 " key={id}>
-                <div className="card mb-3">
-                  <div className={` body-color`}>
-                    {skill.name}
-                  </div>
-                  <div className={`card-body d-flex justify-content-center body-color`}>
-                  <Image
+                    <div className="card mb-3">
+                      <div className={` body-color`}>{skill.name}</div>
+                      <div
+                        className={`card-body d-flex justify-content-center body-color`}
+                      >
+                        <Image
                           alt="skill_image"
                           width={"100"}
                           height={"100"}
-                          
                           layout="fixed"
                           src={`${orig + skill.svg_image}`}
                         />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-                )
+                );
               })}
             </div>
-
           </div>
-
-
         </main>
-
       </div>
-      
     </>
   );
 }

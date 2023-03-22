@@ -1,24 +1,21 @@
-
-
-.card_body{
+.card_body {
   padding: 0 !important;
   margin-top: 15px;
 }
 .contact_links_icon {
-  color: #FFA000;
+  color: #ffa000;
   /* text-shadow: #7b1fa2 3px 3px 3px; */
-  
+
   margin-left: 6px;
   margin-right: 10px;
   cursor: pointer;
 }
-.main{
-  
+.main {
 }
 .tooltip {
   width: 4em;
   border-radius: 10px;
-  background: #FFA000;
+  background: #ffa000;
   color: white;
   right: -1em;
 }
@@ -27,23 +24,26 @@
 }
 .short_info {
   min-height: 5em;
-  
 }
 .project_vid {
   width: 100%;
   height: 100%;
 }
+.portfolioImgWrapper {
+  width: 50%;
+  height: auto;
+}
 
-.projectTagWrapper{
+.projectTagWrapper {
   width: 22px;
   border-radius: 50%;
   height: 22px;
-  
+
   overflow: hidden;
 }
 
 @media only screen and (max-width: 900px) {
-  .nav_btn{
+  .nav_btn {
     font-size: 13px;
     height: 30px;
     /* min-width: 20px; */
