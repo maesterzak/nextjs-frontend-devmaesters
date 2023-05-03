@@ -29,6 +29,7 @@
     "i": "^0.3.7",
     "isomorphic-dompurify": "^0.18.0",
     "next": "12.0.4",
+    "next-share": "^0.20.0",
     "next-sitemap": "^2.5.7",
     "next-themes": "^0.2.0",
     "npm": "^8.17.0",

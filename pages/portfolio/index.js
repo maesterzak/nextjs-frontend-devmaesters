@@ -99,7 +99,7 @@ function PortfolioIndex() {
 
               <div className="d-flex justify-content-center mt-1">
                 <a
-                  href={`https://mega.nz/file/OiAnARBD#870KPNt-GSqRxPsh7ehg890sDpjhcWy7q2Bh1doljdE`}
+                  href={`https://drive.google.com/file/d/1kvqY_KrmSBvS70gExasNUvmzS8u_8M4-/view?usp=share_link`}
                   passHref
                 >
                   <button className={`btn button`}>

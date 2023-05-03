@@ -75,7 +75,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:title" content="DEVMAESTERS HOME PAGE" />
         <meta
           property="og:image"
-          content="https://devmaesters.com/images/devmaesters-link-image.png"
+          content="https://devmaesters.com/images/home-2.png"
         />
         <meta
           property="og:description"
