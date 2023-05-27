@@ -3,7 +3,7 @@ export default function SingleAds() {
 
     return (
         <div className="card mb-3">
-            <ins class="adsbygoogle"
+            <ins className="adsbygoogle"
                 style="display:block"
                 data-ad-client="ca-pub-2931659559298094"
                 data-ad-slot="7891222837"
