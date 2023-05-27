@@ -35,6 +35,8 @@ import {
 
 
 } from 'next-share'
+import MultiplexAds from "../../components/Ads/MultiplexAds";
+import SingleAds from "../../components/Ads/SingleAds";
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/all-posts/`);
@@ -205,6 +207,11 @@ function Post_detail({ url, orig, res }) {
                     <CommentList data={post.posts_comments} orig={orig} />
                     {data.similar_post.length === 0 ? '' :
                       <SimilarContent data={data.similar_post} />}
+
+                    <div className="card">
+                      <MultiplexAds />
+
+                    </div>
                   </div>
                 </main>
                 <aside className="col-12 col-md-4 col-lg-3">
@@ -228,10 +235,12 @@ function Post_detail({ url, orig, res }) {
                       )}
                     </div>
                   </div>
+                  <SingleAds />
 
                   <Categories />
                   {/* <TrendingPosts orig={orig} /> */}
                   <CreateThread />
+                  <SingleAds />
                 </aside>
               </div>
             </div>

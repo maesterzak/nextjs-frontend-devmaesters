@@ -72,7 +72,7 @@ const Home1 = ({ orig }) => {
                           clearable
                           underlined
                           labelPlaceholder="Seach posts & threads"
-                          // initialValue="Search"
+                        // initialValue="Search"
                         />
                       </div>
                       <Spacer y={0.5} />
