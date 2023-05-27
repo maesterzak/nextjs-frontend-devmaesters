@@ -7,7 +7,7 @@ export default function MultiplexAds() {
 
 
             <ins className="adsbygoogle"
-                style="display:block"
+                style={{ display: "block" }}
                 data-ad-format="autorelaxed"
                 data-ad-client="ca-pub-2931659559298094"
                 data-ad-slot="2087785634"></ins>
