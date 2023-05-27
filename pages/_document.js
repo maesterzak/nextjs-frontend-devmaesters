@@ -7,6 +7,14 @@ import React from 'react';
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
+    useEffect(() => {
+      var ads = document.getElementsByClassName('adsbygoogle').length;
+      for (var i = 0; i < ads; i++) {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) { }
+      }
+    }, []);
     return {
       ...initialProps,
       styles: React.Children.toArray([initialProps.styles])
@@ -41,8 +49,8 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
           <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            (adsbygoogle = window.adsbygoogle || []).push({ });
+          </script>
         </body>
       </Html>
     )
