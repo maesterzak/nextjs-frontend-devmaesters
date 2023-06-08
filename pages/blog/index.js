@@ -146,14 +146,14 @@ const Home1 = ({ orig }) => {
               <aside className="col-md-4 col-lg-3">
                 <Categories />
                 {/* <TrendingPosts orig={orig}/> */}
-                <ins
+                {/* <ins
                   className="adsbygoogle"
                   style={{ display: "block" }}
                   data-ad-client="ca-pub-2931659559298094"
                   data-ad-slot="7891222837"
                   data-ad-format="auto"
                   data-full-width-responsive="true"
-                ></ins>
+                ></ins> */}
                 <CreateThread />
               </aside>
             </div>
