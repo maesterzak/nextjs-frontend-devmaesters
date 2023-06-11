@@ -11,7 +11,7 @@ import { Input, Spacer } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@nextui-org/react";
-
+import dynamic from 'next/dynamic'
 import {
   faTwitterSquare,
   faFacebookSquare,
@@ -19,6 +19,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+const SingleAds = dynamic(() => import('../../components/Ads/SingleAds'), { ssr: false });
 
 export async function getStaticProps() {
   if (`${NEXT_MODE}` == "DEV") {
@@ -71,6 +72,7 @@ const Home1 = ({ orig }) => {
                         <Input
                           clearable
                           underlined
+                          id="seach_input"
                           labelPlaceholder="Seach posts & threads"
                         // initialValue="Search"
                         />
@@ -81,10 +83,10 @@ const Home1 = ({ orig }) => {
                           Search
                         </Button>
                       </div>
-                      <h5 className="text-center mt-2">
+                      <p className="text-center mt-2  text-center">
                         Please follow us on our various social media handles to
                         get notified on latest information
-                      </h5>
+                      </p>
                       <div className="d-flex justify-content-between flex-wrap gap-1">
                         <button
                           className="btn p-0 m-0"
@@ -145,6 +147,11 @@ const Home1 = ({ orig }) => {
               </main>
               <aside className="col-md-4 col-lg-3">
                 <Categories />
+                {typeof window !== 'undefined' && (
+                  <div style={{ minHeight: "140px", width: "100%", background: "red" }}>
+                    <SingleAds />
+                  </div>
+                )}
                 {/* <TrendingPosts orig={orig}/> */}
                 {/* <ins
                   className="adsbygoogle"

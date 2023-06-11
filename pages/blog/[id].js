@@ -35,7 +35,6 @@ import {
 
 
 } from 'next-share'
-import MultiplexAds from "../../components/Ads/MultiplexAds";
 import SingleAds from "../../components/Ads/SingleAds";
 
 export const getStaticPaths = async () => {
@@ -235,12 +234,12 @@ function Post_detail({ url, orig, res }) {
                       )}
                     </div>
                   </div>
-                  <SingleAds />
+                  {/* <SingleAds /> */}
 
-                  <Categories />
+                  {/* <Categories /> */}
                   {/* <TrendingPosts orig={orig} /> */}
                   <CreateThread />
-                  <SingleAds />
+
                 </aside>
               </div>
             </div>

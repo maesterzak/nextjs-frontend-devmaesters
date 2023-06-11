@@ -2,23 +2,25 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { GA_TRACKING_ID } from '../lib/gitag'
 import { CssBaseline } from '@nextui-org/react';
 import React from 'react';
-
+import { useEffect } from 'react';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    useEffect(() => {
-      var ads = document.getElementsByClassName('adsbygoogle').length;
-      for (var i = 0; i < ads; i++) {
-        try {
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) { }
-      }
-    }, []);
+
+
     return {
       ...initialProps,
       styles: React.Children.toArray([initialProps.styles])
     };
+  }
+  componentDidMount() {
+    const ads = document.getElementsByClassName('adsbygoogle').length;
+    for (let i = 0; i < ads; i++) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) { }
+    }
   }
   render() {
     return (

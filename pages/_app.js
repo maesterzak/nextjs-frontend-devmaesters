@@ -84,30 +84,30 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:url" content={currentPath} />
       </Head>
       <Provider store={store}>
-        <NextUIProvider>
-          <div className="main-body">
-            <div className="main-content">
-              <Layout>
-                {loading && <Loader />}
-                <Component {...pageProps} />
-              </Layout>
-            </div>
-            <div className="area">
-              <ul className="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div>
+        {/* <NextUIProvider> */}
+        <div className="main-body">
+          <div className="main-content">
+            <Layout>
+              {loading && <Loader />}
+              <Component {...pageProps} />
+            </Layout>
           </div>
-        </NextUIProvider>
+          <div className="area">
+            <ul className="circles">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+        {/* </NextUIProvider> */}
       </Provider>
     </>
   );
