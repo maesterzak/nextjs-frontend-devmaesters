@@ -208,7 +208,7 @@ function Post_detail({ url, orig, res }) {
                       <SimilarContent data={data.similar_post} />}
 
                     <div className="card">
-                      <MultiplexAds />
+
 
                     </div>
                   </div>
