@@ -115,7 +115,7 @@ function Post_detail({ url, orig, res }) {
 
 
 
-              <div className="row">
+              <div className="row flex justify-content-center">
                 <main className="col-12 col-md-8 col-lg-9">
                   <div className={`row g-0 `}>
                     <article className="card p-2">
@@ -213,8 +213,8 @@ function Post_detail({ url, orig, res }) {
                     </div>
                   </div>
                 </main>
-                <aside className="col-12 col-md-4 col-lg-3">
-                  <div className="card mb-3">
+                {/* <aside className="col-12 col-md-4 col-lg-3"> */}
+                {/* <div className="card mb-3">
                     <h5 className="card-header">Tags</h5>
                     <div className="card-body ">
                       {data.tags ? (
@@ -233,14 +233,14 @@ function Post_detail({ url, orig, res }) {
                         </div>
                       )}
                     </div>
-                  </div>
-                  {/* <SingleAds /> */}
+                  </div> */}
+                {/* <SingleAds /> */}
 
-                  {/* <Categories /> */}
-                  {/* <TrendingPosts orig={orig} /> */}
-                  <CreateThread />
+                {/* <Categories /> */}
+                {/* <TrendingPosts orig={orig} /> */}
+                {/* <CreateThread /> */}
 
-                </aside>
+                {/* </aside> */}
               </div>
             </div>
 
