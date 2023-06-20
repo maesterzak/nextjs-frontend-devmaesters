@@ -19,7 +19,7 @@ function Categories() {
         <div className="col-12 card mb-3">
           <h5 className="card-header">Categories</h5>
           <div className=" card-body d-flex flex-wrap gap-1">
-            {data.data.map(function (category, id) {
+            {data?.data?.map(function (category, id) {
               return (
 
                 <Link href={"/blog/category/" + category.name} key={id} passHref>

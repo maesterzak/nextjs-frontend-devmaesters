@@ -91,8 +91,8 @@ function CreateThread() {
                     placeholder="Enter question description"
                   />
                 </div>
-                
-            <input className="btn button mt-1" type="submit" value="Submit" />
+
+                <input className="btn button mt-1" type="submit" value="Submit" />
               </form>
             </div>
             <div className="modal-footer">

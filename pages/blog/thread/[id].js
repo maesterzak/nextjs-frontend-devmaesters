@@ -20,9 +20,9 @@ import SimilarContent from "../../../components/blog_components/similar_content"
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/all-threads/`);
-  
+
   const data = await res.json();
- 
+
 
   const paths = data.map((thread) => {
     return {
@@ -65,12 +65,12 @@ function Blog_chats({ orig, url, thread }) {
   const [S_Alert, setS_Alert] = useState(false);
   const [W_Alert, setW_Alert] = useState(false);
   const alertToggler = (e) => {
-    
-    if(e === 'success' ){
+
+    if (e === 'success') {
       setS_Alert(true)
       setTimeout(() => {
-                setS_Alert(false);
-            }, 7000)
+        setS_Alert(false);
+      }, 7000)
     }
   };
   const createTask = async (activeitem) => {
@@ -106,10 +106,10 @@ function Blog_chats({ orig, url, thread }) {
 
     createTask(activeitem);
     e.target.reset();
-    
+
   };
 
-  
+
 
   const { data, error } = useSWR(url, fetcher, {
     fallbackData: thread,
@@ -131,22 +131,22 @@ function Blog_chats({ orig, url, thread }) {
               name="description"
               content={sanitizer(truncate(data.threads.description))}
             />
-            <meta property='og:title' content='DEVMAESTERS THREAD'/>
-          <meta property='og:image' content='/images/devmaesters-link-image.png'/>
-          <meta property='og:description' content={sanitizer(truncate(data.threads.description))}/>
-          
+            <meta property='og:title' content='DEVMAESTERS THREAD' />
+            <meta property='og:image' content='/images/devmaesters-link-image.png' />
+            <meta property='og:description' content={sanitizer(truncate(data.threads.description))} />
+
           </Head>
           <div>
             <Navbar loc="blog" />
 
             <div className="container mt-3 position-relative">
-              
-            {S_Alert ? 
-              <SuccessAlert  type="Message" /> :''}
+
+              {S_Alert ?
+                <SuccessAlert type="Message" /> : ''}
 
               <div className={`sticky-top d-flex  justify-content-end top-2 ${styles.thread_comment}`}>
                 <button data-bs-toggle="modal" data-bs-target="#exampleModal"
-                  
+
                   className="comment-button mt-3 d-block d-sm-none"
                 >
                   <FontAwesomeIcon
@@ -248,189 +248,189 @@ function Blog_chats({ orig, url, thread }) {
                             </button>
                           </div>
                           <div className="modal-body">
-                          <div className="h-100 ">
-                      <form
-                        onSubmit={threadchat_handle}
-                        className={`d-flex flex-wrap justify-content-center ${styles.thread_form}`}
-                      >
-                        <input
-                          id="thread_id"
-                          name="thread_id"
-                          className="d-none"
-                          defaultValue={data.threads.id}
-                        ></input>
-                        <div className="form-group w-100">
-                          <input
-                            type="text"
-                            className={`form-control w-100 ${styles.input}`}
-                            id="thread_name"
-                            name="thread_name"
-                            placeholder="Enter name"
-                          />
-                        </div>
-                        <br />
-                        <span className={`text-light`}>Select image</span>
-                        <br />
-                        <div className="form-group form-check-inline d-flex flex-wrap w-80">
-                          <div className="form-check">
-                            <input
-                              className={`form-check-input ${styles.input}`}
-                              type="radio"
-                              name="chat_image"
-                              id="thread-form-image1"
-                              defaultChecked
-                              defaultValue={"chat_image_1"}
-                            />
-                            <label
-                              className={`form-check-label ${styles.thread_message_image}`}
-                              htmlFor="thread-form-image1"
-                            >
-                              <Image
-                                alt="thread-image-select-1"
-                                layout="responsive"
-                                width={"40px"}
-                                height={"40px"}
-                                src={"/images/chat_images/chat_image_1.jpg"}
-                              />
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className={`form-check-input ${styles.input}`}
-                              type="radio"
-                              name="chat_image"
-                              id="thread-form-image2"
-                              defaultValue={"chat_image_2"}
-                            />
-                            <label
-                              className={`form-check-label ${styles.thread_message_image}`}
-                              htmlFor="thread-form-image2"
-                            >
-                              <Image
-                                alt="thread-image-select-2"
-                                layout="responsive"
-                                width={"40px"}
-                                height={"40px"}
-                                src={"/images/chat_images/chat_image_2.jpg"}
-                              />
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className={`form-check-input ${styles.input}`}
-                              type="radio"
-                              name="chat_image"
-                              id="thread-form-image3"
-                              defaultValue={"chat_image_3"}
-                            />
-                            <label
-                              className={`form-check-label ${styles.thread_message_image}`}
-                              htmlFor="thread-form-image3"
-                            >
-                              <Image
-                                alt="thread-image-select-3"
-                                layout="responsive"
-                                width={"40px"}
-                                height={"40px"}
-                                src={"/images/chat_images/chat_image_3.jpg"}
-                              />
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className={`form-check-input ${styles.input}`}
-                              type="radio"
-                              name="chat_image"
-                              id="thread-form-image4"
-                              defaultValue={"chat_image_4"}
-                            />
-                            <label
-                              className={`form-check-label ${styles.thread_message_image}`}
-                              htmlFor="thread-form-image4"
-                            >
-                              <Image
-                                alt="thread-image-select-4"
-                                layout="responsive"
-                                width={"40px"}
-                                height={"40px"}
-                                src={"/images/chat_images/chat_image_4.jpg"}
-                              />
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className={`form-check-input ${styles.input}`}
-                              type="radio"
-                              name="chat_image"
-                              id="thread-form-image5"
-                              defaultValue={"chat_image_5"}
-                            />
-                            <label
-                              className={`form-check-label ${styles.thread_message_image}`}
-                              htmlFor="thread-form-image5"
-                            >
-                              <Image
-                                alt="thread-image-select-5"
-                                layout="responsive"
-                                width={"40px"}
-                                height={"40px"}
-                                src={"/images/chat_images/chat_image_5.jpg"}
-                              />
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className={`form-check-input ${styles.input}`}
-                              type="radio"
-                              name="chat_image"
-                              id="thread-form-image6"
-                              defaultValue={"chat_image_6"}
-                            />
-                            <label
-                              className={`form-check-label ${styles.thread_message_image}`}
-                              htmlFor="thread-form-image6"
-                            >
-                              <Image
-                                alt="thread-image-select-6"
-                                layout="responsive"
-                                width={"40px"}
-                                height={"40px"}
-                                src={"/images/chat_images/chat_image_6.jpg"}
-                              />
-                            </label>
-                          </div>
-                        </div>
+                            <div className="h-100 ">
+                              <form
+                                onSubmit={threadchat_handle}
+                                className={`d-flex flex-wrap justify-content-center ${styles.thread_form}`}
+                              >
+                                <input
+                                  id="thread_id"
+                                  name="thread_id"
+                                  className="d-none"
+                                  defaultValue={data.threads.id}
+                                ></input>
+                                <div className="form-group w-100">
+                                  <input
+                                    type="text"
+                                    className={`form-control w-100 ${styles.input}`}
+                                    id="thread_name"
+                                    name="thread_name"
+                                    placeholder="Enter name"
+                                  />
+                                </div>
+                                <br />
+                                <span className={`text-light`}>Select image</span>
+                                <br />
+                                <div className="form-group form-check-inline d-flex flex-wrap w-80">
+                                  <div className="form-check">
+                                    <input
+                                      className={`form-check-input ${styles.input}`}
+                                      type="radio"
+                                      name="chat_image"
+                                      id="thread-form-image1"
+                                      defaultChecked
+                                      defaultValue={"chat_image_1"}
+                                    />
+                                    <label
+                                      className={`form-check-label ${styles.thread_message_image}`}
+                                      htmlFor="thread-form-image1"
+                                    >
+                                      <Image
+                                        alt="thread-image-select-1"
+                                        layout="responsive"
+                                        width={"40px"}
+                                        height={"40px"}
+                                        src={"/images/chat_images/chat_image_1.jpg"}
+                                      />
+                                    </label>
+                                  </div>
+                                  <div className="form-check">
+                                    <input
+                                      className={`form-check-input ${styles.input}`}
+                                      type="radio"
+                                      name="chat_image"
+                                      id="thread-form-image2"
+                                      defaultValue={"chat_image_2"}
+                                    />
+                                    <label
+                                      className={`form-check-label ${styles.thread_message_image}`}
+                                      htmlFor="thread-form-image2"
+                                    >
+                                      <Image
+                                        alt="thread-image-select-2"
+                                        layout="responsive"
+                                        width={"40px"}
+                                        height={"40px"}
+                                        src={"/images/chat_images/chat_image_2.jpg"}
+                                      />
+                                    </label>
+                                  </div>
+                                  <div className="form-check">
+                                    <input
+                                      className={`form-check-input ${styles.input}`}
+                                      type="radio"
+                                      name="chat_image"
+                                      id="thread-form-image3"
+                                      defaultValue={"chat_image_3"}
+                                    />
+                                    <label
+                                      className={`form-check-label ${styles.thread_message_image}`}
+                                      htmlFor="thread-form-image3"
+                                    >
+                                      <Image
+                                        alt="thread-image-select-3"
+                                        layout="responsive"
+                                        width={"40px"}
+                                        height={"40px"}
+                                        src={"/images/chat_images/chat_image_3.jpg"}
+                                      />
+                                    </label>
+                                  </div>
+                                  <div className="form-check">
+                                    <input
+                                      className={`form-check-input ${styles.input}`}
+                                      type="radio"
+                                      name="chat_image"
+                                      id="thread-form-image4"
+                                      defaultValue={"chat_image_4"}
+                                    />
+                                    <label
+                                      className={`form-check-label ${styles.thread_message_image}`}
+                                      htmlFor="thread-form-image4"
+                                    >
+                                      <Image
+                                        alt="thread-image-select-4"
+                                        layout="responsive"
+                                        width={"40px"}
+                                        height={"40px"}
+                                        src={"/images/chat_images/chat_image_4.jpg"}
+                                      />
+                                    </label>
+                                  </div>
+                                  <div className="form-check">
+                                    <input
+                                      className={`form-check-input ${styles.input}`}
+                                      type="radio"
+                                      name="chat_image"
+                                      id="thread-form-image5"
+                                      defaultValue={"chat_image_5"}
+                                    />
+                                    <label
+                                      className={`form-check-label ${styles.thread_message_image}`}
+                                      htmlFor="thread-form-image5"
+                                    >
+                                      <Image
+                                        alt="thread-image-select-5"
+                                        layout="responsive"
+                                        width={"40px"}
+                                        height={"40px"}
+                                        src={"/images/chat_images/chat_image_5.jpg"}
+                                      />
+                                    </label>
+                                  </div>
+                                  <div className="form-check">
+                                    <input
+                                      className={`form-check-input ${styles.input}`}
+                                      type="radio"
+                                      name="chat_image"
+                                      id="thread-form-image6"
+                                      defaultValue={"chat_image_6"}
+                                    />
+                                    <label
+                                      className={`form-check-label ${styles.thread_message_image}`}
+                                      htmlFor="thread-form-image6"
+                                    >
+                                      <Image
+                                        alt="thread-image-select-6"
+                                        layout="responsive"
+                                        width={"40px"}
+                                        height={"40px"}
+                                        src={"/images/chat_images/chat_image_6.jpg"}
+                                      />
+                                    </label>
+                                  </div>
+                                </div>
 
-                        <br />
-                        <div className="form-group form-group-lg w-100 h-50">
-                          <textarea
-                            type="text"
-                            className={`form-control h-100 ${styles.input}`}
-                            id="thread_body"
-                            name="thread_body"
-                            placeholder="Enter message"
-                          />
-                        </div>
-                        <br />
-                        <input
-                          className="btn button mt-3 mb-3"
-                          type="submit"
-                          value="Submit"
-                          data-bs-dismiss="modal"
-                          aria-label="Submit"
-                        />
-                      </form>
-                    </div>
+                                <br />
+                                <div className="form-group form-group-lg w-100 h-50">
+                                  <textarea
+                                    type="text"
+                                    className={`form-control h-100 ${styles.input}`}
+                                    id="thread_body"
+                                    name="thread_body"
+                                    placeholder="Enter message"
+                                  />
+                                </div>
+                                <br />
+                                <input
+                                  className="btn button mt-3 mb-3"
+                                  type="submit"
+                                  value="Submit"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Submit"
+                                />
+                              </form>
+                            </div>
                           </div>
                           <div className="modal-footer text-muted">
                             <span>Thanks for contributing</span>
-                            
+
                           </div>
                         </div>
                       </div>
                     </div>
-                    {data.similar_content.length === 0 ? '': 
-                    <SimilarContent data = {data.similar_content} /> }
+                    {data.similar_content.length === 0 ? '' :
+                      <SimilarContent data={data.similar_content} />}
 
                     {/* end of message modal */}
                   </main>
@@ -447,7 +447,7 @@ function Blog_chats({ orig, url, thread }) {
                         thread
                       </span>
                       <button
-                        
+
                         data-bs-toggle="modal" data-bs-target="#exampleModal"
                         className="btn button d-none d-md-block"
                       >
@@ -455,30 +455,30 @@ function Blog_chats({ orig, url, thread }) {
                       </button>
                     </div>
                   </div>
-                  
+
                   <div className="card mb-3">
                     <div className="card-header">
                       <h4>Tags</h4>
                     </div>
-                    {data.tags?
-                    <div className="card-body">
-                      <div className="d-grid w-100">
-                        <div>
-                        <>
-                          {data.tags?.map(function (tag, id) {
-                            return (
-                             
-                                <span key={id}> <a href="#">#</a>{tag.name}</span>
-                            
-                            );
-                          })}
-                        </>
+                    {data.tags ?
+                      <div className="card-body">
+                        <div className="d-grid w-100">
+                          <div>
+                            <>
+                              {data.tags?.map(function (tag, id) {
+                                return (
+
+                                  <span key={id}> <a href="#">#</a>{tag.name}</span>
+
+                                );
+                              })}
+                            </>
+                          </div>
+
                         </div>
-                        
-                      </div>
-                    </div>:<div className="text-center">No Tags</div>}
+                      </div> : <div className="text-center">No Tags</div>}
                   </div>
-                  
+
 
                   <div className="card mb-3">
                     <div className="card-header">
@@ -498,14 +498,14 @@ function Blog_chats({ orig, url, thread }) {
                       </div>
                     </div>
                   </div>
-                  <CreateThread />
+                  {/* <CreateThread /> */}
 
-                  <Categories />
+                  {/* <Categories /> */}
                 </div>
               </div>
             </div>
 
-            
+
             <div className="mt-3">
               <Footer />
             </div>
