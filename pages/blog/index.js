@@ -147,11 +147,11 @@ const Home1 = ({ orig }) => {
               </main>
               <aside className="col-md-4 col-lg-3">
                 <Categories />
-                {typeof window !== 'undefined' && (
+                {/* {typeof window !== 'undefined' && (
                   <div style={{ minHeight: "140px", width: "100%", background: "red" }}>
                     <SingleAds />
                   </div>
-                )}
+                )} */}
                 {/* <TrendingPosts orig={orig}/> */}
                 {/* <ins
                   className="adsbygoogle"
