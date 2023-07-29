@@ -213,8 +213,8 @@ function Post_detail({ url, orig, res }) {
                     </div>
                   </div>
                 </main>
-                {/* <aside className="col-12 col-md-4 col-lg-3"> */}
-                {/* <div className="card mb-3">
+                <aside className="col-12 col-md-4 col-lg-3">
+                  {/* <div className="card mb-3">
                     <h5 className="card-header">Tags</h5>
                     <div className="card-body ">
                       {data.tags ? (
@@ -234,13 +234,17 @@ function Post_detail({ url, orig, res }) {
                       )}
                     </div>
                   </div> */}
-                {/* <SingleAds /> */}
+                  {/* <SingleAds /> */}
 
-                {/* <Categories /> */}
-                {/* <TrendingPosts orig={orig} /> */}
-                {/* <CreateThread /> */}
+                  {/* <Categories /> */}
+                  {/* <TrendingPosts orig={orig} /> */}
+                  {/* <CreateThread /> */}
+                  <div className="d-flex gap-5 py-2 ">
+                    <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style={{ width: "120px", height: "340px" }} marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=maesterzak-20&language=en_US&marketplace=amazon&region=US&placement=B07DWM9WNM&asins=B07DWM9WNM&linkId=56d7f25d26bd3d1f52eb6b48da2771c1&show_border=false&link_opens_in_new_window=true"></iframe>
+                    <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style={{ width: "120px", height: "340px" }} marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=maesterzak-20&language=en_US&marketplace=amazon&region=US&placement=B07KXSR99Y&asins=B07KXSR99Y&linkId=e0db71b61160ccb242f0a78f114c7a9b&show_border=true&link_opens_in_new_window=true"></iframe>
+                  </div>
 
-                {/* </aside> */}
+                </aside>
               </div>
             </div>
 
