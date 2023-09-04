@@ -2,7 +2,6 @@ import Head from "next/head";
 import Footer from "../../components/footer/Footer";
 import Posts from "../../components/blog_components/posts/Posts";
 import Categories from "../../components/blog_components/categories/Categories";
-import TrendingPosts from "../../components/blog_components/trending_posts/TrendingPosts";
 import Navbar from "../../components/navbar/Navbar";
 import { API_URL, NEXT_MODE } from "../../config";
 import Threads from "../../components/blog_components/threads/Threads";
@@ -19,6 +18,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import HeadComponent from "../../components/HeadComponent";
 const SingleAds = dynamic(() => import('../../components/Ads/SingleAds'), { ssr: false });
 
 export async function getStaticProps() {
@@ -38,15 +38,10 @@ const Home1 = ({ orig }) => {
 
   return (
     <>
-      <Head>
-        <title>BLOG | DEVMAESTERS</title>
-        <meta name="keywords" content="Home" />
-        <meta
-          name="description"
-          content="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
-        for asking questions(threads) and buying web services/sites."
-        />
-      </Head>
+
+      <HeadComponent title="BLOG | DEVMAESTERS" description="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
+        for asking questions(threads) and buying web services/sites." />
+
 
       <div className="position-relative">
         <Navbar loc="blog" />
@@ -58,13 +53,7 @@ const Home1 = ({ orig }) => {
                 {/* <h1 className="text-center site-title">Blog</h1> */}
                 <div className="d-flex justify-content-center ">
                   <div className=" card mb-3 position-relative w-100 d-flex align-items-center justify-content-center">
-                    {/* <Image   
-              showSkeleton
-              autoResize 
-              maxDelay={10000}
-              src="/images/home_images/blog.png"
-              alt="Default Image"
-            /> */}
+
                     <div className={` w-100 p-3 mb-3`}>
                       <h1 className="text-center site-title">BLOG</h1>
                       <Spacer y={1.5} />
@@ -147,12 +136,11 @@ const Home1 = ({ orig }) => {
               </main>
               <aside className="col-md-4 col-lg-3">
                 <Categories />
-                {typeof window !== 'undefined' && (
+                {/* {typeof window !== 'undefined' && (
                   <div style={{ minHeight: "140px", width: "100%", background: "red" }}>
                     <SingleAds />
                   </div>
-                )}
-                {/* <TrendingPosts orig={orig}/> */}
+                )} */}
                 {/* <ins
                   className="adsbygoogle"
                   style={{ display: "block" }}
@@ -161,6 +149,11 @@ const Home1 = ({ orig }) => {
                   data-ad-format="auto"
                   data-full-width-responsive="true"
                 ></ins> */}
+                {/* todo */}
+                <div className="d-flex gap-5 py-2 ">
+                  <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style={{ width: "120px", height: "340px" }} marginWidth="0" marginHeight="0" scrolling="no" frameBorder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=maesterzak-20&language=en_US&marketplace=amazon&region=US&placement=B07DWM9WNM&asins=B07DWM9WNM&linkId=56d7f25d26bd3d1f52eb6b48da2771c1&show_border=false&link_opens_in_new_window=true"></iframe>
+                  <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style={{ width: "120px", height: "340px" }} marginWidth="0" marginHeight="0" scrolling="no" frameBorder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=maesterzak-20&language=en_US&marketplace=amazon&region=US&placement=B07KXSR99Y&asins=B07KXSR99Y&linkId=e0db71b61160ccb242f0a78f114c7a9b&show_border=true&link_opens_in_new_window=true"></iframe>
+                </div>
                 <CreateThread />
               </aside>
             </div>

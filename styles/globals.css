@@ -37,6 +37,8 @@ body {
   color: var(--font-color);
 }
 
+
+
 .list-group-item {
   background-color: var(--second-background);
   color: white;
@@ -169,6 +171,9 @@ footer {
   color: var(--font-color);
   border-radius: 15px;
   overflow: hidden;
+  border: none;
+  box-shadow: #ff8c00;
+  
 }
 
 .carousel-caption {
@@ -277,14 +282,14 @@ li {
 @media only screen and (min-width: 901px) {
 }
 
-.area {
+/* .area {
   background: #4e54c8;
   background: var(--background-color);
   width: 100%;
   height: 100vh;
-  /* remove disple */
+
   display: none;
-}
+} */
 
 /* .circles{
   position: absolute;

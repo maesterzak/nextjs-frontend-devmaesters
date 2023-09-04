@@ -500,7 +500,7 @@ function Blog_chats({ orig, url, thread }) {
                   </div>
                   {/* <CreateThread /> */}
 
-                  {/* <Categories /> */}
+                  <Categories />
                 </div>
               </div>
             </div>

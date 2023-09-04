@@ -67,7 +67,7 @@ const Posts = (props) => {
     <>
       <div className="col-12 mb-3 ">
         <div className="card-header header-main mb-3">
-          <h5>{props.header}</h5>
+          <h5 className="text-white">{props.header}</h5>
         </div>
 
         {posts ? (
