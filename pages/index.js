@@ -246,7 +246,7 @@ export default function Home() {
             <ul className="col-12 col-md-6 d-grid justify-content-center gap-3">
               {freelanceJobs.map((e, index) => {
                 return (
-                  <li>{e}</li>
+                  <li key={index}>{e}</li>
                 )
               })}
 
@@ -255,7 +255,7 @@ export default function Home() {
             <ul className="col-12 col-md-6 d-grid justify-content-center gap-3">
               {freelanceJobs2.map((e, index) => {
                 return (
-                  <li>{e}</li>
+                  <li key={index}>{e}</li>
                 )
               })}
 
