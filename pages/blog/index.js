@@ -2,7 +2,6 @@ import Head from "next/head";
 import Footer from "../../components/footer/Footer";
 import Posts from "../../components/blog_components/posts/Posts";
 import Categories from "../../components/blog_components/categories/Categories";
-import TrendingPosts from "../../components/blog_components/trending_posts/TrendingPosts";
 import Navbar from "../../components/navbar/Navbar";
 import { API_URL, NEXT_MODE } from "../../config";
 import Threads from "../../components/blog_components/threads/Threads";
@@ -19,6 +18,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import HeadComponent from "../../components/HeadComponent";
 const SingleAds = dynamic(() => import('../../components/Ads/SingleAds'), { ssr: false });
 
 export async function getStaticProps() {
@@ -38,15 +38,10 @@ const Home1 = ({ orig }) => {
 
   return (
     <>
-      <Head>
-        <title>BLOG | DEVMAESTERS</title>
-        <meta name="keywords" content="Home" />
-        <meta
-          name="description"
-          content="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
-        for asking questions(threads) and buying web services/sites."
-        />
-      </Head>
+
+      <HeadComponent title="BLOG | DEVMAESTERS" description="Welcome to devmaesters, I offer free programming tutorials, hints, tricks and also platforms
+        for asking questions(threads) and buying web services/sites." />
+
 
       <div className="position-relative">
         <Navbar loc="blog" />
@@ -58,13 +53,7 @@ const Home1 = ({ orig }) => {
                 {/* <h1 className="text-center site-title">Blog</h1> */}
                 <div className="d-flex justify-content-center ">
                   <div className=" card mb-3 position-relative w-100 d-flex align-items-center justify-content-center">
-                    {/* <Image   
-              showSkeleton
-              autoResize 
-              maxDelay={10000}
-              src="/images/home_images/blog.png"
-              alt="Default Image"
-            /> */}
+
                     <div className={` w-100 p-3 mb-3`}>
                       <h1 className="text-center site-title">BLOG</h1>
                       <Spacer y={1.5} />
@@ -152,7 +141,6 @@ const Home1 = ({ orig }) => {
                     <SingleAds />
                   </div>
                 )} */}
-                {/* <TrendingPosts orig={orig}/> */}
                 {/* <ins
                   className="adsbygoogle"
                   style={{ display: "block" }}

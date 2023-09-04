@@ -8,8 +8,8 @@ import { faFileDownload } from "@fortawesome/free-solid-svg-icons";
 
 import { API_URL, NEXT_MODE, CV_URL } from "../../config";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import Head from "next/head";
 import { Image } from "@nextui-org/react";
+import HeadComponent from "../../components/HeadComponent";
 
 if (`${NEXT_MODE}` == "DEV") {
   var orig = `${API_URL}`;
@@ -19,24 +19,9 @@ if (`${NEXT_MODE}` == "DEV") {
 function PortfolioIndex() {
   return (
     <>
-      <Head>
-        <title>Abubakar Zakari</title>
-        <meta name="keywords" content="Abubakar Zakari" />
-        <meta
-          name="description"
-          content="Hello, my name is Abubakar Zakari. I am a budding fullstack 
-          developer from Nigeria who loves developing softwares and learning new frameworks and langauges."
-        />
-        <meta property="og:title" content="Abubakar Zakari" />
-        <meta
-          property="og:image"
-          content="/images/owner_images/abubakar02.jpeg"
-        />
-        <meta
-          property="og:description"
-          content="This is my portfolio page within which you can access links to all my projects"
-        />
-      </Head>
+
+      <HeadComponent title="Abubakar Zakari" MainImage="/images/owner_images/abubakar02.jpeg" description="Hello, my name is Abubakar Zakari. I am a budding fullstack 
+          developer from Nigeria who loves developing softwares and learning new frameworks and langauges." />
       <Navbar loc="portfolio" />
 
       <div className="container mt-3">
@@ -97,7 +82,7 @@ function PortfolioIndex() {
                 </div>
               </div>
 
-              <div className="d-flex justify-content-center mt-1">
+              <div className="d-flex justify-content-center mt-1 gap-2">
                 <a
                   href={`https://drive.google.com/file/d/1kvqY_KrmSBvS70gExasNUvmzS8u_8M4-/view?usp=share_link`}
                   passHref
@@ -129,8 +114,8 @@ function PortfolioIndex() {
           </main>
 
           <div className="col-12 mb-4">
-            <div className="shadow-lg mb-3">
-              <div className="card-header header-main">
+            <div className="shadow-lg mb-3 m-lg-5 card">
+              <div className="card-header header-main text-light">
                 <h5>Education</h5>
               </div>
               <div

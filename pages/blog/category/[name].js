@@ -1,14 +1,10 @@
 import Navbar from "../../../components/navbar/Navbar";
 import Head from "next/head";
-
 import { API_URL, NEXT_MODE } from "../../../config";
-
 import dynamic from "next/dynamic";
 const Footer = dynamic(() => import("../../../components/footer/Footer"));
-
 import CategoryPost from "../../../components/blog_components/posts/CategoryPost";
 import Categories from "../../../components/blog_components/categories/Categories";
-import TrendingPosts from "../../../components/blog_components/trending_posts/TrendingPosts";
 import CreateThread from "../../../components/blog_components/threads/CreateThread";
 
 export const getStaticPaths = async () => {
@@ -51,10 +47,10 @@ function Category_list({ name, url, orig }) {
           name="description"
           content="This page offers a list of all the posts we have under..."
         />
-        <meta property='og:title' content={name}/>
-       
-        
-        
+        <meta property='og:title' content={name} />
+
+
+
       </Head>
       <div>
         <Navbar loc="blog" />

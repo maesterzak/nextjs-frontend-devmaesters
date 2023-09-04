@@ -14,10 +14,10 @@ function CategoryPost(props) {
   };
   const fetcher = (...args) =>
     fetch(...args).then((response) => response.json());
-  
-  
-const page_limit = 8;
-   
+
+
+  const page_limit = 8;
+
   const {
     data,
     error,
@@ -29,37 +29,37 @@ const page_limit = 8;
     (index) => `${props.url}?page=${index + 1}&limit=${page_limit}`,
     fetcher,
     { revalidateOnFocus: false }
-    
+
   );
   if (error) return <>{error}</>
-  if(!data) return <>Loading</>
+  if (!data) return <>Loading</>
 
-  const posts = data?.map((item, index)=>{
+  const posts = data?.map((item, index) => {
     return item.results
   }).flat()
-    
-  
-  
+
+
+
   const postLength = posts?.length;
   const totalPosts = data[0]?.count;
- 
 
-  
+
+
   const isLoadingInitialData = !data && !error;
   const isLoadingMore =
     isLoadingInitialData || isValidating ||
     (size > 0 && posts && typeof posts[size - 1] === "undefined");
   const isEmpty = postLength === 0;
   const isReachingEnd = isEmpty || totalPosts == postLength;
-  
 
-  
-  
+
+
+
   return (
     <>
       <div className="col-12 mb-3">
         <div className="card-header header-main mb-3">
-          <h5>{props.header}</h5>
+          <h5 className="text-white">{props.header}</h5>
         </div>
 
         {posts ? (
@@ -77,23 +77,23 @@ const page_limit = 8;
                       }}
                     ></p>
                     <Link role="button" href={"/blog/" + post.id}>
-                                Readmore
+                      Readmore
                     </Link>
-                      
+
                     <div className="row d-flex justify-content-center mt-2">
                       <div className="col-12 col-md-6 col-lg-4">
-                      {post.image? 
-                    <Image 
-                      layout="responsive"
-                      width={100}
-                      height={100}
-                      alt={post.title}
-                      src={props.orig + post.image}
-                    />
-                    :''}
+                        {post.image ?
+                          <Image
+                            layout="responsive"
+                            width={100}
+                            height={100}
+                            alt={post.title}
+                            src={props.orig + post.image}
+                          />
+                          : ''}
 
                       </div>
-                    </div>   
+                    </div>
 
 
                   </article>
@@ -108,17 +108,17 @@ const page_limit = 8;
         )}
       </div>
       <div className={`mb-3 mt-2 `}>
-      <button
-                    className={`btn button btn-md btn-block  w-100`}
-                    disabled={isLoadingMore || isReachingEnd}
-                    onClick={() => setSize(size + 1)}
-                  >
-                    {isLoadingMore
-                      ? "loading..."
-                      : isReachingEnd
-                      ? "No more posts"
-                      : "load more"}
-                  </button>
+        <button
+          className={`btn button btn-md btn-block  w-100`}
+          disabled={isLoadingMore || isReachingEnd}
+          onClick={() => setSize(size + 1)}
+        >
+          {isLoadingMore
+            ? "loading..."
+            : isReachingEnd
+              ? "No more posts"
+              : "load more"}
+        </button>
       </div>
     </>
   );

@@ -9,7 +9,6 @@ import dompurify from "isomorphic-dompurify";
 
 import "highlight.js/styles/agate.css";
 import Categories from "../../components/blog_components/categories/Categories";
-import TrendingPosts from "../../components/blog_components/trending_posts/TrendingPosts";
 import "highlight.js/styles/agate.css";
 import { useEffect } from "react";
 import CreateThread from "../../components/blog_components/threads/CreateThread";
@@ -36,6 +35,7 @@ import {
 
 } from 'next-share'
 import SingleAds from "../../components/Ads/SingleAds";
+import HeadComponent from "../../components/HeadComponent";
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/blog/all-posts/`);
@@ -98,7 +98,7 @@ function Post_detail({ url, orig, res }) {
     <>
       {post ? (
         <>
-          <Head>
+          {/* <Head>
             <title>{post.title}</title>
 
             <meta name="description" content={sanitizer(truncate(post.body))} />
@@ -106,7 +106,8 @@ function Post_detail({ url, orig, res }) {
 
             <meta property='og:description' content={sanitizer(post.summary)} />
 
-          </Head>
+          </Head> */}
+          <HeadComponent title="BLOG | DEVMAESTERS" description={sanitizer(truncate(post.body))} />
           <div>
             <Navbar loc="blog" />
 
@@ -164,14 +165,7 @@ function Post_detail({ url, orig, res }) {
 
                       </div>
 
-                      {/* {data.image? 
-                    <Image 
-                      layout="responsive"
-                      width={100}
-                      height={100}
-                      src={orig + data.image}
-                    />
-                    :''} */}
+
                       <div
                         className="card-body p-0"
                         dangerouslySetInnerHTML={{
@@ -237,11 +231,11 @@ function Post_detail({ url, orig, res }) {
                   {/* <SingleAds /> */}
 
                   {/* <Categories /> */}
-                  {/* <TrendingPosts orig={orig} /> */}
+
                   {/* <CreateThread /> */}
-                  <div className="d-flex gap-5 py-2 ">
-                    <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style={{ width: "120px", height: "340px" }} marginWidth="0" marginHeight="0" scrolling="no" frameBorder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=maesterzak-20&language=en_US&marketplace=amazon&region=US&placement=B07DWM9WNM&asins=B07DWM9WNM&linkId=56d7f25d26bd3d1f52eb6b48da2771c1&show_border=false&link_opens_in_new_window=true"></iframe>
-                    <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style={{ width: "120px", height: "340px" }} marginWidth="0" marginHeight="0" scrolling="no" frameBorder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=maesterzak-20&language=en_US&marketplace=amazon&region=US&placement=B07KXSR99Y&asins=B07KXSR99Y&linkId=e0db71b61160ccb242f0a78f114c7a9b&show_border=true&link_opens_in_new_window=true"></iframe>
+                  <div className="d-flex d-md-grid gap-2 py-2 ">
+                    <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style={{ width: "120px", height: "300px" }} marginWidth="0" marginHeight="0" scrolling="no" frameBorder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=maesterzak-20&language=en_US&marketplace=amazon&region=US&placement=B07DWM9WNM&asins=B07DWM9WNM&linkId=56d7f25d26bd3d1f52eb6b48da2771c1&show_border=false&link_opens_in_new_window=true"></iframe>
+                    <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style={{ width: "120px", height: "300px" }} marginWidth="0" marginHeight="0" scrolling="no" frameBorder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=maesterzak-20&language=en_US&marketplace=amazon&region=US&placement=B07KXSR99Y&asins=B07KXSR99Y&linkId=e0db71b61160ccb242f0a78f114c7a9b&show_border=true&link_opens_in_new_window=true"></iframe>
                   </div>
 
                 </aside>
