@@ -65,7 +65,7 @@ function PortfolioSkills({ skills, orig }) {
                 </button>
               </Link>
               <Link href={"/portfolio/skills"} passHref>
-                <button className={`btn button active-btn ${styles.nav_btn}`}>
+                <button className={`btn  active-btn ${styles.nav_btn}`}>
                   Skills
                 </button>
               </Link>
