@@ -63,7 +63,7 @@ function PortfolioProject({ project, orig }) {
                 </button>
               </Link>
               <Link href={"/portfolio/projects"} passHref>
-                <button className={`btn button active-btn ${styles.nav_btn}`}>
+                <button className={`btn active-btn ${styles.nav_btn}`}>
                   Projects
                 </button>
               </Link>

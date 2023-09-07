@@ -107,7 +107,7 @@ function Post_detail({ url, orig, res }) {
             <meta property='og:description' content={sanitizer(post.summary)} />
 
           </Head> */}
-          <HeadComponent title="BLOG | DEVMAESTERS" description={sanitizer(truncate(post.body))} />
+          <HeadComponent title={post.title} description={sanitizer(truncate(post.body))} />
           <div>
             <Navbar loc="blog" />
 
