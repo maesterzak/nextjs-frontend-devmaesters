@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    const Storedtheme = JSON.parse(localStorage.getItem("theme")) ?? true;
+    const Storedtheme = JSON.parse(localStorage.getItem("devmaesters-theme")) ?? true;
     setTheme(Storedtheme);
   }, []);
 
