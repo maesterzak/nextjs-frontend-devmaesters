@@ -200,8 +200,8 @@ function PortfolioContacts() {
                   </div>
                   <div className="d-flex gap-2 mt-3 align-items-center">
                     <FontAwesomeIcon size={"2x"} icon={faTwitter} />
-                    <Link href={"https://twitter.com/maesterzak01"}>
-                      @maesterzak01
+                    <Link href={"https://twitter.com/devmaesters"}>
+                      @devmaesters
                     </Link>
                   </div>
                 </div>
