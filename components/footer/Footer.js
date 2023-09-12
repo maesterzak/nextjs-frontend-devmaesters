@@ -60,13 +60,13 @@ function Footer() {
                         <h4 className=" text-light">Contact</h4>
                         <p className="text-light">Interested in hiring me or collaborating with me on a project, click on any of the links below to get my social media handle</p>
                         <div className="d-flex  w-75">
-                            <button disabled className='btn p-1 m-0' onClick={() => router.push('/')} >
+                            <button disabled className='btn p-1 m-0' onClick={() => router.push('https://twitter.com/devmaesters')} >
                                 <FontAwesomeIcon style={{ "color": "white" }} size={"3x"} icon={faTwitterSquare} />
                             </button>
                             <button className='btn p-1 m-0' onClick={() => router.push('https://web.facebook.com/devmaesters/')} >
                                 <FontAwesomeIcon style={{ "color": "white" }} size={"3x"} icon={faFacebookSquare} />
                             </button>
-                            <button disabled className='btn p-1 m-0' onClick={() => router.push('/')} >
+                            <button disabled className='btn p-1 m-0' onClick={() => router.push('https://linkedin.com/in/abubakar-zakari-05711822a/')} >
                                 <FontAwesomeIcon style={{ "color": "white" }} size={"3x"} icon={faLinkedin} />
                             </button>
                             <button disabled className='btn p-1 m-0' onClick={() => router.push('/')} >
