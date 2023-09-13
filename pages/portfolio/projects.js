@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
 
 
     if (`${NEXT_MODE}` == "DEV") {
-      var orig = `${API_URL}`;
+      var orig = ``;
     } else if (`${NEXT_MODE}` == "PROD") {
       var orig = "";
     }
@@ -39,8 +39,9 @@ export const getStaticProps = async () => {
 
 const sanitizer = dompurify.sanitize;
 function PortfolioProject({ project, orig }) {
+  let projectList = project.projects.reverse()
 
-  const [projectList, setProjectlist] = useState(project?.projects)
+  // const [projectList, setProjectlist] = useState(project?.projects)
 
 
 
@@ -53,7 +54,7 @@ function PortfolioProject({ project, orig }) {
       <Navbar loc="portfolio" />
 
 
-      <div className="container mt-3">
+      <div className="container mt-5 mb-5">
         <div>
           <div className=" row d-flex justify-content-center mt-3 mb-3">
             <div className="col-11 shadow-lg p-3 col-md-7 d-flex justify-content-between">
@@ -81,7 +82,7 @@ function PortfolioProject({ project, orig }) {
           </div>
         </div>
 
-        <main>
+        <main className="mt-5">
 
           <div className={`${styles.card_body} card-body`}>
 
@@ -150,7 +151,7 @@ function PortfolioProject({ project, orig }) {
                         ""
                       )} */}
                       </div>
-                      <div className={proj.image1 ? "col-12 p-1 col-md-6 d-flex align-items-center justify-content-center project_visuals img" : "d-none"}>
+                      <div className={proj.image1 ? "col-12 p-1 col-md-6 d-flex align-items-center justify-content-center project_visuals shadow-lg  img" : "d-none"}>
                         {/* <Image
               
 
