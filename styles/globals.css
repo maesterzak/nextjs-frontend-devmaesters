@@ -44,7 +44,7 @@ body {
   color: white;
 }
 .project_visuals {
-  border: 4px solid var(--second-background);
+  /* border: 4px solid var(--second-background); */
   border-radius: 15px;
 }
 .body-color {
@@ -180,9 +180,13 @@ footer {
   background: #03031b8c;
 }
 .carousel-inner {
-  /* height: 240px; */
+  height: 400px;
   /* background: var(--second-background); */
+  width: auto;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  
 }
 
 .card-header {
@@ -196,6 +200,7 @@ footer {
 .header-main {
   background: #463610;
   background-color: var(--card-header-color);
+  color: white;
 }
 
 pre {

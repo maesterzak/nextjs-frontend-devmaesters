@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
     const data = await response.json();
 
     if (`${NEXT_MODE}` == "DEV") {
-      var orig = `${API_URL}`;
+      var orig = ''//`${API_URL}`;
     } else if (`${NEXT_MODE}` == "PROD") {
       var orig = "";
     }
