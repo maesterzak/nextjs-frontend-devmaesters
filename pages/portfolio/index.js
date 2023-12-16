@@ -16,6 +16,7 @@ if (`${NEXT_MODE}` == "DEV") {
 } else if (`${NEXT_MODE}` == "PROD") {
   var orig = "";
 }
+// dfgggg
 function PortfolioIndex() {
   return (
     <>
