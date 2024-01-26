@@ -44,6 +44,12 @@ function CommentForm(props) {
 
     const form_values = Object.fromEntries(formData);
 
+    if(form_values.comment_name == "Admin" | form_values.comment_name == "admin" | form_values.comment_name =="Administrator"){
+      
+
+    }
+    else{
+
     const activeitem = {
       name: form_values.comment_name,
       body: form_values.comment_body,
@@ -52,6 +58,7 @@ function CommentForm(props) {
     };
 
     createComment(activeitem);
+  }
 
     e.target.reset();
     
